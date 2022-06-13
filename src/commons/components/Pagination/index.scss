@@ -1,0 +1,13 @@
+@import 'src/commons/styles/color.scss';
+
+.pagination {
+  color: $blue;
+  font-weight: bold;
+  > div {
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  > div.active {
+    color: $text-color;
+  }
+}

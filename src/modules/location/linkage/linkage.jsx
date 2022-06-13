@@ -165,9 +165,9 @@ function Dialogs() {
       {location?.service?.id !== BOOK_ID && (
         <div className="dialog-row">
           <div className="dialog">
-            <div className="header">{t('location:LINKAGE.IG_HEADER')}</div>
+            <div className="header">{t('location:LINKAGE.FBIG_HEADER')}</div>
             <div className="body">
-              <div className="left">{t('location:LINKAGE.IG_BODY')}</div>
+              <div className="left">{t('location:LINKAGE.FBIG_BODY')}</div>
               <div className="right">
                 {/* {igStatus ? (
                   <div className="linked">

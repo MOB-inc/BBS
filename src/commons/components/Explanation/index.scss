@@ -1,0 +1,14 @@
+@import 'src/commons/styles/color.scss';
+
+div.explanation {
+  width: 100%;
+  text-align: left;
+  margin: 0px 0px 20px 0px !important;
+  p {
+    margin: 0;
+    font-weight: bold;
+    white-space: pre-line;
+    line-height: normal;
+    color: $black;
+  }
+}

@@ -1,0 +1,24 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+
+.no-data-found-icon {
+  font-size: 60px;
+  path {
+    fill: #cc0099;
+  }
+  @media (max-width: $sm) {
+    font-size: 40px;
+  }
+}
+
+.no-data-found-parent {
+  margin-top: 100px;
+  @media (max-width: $sm) {
+    margin-top: 50px;
+  }
+}
+
+.no-data-found-text {
+  color: #4b4b4b;
+  font-size: 20px;
+}

@@ -1,0 +1,28 @@
+@import 'src/commons/styles/color.scss';
+
+.create-group-modal {
+  .modal-content {
+    width: 464px;
+    height: 287px;
+    background: $paper-color;
+    border: 1px solid $border-color;
+    border-radius: 22px;
+    padding: 50px 70px;
+
+    > .header {
+      color: $gray;
+      margin-bottom: 10px;
+    }
+
+    > .actions {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > button {
+        margin-top: 14px;
+      }
+    }
+  }
+}

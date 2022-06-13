@@ -1,0 +1,102 @@
+.number-count-card {
+  // font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50.4448px;
+  line-height: 155%;
+  /* or 78px */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.active-card-font-color {
+  color: #ffffff;
+}
+
+.actve-color-up-down-count {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.not-active-class-font-color {
+  color: #cc0099;
+}
+
+.not-active-class-font-color-small-title {
+  color: #888888;
+}
+
+.down-arrow-font-color {
+  color: #d32f2f;
+  font-size: 16px;
+}
+
+.up-arrow-font-color {
+  color: #2e7d32;
+  font-size: 16px;
+}
+
+.card-active {
+  background-color: #cc0099;
+}
+
+.number-count-card-active {
+  background-color: #cc0099;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50.4448px;
+  line-height: 155%;
+  /* or 78px */
+
+  text-align: center;
+}
+
+.second-header-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 155%;
+  /* or 26px */
+
+  text-align: center;
+
+  // color: #FFFFFF;
+}
+
+.card-parent-div {
+  cursor: pointer;
+  width: auto;
+  min-width: 207px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.card-parent-div:last-child {
+  margin-right: 1px;
+}
+
+.arrow-down-top {
+  // display: flex;
+  align-items: center;
+  path {
+    fill: #d32f2f;
+  }
+  color: #d32f2f;
+}
+
+.selected-arrow-color {
+  path {
+    fill: #ffffff !important;
+  }
+}
+
+.arrow-up-top {
+  // display: flex;
+  align-items: center;
+  color: #2e7d32;
+  fill: #2e7d32;
+}

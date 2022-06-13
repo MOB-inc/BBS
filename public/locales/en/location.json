@@ -19,8 +19,9 @@
   },
   "LINKAGE": {
     "LOGIN": "Login",
-    "IG_HEADER": "Instagram integration",
-    "IG_BODY": "Log in to your Facebook account. Log in to your Facebook account and select the linked Instagram account.",
+    "FBIG_HEADER": "Facebook Instagram integration",
+    "FBIG_BODY": "Log in to your Facebook account. Log in to your Facebook account and select the linked Instagram account.",
+    "FB_AlREADY_LINKED": "Login as {{fbAccountName}}",
     "IG_AlREADY_LINKED": "Login as {{igAccountName}}",
     "GMB_HEADER": "Google Business Profile Linkage",
     "GMB_NOTICE": "※PlaceID is unset",

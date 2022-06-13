@@ -20,8 +20,9 @@
   "LINKAGE": {
     "LOGIN": "ログイン",
     "SUBMIT": "登録",
-    "IG_HEADER": "Instagram連携",
-    "IG_BODY": "Facebookアカウントにログインします。 \n管理しているFacebookアカウントにログインし、 \nリンクされているInstagramアカウントを選択して下さい。",
+    "FBIG_HEADER": "Facebook × Instagram連携",
+    "FBIG_BODY": "Facebookアカウントにログインします。 \n管理しているFacebookアカウントにログインし、 \nリンクされているInstagramアカウントを選択して下さい。",
+    "FB_AlREADY_LINKED": "{{fbAccountName}}",
     "IG_AlREADY_LINKED": "{{igAccountName}}",
     "GMB_HEADER": "Google連携",
     "GMB_NOTICE": "※PlaceIDが未設定です。",

@@ -1,0 +1,35 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+.card-parent-div-bar-pie-chart {
+  margin-top: 20px;
+  // height: 200px;
+}
+
+.bar-pie-chart-parent-div {
+  // height: 330px;
+  width: 100%;
+  text-align: left;
+  padding: 20px;
+}
+
+.header-bar-pie-chart {
+  display: inline-block;
+  font-size: 20.48px;
+  color: #25262b;
+}
+
+.pie-chart-parent-div {
+  height: 300px;
+  width: 300px;
+  // text-align: end;
+  @media (max-width: $sm) {
+    width: 250px;
+  }
+  @media (max-width: $xs) {
+    width: 250px;
+  }
+}
+
+.bar-chart-parent-div-common-comp {
+  height: 250px;
+}

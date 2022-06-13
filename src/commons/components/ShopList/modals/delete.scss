@@ -1,0 +1,32 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.delete-group-modal {
+  .modal-content {
+    width: 464px;
+    height: 287px;
+    background: $paper-color;
+    border: 1px solid $border-color;
+    border-radius: 22px;
+    padding: 50px 70px;
+
+    > .message {
+      color: $gray;
+      margin: 6px 29px 20px 25px;
+      text-align: center;
+      @media (min-width: $sm) {
+        margin: 12px 58px 39px 51px;
+      }
+    }
+
+    > .actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > button {
+        margin-top: 14px;
+      }
+    }
+  }
+}

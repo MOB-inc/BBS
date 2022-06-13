@@ -1,0 +1,8 @@
+@import 'src/commons/styles/color.scss';
+
+input.input {
+  width: 100%;
+  outline: none;
+  background: $paper-color;
+  border: 1px solid $border-color;
+}

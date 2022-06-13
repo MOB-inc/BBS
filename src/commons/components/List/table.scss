@@ -1,0 +1,33 @@
+@import 'src/commons/styles/color.scss';
+
+.table-list {
+  overflow-y: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  min-width: 900px;
+  > div {
+    width: 20%;
+    min-width: 90px;
+    height: 45px;
+    padding: 6px 11px 8px 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  > div:nth-child(10n + 1),
+  div:nth-child(10n + 2),
+  div:nth-child(10n + 3),
+  div:nth-child(10n + 4),
+  div:nth-child(10n + 5) {
+    background-color: $background-color-contrast;
+  }
+  > div:nth-child(5n + 1),
+  div:nth-child(5n + 2),
+  div:nth-child(5n + 3),
+  div:nth-child(5n + 4) {
+    border-right: 1px solid rgba(0, 0, 0, 0.22);
+  }
+}
