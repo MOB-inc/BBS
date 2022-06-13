@@ -2,13 +2,21 @@ import React, { useContext, useEffect, useState } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams, Route, useLocation } from 'react-router-dom';
+
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
+
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
 import CreateLocationModal from './modals/SelectFacebookPage';
-import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
-import { ReactComponent as InstaIcon } from '../../../commons/icons/instagram-logo.svg';
-import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-logo.svg';
+// import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
+import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
+import { ReactComponent as InstaIcon } from '../../../commons/icons/insta-trans.svg';
+import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon.svg';
+import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
+
 // import { ReactComponent as CheckIcon } from '../../../commons/icons/check.svg';
 import {
   INSTAGRAM_SETTINGS,
@@ -32,10 +40,10 @@ function Dialogs() {
   const [location, setLocation] = useState();
   const [igStatus, setIgStatus] = useState(false);
   const [placeID, setPlaceID] = useState(false);
-  const [igAccountName, setIgAccountName] = useState('');
-  const [igDisplayName, setIgDisplayName] = useState('');
-  const [facebookName, setFacebookName] = useState('');
-  const [facebookPageName, setFacebookPageName] = useState('');
+  // const [igAccountName, setIgAccountName] = useState('');
+  // const [igDisplayName, setIgDisplayName] = useState('');
+  // const [facebookName, setFacebookName] = useState('');
+  // const [facebookPageName, setFacebookPageName] = useState('');
   const [gmbStatus, setGmbStatus] = useState(false);
   const [lineOfficialStatus, setLineOfficialStatus] = useState(false);
   const [lineOfficialToken, setLineOfficialToken] = useState('');
@@ -74,10 +82,10 @@ function Dialogs() {
     });
     getIgStatus().then((data) => {
       setIgStatus(data?.result?.status);
-      setIgAccountName(data?.result?.account_name);
-      setIgDisplayName(data?.result?.instagram_display_name);
-      setFacebookName(data?.result?.facebook_name);
-      setFacebookPageName(data?.result?.facebook_page_name);
+      // setIgAccountName(data?.result?.account_name);
+      // setIgDisplayName(data?.result?.instagram_display_name);
+      // setFacebookName(data?.result?.facebook_name);
+      // setFacebookPageName(data?.result?.facebook_page_name);
     });
     getGmbStatus().then((data) => setGmbStatus(data?.result?.status));
     getLineOfficialStatus().then((data) => {
@@ -159,7 +167,7 @@ function Dialogs() {
       setSplanPassword(status?.result?.password);
     });
   };
-
+	
   return (
     <div className="dialog-list">
       {location?.service?.id !== BOOK_ID && (
@@ -167,42 +175,42 @@ function Dialogs() {
           <div className="dialog">
             <div className="header">{t('location:LINKAGE.FBIG_HEADER')}</div>
             <div className="body">
-              <div className="left">{t('location:LINKAGE.FBIG_BODY')}
-                <div>
-                  <p>Status: </p>
-                  <p>Status: {}</p>
-                  <p>{igAccountName}</p>
+                <div className="left">{t('location:LINKAGE.FBIG_BODY')}
                 </div>
-              </div>
-              <div className="right">
-                {/* {igStatus ? (
-                  <div className="linked">
-                    <div className="icon">
-                      <CheckIcon width="20px" />
+                <div className="right">
+                  {/* {igStatus ? (
+                    <div className="linked">
+                      <div className="icon">
+                        <CheckIcon width="20px" />
+                      </div>
+                      <div>
+                        {t('location:LINKAGE.IG_AlREADY_LINKED', {
+                          igAccountName,
+                        })}
+                      </div>
                     </div>
-                    <div>
-                      {t('location:LINKAGE.IG_AlREADY_LINKED', {
-                        igAccountName,
-                      })}
-                    </div>
-                  </div>
-                    ) : ( */}
-                <button
-                  type="button"
-                  className="button fb"
-                  onClick={handleInstagramLinkage}
-                >
-                  <img
-                    src="/icons/fb.jpeg"
-                    alt="FB"
-                    height="33px"
-                    width="33px"
-                    style={{ borderRadius: '5px' }}
-                  />
-                  <span>{t('location:LINKAGE.LOGIN')}</span>
-                </button>
-                
-                {/* })} */}
+                      ) : ( */}
+                  <button
+                    type="button"
+                    className="button fb"
+                    onClick={handleInstagramLinkage}
+                  >
+                    <img
+                      src="/icons/fb.jpeg"
+                      alt="FB"
+                      height="33px"
+                      width="33px"
+                      style={{ borderRadius: '5px' }}
+                    />
+                    <span>{t('location:LINKAGE.LOGIN')}</span>
+                  </button>
+                  
+                  {/* })} */}
+                </div>
+              <div className="dialog-footer">
+                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
+                <p><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED')}筑前貴裕 / Optbusiness</span></p>
+                <p><InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED')}allfree1188 / ALL Fr...</span></p>
               </div>
             </div>
           </div>
@@ -226,22 +234,7 @@ function Dialogs() {
                   </div>
                   )}  */}
               </div>{' '}
-              {igStatus && (
-                <>
-                  <div className="id-display">
-                    <FbIcon className="icon-svg" />
-                    <span className="ellipsis">
-                      {facebookName} / {facebookPageName}
-                    </span>
-                  </div>
-                  <div className="id-display">
-                    <InstaIcon className="icon-svg" />
-                    <span className="ellipsis">
-                      {igAccountName} / {igDisplayName}
-                    </span>
-                  </div>
-                </>
-              )}
+              
             </div>
           </div>
         </div>
@@ -273,6 +266,10 @@ function Dialogs() {
                 />
                 <span>{t('location:LINKAGE.LOGIN')}</span>
               </button>
+            </div>
+            <div className="dialog-footer">
+                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
+                <p><GoogleIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED')}株式会社inside</span></p>
             </div>
           </div>
         </div>
@@ -319,13 +316,6 @@ function Dialogs() {
               <div className="left">
                 {t('location:LINKAGE.LINE_OFFICIAL_BODY')}
               </div>
-              <div className="center">
-                <textarea
-                  className="textarea"
-                  value={lineOfficialToken || ''}
-                  onChange={handleTokenUpdate}
-                />
-              </div>
               <div className="right">
                 <button
                   type="button"
@@ -341,6 +331,21 @@ function Dialogs() {
                   />
                   <span>{t('location:LINKAGE.SUBMIT')}</span>
                 </button>
+                <TextField 
+                    label=""
+                    id="outlined-start-adornment"
+                    className="field"
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
+                    }}
+                    variant="outlined"
+                    value={lineOfficialToken || ''}
+                    onChange={handleTokenUpdate}
+                  />
+              </div>
+              <div className="dialog-footer line">
+                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
+                <p><LineIcon /><span>{t('location:LINKAGE.LINE_AlREADY_LINKED')}inside通知アカウント</span></p>
               </div>
             </div>
           </div>
@@ -430,6 +435,7 @@ function Dialogs() {
                     <span>{t('location:LINKAGE.SUBMIT')}</span>
                   </button>
                 </div>
+                
             </div>
           </div>
           <div className="status">

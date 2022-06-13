@@ -23,6 +23,7 @@
     "FBIG_BODY": "Log in to your Facebook account. Log in to your Facebook account and select the linked Instagram account.",
     "FB_AlREADY_LINKED": "Login as {{fbAccountName}}",
     "IG_AlREADY_LINKED": "Login as {{igAccountName}}",
+    "LINE_AlREADY_LINKED": "Login as {{lineAccountName}}",
     "GMB_HEADER": "Google Business Profile Linkage",
     "GMB_NOTICE": "※PlaceID is unset",
     "GMB_BODY": "Log in to your Google account. The managed Google Business Profile account will be displayed, so select and link. * Requires a Google Business Profile administrator",

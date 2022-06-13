@@ -24,6 +24,7 @@
     "FBIG_BODY": "Facebookアカウントにログインします。 \n管理しているFacebookアカウントにログインし、 \nリンクされているInstagramアカウントを選択して下さい。",
     "FB_AlREADY_LINKED": "{{fbAccountName}}",
     "IG_AlREADY_LINKED": "{{igAccountName}}",
+    "LINE_AlREADY_LINKED": "{{lineAccountName}}",
     "GMB_HEADER": "Google連携",
     "GMB_NOTICE": "※PlaceIDが未設定です。",
     "GMB_BODY": "Googleアカウントにログインします。 \n管理しているGoogleアカウントが表示されるので、 \n選択し連携します。※Googleビジネスプロフィールの管理者の必要あり",

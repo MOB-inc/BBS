@@ -1,34 +1,18 @@
 @import '/src/commons/styles/color.scss';
 @import '/src/commons/styles/variables.scss';
 
-.location-navigation {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  max-width: fit-content;
-  border-radius: 30px;
-  border: 1px solid $gray;
-  .tab {
-    min-width: 120.5px;
-    height: 37px;
-    background: $paper-color;
-    box-sizing: border-box;
-    vertical-align: middle;
-    box-shadow: 0 0 0 1px $gray;
-    a {
-      display: block;
-      height: 100%;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 23px;
-      padding: 7px 0 7px 0;
-      color: $text-color;
-      text-decoration: none;
-    }
-    .active {
-      color: $paper-color;
-      background: linear-gradient(0deg, $accent-color, $accent-color),
-        linear-gradient(180deg, #dc9090 99.99%, rgba(255, 255, 255, 0) 100%);
-    }
-  }
+.MuiToggleButton-root.Mui-selected {
+  background-color:transparent;
+}
+a{
+  line-height: 20px;
+  padding:14px;
+  color:rgba(0, 0, 0, 0.54);
+}
+a.active{
+  color: $button-active-color;
+  background-color: $button-active-bg-color;
+}
+.MuiButtonBase-root{
+  padding:0;
 }
