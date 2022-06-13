@@ -167,7 +167,13 @@ function Dialogs() {
           <div className="dialog">
             <div className="header">{t('location:LINKAGE.FBIG_HEADER')}</div>
             <div className="body">
-              <div className="left">{t('location:LINKAGE.FBIG_BODY')}</div>
+              <div className="left">{t('location:LINKAGE.FBIG_BODY')}
+                <div>
+                  <p>Status: </p>
+                  <p>Status: {}</p>
+                  <p>{igAccountName}</p>
+                </div>
+              </div>
               <div className="right">
                 {/* {igStatus ? (
                   <div className="linked">
@@ -195,6 +201,7 @@ function Dialogs() {
                   />
                   <span>{t('location:LINKAGE.LOGIN')}</span>
                 </button>
+                
                 {/* })} */}
               </div>
             </div>
