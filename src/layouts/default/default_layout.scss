@@ -1,0 +1,53 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.default-layout {
+  .nav-bar {
+    position: sticky;
+    top: 122px;
+    @media (min-width: $sm) {
+      top: 61px;
+    }
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: calc(100vh - 61px);
+    display: flex;
+    float: left;
+    @media (min-width: $sm) {
+      width: 200px;
+    }
+    transition: all 0.2s ease 0s;
+  }
+  .main {
+    display: block;
+    flex-direction: row;
+    .menubar {
+      position: sticky;
+      top: 61px;
+      background-color: white;
+      z-index: 2;
+      &--closed {
+        position: fixed;
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-100%);
+      }
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    background: #fafafa;
+  }
+
+  .close-sidebar-sidebar {
+    position: fixed;
+    transition: all 0.3s ease 0s;
+    transform: translate3d(-100%, 0px, 0px);
+  }
+  .close-sidebar-content {
+    transition: all 0.5s ease 0s;
+  }
+}

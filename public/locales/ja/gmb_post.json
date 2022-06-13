@@ -1,0 +1,23 @@
+{
+  "REPLY": "口コミ",
+  "POST": "投稿",
+  "POSTS": {
+    "DATE_TIME": "投稿日時",
+    "LOCATION": "ロケーション",
+    "CONTENTS": "内容",
+    "PHOTO": "写真",
+    "CATEGORY": "カテゴリ",
+    "STATUS": "ステータス",
+    "WANT": "表示件数",
+    "ITEM": "件",
+    "LIST": "一覧",
+    "REMAND": "差し戻し",
+    "NEW_POST": "新規投稿",
+    "REVIEW": "口コミ",
+    "GROUP": "グループ",
+    "TO_POST": "投稿"
+  },
+  "NEW": {
+    "PUBLISH_MSG": "公開してもよろしいですか。"
+  }
+}

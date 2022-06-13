@@ -1,0 +1,154 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+
+.instagram-head-text {
+  // font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 33.6299px;
+  line-height: 155%;
+  /* or 52px */
+
+  /* Dark/Dark 6 */
+  @media (max-width: $sm) {
+    font-size: 20.6299px !important;
+  }
+  @media (max-width: $xs) {
+    font-size: 20.6299px !important;
+  }
+
+  color: #25262b;
+}
+
+.insta-chart-parent-div {
+  height: auto;
+  width: 100%;
+  // text-align: end;
+  @media (max-width: $sm) {
+    height: auto;
+    overflow-y: auto;
+  }
+  @media (max-width: $xs) {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+.header-table-cards {
+  font-size: 20.48px;
+  color: #25262b;
+  font-weight: 400;
+  text-align: left;
+}
+
+.insta-table-card-parent-div {
+  height: auto;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.table-header-tab {
+  font-size: 12px;
+  color: #25262b;
+  font-weight: 700;
+}
+
+.image-table-likes {
+  height: 38.86px;
+  width: 69.57px;
+}
+
+.no-data-found-margin-top-horizontal-bar-chart {
+  margin-top: 50px;
+  @media (max-width: $sm) {
+    margin-top: 25px;
+  }
+  @media (max-width: $xs) {
+    margin-top: 25px;
+  }
+}
+
+.grid-tab-parent-div {
+  margin-top: 20px;
+  @media (max-width: $sm) {
+    display: block;
+  }
+  @media (max-width: $xs) {
+    display: block;
+  }
+}
+
+.mobile-margin-top-0-from-header {
+  @media (max-width: $sm) {
+    margin-top: 0px;
+  }
+  @media (max-width: $xs) {
+    margin-top: 0px;
+  }
+}
+
+.margin-top-to-header {
+  margin-top: 40px;
+}
+
+.select-width-tree-select-group {
+  width: 180px;
+  @media (max-width: $sm) {
+    width: 100%;
+  }
+  @media (max-width: $xs) {
+    width: 100%;
+  }
+}
+
+.select-width-select-days {
+  width: 180px;
+  @media (max-width: $sm) {
+    width: 100%;
+  }
+  @media (max-width: $xs) {
+    width: 100%;
+  }
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (max-width: 400px) {
+  .mobile-display-block {
+    display: block;
+  }
+  .mobile-margin-top-10 {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+  .desktop-margn-left-10 {
+    margin-left: 10px;
+  }
+  .mobile-display-block {
+    display: flex;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+  .desktop-margn-left-10 {
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+  .desktop-margn-left-10 {
+    margin-left: 10px;
+  }
+}

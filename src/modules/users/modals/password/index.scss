@@ -1,0 +1,75 @@
+@import 'src/commons/styles/color.scss';
+
+.user-password-modal {
+  .modal-content {
+    width: 456px;
+    height: 442px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $paper-color;
+    border: 1px solid $border-color;
+    border-radius: 22px;
+    color: $gray;
+    padding: 64px 15% 24px 15%;
+    .header {
+      display: flex;
+      justify-content: space-around;
+      color: $border-color;
+      font-weight: 600;
+      width: 235px;
+    }
+    .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .credentials {
+        display: flex;
+        flex-direction: column;
+        margin-top: 31px;
+        border: 1px solid $border-color;
+        width: 235px;
+
+        .cred {
+          border: none;
+          outline: none;
+          padding: 0 15px;
+          font-weight: 600;
+        }
+        > .cred::placeholder {
+          color: $gray;
+        }
+        .cred:not(:last-child) {
+          border-bottom: 1px solid $border-color;
+        }
+      }
+      .caption {
+        align-self: flex-end;
+        font-weight: 600;
+        font-size: 10px;
+        margin-top: 2px;
+      }
+      > .message {
+        min-height: 18px;
+        margin: 16px 0;
+        font-weight: 600;
+        font-size: 11px;
+        text-align: center;
+        color: $text-color-selected;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      > button {
+        font-size: 12px;
+      }
+      > button:not(:last-child) {
+        margin-bottom: 13px;
+      }
+    }
+  }
+}

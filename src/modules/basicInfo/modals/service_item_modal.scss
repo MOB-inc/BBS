@@ -1,0 +1,115 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.service-item-modal {
+  .modal-content {
+    width: 456px;
+    height: 442px;
+    border-radius: 22px;
+    border: 1px solid $border-color;
+    @media (max-width: $sm) {
+      height: unset;
+    }
+    .row {
+      .padding-label {
+        padding-left: 30px;
+        .input-label {
+          display: flex;
+          margin-top: 10px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 28px;
+          color: $gray;
+          &--google-text {
+            margin-top: 20px;
+            margin-bottom: 0;
+            text-decoration: underline;
+            color: blue;
+            padding-right: 10px;
+            justify-content: flex-end;
+            cursor: pointer;
+          }
+        }
+      }
+      .padding-label-custom {
+        padding-left: 15px;
+        @media (max-width: $sm) {
+          padding-left: 30px;
+        }
+        .input-label-custom {
+          display: flex;
+          margin-top: 10px;
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 28px;
+          color: $gray;
+        }
+      }
+      .padding-left-right {
+        padding-left: 30px;
+        .common-input {
+          width: 100%;
+          height: 32px;
+          font-size: 12px;
+          font-weight: 500;
+          color: $black;
+          border-color: $border-color;
+          border-radius: 0;
+          @media (min-width: $sm) {
+            width: 323px;
+          }
+        }
+      }
+
+      .padding-left-right-custom {
+        @media (max-width: $sm) {
+          padding-left: 30px;
+        }
+        .common-input-custom {
+          width: 100%;
+          height: 32px;
+          font-size: 12px;
+          font-weight: 500;
+          color: $black;
+          border-color: $border-color;
+          border-radius: 0;
+        }
+      }
+
+      .success-button {
+        margin-top: 36px;
+        height: 36px;
+        width: 114px;
+        background: linear-gradient(0deg, $accent-color, $accent-color),
+          linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+        border: 1px solid $paper-color;
+        border-radius: 10px;
+        color: $paper-color;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: bold;
+      }
+      .cancel-button {
+        height: 36px;
+        width: 114px;
+        background: $reset-color;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        margin-top: 13px;
+        color: $paper-color;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .error-message {
+        margin-top: 2px;
+        color: $text-color-selected;
+        font-size: 11px;
+        margin-bottom: unset;
+      }
+    }
+    .delete-icon {
+      float: right;
+      cursor: pointer;
+    }
+  }
+}

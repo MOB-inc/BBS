@@ -1,0 +1,110 @@
+@import 'src/commons/styles/color.scss';
+
+p.highlight {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  /* identical to box height */
+  text-decoration-line: underline;
+  color: $text-color-selected;
+}
+.new-post-success-modal {
+  > .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-content {
+      width: 464px;
+      height: 287px;
+      border-radius: 22px;
+      border: 1px solid $border-color;
+      .modal-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .completed-msg {
+          font-weight: 600;
+          font-size: 18px;
+          color: $gray;
+        }
+      }
+    }
+  }
+}
+.new-post-confirm-modal {
+  > .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .modal-content {
+      width: 464px;
+      height: 442px;
+      border-radius: 22px;
+      border: 1px solid $border-color;
+      .modal-body {
+        display: flex;
+        flex-direction: column;
+        .general-msg {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 28px;
+          margin-bottom: 0;
+        }
+        .completed-msg {
+          margin-bottom: 0;
+          margin-top: 50px;
+          width: 200px;
+          color: $gray;
+        }
+
+        .schedule-message {
+          font-size: 18px;
+          line-height: 28px;
+          color: $gray;
+          font-weight: 600;
+        }
+
+        .success-button {
+          margin-top: 36px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+        .cancel-button {
+          height: 37px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          margin-top: 13px;
+          color: $paper-color;
+        }
+        .location-area {
+          display: flex;
+          flex-direction: column;
+          width: 70px;
+          height: 180px;
+          overflow: auto;
+          margin-top: 30px;
+          margin-bottom: 20px;
+        }
+        .footer {
+          width: 100%;
+          position: absolute;
+          bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

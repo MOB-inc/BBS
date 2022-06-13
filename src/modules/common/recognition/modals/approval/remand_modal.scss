@@ -1,0 +1,60 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.approval-remand-modal {
+  > .modal-dialog {
+    max-width: 464px;
+    .modal-content {
+      height: 499px !important;
+      border-radius: 22px;
+      border: 1px solid $border-color;
+      .modal-body {
+        padding: 0;
+        .reason-remand {
+          width: 90%;
+          height: 206px;
+          border: 1px solid #828282;
+          border-radius: 13px;
+          margin-top: 18px;
+          outline: 0;
+          padding: 20px;
+          @media (min-width: $sm) {
+            width: 432px;
+          }
+        }
+        .remand-msg {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 28px;
+          color: $gray;
+          margin-top: 55px;
+        }
+        .success-button {
+          margin-top: 62px !important;
+          height: 36px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+        .pivot-button-margin {
+          margin-top: 14px !important;
+        }
+        .cancel-button {
+          height: 36px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 13px;
+          color: $paper-color;
+        }
+      }
+    }
+  }
+}

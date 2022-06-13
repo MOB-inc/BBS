@@ -1,0 +1,73 @@
+{
+  "WELCOME_MESSAGE": "InstaGMBリンケージダッシュボードへようこそ",
+  "HEADER": {
+    "NOTIFICATION": "通知",
+    "RECOGNITION": "承認管理",
+    "LOCATIONS": "ロケーション選択",
+    "ACCOUNT_ID": "アカウントID"
+  },
+  "SIDEBAR": {
+    "TOP": "ダッシュボード",
+    "DASHBOARD": "投稿一覧",
+    "POST_REVIEW": "口コミ・投稿",
+    "BASIC_INFO": "基本情報",
+    "LOCATION": "ロケーション設定",
+    "USER": "ユーザー管理",
+    "LOGOUT": "ログアウト",
+    "INQUIRY": "お問い合わせ",
+    "RELEASE_NOTE": "リリースノート",
+    "UPDATE_DATE": "2022/06/08",
+    "LOCATION_ADD": "ロケーション追加",
+    "HELP": "操作マニュアル"
+  },
+  "LOGOUT": {
+    "MESSAGE": "ログアウトしてもよろしいですか？",
+    "LOGOUT": "ログアウト",
+    "RETURN": "戻る"
+  },
+  "INQUIRY": {
+    "LOCATION": "ロケーション",
+    "INQUIRY": "お問い合わせ内容",
+    "SEND": "送信",
+    "RETURN": "戻る",
+    "TELEPHONE_MESSAGE": "緊急のお問い合わせはこちら"
+  },
+  "SHOP_LIST": {
+    "GROUP": {
+      "HEADER": "グループ",
+      "CREATION": "グループ作成"
+    },
+    "LOCATION": {
+      "HEADER": "ロケーション"
+    },
+    "CREATE": {
+      "HEADER": "グループ名",
+      "CREATE_BTN": "作成",
+      "RETURN_BTN": "戻る"
+    },
+    "DELETE": {
+      "MESSAGE_1": "{{name}}を削除します。",
+      "MESSAGE_2": "よろしいですか。",
+      "DELETE_BTN": "削除",
+      "RETURN_BTN": "戻る"
+    }
+  },
+  "REVIEW": {
+    "STATUS": {
+      "NOT_REPLIED": "未返信",
+      "APPLIED": "承認申請中",
+      "REMAND": "差し戻し",
+      "PUBLISHED": "返信済",
+      "POSTED": "投稿済",
+      "REVIEW_DELETE": "削除済"
+    }
+  },
+  "NOTIFICATION": {
+    "NOTIFICATION_SETTING": "通知設定",
+    "LINE_LOGIN": "ログイン",
+    "REVIEW": "新着口コミ",
+    "STATUS_CONNECTED": "連携済み",
+    "STATUS_DISCONNECTED": "未連携",
+    "LINE_DISABLED_TOOLTIP": "通知をONにするにはLINEログインしてください"
+  }
+}

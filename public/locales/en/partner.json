@@ -1,0 +1,12 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "ID",
+      "NAME": "Name",
+      "ROOT": "Root",
+      "ADDRESS": "Address",
+      "TELEPHONE": "Telephone",
+      "LOCATIONS": "Locations"
+    }
+  }
+}

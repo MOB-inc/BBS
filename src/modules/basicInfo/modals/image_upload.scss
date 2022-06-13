@@ -1,0 +1,133 @@
+@import 'src/commons/styles/color.scss';
+
+.image-upload-modal {
+  .modal-content {
+    width: 456px;
+    border-radius: 22px;
+    padding: 25px 0px;
+    border: 1px solid $border-color;
+    > .upload-body {
+      padding: unset;
+      .photo-display-portion {
+        width: 397px;
+        border-radius: 22px;
+        border: 1px solid $border-color;
+        margin-left: 29px;
+        outline: 0;
+        .image-msg {
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+          color: $black;
+          opacity: 0.4;
+        }
+        .msg-margin {
+          margin-top: 125px;
+        }
+        .upload-button {
+          margin-top: 6px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+          display: initial !important;
+        }
+        .preview-image {
+          position: absolute;
+          top: 15px;
+          width: 397px;
+          height: 319px;
+          left: 26px;
+        }
+        .validation-msg {
+          margin-top: 5px;
+          .common {
+            font-size: 10px;
+            color: $text-color-selected;
+          }
+        }
+      }
+      .image-msg-2 {
+        float: right;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 20px;
+        color: $black;
+        opacity: 0.4;
+        margin-right: 21px;
+      }
+      .image-category-list {
+        width: 359px;
+        height: 135px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 48px;
+        margin-top: 141px;
+        .item-name {
+          width: 119px;
+          height: 45px;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 20px;
+          color: $black;
+          opacity: 0.4;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+        .active-item {
+          opacity: 1;
+          background-color: $background-color-contrast;
+        }
+        .image-validation {
+          font-size: 14px;
+          line-height: 21px;
+          margin-left: 30px;
+          color: $validation-error-color;
+        }
+      }
+      .button-portion {
+        display: flex;
+        float: right;
+        margin-right: 26px;
+        .success-button {
+          margin-top: 32px;
+          margin-right: 26px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+        .cancel-button {
+          height: 37px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 32px;
+          color: $paper-color;
+          font-size: 12px;
+          font-weight: 700;
+        }
+        .button-margin-top {
+          margin-top: 113px !important;
+        }
+      }
+    }
+  }
+}

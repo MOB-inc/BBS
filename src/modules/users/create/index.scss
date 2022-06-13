@@ -1,0 +1,83 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.user-create-page {
+  text-align: left;
+  padding: 9px 9px 9px 14px;
+  @media (min-width: $sm) {
+    padding: 25px 25px 25px 50px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 46px 0 0;
+    .username {
+      display: block;
+      margin: 0 0 9px 0;
+      @media (min-width: $sm) {
+        margin: 0 0 20px 0;
+      }
+      .search {
+        margin: 0 auto;
+        width: 50%;
+        color: $gray;
+        @media (min-width: $sm) {
+          width: 571px;
+        }
+        div.input {
+          display: flex;
+          flex-direction: row;
+          > input {
+            padding: 4px 0 4px 13px;
+          }
+          .delete {
+            margin: auto 29px;
+            cursor: pointer;
+          }
+        }
+        .dummy {
+          display: none;
+        }
+      }
+    }
+  }
+  .locations {
+    height: 430px;
+    overflow-y: auto;
+    background-color: $background-color;
+    border-radius: 24px;
+    @media (min-width: $sm) {
+      height: 630px;
+      padding: 0 46px 20px 50px;
+    }
+    .label {
+      margin: 7px 0;
+      text-decoration: underline;
+      font-size: 14px;
+      line-height: 21px;
+    }
+    span.ellipsis {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 5px;
+    }
+    .locations-header {
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+      > .search-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+        > .search-input {
+          margin-right: 6px;
+          @media (min-width: $sm) {
+            width: 266px;
+            margin-right: 12px;
+          }
+        }
+      }
+    }
+  }
+}

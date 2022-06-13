@@ -1,0 +1,78 @@
+{
+  "REVIEW": "口コミ",
+  "POST": "投稿",
+  "REVIEWS": {
+    "BULK_REPLY": "一括返信",
+    "LIST": "一覧",
+    "NOT_REPLIED": "未返信",
+    "NO_REPLY_REQUIRED": "返信不要",
+    "REMAND": "差し戻し",
+    "SETTING": "定型文・自動返信設定",
+    "WANT": "表示件数",
+    "ITEM": "件",
+    "DATE_TIME": "投稿日時",
+    "LOCATION": "ロケーション",
+    "REVIEW": "口コミ",
+    "REPLY": "返信",
+    "EVALUATION": "評価",
+    "STATUS": "ステータス",
+    "EMPTY_SEARCH": "空欄抽出",
+    "REVIEW_COMMENT_TOOLTIP": "チェックを入れるとコメントのない口コミのみ表示します。",
+    "BULK": {
+      "APPLICATION": "承認申請中",
+      "CONTENT": "返信内容",
+      "MESSAGE": "返信内容はGoogleで公開されます。また、Googleローカルリスティングのコンテンツポリシーに従っている必要があります。",
+      "PUBLIC_BTN": "返信",
+      "RETURN_BTN": "戻る",
+      "REPLY_PLACEHOLDER": "返信内容を入力してください。",
+      "SELECT_PLACEHOLDER": "定型文から選択"
+    },
+    "DELETE": {
+      "MESSAGE1": "本当に削除してもよろしいですか。",
+      "MESSAGE2": "完了しました。",
+      "CONFIRM_BTN": "削除",
+      "RETURN_BTN": "戻る"
+    },
+    "DISPLAY": {
+      "REMAND_REASON": "差し戻し理由",
+      "STATUS": "ステータス",
+      "APPLICATION": "承認申請中",
+      "CONTENT": "返信内容",
+      "MESSAGE": "返信内容はGoogleで公開されます。また、Googleローカルリスティングのコンテンツポリシーに従っている必要があります。",
+      "EDIT_BTN": "編集",
+      "PUBLIC_BTN": "更新",
+      "DELETE_BTN": "削除",
+      "RETURN_BTN": "戻る",
+      "REPLY_PLACEHOLDER": "返信内容を入力してください。",
+      "SELECT_PLACEHOLDER": "定型文から選択",
+      "NO_REPLY_REQUIRED": "返信不要",
+      "CANCEL_NO_REPLY_REQUIRED": "返信不要解除"
+    },
+    "EDIT": {
+      "MESSAGE1": "更新してもよろしいですか。",
+      "MESSAGE2": "完了しました。",
+      "WARNING": "承認ステップがある場合、承認後に公開されます。",
+      "OKAY_BTN": "はい",
+      "RETURN_BTN": "戻る"
+    },
+    "PHRASE": {
+      "REGISTER": "登録",
+      "CANCEL": "キャンセル",
+      "TITLE": "タイトル",
+      "REVIEWS": "返信定型文設定",
+      "AUTO_REPLY": "自動返信設定",
+      "LIST_HEADER": "ロケーション",
+      "ALL_LOCATIONS": "全ロケーション共通",
+      "SETTING": "設定",
+      "NOT_SETTING": "未設定",
+      "COMMENT": "コメント",
+      "RATING": "評価",
+      "RECIPIENT_NAME": "宛名",
+      "AUTOMATIC_REPLY_TIME": "自動返信時間",
+      "AUTOMATIC_REPLY_PHRASE": "自動返信内容",
+      "FROM_POST_REVIEW": "口コミ投稿後から",
+      "AFTER_HOUR": "時間後",
+      "REPLY_EXAMPLE": "返信例選択"
+    }
+  }
+}

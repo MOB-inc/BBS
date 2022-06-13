@@ -1,0 +1,33 @@
+@import '/src/commons/styles/color.scss';
+
+.bulk-error-modal {
+  .modal-content {
+    width: 464px;
+    height: 287px;
+    border-radius: 22px;
+    border: 1px solid $border-color;
+    .row {
+      .padding-left-right {
+        margin-top: 101px;
+        font-size: 18px;
+        line-height: 28px;
+        color: $gray;
+        font-weight: 600;
+        .delete-msg {
+          margin-bottom: 0;
+        }
+      }
+      .cancel-button {
+        height: 36px;
+        width: 114px;
+        background: $reset-color;
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        margin-top: 55px;
+        color: $paper-color;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.display-modal.remand {
+  > .modal-dialog {
+    @media (min-width: $sm) {
+      max-width: 912px;
+      > .modal-content {
+        display: flex;
+        flex-direction: row;
+        width: 912px;
+        .part.left {
+          border-right: 1px solid $border-color;
+        }
+      }
+    }
+  }
+}
+
+.display-modal {
+  > .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > .modal-content {
+      text-align: left;
+      border: 1px solid $border-color;
+      border-radius: 22px;
+      width: 456px;
+      min-height: 800px;
+
+      .part {
+        flex: 1;
+        display: flex;
+        padding: 16px;
+        flex-direction: column;
+        position: relative;
+      }
+      .section {
+        margin: 5px 0 30px 0;
+        .inset {
+          font-size: 13px;
+          margin: 7px 20px;
+        }
+        .text {
+          font-size: 10px;
+          color: rgba(0, 0, 0, 0.5);
+        }
+        .no-margin {
+          margin-top: 2px;
+        }
+        .warning {
+          color: $text-color-selected !important;
+        }
+        .panel {
+          font-size: 13px;
+          color: $black;
+          width: 100%;
+          padding: 20px;
+          border: 1px solid $border-color;
+          border-radius: 13px;
+          outline: none;
+          resize: none;
+        }
+        .reply-header {
+          display: flex;
+          justify-content: space-between;
+          height: 40px;
+          .dropdown-wrapper {
+            width: 260px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+            .css-yk16xz-control {
+              border: none;
+              min-height: 22px;
+              .css-1okebmr-indicatorSeparator {
+                display: none;
+              }
+              .css-tlfecz-indicatorContainer {
+                color: $text-color;
+              }
+              .css-1wa3eu0-placeholder {
+                color: $black;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+      .google-user {
+        display: flex;
+        flex-direction: row;
+        .user-image {
+          margin-right: 10px;
+        }
+        .line {
+          display: flex;
+        }
+      }
+      .buttons {
+        left: 0;
+        right: 0;
+        bottom: 20px;
+        margin: 0 auto;
+        display: flex;
+        font-size: 12px;
+        line-height: 20px;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        button {
+          margin-bottom: 10px;
+        }
+        button.no-reply {
+          background: $blue;
+        }
+      }
+    }
+  }
+}

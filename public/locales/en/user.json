@@ -1,0 +1,72 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "Login ID (email address)",
+      "USERNAME": "Username",
+      "MANAGEMENT_COUNT": "# of Management",
+      "LOCATION": "Location",
+      "APPROVAL": "Approval",
+      "CONNECTED": "Connect ON/OFF",
+      "FIXED_PHRASE": "Fixed Phrase"
+    }
+  },
+  "CREATE": {
+    "BUTTON": "NEW",
+    "SEARCH": {
+      "HEADER": "Username",
+      "PLACEHOLDER": "supervisor"
+    },
+    "LOCATION": "Location",
+    "PERMISSION": {
+      "BUTTON": "Permission",
+      "TITLE": "Permission",
+      "CONNECT": "Connect ON/OFF",
+      "PHRASE": "Phrase Editing",
+      "YES": "Yes",
+      "NO": "No",
+      "REGISTRATION": "Registration",
+      "PASSWORD": "To Password",
+      "APPROVER": "To Approver",
+      "RETURN": "Return"
+    },
+    "APPROVER": {
+      "SELECTION": "Approver Selection",
+      "STEP": {
+        "LABEL": "Step approval settings",
+        "DESCRIPTION": "Approval of all designated approvers is required"
+      },
+      "SPEED": {
+        "LABEL": "Speed ​​approval settings",
+        "DESCRIPTION": "Approval of one of the designated approvers is required"
+      },
+      "RECOGNIZER": "Recognizer",
+      "PASSWORD": "To Password",
+      "RETURN": "Return"
+    },
+    "PASSWORD": {
+      "USERNAME": "Username",
+      "EMAIL": "Login ID (email address)",
+      "PASSWORD": "Password",
+      "CONFIRM_PASSWORD": "Password(confirm)",
+      "CAPTION": "6 or more single-byte alphanumeric characters",
+      "CREATE": "Create",
+      "UPDATE": "Update",
+      "RETURN": "Return",
+      "MESSAGE": {
+        "EMAIL_NOT_VALID": "Email is not Valid",
+        "PASSWORD_NOT_VALID": "Password is not Valid",
+        "PASSWORD_NOT_MATCH": "Passwords don't match"
+      }
+    },
+    "SUCCESS": { "MESSAGE": "Creation is complete." },
+    "DELETE": {
+      "MESSAGE": "Are you sure you want to delete it?",
+      "CONFIRM": "Confirm",
+      "RETURN": "Return"
+    }
+  },
+  "EDIT": {
+    "BUTTON": "Edit",
+    "SUCCESS": { "MESSAGE": "Editing is complete" }
+  }
+}

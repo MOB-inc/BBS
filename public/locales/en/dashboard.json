@@ -1,0 +1,28 @@
+{
+  "LIST": "List",
+  "ITEM": "item",
+  "WANT": "want",
+  "COLUMNS": {
+    "POST_DATE_TIME": "Date and Time",
+    "LOCATION": "Location",
+    "LIKE": "Like",
+    "COMMENT": "Comment",
+    "CAPTION": "Caption",
+    "FAVORITE": "Favorite",
+    "IMPRESSIONS": "Impressions",
+    "REACH": "Reach",
+    "ENGAGEMENT": "Engagement",
+    "GMB": "GMB",
+    "CMS": "CMS",
+    "TIKTOK": "TikTok",
+    "HPB": "HPB"
+  },
+  "DELETED": "deleted",
+  "MODAL_CONFIRMATION": {
+    "COMMON_RETURN": "RETURN",
+    "DELETE_MSG": "Are you sure you want to delete it?",
+    "DELETE": "DELETE",
+    "REPOST_MSG": "Are you sure you want to repost?",
+    "OKAY": "OKAY"
+  }
+}

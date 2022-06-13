@@ -1,0 +1,90 @@
+@import '/src/commons/styles/color.scss';
+
+.forgot-card {
+  border-radius: 22px;
+  padding: 45px 30px 10px 30px;
+  background-color: transparent;
+  border: none;
+  .card-body {
+    form {
+      .header-logo {
+        margin-bottom: 26px;
+        img {
+          width: 114px;
+          height: 80px;
+        }
+      }
+      .input-group {
+        padding-left: 15px;
+        padding-right: 15px;
+        ::-webkit-input-placeholder {
+          /* Chrome/Opera/Safari */
+          font-weight: 600;
+        }
+        ::-moz-placeholder {
+          /* Firefox 19+ */
+          font-weight: 600;
+        }
+        :-ms-input-placeholder {
+          /* IE 10+ */
+          font-weight: 600;
+        }
+        :-moz-placeholder {
+          /* Firefox 18- */
+          font-weight: 600;
+        }
+        .border-radius-none {
+          border-radius: unset;
+          background-color: transparent;
+        }
+      }
+      .row {
+        .forget-message {
+          font-size: 12px;
+          line-height: 28px;
+          font-weight: 600;
+        }
+        .forget-message-long {
+          font-size: 12px;
+          line-height: 14px;
+          font-weight: 600;
+          text-align: left;
+          padding-top: 5px;
+        }
+        .remove-margin {
+          margin: 0;
+        }
+        .login-button {
+          margin-top: 36px;
+          height: 36px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid transparent;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+        .cancel-button {
+          height: 36px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid transparent;
+          border-radius: 10px;
+          margin-top: 13px;
+          color: $paper-color;
+        }
+      }
+      .error-message {
+        color: $text-color-selected;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 11px;
+        line-height: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+}

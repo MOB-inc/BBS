@@ -1,0 +1,639 @@
+[
+  {
+    "parent": "attributes/is_owned_by_women",
+    "valueType": "BOOL",
+    "displayName": "Identifies as women-owned",
+    "groupDisplayName": "From the business",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Identifies as women-owned"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_curbside_pickup",
+    "valueType": "BOOL",
+    "displayName": "Curbside pickup",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Curbside pickup"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_no_contact_delivery",
+    "valueType": "BOOL",
+    "displayName": "No-contact delivery",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "No-contact delivery"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_delivery",
+    "valueType": "BOOL",
+    "displayName": "Delivery",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Delivery"
+      },
+      {
+        "value": false,
+        "displayName": "No delivery"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_drive_through",
+    "valueType": "BOOL",
+    "displayName": "Drive-through",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Drive-through"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_in_store_pickup",
+    "valueType": "BOOL",
+    "displayName": "In-store pickup",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "In-store pickup"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_in_store_shopping",
+    "valueType": "BOOL",
+    "displayName": "In-store shopping",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "In-store shopping"
+      },
+      {
+        "value": false,
+        "displayName": "No in-store shopping"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_delivery_same_day",
+    "valueType": "BOOL",
+    "displayName": "Same-day delivery",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Same-day delivery"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_appointments",
+    "valueType": "BOOL",
+    "displayName": "Appointment required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Appointment required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_customers",
+    "valueType": "BOOL",
+    "displayName": "Mask required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Mask required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_customers",
+    "valueType": "BOOL",
+    "displayName": "Temperature check required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Temperature check required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff wear masks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff wear masks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff get temperature checks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff get temperature checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_sanitizing_between_customers",
+    "valueType": "BOOL",
+    "displayName": "Staff required to disinfect surfaces between visits",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff required to disinfect surfaces between visits"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_plexiglass_at_checkout",
+    "valueType": "BOOL",
+    "displayName": "Safety dividers at checkout",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Safety dividers at checkout"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_covid_19_bool_1",
+    "valueType": "BOOL",
+    "displayName": "COVID-19 testing center",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "COVID-19 testing center"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_elevator",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible elevator",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible elevator"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_entrance",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible entrance",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible entrance"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible entrance"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_parking",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible parking lot",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible parking lot"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible parking lot"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_restroom",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible restroom",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible restroom"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_seating",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible seating",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible seating"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_check_cashing",
+    "valueType": "BOOL",
+    "displayName": "Check cashing",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Check cashing"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_drive_through_covid_19_testing",
+    "valueType": "BOOL",
+    "displayName": "Drive-through",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Drive-through"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/sells_organic_products",
+    "valueType": "BOOL",
+    "displayName": "Organic products",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Organic products"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_onsite_passport_photos",
+    "valueType": "BOOL",
+    "displayName": "Passport photos",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Passport photos"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/sells_food_prepared",
+    "valueType": "BOOL",
+    "displayName": "Prepared foods",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Prepared foods"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_salad_bar",
+    "valueType": "BOOL",
+    "displayName": "Salad bar",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Salad bar"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom_unisex",
+    "valueType": "BOOL",
+    "displayName": "Gender-neutral restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Gender-neutral restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom_public",
+    "valueType": "BOOL",
+    "displayName": "Public restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Public restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/wi_fi",
+    "valueType": "ENUM",
+    "displayName": "Wi-Fi",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": "free_wi_fi",
+        "displayName": "Free"
+      },
+      {
+        "value": "paid_wi_fi",
+        "displayName": "Paid"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/welcomes_lgbtq",
+    "valueType": "BOOL",
+    "displayName": "LGBTQ+ friendly",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "LGBTQ+ friendly"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_transgender_safespace",
+    "valueType": "BOOL",
+    "displayName": "Transgender safespace",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Transgender safespace"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_appointment_required_covid_19_testing",
+    "valueType": "BOOL",
+    "displayName": "Appointment required",
+    "groupDisplayName": "Planning",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Appointment required"
+      },
+      {
+        "value": false,
+        "displayName": "Appointment not required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_prescription_required_covid_19_testing",
+    "valueType": "BOOL",
+    "displayName": "Referral required",
+    "groupDisplayName": "Planning",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Referral required"
+      },
+      {
+        "value": false,
+        "displayName": "Referral not required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_covid_19_testing_patient_restrictions",
+    "valueType": "BOOL",
+    "displayName": "Tests limited to certain patients",
+    "groupDisplayName": "Planning",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Tests limited to certain patients"
+      },
+      {
+        "value": false,
+        "displayName": "Testing for all patients"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_batteries",
+    "valueType": "BOOL",
+    "displayName": "Batteries",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Batteries"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_electronics",
+    "valueType": "BOOL",
+    "displayName": "Electronics",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Electronics"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_glass_bottles",
+    "valueType": "BOOL",
+    "displayName": "Glass bottles",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Glass bottles"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_light_bulbs",
+    "valueType": "BOOL",
+    "displayName": "Light bulbs",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Light bulbs"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_metal_cans",
+    "valueType": "BOOL",
+    "displayName": "Metal cans",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Metal cans"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_plastic_bags",
+    "valueType": "BOOL",
+    "displayName": "Plastic bags",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Plastic bags"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_recycling_plastic_bottles",
+    "valueType": "BOOL",
+    "displayName": "Plastic bottles",
+    "groupDisplayName": "Recycling",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Plastic bottles"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_cash_only",
+    "valueType": "BOOL",
+    "displayName": "Cash-only",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Cash-only"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_check",
+    "valueType": "BOOL",
+    "displayName": "Checks",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_credit_card_types_accepted",
+    "valueType": "REPEATED_ENUM",
+    "displayName": "Credit cards",
+    "groupDisplayName": "Payments",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "american_express",
+        "displayName": "American Express"
+      },
+      {
+        "value": "china_union_pay",
+        "displayName": "China Union Pay"
+      },
+      {
+        "value": "diners_club",
+        "displayName": "Diners Club"
+      },
+      {
+        "value": "discover",
+        "displayName": "Discover"
+      },
+      {
+        "value": "jcb",
+        "displayName": "JCB"
+      },
+      {
+        "value": "mastercard",
+        "displayName": "MasterCard"
+      },
+      {
+        "value": "visa",
+        "displayName": "VISA"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_debit_card",
+    "valueType": "BOOL",
+    "displayName": "Debit cards",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Debit cards"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_mobile_nfc",
+    "valueType": "BOOL",
+    "displayName": "NFC mobile payments",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "NFC mobile payments"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_inventory_search",
+    "valueType": "URL",
+    "displayName": "Inventory search URL",
+    "groupDisplayName": "Place page URLs",
+    "repeatable": true,
+    "deprecated": true
+  }
+]

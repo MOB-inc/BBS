@@ -1,0 +1,71 @@
+@import 'src/commons/styles/variables.scss';
+@import 'src/commons/styles/color.scss';
+
+.user-approver-modal {
+  .modal-content {
+    border: 0;
+    padding-bottom: 20px;
+    margin: 16px 17px 27px 33px;
+    border-radius: 22px;
+    width: 456px;
+    > .settings-list {
+      margin-top: 40px;
+      .settings {
+        margin: 0 5% 20px 5%;
+        @media (min-width: $sm) {
+          margin: 0 20% 20px 20%;
+        }
+        .subtitle {
+          font-size: 10px;
+          color: $border-color;
+        }
+      }
+    }
+    > .recognizers {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      > .list {
+        display: flex;
+        flex-direction: column;
+        width: 285px;
+        > .header {
+          margin-left: 10px;
+        }
+        > .add-icon {
+          align-self: center;
+          margin: 20px;
+          cursor: pointer;
+        }
+        > .user-approver {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+          div.text {
+            color: $gray;
+            font-weight: 600;
+            text-align: left;
+            font-size: 12px;
+          }
+          span.circle {
+            border-radius: 50%;
+            display: inline-block;
+            height: 15px;
+            line-height: 15px;
+            border: 1px solid $gray;
+            font-size: 10px;
+          }
+          > select {
+            height: 38px;
+            background: $paper-color;
+            border: 1px solid $border-color;
+            outline: none;
+          }
+          select.approver {
+            padding: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}

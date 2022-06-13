@@ -1,0 +1,31 @@
+{
+  "LIST": "一覧",
+  "ITEM": "件",
+  "WANT": "表示件数",
+  "COLUMNS": {
+    "POST_DATE_TIME": "投稿日時",
+    "LOCATION": "ロケーション",
+    "LIKE": "いいね!",
+    "COMMENT": "コメント",
+    "CAPTION": "投稿",
+    "FAVORITE": "お気に入り",
+    "IMPRESSIONS": "閲覧",
+    "REACH": "リーチ",
+    "ENGAGEMENT": "エンゲージ",
+    "GMB": "GBP",
+    "CMS": "CMS",
+    "TIKTOK": "TikTok",
+    "HPB": "HPB"
+  },
+  "DELETED": "削除済",
+  "POSTED": "連携済",
+  "UNPOSTED": "未連携",
+  "ERROR": "連携エラー",
+  "MODAL_CONFIRMATION": {
+    "COMMON_RETURN": "戻る",
+    "DELETE_MSG": "本当に削除してもよろしいですか。",
+    "DELETE": "削除",
+    "REPOST_MSG": "再投稿してもよろしいですか。",
+    "OKAY": "はい"
+  }
+}

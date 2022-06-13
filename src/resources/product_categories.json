@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "jp_name": "概要",
+    "en_name": "All Products",
+    "gmb_photo_category_name": "",
+    "created_at": "2021-12-26T06:27:09.000000Z",
+    "updated_at": "2021-12-26T06:27:09.000000Z"
+  },
+  {
+    "id": 2,
+    "jp_name": "カバー",
+    "en_name": "COVER",
+    "gmb_photo_category_name": "COVER",
+    "created_at": "2021-12-26T06:27:09.000000Z",
+    "updated_at": "2021-12-26T06:27:09.000000Z"
+  },
+  {
+    "id": 3,
+    "jp_name": "プロフィール",
+    "en_name": "PROFILE",
+    "gmb_photo_category_name": "PROFILE",
+    "created_at": "2021-12-26T06:27:09.000000Z",
+    "updated_at": "2021-12-26T06:27:09.000000Z"
+  }
+]

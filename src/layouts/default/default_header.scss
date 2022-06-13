@@ -1,0 +1,218 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+
+.default_header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $nav-color;
+  color: $paper-color;
+  z-index: 1000;
+  margin: 0 0px;
+  @media (max-width: $sm) {
+    flex-wrap: nowrap;
+    &--sidebar {
+      flex-wrap: wrap;
+    }
+  }
+  .left {
+    display: flex;
+    height: 61px;
+    padding: 9px 18px 10px 0px;
+    @media (max-width: $sm) {
+      justify-content: space-between;
+    }
+    .lang {
+      button {
+        color: $paper-color;
+      }
+    }
+    .burger {
+      width: 55px;
+      margin-top: 10px;
+    }
+  }
+
+  .mobile-display-none {
+    @media (max-width: $sm) {
+      display: none !important;
+    }
+    @media (max-width: $xs) {
+      display: none !important;
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 61px;
+    padding: 9px 18px 10px 0px;
+    * {
+      padding-left: 5px;
+    }
+    .menu {
+      color: $paper-color;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .menu-visible {
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      position: relative;
+      padding-right: 10px;
+      display: flex;
+      .total-number {
+        position: relative;
+        font-size: 14px;
+        color: $text-color-selected !important;
+      }
+    }
+    .header-location-list {
+      button {
+        color: $paper-color;
+        &:after {
+          vertical-align: 0.2em;
+        }
+      }
+    }
+    .header-location-list-visible {
+      button {
+        color: $text-color-selected !important;
+      }
+    }
+    .notification-list {
+      button {
+        color: $paper-color;
+      }
+      .header-notification-text {
+        font-weight: 400;
+        font-size: 14px;
+        /* or 20px */
+
+        text-align: right;
+        letter-spacing: 0.17px;
+
+        /* Light/Text/Primary */
+
+        // color: rgba(0, 0, 0, 0.87);
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      .company {
+        font-size: 14px;
+        line-height: 143%;
+        /* or 20px */
+
+        text-align: right;
+        letter-spacing: 0.17px;
+
+        /* Light/Text/Primary */
+
+        // color: rgba(0, 0, 0, 0.87);
+      }
+      .id {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 12px;
+        letter-spacing: 0em;
+        text-align: right;
+      }
+    }
+  }
+}
+.logout-menu {
+  display: none;
+  padding-right: 20px;
+  padding-left: 20px !important;
+  list-style-type: none;
+  position: absolute;
+  width: 180px;
+  height: 138px;
+  right: 7px;
+  top: 60px;
+  background: $paper-color;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.logout-li {
+  display: block;
+  padding: 10px;
+  justify-content: center;
+  text-decoration: none;
+}
+.logout-a {
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(3, 3, 3);
+  &:hover {
+    text-decoration: none;
+    color: $menu-hover-color;
+  }
+}
+.user-group-div {
+  display: flex;
+  // margin-top: 19px;
+  &:hover {
+    .logout-menu {
+      display: block;
+    }
+  }
+  &--sidebar {
+    &:hover {
+      .logout-menu {
+        display: none;
+      }
+    }
+  }
+}
+.icon {
+  margin-bottom: 5px;
+}
+
+.icon-svg {
+  path {
+    fill-opacity: 1;
+  }
+}
+
+.default_header {
+  .icon-svg {
+    path {
+      fill: $header-text-color;
+      fill-opacity: 1;
+    }
+  }
+}
+
+.bell {
+  width: 100px;
+  display: flex;
+  // margin-top: 22px;
+  // margin-bottom: 5px;
+  div {
+    div {
+      svg {
+        path {
+          fill: $header-text-color;
+          fill-opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.logout-li-border {
+  border-bottom: 1px solid $black;
+  padding-bottom: 8px;
+}

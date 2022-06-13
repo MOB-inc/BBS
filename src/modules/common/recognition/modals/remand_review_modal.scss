@@ -1,0 +1,166 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.remand-review-modal {
+  > .modal-dialog {
+    width: 348px;
+    @media (min-width: $sm) {
+      width: unset;
+      max-width: 912px;
+    }
+    .modal-content {
+      height: 800px;
+      border-radius: 22px;
+      border: 1px solid $border-color;
+      .modal-body {
+        padding: 0;
+        .remand-row {
+          height: 800px;
+          textarea.custom:disabled {
+            background-color: $paper-color;
+          }
+          .left {
+            border-right: 1px solid $border-color;
+            height: 100%;
+            width: 50%;
+            @media (min-width: $sm) {
+              width: unset;
+            }
+            .left-title {
+              margin-top: 40px;
+              margin-left: 36px;
+              text-align: left;
+              line-height: 21px;
+              font-size: 13px;
+              color: $black;
+            }
+            .left-content {
+              width: 80%;
+              height: 256px;
+              margin-top: 16px;
+              margin-left: 15px;
+              border: 1px solid #828282;
+              border-radius: 13px;
+              outline: none;
+              padding: 20px;
+              @media (min-width: $sm) {
+                width: 425px;
+              }
+            }
+          }
+          .right {
+            height: 100%;
+            width: 50%;
+            @media (min-width: $sm) {
+              width: unset;
+            }
+            .review-user {
+              width: 80%;
+              height: 136px;
+              margin-top: 16px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: 0;
+              padding: 20px;
+              margin-right: 15px;
+              @media (min-width: $sm) {
+                width: 424px;
+              }
+            }
+            .google-user {
+              display: flex;
+              flex-direction: row;
+              .user-image {
+                margin-right: 10px;
+              }
+              .user_details {
+                .user-name {
+                  display: flex;
+                }
+              }
+              .line {
+                display: flex;
+              }
+            }
+            .section {
+              margin: 22px 0 0 0;
+            }
+            .reply-content {
+              font-size: 13px;
+              margin: 7px 20px;
+            }
+            .review-reply {
+              width: 80%;
+              height: 200px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: 0;
+              padding: 20px;
+              margin-right: 15px;
+              @media (min-width: $sm) {
+                width: 424px;
+              }
+            }
+            .review-bottom-text {
+              font-weight: normal;
+              font-size: 10px;
+              line-height: 12px;
+              display: flex;
+              padding: 0 30px 0 15px;
+              align-items: center;
+              color: rgba(0, 0, 0, 0.4);
+            }
+            .reply-header {
+              display: flex;
+              justify-content: space-between;
+              height: 40px;
+              padding: 0 16px;
+              text-align: left;
+              .dropdown-wrapper {
+                width: 260px;
+                margin-left: 10px;
+                margin-bottom: 5px;
+                .css-yk16xz-control {
+                  border: none;
+                  min-height: 22px;
+                  .css-1okebmr-indicatorSeparator {
+                    display: none;
+                  }
+                  .css-tlfecz-indicatorContainer {
+                    color: $text-color;
+                  }
+                  .css-1wa3eu0-placeholder {
+                    color: $black;
+                    font-size: 13px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .success-button {
+          margin-top: 65px;
+          height: 36px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+        .cancel-button {
+          height: 36px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 13px;
+          color: $paper-color;
+        }
+      }
+    }
+  }
+}

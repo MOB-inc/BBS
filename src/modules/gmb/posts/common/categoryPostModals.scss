@@ -1,0 +1,383 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.post-modal.remand {
+  > .modal-dialog {
+    @media (min-width: $sm) {
+      max-width: 912px;
+      > .modal-content .modal-body {
+        flex-direction: row;
+        .part.left {
+          text-align: left;
+          margin-right: 5px;
+          border-right: 1px solid $border-color;
+          .panel {
+            padding: 5px;
+            border: 1px solid $border-color;
+            border-radius: 13px;
+          }
+        }
+      }
+    }
+  }
+}
+.post-modal {
+  > .modal-dialog {
+    max-width: 456px;
+    .modal-content {
+      min-height: 800px;
+      border-radius: 22px;
+      border: 1px solid $border-color;
+      .modal-body {
+        display: flex;
+        position: relative;
+        padding: 0;
+        .part {
+          flex: 1;
+          display: flex;
+          padding: 16px;
+          flex-direction: column;
+        }
+        .remand-row {
+          min-height: 800px;
+          width: 425px;
+          textarea.custom:disabled {
+            background-color: $paper-color;
+          }
+          .right {
+            height: 100%;
+            position: relative;
+            .right-tab {
+              width: 425px;
+              height: 37px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              margin-top: 18px;
+              display: flex;
+              .tab-items {
+                padding-left: 9px;
+                padding-right: 9px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+              }
+              .first-child {
+                padding-left: 18px;
+              }
+              .item-selected {
+                color: $text-color-selected;
+                text-decoration: underline;
+              }
+            }
+            .right-content {
+              width: 425px;
+              height: 256px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 17px;
+              padding: 20px;
+            }
+            .right-image {
+              width: 425px;
+              height: 134px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              margin-top: 17px;
+              outline: 0;
+              .photo-select-section {
+                height: 100%;
+                width: 100%;
+                .upload-button {
+                  margin-top: 6px;
+                  height: 37px;
+                  width: 114px;
+                  background: linear-gradient(
+                      0deg,
+                      $accent-color,
+                      $accent-color
+                    ),
+                    linear-gradient(
+                      180deg,
+                      #f15b5b 0%,
+                      rgba(255, 255, 255, 0) 100%
+                    );
+                  border: 1px solid $paper-color;
+                  border-radius: 10px;
+                  color: $paper-color;
+                  font-size: 12px;
+                  line-height: 18px;
+                  font-weight: bold;
+                  display: initial !important;
+                }
+              }
+              .image-side {
+                position: relative;
+                width: 121px;
+                height: 86px;
+                margin-left: 15px;
+                margin-top: 24px;
+                .preview-image {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: fill;
+                  float: left;
+                }
+                .delete-icon {
+                  position: absolute;
+                  right: 0;
+                  bottom: 0;
+                  cursor: pointer;
+                }
+              }
+              .zoom-image-side {
+                position: absolute;
+                width: 539px;
+                height: 383px;
+                margin-left: -58px;
+                z-index: 2;
+                margin-top: -130px;
+                .preview-image {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: fill;
+                  float: left;
+                }
+              }
+            }
+            .covid-msg {
+              font-weight: normal;
+              font-size: 13px;
+              line-height: 21px;
+              color: $black;
+              margin-top: 25px;
+            }
+            .covid-right-content {
+              width: 425px;
+              height: 300px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 24px;
+              padding: 20px;
+            }
+            .right-event-title {
+              width: 425px;
+              height: 37px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 17px;
+              padding: 6px;
+            }
+            .right-event-description {
+              width: 425px;
+              height: 300px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 17px;
+              padding: 10px;
+            }
+            .start-date-time,
+            .end-date-time {
+              display: flex;
+              margin-top: 17px;
+              .start-date,
+              .end-date {
+                width: 205px;
+                height: 37px;
+                margin-right: 22px;
+                border: 1px solid $border-color;
+                border-radius: 13px;
+                outline: none;
+                .react-datepicker-wrapper {
+                  display: flex;
+                  width: auto;
+                  float: right;
+                  margin-top: 6px;
+                  margin-right: 10px;
+                  .react-datepicker__input-container {
+                    display: flex;
+                    .date-choose {
+                      margin-right: 70px;
+                    }
+                    .calendar-icon {
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+              .start-time,
+              .end-time {
+                width: 205px;
+                height: 37px;
+                margin-right: 15px;
+                padding-right: 15px;
+                border: 1px solid $border-color;
+                border-radius: 13px;
+                outline: none;
+                .dropdown-wrapper {
+                  width: 180px;
+                  margin-left: 10px;
+                  border: none;
+                  .css-yk16xz-control {
+                    border: 0;
+                    min-height: 22px;
+                    .css-1okebmr-indicatorSeparator {
+                      display: none;
+                    }
+                    .css-tlfecz-indicatorContainer {
+                      color: $text-color;
+                    }
+                  }
+                  .css-1fhf3k1-control {
+                    background-color: unset;
+                    border-radius: unset;
+                    border-color: unset;
+                    border: none;
+                    .css-109onse-indicatorSeparator {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+            .benefits-details {
+              width: 425px;
+              height: 300px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 12px;
+              padding: 6px;
+            }
+            .benefits-coupon {
+              width: 425px;
+              height: 37px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 12px;
+              padding: 6px;
+            }
+            .benefits-link {
+              width: 425px;
+              height: 37px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 12px;
+              padding: 6px;
+            }
+            .benefits-tou {
+              width: 425px;
+              height: 300px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              outline: none;
+              margin-top: 12px;
+              padding: 6px;
+            }
+            .right-dropdown {
+              width: 425px;
+              height: 40px;
+              border: 1px solid $border-color;
+              border-radius: 13px;
+              margin-top: 17px;
+              .pill-dropdown {
+                width: 99px;
+                height: 25px;
+                border-radius: 10px;
+                background-color: $blue;
+                margin-top: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .dropdown-content {
+                  color: $paper-color;
+                  font-weight: bold;
+                  font-size: 12px;
+                  line-height: 20px;
+                }
+              }
+              .dropdown-wrapper {
+                width: 160px;
+                margin-left: 10px;
+                margin-bottom: 5px;
+                .css-yk16xz-control {
+                  border: none;
+                  min-height: 22px;
+                  .css-1okebmr-indicatorSeparator {
+                    display: none;
+                  }
+                  .css-tlfecz-indicatorContainer {
+                    color: $text-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .latest {
+          margin-top: 110px !important;
+        }
+        .benefits-margin {
+          margin-top: 55px !important;
+        }
+        .benefits-margin-2 {
+          margin-top: 105px !important;
+        }
+        .pivot-button-margin {
+          margin-top: 14px !important;
+        }
+        .covid-margin {
+          margin-top: 380px !important;
+        }
+        .covid-margin-2 {
+          margin-top: 0px !important;
+        }
+        .success-button {
+          height: 36px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+        }
+        .cancel-button {
+          height: 36px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 13px;
+          color: $paper-color;
+          font-size: 12px;
+        }
+        .schedule-checkbox {
+          margin-top: 17px;
+          display: flex;
+          justify-content: flex-start;
+          margin-left: 20px;
+        }
+        .button-row {
+          position: fixed;
+          bottom: 70px;
+          margin-left: 60px;
+        }
+        .footer {
+          width: 100%;
+          bottom: 40px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

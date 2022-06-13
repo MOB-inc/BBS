@@ -1,0 +1,251 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+
+.gmb-fixed-phrase {
+  > .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (min-width: $sm) {
+      flex-direction: row;
+    }
+  }
+  > .content {
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $sm) {
+      flex-direction: row;
+    }
+
+    > .service-list {
+      width: 100%;
+      @media (min-width: $sm) {
+        margin-left: 45px;
+      }
+      > .services {
+        display: flex;
+        justify-content: flex-start;
+        .service {
+          height: 45px;
+          font-size: 14px;
+          line-height: 23px;
+          outline: none;
+          border: none;
+          background: transparent;
+          margin-right: 10px;
+        }
+        .service.active {
+          text-decoration-line: underline;
+          color: $text-color-selected;
+        }
+      }
+      div.title {
+        text-align: left;
+        border-bottom: 1px solid;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        width: 485px;
+        > input {
+          width: 80%;
+          border: none;
+          resize: none;
+          outline: none;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 20px;
+          background: transparent;
+        }
+      }
+      div.auto-reply-title {
+        text-align: left;
+        border-bottom: 1px solid;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        width: fit-content;
+        > input {
+          width: 80%;
+          border: none;
+          resize: none;
+          outline: none;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 20px;
+          background: transparent;
+        }
+      }
+      .content-box {
+        overflow-x: scroll;
+        width: calc(100vw - 470px);
+      }
+      div.content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        div.editor {
+          width: 100%;
+          max-height: 675px;
+          @media (min-width: $sm) {
+            width: 485px;
+          }
+          @media (max-width: $sm) {
+            padding: 10px 10px 10px 10px;
+          }
+          padding: 10px 90px 10px 45px;
+          position: relative;
+          background: $background-color-contrast;
+          ::placeholder {
+            color: #acacac;
+          }
+          > textarea {
+            min-height: 655px;
+            width: 100%;
+            border: none;
+            resize: none;
+            outline: none;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            background: transparent;
+          }
+          > div.counter {
+            position: absolute;
+            right: 27px;
+            bottom: 11px;
+          }
+        }
+        > .edit-button {
+          margin-left: 10px;
+          > .pills {
+            width: 70px;
+            border-radius: 15px;
+            margin: 6px 6px;
+            padding: 3px;
+            color: $paper-color;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 17px;
+          }
+          > .reply-example {
+            background: $blue;
+          }
+          > .register {
+            background: $accent-color;
+          }
+          > .cancel {
+            background: $reset-color;
+          }
+          > .delete-icon {
+            position: relative;
+            top: -100px;
+          }
+        }
+        div.editor-small {
+          width: 100%;
+          max-height: 85px;
+          @media (min-width: $sm) {
+            width: 485px;
+          }
+          @media (max-width: $sm) {
+            padding: 10px 10px 10px 10px;
+          }
+          padding: 10px 90px 10px 45px;
+          position: relative;
+          background: $background-color-contrast;
+          ::placeholder {
+            color: #acacac;
+          }
+          > textarea {
+            min-height: 65px;
+            width: 100%;
+            border: none;
+            resize: none;
+            outline: none;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 20px;
+            background: transparent;
+          }
+        }
+        div.auto-reply-editor-small {
+          max-height: 85px;
+          display: flex;
+          @media (max-width: $sm) {
+            padding: 10px 10px 10px 10px;
+          }
+          padding: 10px 0px 10px 0px;
+          position: relative;
+          background: $background-color-contrast;
+          ::placeholder {
+            color: #acacac;
+          }
+          > .item-box {
+            min-height: 65px;
+            margin-left: 20px;
+            margin-right: 10px;
+            text-align: left;
+            > .item-title {
+              text-decoration-line: underline;
+            }
+            > .item-content {
+              display: flex;
+              > input {
+                width: 40px;
+                height: 25px;
+              }
+              > .underline {
+                border-bottom: 1px solid;
+                width: 30px;
+                text-align: right;
+                font-weight: bold;
+              }
+            }
+            > .fixed-phrase {
+              white-space: nowrap;
+              overflow: hidden;
+              display: block;
+              text-overflow: ellipsis;
+            }
+          }
+          .w70 {
+            width: 70px;
+          }
+          .w230 {
+            width: 230px;
+          }
+          .w200 {
+            width: 200px;
+          }
+          .w150 {
+            width: 150px;
+          }
+        }
+        > .edit-button {
+          margin-left: 5px;
+          > .pills {
+            width: 70px;
+            border-radius: 15px;
+            margin: 6px 6px;
+            padding: 3px;
+            color: $paper-color;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 17px;
+          }
+          > .register {
+            background: $accent-color;
+          }
+          > .cancel {
+            background: $reset-color;
+          }
+        }
+      }
+
+      div.editor.active {
+        background: rgba(229, 229, 229, 0.4);
+      }
+    }
+  }
+}

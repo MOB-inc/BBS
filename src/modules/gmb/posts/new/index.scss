@@ -1,0 +1,104 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.posts-new-page {
+  margin: 8px 16px 0 16px;
+  @media (min-width: $sm) {
+    margin: 18px 32px 0 50px;
+  }
+  > .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 21px;
+  }
+  > .filters {
+    display: flex;
+    justify-content: flex-start;
+    > div {
+      margin: 10px 25px 0px 25px;
+      line-height: 30px;
+      cursor: pointer;
+    }
+    > div.active {
+      color: $text-color-selected;
+    }
+  }
+  > .pages {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 12px;
+    div.dropdown {
+      .dropdown-menu {
+        a {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+    .dropdown-toggle::after {
+      content: none;
+    }
+  }
+  .list-view {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $sm) {
+      flex-direction: row;
+    }
+  }
+  .list-group {
+    border: 1px solid rgba(0, 0, 0, 0.22);
+    width: 242px;
+    margin-right: 55px;
+    .item {
+      height: 45px;
+      line-height: 21px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      @media (min-width: $sm) {
+        width: 240.08px !important;
+      }
+      .text {
+        display: block;
+        width: 70%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .right {
+        position: absolute;
+        right: 20px;
+      }
+    }
+    .header {
+      font-weight: bold;
+      color: $text-color;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    }
+    .body {
+      height: 675px;
+      overflow-y: auto;
+      .item {
+        a {
+          font-weight: normal;
+          font-size: 14px;
+          display: block;
+          height: 100%;
+          width: 100%;
+          line-height: 45px;
+          text-decoration: none;
+          color: $black;
+        }
+      }
+      .item:nth-child(odd) {
+        background-color: $background-color-list-odd;
+      }
+    }
+  }
+}

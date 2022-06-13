@@ -1,0 +1,14 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+.menu-item-photo-modal {
+  .modal-content {
+    overflow-y: scroll;
+    height: 442px;
+    .row {
+      margin: 10px;
+    }
+    img {
+      margin: 10px;
+    }
+  }
+}

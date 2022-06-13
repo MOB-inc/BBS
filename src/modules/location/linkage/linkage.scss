@@ -1,0 +1,179 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.location-linkage {
+  .linkage-content {
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $sm) {
+      flex-direction: row;
+    }
+    .dialog-list {
+      width: 100%;
+      margin-top: 5px;
+      @media (min-width: $sm) {
+        margin-top: 45px;
+        margin-left: 45px;
+        height: 637px;
+        overflow: scroll;
+      }
+      .dialog-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        @media (min-width: $sm) {
+          flex-direction: row;
+        }
+        .dialog {
+          @media (min-width: $sm) {
+            width: 631px;
+            margin-bottom: 45px;
+          }
+          border: 1px solid $gray;
+          box-sizing: border-box;
+          border-radius: 8px;
+          text-align: left;
+          color: $black;
+          .header {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 45px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 20px;
+            padding: 0 26px;
+            border-bottom: 1px solid $gray;
+            .notice {
+              font-size: 12px;
+              color: #e60033;
+            }
+          }
+
+          .body {
+            display: flex;
+            flex-direction: column;
+            padding: 2px 6px 5px 6px;
+            @media (min-width: $sm) {
+              flex-direction: row;
+              padding: 12px 26px 15px 26px;
+            }
+
+            .left {
+              display: block;
+              width: 100%;
+              font-size: 14px;
+              white-space: pre-line;
+              @media (min-width: $sm) {
+                width: 75%;
+              }
+            }
+            .center {
+              display: block;
+              width: 100%;
+              font-size: 14px;
+              white-space: pre-line;
+              margin-left: 25px;
+              @media (min-width: $sm) {
+                width: 75%;
+              }
+            }
+            .right {
+              display: block;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              @media (min-width: $sm) {
+                width: 25%;
+              }
+              .button {
+                outline: none;
+                border: none;
+                width: 125px;
+                height: 33px;
+                display: flex;
+                padding: 0;
+                flex-direction: space-between;
+                margin-top: 10px;
+                span {
+                  display: block;
+                  width: 100%;
+                  font-weight: 600;
+                  font-size: 14px;
+                  line-height: 33px;
+                  color: $paper-color;
+                  text-align: center;
+                }
+              }
+              .textbox {
+                margin-top: 10px;
+              }
+              .fb {
+                background: #385495;
+                border-radius: 2px;
+              }
+              .gmb {
+                background: #4c98dd;
+                border-radius: 4px;
+                padding-left: 4px;
+              }
+              .line {
+                background: #61ff61;
+                border-radius: 4px;
+                padding-left: 4px;
+              }
+              .cms {
+                background: #000000;
+                border-radius: 4px;
+                padding-left: 4px;
+              }
+              .linked {
+                background: #e3d7a3;
+                font-weight: bold;
+                border-radius: 4px;
+                padding: 2px;
+                display: flex;
+                .icon {
+                  margin: auto 3px;
+                }
+              }
+            }
+          }
+        }
+        .status {
+          display: block;
+          margin: auto;
+          font-size: 12px;
+          font-weight: bold;
+          text-align: left;
+          span.ellipsis {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 5px;
+            max-width: 300px;
+          }
+          div.id-display {
+            overflow: hidden;
+            margin: 8px;
+          }
+          .icon-svg {
+            height: 20px;
+            width: 20px;
+          }
+        }
+        .status .linked {
+          color: $text-color-selected;
+        }
+        .status .release {
+          font-size: 9px;
+          cursor: pointer;
+          color: rgba(0, 0, 255, 0.63);
+        }
+      }
+    }
+  }
+}

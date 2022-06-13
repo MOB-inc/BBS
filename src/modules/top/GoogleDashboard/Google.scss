@@ -1,0 +1,154 @@
+@import '/src/commons/styles/color.scss';
+@import '/src/commons/styles/variables.scss';
+
+.instagram-head-text {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 33.6299px;
+  line-height: 155%;
+
+  @media (max-width: $sm) {
+    font-size: 20.6299px !important;
+  }
+  @media (max-width: $xs) {
+    font-size: 20.6299px !important;
+  }
+
+  color: #25262b;
+}
+
+.rating-card-google {
+  align-items: center;
+  @media (max-width: $sm) {
+    display: block;
+  }
+}
+
+.mobile-full-width {
+  @media (max-width: $sm) {
+    width: 100%;
+  }
+}
+
+.google-chart-parent-div {
+  height: 250px;
+  @media (max-width: $sm) {
+    height: auto;
+  }
+  @media (max-width: $xs) {
+    height: auto;
+  }
+}
+
+.mobile-margin-top-0-from-header {
+  @media (max-width: $sm) {
+    margin-top: 0px;
+  }
+  @media (max-width: $xs) {
+    margin-top: 0px;
+  }
+}
+
+.google-table-card-parent-div {
+  height: 250px;
+  overflow-x: auto;
+  @media (max-width: $sm) {
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+.header-rating-cards {
+  font-weight: 700;
+  font-size: 50.4448px;
+  line-height: 155%;
+  text-align: center;
+  // color: #CC0099;
+}
+
+.rating-comp-parent-dv {
+  text-align: center;
+}
+
+.icon-star {
+  height: 20px;
+  width: 21px;
+}
+
+.number-count-card-google {
+  font-size: 50.4448px;
+  font-weight: 700;
+  line-height: 155%;
+  /* or 78px */
+
+  text-align: center;
+
+  /* CC0099 */
+
+  // color: #CC0099;
+}
+
+.up-arrow-font-color{
+    color:#2E7D32;
+    font-size: 16px;
+}
+
+.header-rating-status-cards{
+    font-weight: 400;
+    font-size: 20.48px;
+    line-height: 155%;
+    /* identical to box height, or 32px */
+
+  text-align: center;
+
+  /* Dark/Dark 6 */
+
+  color: #25262b;
+}
+
+.header-table-cards {
+  font-size: 20.48px;
+  color: #25262b;
+  font-weight: 400;
+}
+
+.table-card-parent-div {
+  height: 250px;
+  overflow-x: auto;
+  @media (max-width: $sm) {
+    width: 320px;
+    overflow-y: auto;
+  }
+}
+
+.table-header-tab {
+  font-size: 12px;
+  color: #25262b;
+  font-weight: 700;
+}
+
+.grid-tab-parent-div {
+  margin-top: 20px;
+  // margin-bottom: 20px;
+}
+
+.margin-top-to-header {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+.arrow-down-top {
+  // display: flex;
+  align-items: center;
+  path {
+    fill: #d32f2f;
+  }
+  color: #d32f2f;
+}
+
+.arrow-up-top {
+  // display: flex;
+  align-items: center;
+  color: #2e7d32;
+  fill: #2e7d32;
+}

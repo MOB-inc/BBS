@@ -1,0 +1,5 @@
+[defaults]
+project=client
+org=bridgebooks
+[auth]
+token=92dded4e2cc64a0282f3229de75933d340e4996ecd264f52931fdcb55583c8b1

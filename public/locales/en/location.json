@@ -1,0 +1,60 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "ID",
+      "NAME": "Name",
+      "ROOT": "Root",
+      "ADDRESS": "Address",
+      "TELEPHONE": "Telephone",
+      "LOCATIONS": "Locations"
+    }
+  },
+  "COMMON": {
+    "LINK_INFO": "Linkinfo",
+    "LOCATION_INFO": "Location",
+    "CONTRACT_INFO": "Contractor",
+    "BULK_EDIT": "Bulkedit",
+    "LIST_HEADER": "Location",
+    "ALL_LOCATIONS": "Common to all locations"
+  },
+  "LINKAGE": {
+    "LOGIN": "Login",
+    "IG_HEADER": "Instagram integration",
+    "IG_BODY": "Log in to your Facebook account. Log in to your Facebook account and select the linked Instagram account.",
+    "IG_AlREADY_LINKED": "Login as {{igAccountName}}",
+    "GMB_HEADER": "Google Business Profile Linkage",
+    "GMB_NOTICE": "※PlaceID is unset",
+    "GMB_BODY": "Log in to your Google account. The managed Google Business Profile account will be displayed, so select and link. * Requires a Google Business Profile administrator",
+    "STATUS_CONNECTED": "linked",
+    "STATUS_DISCONNECTED": "Not linked",
+    "RELEASE": "Release",
+    "MODAL": {
+      "TITLE": "Select the Facebook page you want to link to.",
+      "REGISTER": "Register",
+      "CANCEL": "Cancel"
+    }
+  },
+  "CONTRACTOR": {
+    "STORE_CLERK": "Store clerk",
+    "START_DATE": "Start date",
+    "END_DATE": "End date"
+  },
+  "PHRASE": {
+    "EDIT": "Edit",
+    "REPLY_EXAMPLE": "Reply Example",
+    "REGISTER": "Register",
+    "CANCEL": "Cancel",
+    "TEXT": "Text",
+    "TITLE": "Title",
+    "GMB": "GMB linked posts",
+    "REVIEWS": "Review reply",
+    "CMS": "CMS linked posts",
+    "LINE_OFFICIAL": "LINE OFFICIAL linked posts",
+    "SELECT_PLACEHOLDER": "Select an example",
+    "RETURN": "Return",
+    "LINK_TYPE_PLACEHOLDER": "Add link (optional)",
+    "LINK_NAME_PLACEHOLDER": "Link name (e.g. click here to make a reservation)",
+    "LINK_TEXT_GBP": "When linking postings to GBP, a link button can be added to the latest information postings.",
+    "LINK_TEXT_LINE": "When linking posts to LINE Officials, a link button can be added to the latest information postings."
+  }
+}

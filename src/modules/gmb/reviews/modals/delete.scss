@@ -1,0 +1,25 @@
+@import 'src/commons/styles/color.scss';
+
+.delete-modal {
+  > .modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  > .modal-dialog > .modal-content {
+    width: 464px;
+    height: 287px;
+    display: flex;
+    justify-content: center;
+    padding: 60px;
+    border: 1px solid $border-color;
+    border-radius: 22px;
+    .message {
+      text-align: center;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      color: $gray;
+    }
+  }
+}

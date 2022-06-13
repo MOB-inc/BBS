@@ -1,0 +1,42 @@
+@import 'src/commons/styles/color.scss';
+
+.success-card {
+  border-radius: 22px;
+  padding: 45px 30px 31px 30px;
+  margin-bottom: 0;
+  background-color: transparent;
+  border: none;
+  > .card-body {
+    form {
+      .header-logo {
+        margin-bottom: 26px;
+        img {
+          width: 114px;
+          height: 80px;
+        }
+      }
+      .row {
+        .success-message {
+          font-size: 12px;
+          line-height: 28px;
+          font-weight: 600;
+          margin-top: 30px;
+          margin-bottom: 47px;
+        }
+        .success-button {
+          margin-top: 36px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid transparent;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 20px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

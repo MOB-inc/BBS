@@ -1,0 +1,40 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.location-modal {
+  .modal-title {
+    font-weight: bold;
+    color: $black;
+  }
+  .label-box {
+    text-align: left;
+    .select-facebook-label {
+      margin-bottom: 0;
+      padding-top: 3px;
+    }
+  }
+  .form-check-input {
+    margin-bottom: 12px;
+  }
+
+  .success-button {
+    height: 36px;
+    width: 114px;
+    background: linear-gradient(0deg, $accent-color, $accent-color),
+      linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid $paper-color;
+    border-radius: 10px;
+    color: $paper-color;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .cancel-button {
+    height: 36px;
+    width: 114px;
+    background: $reset-color;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    color: $paper-color;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,385 @@
+[
+  {
+    "parent": "attributes/is_owned_by_women",
+    "valueType": "BOOL",
+    "displayName": "Identifies as women-owned",
+    "groupDisplayName": "From the business",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Identifies as women-owned"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_outdoor_services",
+    "valueType": "BOOL",
+    "displayName": "Outdoor services",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Outdoor services"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_appointments",
+    "valueType": "BOOL",
+    "displayName": "Appointment required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Appointment required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_customers",
+    "valueType": "BOOL",
+    "displayName": "Mask required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Mask required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_customers",
+    "valueType": "BOOL",
+    "displayName": "Temperature check required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Temperature check required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff wear masks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Staff wear masks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff get temperature checks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Staff get temperature checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_sanitizing_between_customers",
+    "valueType": "BOOL",
+    "displayName": "Staff required to disinfect surfaces between visits",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Staff required to disinfect surfaces between visits"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_elevator",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible elevator",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Wheelchair accessible elevator"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_entrance",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible entrance",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Wheelchair accessible entrance"
+      },
+      {
+        "value": false,
+        "current": null,
+        "displayName": "No wheelchair accessible entrance"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_parking",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible parking lot",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Wheelchair accessible parking lot"
+      },
+      {
+        "value": false,
+        "current": null,
+        "displayName": "No wheelchair accessible parking lot"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_restroom",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible restroom",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Wheelchair accessible restroom"
+      },
+      {
+        "value": false,
+        "current": null,
+        "displayName": "No wheelchair accessible restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_seating",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible seating",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Wheelchair accessible seating"
+      },
+      {
+        "value": false,
+        "current": null,
+        "displayName": "No wheelchair accessible seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom_unisex",
+    "valueType": "BOOL",
+    "displayName": "Gender-neutral restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Gender-neutral restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom",
+    "valueType": "BOOL",
+    "displayName": "Restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/wi_fi",
+    "valueType": "ENUM",
+    "displayName": "Wi-Fi",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": "free_wi_fi",
+        "current": true,
+        "displayName": "Free"
+      },
+      {
+        "value": "paid_wi_fi",
+        "current": null,
+        "displayName": "Paid"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/welcomes_lgbtq",
+    "valueType": "BOOL",
+    "displayName": "LGBTQ+ friendly",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "LGBTQ+ friendly"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_transgender_safespace",
+    "valueType": "BOOL",
+    "displayName": "Transgender safespace",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Transgender safespace"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_cash_only",
+    "valueType": "BOOL",
+    "displayName": "Cash-only",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Cash-only"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_check",
+    "valueType": "BOOL",
+    "displayName": "Checks",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_credit_card_types_accepted",
+    "valueType": "REPEATED_ENUM",
+    "displayName": "Credit cards",
+    "groupDisplayName": "Payments",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "american_express",
+        "current": true,
+        "displayName": "American Express"
+      },
+      {
+        "value": "china_union_pay",
+        "current": true,
+        "displayName": "China Union Pay"
+      },
+      {
+        "value": "diners_club",
+        "current": true,
+        "displayName": "Diners Club"
+      },
+      {
+        "value": "discover",
+        "current": true,
+        "displayName": "Discover"
+      },
+      {
+        "value": "jcb",
+        "current": true,
+        "displayName": "JCB"
+      },
+      {
+        "value": "mastercard",
+        "current": true,
+        "displayName": "MasterCard"
+      },
+      {
+        "value": "visa",
+        "current": true,
+        "displayName": "VISA"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_debit_card",
+    "valueType": "BOOL",
+    "displayName": "Debit cards",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Debit cards"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_mobile_nfc",
+    "valueType": "BOOL",
+    "displayName": "NFC mobile payments",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "NFC mobile payments"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_appointment",
+    "valueType": "URL",
+    "displayName": "Appointment links",
+    "groupDisplayName": "Place page URLs",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "https://www.google.com/",
+        "current": true,
+        "displayName": "https://www.google.com/"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_menu",
+    "valueType": "URL",
+    "displayName": "Menu link",
+    "groupDisplayName": "Place page URLs",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "https://www.google.com/",
+        "current": true,
+        "displayName": "https://www.google.com/"
+      }
+    ]
+  }
+]

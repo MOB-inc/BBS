@@ -1,0 +1,172 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.dashboard-page {
+  padding: 12px 9px 9px 12px;
+  @media (min-width: $sm) {
+    padding: 32px 29px 29px 53px;
+  }
+  > .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  > .filter-pages {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    > .filters {
+      display: flex;
+      justify-content: flex-start;
+      > div {
+        margin: 10px 20px 0px 20px;
+        line-height: 30px;
+        color: $black;
+      }
+      .react-datepicker-wrapper {
+        width: auto;
+      }
+      .react-datepicker__tab-loop {
+        margin: 0;
+      }
+    }
+    > .pages {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 12px;
+      div.dropdown {
+        .dropdown-menu {
+          a {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .dropdown-toggle::after {
+        content: none;
+      }
+    }
+  }
+  > .list {
+    overflow-x: auto;
+    > div.table {
+      table-layout: fixed;
+      margin-bottom: 0;
+      > div.thead .cell {
+        border-top: 1px solid rgba(0, 0, 0, 0.22);
+        .icon-svg {
+          height: 25px;
+          width: 25px;
+        }
+        .insta-icon {
+          margin-right: 4px;
+        }
+      }
+      > div.thead,
+      div.tbody {
+        display: block;
+        min-width: 1220px;
+        overflow-y: scroll;
+      }
+      > div.tbody .cell {
+        color: $black;
+      }
+      > div.thead div.row,
+      div.tbody div.row {
+        width: 100%;
+        height: 45px;
+        text-align: center;
+        margin: 0;
+        cursor: pointer;
+        > div.cell {
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 21px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 0;
+          position: relative;
+          > div.delete {
+            color: #0000ff;
+          }
+          > div.deleted {
+            color: #ff0101;
+          }
+          > div.linePosted {
+            color: #f9951a;
+          }
+          > div.lineUnPosted {
+            color: #000;
+          }
+        }
+        > div.cell.column {
+          justify-content: space-around;
+        }
+        > div.cell.content {
+          display: block;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 0 5px;
+          color: $black;
+        }
+        a.insta-link:link {
+          color: $black;
+        }
+        a.insta-link:visited {
+          color: $black;
+        }
+        a.insta-link:active {
+          color: $black;
+        }
+        a.insta-link:hover {
+          color: #0000ff;
+        }
+        span.highlight {
+          svg {
+            path {
+              fill: rgb(213, 91, 254);
+            }
+          }
+        }
+        > div.cell:not(:last-child) {
+          border-right: 1px solid rgba(0, 0, 0, 0.22);
+        }
+      }
+      > div.thead div.row,
+      div.tbody div.row {
+        table-layout: fixed;
+        .w200 {
+          width: 200px;
+        }
+        .w231 {
+          width: 231px;
+        }
+        .w97 {
+          width: 97px;
+        }
+      }
+      > div.tbody {
+        height: calc(100vh - 358px);
+        @media (min-width: $sm) {
+          height: calc(100vh - 298px);
+        }
+        overflow-x: hidden;
+        div.row div.cell {
+          font-weight: normal;
+        }
+        div.row:nth-child(odd) {
+          div.cell {
+            background: $background-color-list-odd;
+          }
+        }
+      }
+      div.thead div.row div.cell {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+      }
+    }
+  }
+}

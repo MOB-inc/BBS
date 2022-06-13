@@ -1,0 +1,25 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables';
+
+.logout-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  div.message {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: $gray;
+  }
+
+  > button {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  @media (min-width: $sm) {
+    min-height: 700px;
+  }
+}

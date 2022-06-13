@@ -1,0 +1,14 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.public-page {
+  position: relative;
+  .content {
+    width: 80%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 20px auto 0 auto;
+    text-align: left;
+  }
+}

@@ -1,0 +1,64 @@
+@import 'src/commons/styles/color.scss';
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+input[type='checkbox'] {
+  background-color: $paper-color;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  border: 1px solid $border-color;
+}
+input[type='checkbox']:checked {
+  background: $text-color
+    url('data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==')
+    1px 1px no-repeat;
+}
+
+.w2d5p {
+  width: 2.5%;
+}
+.w5p {
+  width: 5%;
+}
+.w7d5p {
+  width: 7.5%;
+}
+.w10p {
+  width: 10%;
+}
+.w15p {
+  width: 15%;
+}
+.w20p {
+  width: 20%;
+}
+.w22d5p {
+  width: 22.5%;
+}
+.w25p {
+  width: 25%;
+}
+.w27d5p {
+  width: 27.5%;
+}
+.w30p {
+  width: 30%;
+}
+.w32d5p {
+  width: 32.5%;
+}

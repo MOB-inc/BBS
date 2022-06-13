@@ -1,0 +1,23 @@
+{
+  "REPLY": "Reply",
+  "POST": "Post",
+  "POSTS": {
+    "DATE_TIME": "Post date and time",
+    "LOCATION": "Location",
+    "CONTENTS": "Contents",
+    "PHOTO": "Photo",
+    "CATEGORY": "Category",
+    "STATUS": "Status",
+    "WANT": "Want",
+    "ITEM": "Item",
+    "LIST": "List",
+    "REMAND": "Remand",
+    "NEW_POST": "Post",
+    "REVIEW": "Review",
+    "GROUP": "Group",
+    "TO_POST": "New Post"
+  },
+  "NEW": {
+    "PUBLISH_MSG": "Are you sure you want to publish it?"
+  }
+}

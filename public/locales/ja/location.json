@@ -1,0 +1,65 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "ID",
+      "NAME": "Name",
+      "ROOT": "Root",
+      "ADDRESS": "Address",
+      "TELEPHONE": "Telephone",
+      "LOCATIONS": "Locations"
+    }
+  },
+  "COMMON": {
+    "LINK_INFO": "基本情報",
+    "LOCATION_INFO": "ロケーション情報",
+    "CONTRACT_INFO": "契約者情報",
+    "BULK_EDIT": "一括編集",
+    "LIST_HEADER": "ロケーション",
+    "ALL_LOCATIONS": "全ロケーション共通"
+  },
+  "LINKAGE": {
+    "LOGIN": "ログイン",
+    "SUBMIT": "登録",
+    "IG_HEADER": "Instagram連携",
+    "IG_BODY": "Facebookアカウントにログインします。 \n管理しているFacebookアカウントにログインし、 \nリンクされているInstagramアカウントを選択して下さい。",
+    "IG_AlREADY_LINKED": "{{igAccountName}}",
+    "GMB_HEADER": "Google連携",
+    "GMB_NOTICE": "※PlaceIDが未設定です。",
+    "GMB_BODY": "Googleアカウントにログインします。 \n管理しているGoogleアカウントが表示されるので、 \n選択し連携します。※Googleビジネスプロフィールの管理者の必要あり",
+    "LINE_OFFICIAL_HEADER": "LINE公式連携",
+    "LINE_OFFICIAL_BODY": "LINE公式のアクセストークンを登録します。",
+    "CMS_HEADER": "CMS連携",
+    "CMS_BODY": "CMS連携に必要な情報を登録します。\n詳細はCMSサービス管理者にお問い合わせください。",
+    "STATUS_CONNECTED": "連携済み",
+    "STATUS_DISCONNECTED": "未連携",
+    "RELEASE": "解除",
+    "MODAL": {
+      "TITLE": "連携するFacebookページを選択して下さい。",
+      "REGISTER": "登録",
+      "CANCEL": "キャンセル"
+    }
+  },
+  "CONTRACTOR": {
+    "STORE_CLERK": "店舗担当者",
+    "START_DATE": "契約開始日",
+    "END_DATE": "次回更新日"
+  },
+  "PHRASE": {
+    "EDIT": "編集",
+    "PHRASE_EXAMPLE": "定型文例選択",
+    "REGISTER": "登録",
+    "CANCEL": "キャンセル",
+    "TEXT": "文字",
+    "TITLE": "タイトル",
+    "GMB": "GBP連動投稿",
+    "REVIEWS": "口コミ返信",
+    "CMS": "CMS連動投稿",
+    "LINE_OFFICIAL": "LINE公式連動投稿",
+    "SELECT_PLACEHOLDER": "例を選択",
+    "RETURN": "戻る",
+    "LINK_TYPE_PLACEHOLDER": "リンク追加（省略可）",
+    "LINK_NAME_PLACEHOLDER": "リンク名（例：予約はこちら）",
+    "LINK_TEXT_GBP": "GBPの投稿にリンクボタンをつけることができます。",
+    "LINK_TEXT_LINE": "LINE公式の投稿にリンクボタンをつけることができます。"
+  }
+}

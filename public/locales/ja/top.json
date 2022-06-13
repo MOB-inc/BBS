@@ -1,0 +1,59 @@
+{
+  "INSTAPAGE": {
+    "FOLLOWERS": "フォロワー数",
+    "FOLLOWING": "フォロー数",
+    "POSTS": "投稿数",
+    "PROFILE_VIEWS": "プロフィール閲覧数",
+    "TOTAL_REACH": "リーチ数",
+    "TOP_3_LKES_&_VIEWS": "いいね&閲覧 トップ3",
+    "TOP_3_FOLLOWERS_BY_REGION": "フォロワー地域 トップ3",
+    "FOLLOWER_AGE_&_GENDER": "フォロワー 年代&性別",
+    "MALE": "男性",
+    "FEMALE": "女性",
+    "UNKNOWN": "不明",
+    "VS": "過去",
+    "DAYS": "日間比",
+    "FOLLOWER_AGE_GENDER": "フォロワー 年代&性別",
+    "LIKE": "いいね",
+    "VIEWS": "閲覧"
+  },
+  "GOOGLE_PAGE": {
+    "GOOGLE_BUSINESS_PROFILE": "Googleビジネスプロフィール",
+    "AVERAGE_RATNG": "平均評価",
+    "REVIEWS": "口コミ数",
+    "REPLIES_TO_REVEWS": "返信数",
+    "REVIEW_REPLY_RATE": "返信率",
+    "GOOGLE_SEARCH_COUNT": "Google検索数",
+    "GOOGLE_MAP_VIEWS": "Googleマップ閲覧数",
+    "URL_CLCKS": "URLクリック数",
+    "ROUTE_SEARCHES": "経路検索数",
+    "PHONE_CALLS": "電話数",
+    "GOOGLE_SEARCH": "Google検索",
+    "PHOTO_COUNT": "写真枚数(期間内)",
+    "TOTAL_PHOTO_COUNT": "総写真枚数",
+    "PHOTO_VEW_COUNT": "写真閲覧数(期間内)",
+    "TOTAL_PHOTO_VIEW_COUNT": "総写真閲覧数",
+    "VS": "過去",
+    "DAYS": "日間比"
+  },
+  "LINE_PAGE": {
+    "LINE_PAGE_TITLE": "LINE",
+    "FRIENDS": "友だち数",
+    "MESSAGES_SENT": "LINE投稿数",
+    "MESSAGES_DELEVERD_THIS_MONTH": "今月の配信メッセージ数",
+    "OPEN_RATE_THIS_MONTH": "今月の開封率",
+    "LINE_CHART_TITLE": "友だち",
+    "FREND_AGE_GENDER": "友だち 年代&性別",
+    "VS": "過去",
+    "DAYS": "日間比"
+  },
+  "COMMON": {
+    "LAST_7_dAYS": "過去7日",
+    "LAST_30_dAYS": "過去30日",
+    "LAST_180_dAYS": "過去180日",
+    "LAST_365_dAYS": "過去365日",
+    "MAXIMUM_DURATION": "全期間",
+    "CUSTOM_RANGE": "カスタム",
+    "DATA_RANGE_PLACEHOLDER": "期間を指定して下さい"
+  }
+}

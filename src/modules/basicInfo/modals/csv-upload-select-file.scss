@@ -1,0 +1,86 @@
+@import '/src/commons/styles/color.scss';
+
+.csv-upload-select-file {
+  .modal-content {
+    text-align: center;
+    width: 456px;
+    height: 442px;
+    border-radius: 22px;
+    border: 1px solid $border-color;
+    > .upload-body {
+      padding: unset;
+      .display-portion {
+        width: 397px;
+        height: 319px;
+        border-radius: 22px;
+        border: 1px solid $border-color;
+        margin-top: 25px;
+        margin-left: 29px;
+        outline: 0;
+        .csv-msg {
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 20px;
+          color: $black;
+          opacity: 0.4;
+        }
+        .msg-margin {
+          margin-top: 125px;
+        }
+        .upload-button {
+          margin-top: 6px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+          display: initial !important;
+        }
+        .validation-msg {
+          margin-top: 5px;
+          .common {
+            font-size: 15px;
+            color: $text-color-selected;
+          }
+        }
+      }
+      .button-portion {
+        display: flex;
+        float: right;
+        margin-right: 26px;
+        .success-button {
+          margin-top: 32px;
+          margin-right: 26px;
+          height: 37px;
+          width: 114px;
+          background: linear-gradient(0deg, $accent-color, $accent-color),
+            linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+          border: 1px solid $paper-color;
+          border-radius: 10px;
+          color: $paper-color;
+          font-size: 12px;
+          line-height: 18px;
+          font-weight: bold;
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+        }
+        .cancel-button {
+          height: 37px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 32px;
+          color: $paper-color;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

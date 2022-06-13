@@ -1,0 +1,32 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+$backgroundImage: var(--login-background-image);
+
+.login-width {
+  width: 100%;
+  background-image: $backgroundImage;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .auth-lang {
+    width: 50px;
+    margin-left: 64%;
+    .dropdown {
+      button {
+        color: $paper-color;
+      }
+    }
+  }
+  .card-structure {
+    position: relative;
+    width: 100%;
+    width: 456px;
+    height: 442px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @media (min-width: $sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

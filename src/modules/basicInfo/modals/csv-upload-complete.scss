@@ -1,0 +1,38 @@
+@import '/src/commons/styles/color.scss';
+
+.csv-upload-complete {
+  .modal-content {
+    text-align: center;
+    width: 456px;
+    height: 442px;
+    border-radius: 22px;
+    border: 1px solid $border-color;
+    > .upload-body {
+      padding: unset;
+      .text-portion {
+        margin-top: 200px;
+        margin-bottom: 100px;
+        font-size: 18px;
+        line-height: 28px;
+        color: $gray;
+        font-weight: 600;
+      }
+      .button-portion {
+        display: flex;
+        float: right;
+        margin-right: 26px;
+        .cancel-button {
+          height: 37px;
+          width: 114px;
+          background: $reset-color;
+          border: 1px solid #ffffff;
+          border-radius: 10px;
+          margin-top: 32px;
+          color: $paper-color;
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

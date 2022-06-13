@@ -1,0 +1,132 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+div.user-page {
+  $border: 1px solid rgba(0, 0, 0, 0.22);
+  padding: 12px 9px 9px 12px;
+  @media (min-width: $sm) {
+    padding: 32px 29px 29px 53px;
+  }
+  > .navbar {
+    margin: 3px 3px 3px 3px;
+    padding: 0 !important;
+    > .col {
+      padding: 0 !important;
+      margin-bottom: 18px;
+    }
+    > .left {
+      display: flex;
+      justify-content: flex-start;
+    }
+    > .right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .search-bar {
+        width: 266px;
+      }
+      .search-icon {
+        padding: 0 12px;
+      }
+    }
+  }
+
+  > .list {
+    overflow-x: auto;
+    > div.table {
+      table-layout: fixed;
+      margin-bottom: 0;
+      > div.thead .cell {
+        border-top: 1px solid rgba(0, 0, 0, 0.22);
+      }
+      > div.thead,
+      div.tbody {
+        display: block;
+        min-width: 1220px;
+        overflow-y: scroll;
+      }
+      > div.tbody .cell {
+        color: $black;
+      }
+      > div.thead div.row,
+      div.tbody div.row {
+        width: 100%;
+        min-height: 45px;
+        text-align: center;
+        margin: 0;
+        cursor: pointer;
+        > div.cell {
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 21px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 0;
+          position: relative;
+          > div.delete {
+            color: #0000ff;
+          }
+          > div.deleted {
+            color: #ff0101;
+          }
+        }
+        > div.scroll {
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+          overflow-x: scroll;
+          overflow-y: scroll;
+          white-space: pre;
+          padding: 0 5px;
+          max-height: 200px;
+        }
+        > div.cell.column {
+          flex-direction: column;
+        }
+        span.highlight {
+          svg {
+            path {
+              fill: rgb(213, 91, 254);
+            }
+          }
+        }
+        > div.cell:not(:last-child) {
+          border-right: 1px solid rgba(0, 0, 0, 0.22);
+        }
+      }
+      > div.thead div.row,
+      div.tbody div.row {
+        table-layout: flex;
+      }
+      > div.tbody {
+        height: calc(100vh - 348px);
+        @media (min-width: $sm) {
+          height: calc(100vh - 280px);
+        }
+        overflow-x: hidden;
+        div.row div.cell {
+          font-weight: normal;
+        }
+        div.row:nth-child(odd) {
+          div.cell {
+            background: $background-color-list-odd;
+          }
+        }
+      }
+      div.thead div.row div.cell {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+      }
+      div.tbody div.row:hover {
+        div.cell:not(:first-child) {
+          color: $text-color-selected;
+          svg path {
+            fill: $text-color-selected;
+          }
+        }
+      }
+      div.tbody div.row div.cell:first-child:hover {
+        color: $black;
+      }
+    }
+  }
+}

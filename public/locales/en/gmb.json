@@ -1,0 +1,76 @@
+{
+  "REVIEW": "Review",
+  "POST": "Post",
+  "REVIEWS": {
+    "BULK_REPLY": "Bulk Reply",
+    "LIST": "List",
+    "NOT_REPLIED": "Not Replied",
+    "NO_REPLY_REQUIRED": "No Reply Required.",
+    "REMAND": "Remand",
+    "FIXED_PHRASE": "Fixed phrase",
+    "WANT": "want",
+    "ITEM": "item",
+    "DATE_TIME": "Date & Time",
+    "LOCATION": "Location",
+    "REVIEW": "Review",
+    "REPLY": "Reply",
+    "EVALUATION": "Evaluation",
+    "STATUS": "Status",
+    "EMPTY_SEARCH": "Empty search",
+    "REVIEW_COMMENT_TOOLTIP": "If checked, only reviews without comments will be displayed.",
+    "BULK": {
+      "APPLICATION": "Acknowledgement application",
+      "CONTENT": "Reply content",
+      "MESSAGE": "The content of the reply will be published on Google. You must also follow the Google Local Listings content policy.",
+      "PUBLIC_BTN": "Public",
+      "RETURN_BTN": "Return",
+      "REPLY_PLACEHOLDER": "Please enter your reply.",
+      "SELECT_PLACEHOLDER": "Select from fixed phrase"
+    },
+    "DELETE": {
+      "MESSAGE1": "Are you sure you want to delete it?",
+      "MESSAGE2": "Has completed.",
+      "CONFIRM_BTN": "Delete",
+      "RETURN_BTN": "Return"
+    },
+    "DISPLAY": {
+      "REMAND_REASON": "Reason for remand",
+      "STATUS": "Status",
+      "APPLICATION": "Acknowledgement application",
+      "CONTENT": "Reply content",
+      "MESSAGE": "The content of the reply will be published on Google. You must also follow the Google Local Listings content policy.",
+      "EDIT_BTN": "Edit",
+      "PUBLIC_BTN": "Public",
+      "DELETE_BTN": "Delete",
+      "RETURN_BTN": "Return",
+      "REPLY_PLACEHOLDER": "Please enter your reply.",
+      "SELECT_PLACEHOLDER": "Select from fixed phrase",
+      "NO_REPLY_REQUIRED": "Change to No Reply Required.",
+      "CANCEL_NO_REPLY_REQUIRED": "Change to Reply Required."
+    },
+    "EDIT": {
+      "MESSAGE1": "Are you sure you want to publish it?",
+      "MESSAGE2": "Has completed.",
+      "WARNING": "If there is an approval step, it will be published after approval.",
+      "OKAY_BTN": "Okay",
+      "RETURN_BTN": "Return"
+    },
+    "PHRASE": {
+      "REGISTER": "Register",
+      "CANCEL": "Cancel",
+      "TITLE": "Title",
+      "REVIEWS": "Review reply",
+      "AUTO_REPLY": "Automatic reply settings",
+      "LIST_HEADER": "Location",
+      "ALL_LOCATIONS": "Common to all locations",
+      "SETTING": "Setting",
+      "NOT_SETTING": "Not set",
+      "COMMENT": "Comment",
+      "RATING": "Rating",
+      "RECIPIENT_NAME": "Recipinet Name",
+      "AUTOMATIC_REPLY_TIME": "Automatic Reply Time",
+      "AUTOMATIC_REPLY_PHRASE": "Automatic Reply Phrase",
+      "REPLY_EXAMPLE": "Reply Example"
+    }
+  }
+}

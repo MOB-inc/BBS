@@ -1,0 +1,53 @@
+@import '~@coreui/coreui/scss/coreui';
+@import 'src/commons/styles/color.scss';
+
+html {
+  background-color: $paper-color;
+}
+/* Works on Firefox */
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: blue orange;
+// }
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 14px;
+  border: 1px solid #c4c4c4;
+}
+* {
+  font-family: Mukta;
+}
+.App {
+  background-color: $paper-color;
+  text-align: center;
+  width: 100%;
+  display: block;
+  flex-direction: row;
+  min-height: 100vh;
+  color: $text-color;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='11' viewBox='0 0 12 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.7093 0.0764334L6.00001 2.10324L1.29071 0.0764334C0.704494 -0.175895 0.0113296 0.22484 0.000149911 0.862972C-0.00277978 1.02593 0.0371343 1.19384 0.128423 1.35186L5.17878 10.0994C5.36134 10.4154 5.68067 10.5735 6.00001 10.5735C6.31934 10.5735 6.63868 10.4154 6.82124 10.0994L11.8716 1.35186C11.9629 1.19384 12.0028 1.02593 11.9999 0.862972C11.9887 0.22484 11.2956 -0.175895 10.7093 0.0764334Z' fill='%234B4B4B'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 10px;
+}
+
+textarea {
+  resize: none;
+}

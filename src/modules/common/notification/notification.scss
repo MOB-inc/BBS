@@ -1,0 +1,54 @@
+@import 'src/commons/styles/color.scss';
+
+.notification-settings {
+  $border: 1px solid rgba(0, 0, 0, 0.22);
+  .line-login {
+    display: flex;
+    align-items: center;
+    .button {
+      outline: none;
+      border: none;
+      width: 125px;
+      height: 34px;
+      display: flex;
+      padding: 2px;
+      flex-direction: space-between;
+      margin: 10px;
+      span {
+        display: block;
+        width: 100%;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 33px;
+        color: $paper-color;
+        text-align: center;
+      }
+    }
+    .line {
+      background: #61ff61;
+      border-radius: 4px;
+      padding-left: 4px;
+    }
+    img {
+      display: flex;
+      align-items: center;
+    }
+    .status {
+      margin: 17 auto auto 17;
+    }
+    .linked {
+      color: $text-color-selected;
+      font-weight: bold;
+    }
+  }
+  table {
+    table-layout: auto;
+  }
+  table tbody {
+    font-weight: bold;
+  }
+  table tbody tr {
+    border-right: $border;
+    border-bottom: $border;
+  }
+}

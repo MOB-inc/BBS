@@ -1,0 +1,74 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "ログインID (メールアドレス)",
+      "USERNAME": "ユーザー名",
+      "MANAGEMENT_COUNT": "管理数",
+      "LOCATION": "ロケーション",
+      "APPROVAL": "承認",
+      "CONNECTED": "連携ON/OFF",
+      "FIXED_PHRASE": "定型文編集"
+    }
+  },
+  "CREATE": {
+    "BUTTON": "新規作成",
+    "SEARCH": {
+      "HEADER": "ユーザー名",
+      "PLACEHOLDER": "新規ユーザー名"
+    },
+    "LOCATION": "ロケーション",
+    "PERMISSION": {
+      "BUTTON": "権限設定",
+      "TITLE": "権限設定",
+      "CONNECT": "連携ON/OFF",
+      "PHRASE": "定型文登録/編集",
+      "YES": "あり",
+      "NO": "なし",
+      "REGISTRATION": "登録",
+      "PASSWORD": "パスワード設定",
+      "APPROVER": "承認設定",
+      "RETURN": "戻る",
+      "CONNECT_TOOLTIP": "Instagramから各SNSへの投稿連携をON/OFFする権限です",
+      "PHRASE_TOOLTIP": "投稿や口コミ返信に使用する定型文を編集する権限です"
+    },
+    "APPROVER": {
+      "SELECTION": "承認者選択",
+      "STEP": {
+        "LABEL": "ステップ承認設定",
+        "DESCRIPTION": "指定全承認者の承認が必要"
+      },
+      "SPEED": {
+        "LABEL": "スピード承認設定",
+        "DESCRIPTION": "指定承認者のいずれかの承認が必要"
+      },
+      "RECOGNIZER": "承認者①",
+      "PASSWORD": "パスワード設定",
+      "RETURN": "戻る"
+    },
+    "PASSWORD": {
+      "USERNAME": "ユーザー名",
+      "EMAIL": "ログインID (メールアドレス)",
+      "PASSWORD": "パスワード",
+      "CONFIRM_PASSWORD": "パスワード(確認)",
+      "CAPTION": "半角英数字6文字以上",
+      "CREATE": "作成",
+      "UPDATE": "登録",
+      "RETURN": "戻る",
+      "MESSAGE": {
+        "EMAIL_NOT_VALID": "メールは無効です",
+        "PASSWORD_NOT_VALID": "パスワードが無効です",
+        "PASSWORD_NOT_MATCH": "パスワードが一致しません"
+      }
+    },
+    "SUCCESS": { "MESSAGE": "作成が完了しました。" },
+    "DELETE": {
+      "MESSAGE": "本当に削除してもよろしいですか。",
+      "CONFIRM": "はい",
+      "RETURN": "いいえ"
+    }
+  },
+  "EDIT": {
+    "BUTTON": "編集",
+    "SUCCESS": { "MESSAGE": "編集が完了しました。" }
+  }
+}

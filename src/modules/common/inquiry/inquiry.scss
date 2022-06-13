@@ -1,0 +1,47 @@
+@import 'src/commons/styles/variables';
+@import 'src/commons/styles/color';
+
+.inquiry-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 9px 9px 9px 14px;
+  @media (min-width: $sm) {
+    min-height: 700px;
+    padding: 25px 25px 25px 50px;
+  }
+
+  > .input {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: $gray;
+    > select {
+      width: 100%;
+      outline: none;
+      height: 38px;
+    }
+    > textarea {
+      width: 100%;
+      outline: none;
+      resize: none;
+    }
+  }
+  .contact {
+    color: $reset-color;
+    margin-top: 60px;
+    .phone-message {
+      font-weight: bold;
+    }
+    .phone-number {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .phone-hour {
+      font-size: 12px;
+      font-weight: bold;
+    }
+  }
+}

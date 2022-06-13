@@ -1,0 +1,12 @@
+{
+  "TABLE": {
+    "COLUMNS": {
+      "ID": "ID",
+      "NAME": "名前",
+      "ROOT": "ルート",
+      "ADDRESS": "住所",
+      "TELEPHONE": "電話",
+      "LOCATIONS": "場所"
+    }
+  }
+}

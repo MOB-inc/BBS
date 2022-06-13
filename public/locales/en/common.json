@@ -1,0 +1,72 @@
+{
+  "WELCOME_MESSAGE": "Welcome to the InstaGMB Linkage Dashboard",
+  "HEADER": {
+    "NOTIFICATION": "Notification",
+    "RECOGNITION": "Recognition",
+    "LOCATIONS": "Location List",
+    "ACCOUNT_ID": "Account ID"
+  },
+  "SIDEBAR": {
+    "TOP": "Dashboard",
+    "DASHBOARD": "Posts list",
+    "POST_REVIEW": "Post & Review",
+    "BASIC_INFO": "Basic Info",
+    "LOCATION": "Location",
+    "USER": "User",
+    "LOGOUT": "Logout",
+    "INQUIRY": "Inquiry",
+    "RELEASE_NOTE": "Release Note",
+    "UPDATE_DATE": "2022/06/08",
+    "LOCATION_ADD": "Add location",
+    "HELP": "Help"
+  },
+  "LOGOUT": {
+    "MESSAGE": "Are you sure you want to log out?",
+    "LOGOUT": "Logout",
+    "RETURN": "Return"
+  },
+  "INQUIRY": {
+    "LOCATION": "Location",
+    "INQUIRY": "Contents of inquiry",
+    "SEND": "Send",
+    "RETURN": "Return",
+    "TELEPHONE_MESSAGE": "Emergency contact"
+  },
+  "SHOP_LIST": {
+    "GROUP": {
+      "HEADER": "Group",
+      "CREATION": "Group Create"
+    },
+    "LOCATION": {
+      "HEADER": "Location"
+    },
+    "CREATE": {
+      "HEADER": "Group Name",
+      "CREATE_BTN": "Create",
+      "RETURN_BTN": "Return"
+    },
+    "DELETE": {
+      "MESSAGE_1": "Deleting {{name}}",
+      "MESSAGE_2": "Is it OK?",
+      "DELETE_BTN": "Delete",
+      "RETURN_BTN": "Return"
+    }
+  },
+  "REVIEW": {
+    "STATUS": {
+      "NOT_REPLIED": "Not Replied",
+      "APPLIED": "Applied",
+      "REMAND": "Remand",
+      "PUBLISHED": "Published",
+      "POSTED": "Posted",
+      "REVIEW_DELETE": "Deleted"
+    }
+  },
+  "NOTIFICATION": {
+    "NOTIFICATION_SETTING": "Notification setting",
+    "LOGIN": "Login",
+    "REVIEW": "New Review",
+    "STATUS_CONNECTED": "Linked",
+    "STATUS_DISCONNECTED": "Not linked"
+  }
+}

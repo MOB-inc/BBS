@@ -1,0 +1,248 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.product-tab {
+  > .row {
+    margin-top: 21px;
+    .image-location-wrapper {
+      width: 120px;
+      margin-left: 16px;
+      @media (min-width: $sm) {
+        width: 265px;
+        padding-right: 24px;
+        margin-left: 15px;
+        height: 700px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .location-card-body {
+        min-width: 120px;
+        border-radius: 0;
+        @media (min-width: $sm) {
+          min-width: 0;
+        }
+        .location-list-card {
+          padding: 0;
+          .list-location {
+            height: 45px;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            line-height: 45px;
+            color: $black;
+            cursor: pointer;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0px 5px;
+          }
+          .background-odd {
+            background-color: $background-color-list-odd;
+          }
+          .location-title {
+            font-weight: 700;
+            color: $text-color;
+          }
+          .active-location {
+            background: linear-gradient(0deg, $accent-color, $accent-color),
+              linear-gradient(
+                180deg,
+                $active-color 99.99%,
+                rgba(255, 255, 255, 0) 100%
+              );
+            color: $paper-color;
+          }
+        }
+      }
+    }
+    .full-image-card {
+      width: 90%;
+      margin-left: 10px;
+      @media (min-width: $sm) {
+        width: calc(100% - 300px);
+        margin-left: 10px;
+      }
+      .form-horizontal {
+        .row {
+          @media (max-width: $sm) {
+            margin-left: 0;
+          }
+        }
+        .background-odd {
+          background-color: $background-color-list-odd;
+        }
+        .background-white {
+          background-color: $paper-color;
+        }
+        > .form-group {
+          margin-bottom: 0;
+          height: 45px;
+          margin-right: 0;
+          .horizontal-scroll-padding {
+            padding-left: 0;
+            padding-right: 0;
+            width: 81.2%;
+            @media (min-width: $sm) {
+              width: 95%;
+            }
+          }
+          .horizontal-scrolling-menu {
+            display: flex;
+            padding-top: 6px;
+            .item-card {
+              display: flex;
+              width: 100%;
+              overflow-x: hidden;
+              scroll-behavior: smooth;
+              .menu-item {
+                padding: 0 9px;
+                margin: 5px 10px;
+                user-select: none;
+                cursor: pointer;
+                border: none;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 23px;
+                color: $text-color;
+                white-space: nowrap;
+              }
+              .menu-item.active {
+                color: $text-color-selected;
+                text-decoration: underline;
+              }
+              .scroll-menu-arrow--disabled {
+                visibility: hidden;
+              }
+            }
+            .left-arrow-padding-none {
+              padding-left: 0;
+            }
+            .right-arrow-padding-none {
+              padding-right: 0;
+            }
+            .scroll-menu-arrow {
+              padding-top: 3px;
+            }
+          }
+          .filter-icon-wrapper {
+            width: 13%;
+            position: relative;
+            @media (min-width: $sm) {
+              width: 5%;
+            }
+            div.dropdown {
+              position: relative;
+              .btn:focus,
+              .btn.focus {
+                box-shadow: none;
+              }
+              .dropdown-menu {
+                width: 105px;
+                height: 65px;
+                border: 1px solid #4b4b4b;
+                min-width: 105px;
+                top: 0 !important;
+                right: 0 !important;
+                left: unset !important;
+                padding: 0;
+                border-radius: 0;
+                a {
+                  display: flex;
+                  justify-content: center;
+                }
+                .dropdown-item {
+                  padding: 6px 1.2rem;
+                }
+              }
+            }
+            .dropdown-toggle::after {
+              content: none;
+            }
+          }
+        }
+        .photo-list-portion {
+          height: 650px;
+          overflow-x: hidden;
+          overflow-y: auto;
+          margin-left: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          .photo-upload-portion {
+            width: 100%;
+            height: 161px;
+            .photo-border-portion {
+              float: left;
+              width: 213px;
+              height: 161px;
+              border: 1px solid $gray;
+              border-radius: 10px;
+              .upload-button {
+                margin-top: 60px;
+                margin-left: 49px;
+                margin-right: 50px;
+                height: 37px;
+                width: 114px;
+                background: linear-gradient(0deg, $accent-color, $accent-color),
+                  linear-gradient(
+                    180deg,
+                    #f15b5b 0%,
+                    rgba(255, 255, 255, 0) 100%
+                  );
+                border: 1px solid $paper-color;
+                border-radius: 10px;
+                color: $paper-color;
+                font-size: 12px;
+                line-height: 18px;
+                font-weight: bold;
+              }
+            }
+          }
+          .product-list-items {
+            display: flex;
+            flex-wrap: wrap;
+            .item-wrapper {
+              position: relative;
+              border: 1px solid #9b9b9b;
+              border-radius: 10px;
+
+              .image-wrapper {
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                overflow: hidden;
+                .image {
+                  width: 213px;
+                  height: 161px;
+                }
+              }
+              .content-wrapper {
+                text-align: left;
+                padding: 15px;
+                .title {
+                  font-weight: 700;
+                  font-size: 12px;
+                  line-height: 28px;
+                }
+                .despriction {
+                  font-size: 12px;
+                  font-weight: 400;
+                  line-height: 28px;
+                }
+              }
+
+              .delete-icon {
+                position: absolute;
+                right: 15px;
+                top: 5px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

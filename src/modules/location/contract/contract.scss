@@ -1,0 +1,47 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.customer-info {
+  .customer-content {
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $sm) {
+      flex-direction: row;
+    }
+    .info {
+      margin-top: 45px;
+      overflow: auto;
+      margin-left: 5px;
+      width: 100%;
+      padding-right: 15%;
+      @media (min-width: $sm) {
+        overflow-x: visible;
+        margin-left: 45px;
+        height: 637px;
+      }
+      table {
+        border: 1px solid rgba(0, 0, 0, 0.22);
+        thead {
+          background-color: $background-color-contrast;
+          tr th {
+            font-weight: normal;
+          }
+        }
+        tbody,
+        thead {
+          tr {
+            td,
+            th {
+              white-space: nowrap;
+              @media (min-width: $sm) {
+                min-width: 240px;
+              }
+              border-right: 1px solid rgba(0, 0, 0, 0.22);
+            }
+          }
+        }
+      }
+    }
+  }
+}

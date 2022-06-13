@@ -1,0 +1,888 @@
+[
+  {
+    "parent": "attributes/is_owned_by_women",
+    "valueType": "BOOL",
+    "displayName": "Identifies as women-owned",
+    "groupDisplayName": "From the business",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Identifies as women-owned"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_seating_outdoors",
+    "valueType": "BOOL",
+    "displayName": "Outdoor seating",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Outdoor seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_curbside_pickup",
+    "valueType": "BOOL",
+    "displayName": "Curbside pickup",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Curbside pickup"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_no_contact_delivery",
+    "valueType": "BOOL",
+    "displayName": "No-contact delivery",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "No-contact delivery"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_delivery",
+    "valueType": "BOOL",
+    "displayName": "Delivery",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Delivery"
+      },
+      {
+        "value": false,
+        "displayName": "No delivery"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_drive_through",
+    "valueType": "BOOL",
+    "displayName": "Drive-through",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Drive-through"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_takeout",
+    "valueType": "BOOL",
+    "displayName": "Takeout",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Takeout"
+      },
+      {
+        "value": false,
+        "displayName": "No takeout"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_dine_in",
+    "valueType": "BOOL",
+    "displayName": "Dine-in",
+    "groupDisplayName": "Service options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Dine-in"
+      },
+      {
+        "value": false,
+        "displayName": "No dine-in"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_reservations",
+    "valueType": "BOOL",
+    "displayName": "Reservations required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Reservations required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_customers",
+    "valueType": "BOOL",
+    "displayName": "Mask required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Mask required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_customers",
+    "valueType": "BOOL",
+    "displayName": "Temperature check required",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Temperature check required"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_masks_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff wear masks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff wear masks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_temperature_check_staff",
+    "valueType": "BOOL",
+    "displayName": "Staff get temperature checks",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff get temperature checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_sanitizing_between_customers",
+    "valueType": "BOOL",
+    "displayName": "Staff required to disinfect surfaces between visits",
+    "groupDisplayName": "Health & safety",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Staff required to disinfect surfaces between visits"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_all_you_can_drink",
+    "valueType": "BOOL",
+    "displayName": "All you can drink",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "All you can drink"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_fireplace",
+    "valueType": "BOOL",
+    "displayName": "Fireplace",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Fireplace"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_live_music",
+    "valueType": "BOOL",
+    "displayName": "Live music",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Live music"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_seating_rooftop",
+    "valueType": "BOOL",
+    "displayName": "Rooftop seating",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Rooftop seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/suitable_for_watching_sports",
+    "valueType": "BOOL",
+    "displayName": "Sports",
+    "groupDisplayName": "Highlights",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Good for watching sports"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_elevator",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible elevator",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible elevator"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_entrance",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible entrance",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible entrance"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible entrance"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_parking",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible parking lot",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible parking lot"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible parking lot"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_restroom",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible restroom",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible restroom"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_wheelchair_accessible_seating",
+    "valueType": "BOOL",
+    "displayName": "Wheelchair accessible seating",
+    "groupDisplayName": "Accessibility",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wheelchair accessible seating"
+      },
+      {
+        "value": false,
+        "displayName": "No wheelchair accessible seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_alcohol",
+    "valueType": "BOOL",
+    "displayName": "Alcohol",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Alcohol"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_all_you_can_eat_always",
+    "valueType": "BOOL",
+    "displayName": "All you can eat",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "All you can eat"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_beer",
+    "valueType": "BOOL",
+    "displayName": "Beer",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Beer"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_braille_menu",
+    "valueType": "BOOL",
+    "displayName": "Braille menu",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Braille menu"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_cocktails",
+    "valueType": "BOOL",
+    "displayName": "Cocktails",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Cocktails"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_coffee",
+    "valueType": "BOOL",
+    "displayName": "Coffee",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Coffee"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_halal_food",
+    "valueType": "BOOL",
+    "displayName": "Halal food",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Halal food"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_happy_hour_drinks",
+    "valueType": "BOOL",
+    "displayName": "Happy hour drinks",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Happy hour drinks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_happy_hour_food",
+    "valueType": "BOOL",
+    "displayName": "Happy hour food",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Happy hour food"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_liquor",
+    "valueType": "BOOL",
+    "displayName": "Hard liquor",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Hard liquor"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_childrens_menu",
+    "valueType": "BOOL",
+    "displayName": "Kids' menu",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Kids' menu"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_late_night_food",
+    "valueType": "BOOL",
+    "displayName": "Late-night food",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Late-night food"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_organic",
+    "valueType": "BOOL",
+    "displayName": "Organic dishes",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Organic dishes"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_salad_bar",
+    "valueType": "BOOL",
+    "displayName": "Salad bar",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Salad bar"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_small_plates",
+    "valueType": "BOOL",
+    "displayName": "Small plates",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Small plates"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_vegetarian",
+    "valueType": "BOOL",
+    "displayName": "Vegetarian options",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Vegetarian options"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_wine",
+    "valueType": "BOOL",
+    "displayName": "Wine",
+    "groupDisplayName": "Offerings",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Wine"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_breakfast",
+    "valueType": "BOOL",
+    "displayName": "Breakfast",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Breakfast"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_lunch",
+    "valueType": "BOOL",
+    "displayName": "Lunch",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Lunch"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/serves_dinner",
+    "valueType": "BOOL",
+    "displayName": "Dinner",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Dinner"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_catering",
+    "valueType": "BOOL",
+    "displayName": "Catering",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Catering"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_counter_service",
+    "valueType": "BOOL",
+    "displayName": "Counter service",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Counter service"
+      }
+    ],
+    "deprecated": true
+  },
+  {
+    "parent": "attributes/serves_dessert",
+    "valueType": "BOOL",
+    "displayName": "Dessert",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Dessert"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_order_and_pay_ahead",
+    "valueType": "BOOL",
+    "displayName": "Pay ahead",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Pay ahead"
+      }
+    ],
+    "deprecated": true
+  },
+  {
+    "parent": "attributes/has_seating",
+    "valueType": "BOOL",
+    "displayName": "Seating",
+    "groupDisplayName": "Dining options",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Seating"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_bar_onsite",
+    "valueType": "BOOL",
+    "displayName": "Bar onsite",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Bar onsite"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom_unisex",
+    "valueType": "BOOL",
+    "displayName": "Gender-neutral restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Gender-neutral restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/welcomes_children",
+    "valueType": "BOOL",
+    "displayName": "Good for kids",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Good for kids"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_high_chairs",
+    "valueType": "BOOL",
+    "displayName": "High chairs",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "High chairs"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/has_restroom",
+    "valueType": "BOOL",
+    "displayName": "Restroom",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Restroom"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_smoke_free_property",
+    "valueType": "BOOL",
+    "displayName": "Smoke-free place",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Smoke-free place"
+      },
+      {
+        "value": false,
+        "displayName": "Not a smoke-free place"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/wi_fi",
+    "valueType": "ENUM",
+    "displayName": "Wi-Fi",
+    "groupDisplayName": "Amenities",
+    "valueMetadata": [
+      {
+        "value": "free_wi_fi",
+        "displayName": "Free"
+      },
+      {
+        "value": "paid_wi_fi",
+        "displayName": "Paid"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/welcomes_families",
+    "valueType": "BOOL",
+    "displayName": "Family-friendly",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Family-friendly"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/welcomes_lgbtq",
+    "valueType": "BOOL",
+    "displayName": "LGBTQ+ friendly",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "LGBTQ+ friendly"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/is_transgender_safespace",
+    "valueType": "BOOL",
+    "displayName": "Transgender safespace",
+    "groupDisplayName": "Crowd",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Transgender safespace"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/accepts_reservations",
+    "valueType": "BOOL",
+    "displayName": "Accepts reservations",
+    "groupDisplayName": "Planning",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Accepts reservations"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/requires_cash_only",
+    "valueType": "BOOL",
+    "displayName": "Cash-only",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": true,
+        "displayName": "Cash-only"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_check",
+    "valueType": "BOOL",
+    "displayName": "Checks",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "current": false,
+        "displayName": "Checks"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_credit_card_types_accepted",
+    "valueType": "REPEATED_ENUM",
+    "displayName": "Credit cards",
+    "groupDisplayName": "Payments",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "american_express",
+        "current": true,
+        "displayName": "American Express"
+      },
+      {
+        "value": "china_union_pay",
+        "current": null,
+        "displayName": "China Union Pay"
+      },
+      {
+        "value": "diners_club",
+        "current": false,
+        "displayName": "Diners Club"
+      },
+      {
+        "value": "discover",
+        "displayName": "Discover"
+      },
+      {
+        "value": "jcb",
+        "displayName": "JCB"
+      },
+      {
+        "value": "mastercard",
+        "displayName": "MasterCard"
+      },
+      {
+        "value": "visa",
+        "displayName": "VISA"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_debit_card",
+    "valueType": "BOOL",
+    "displayName": "Debit cards",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "Debit cards"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/pay_mobile_nfc",
+    "valueType": "BOOL",
+    "displayName": "NFC mobile payments",
+    "groupDisplayName": "Payments",
+    "valueMetadata": [
+      {
+        "value": true,
+        "displayName": "NFC mobile payments"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_menu",
+    "valueType": "URL",
+    "currentValue": "https://www.microsoft.com/",
+    "displayName": "Menu link",
+    "groupDisplayName": "Place page URLs",
+    "valueMetadata": [
+      {
+        "value": "https://www.microsoft.com/",
+        "current": true,
+        "displayName": "Menu link"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_order_ahead",
+    "valueType": "URL",
+    "currentValue": "https://www.microsoft.com/",
+    "displayName": "Order ahead links",
+    "groupDisplayName": "Place page URLs",
+    "repeatable": true,
+    "valueMetadata": [
+      {
+        "value": "https://www.microsoft.com/",
+        "current": true,
+        "displayName": "Microsoft"
+      }
+    ]
+  },
+  {
+    "parent": "attributes/url_reservations",
+    "valueType": "URL",
+    "currentValue": "",
+    "displayName": "Reservations links",
+    "groupDisplayName": "Place page URLs",
+    "repeatable": true,
+    "valueMetadata": []
+  }
+]

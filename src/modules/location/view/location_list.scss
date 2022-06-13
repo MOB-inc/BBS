@@ -1,0 +1,28 @@
+@import 'src/commons/styles/color.scss';
+@import 'src/commons/styles/variables.scss';
+
+.location_list {
+  @media (min-width: $sm) {
+    padding: 29px 29px 29px 54px;
+  }
+  .header {
+    float: right;
+    margin-bottom: 5px;
+    display: flex;
+  }
+
+  .table {
+    width: 100%;
+    background-color: $paper_color;
+  }
+
+  .footer {
+    float: right;
+    display: flex;
+  }
+  svg {
+    path {
+      fill: $text-color;
+    }
+  }
+}
