@@ -52,7 +52,7 @@ function Inquiry() {
     <div className="inquiry-page">
       {!apiMessage ? (
         <>
-          <div className="input col-md-4">
+          <div className="input">
             <Explanation screen="INQUIRY" />
             <div>{t('common:INQUIRY:LOCATION')}</div>
             <select
@@ -71,7 +71,7 @@ function Inquiry() {
           </div>
           <br />
           <br />
-          <div className="input col-md-4">
+          <div className="input">
             <div>{t('common:INQUIRY:INQUIRY')}</div>
             <textarea
               className="textarea"
