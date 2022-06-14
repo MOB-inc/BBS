@@ -11,7 +11,7 @@ import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
-import Modal from '../../../commons/components/Modal';
+// import Modal from '../../../commons/components/Modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
 // import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
@@ -125,10 +125,10 @@ function Dialogs() {
       window.location = resp?.result?.redirect_url;
     }
   };
-  const [modalValue, setModalValue] = useState('');
+  // const [modalValue, setModalValue] = useState('');
   const handleTokenUpdate = (event) => {
     setLineOfficialToken(event.target.value);
-    setModalValue(event.target.value);
+    // setModalValue(event.target.value);
   };
 
   const handleSplanEndpointUpdate = (event) => {
@@ -346,7 +346,7 @@ function Dialogs() {
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
                   />
-                  <Modal active={modalStatus} variant="input" value={modalValue} />
+                  {/* <Modal active={modalStatus} variant="input" value={modalValue} /> */}
                   {console.log(modalStatus)}
               </div>
               <div className="dialog-footer line">

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
+import Switch from '@material-ui/core/Switch';
 import Navigation from '../navigation';
-import Switch from '../../../commons/components/Switch';
+// import Switch from '../../../commons/components/Switch';
+
 import StarRating from '../../../commons/components/Rating';
 import Explanation from '../../../commons/components/Explanation';
 import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
@@ -9,6 +11,9 @@ import { ReactComponent as ArrowUp } from '../../../commons/icons/arrow-up.svg';
 import { LOCATION_INFORMATIONS } from '../../../commons/constants/url';
 import { AppContext } from '../../../commons/helpers/appContext';
 import Pagination from '../../../commons/components/Pagination';
+import { ReactComponent as InstaIcon } from '../../../commons/icons/insta-trans.svg';
+import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon.svg';
+import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
 import './info.scss';
 import config from '../../../OEMConfig';
 
@@ -59,7 +64,14 @@ function LocationInfo() {
   const pageChangeHandler = (p) => {
     setPage(p);
   };
+  const [state2, setState2] = React.useState({
+    checkedA: true,
+    checkedB: true,
+  });
 
+  const handleChange = (event) => {
+    setState2({ ...state2, [event.target.name]: event.target.checked });
+  };
   return (
     <div className="location-info">
       {menuMode === 'sidebar' && (
@@ -80,15 +92,16 @@ function LocationInfo() {
           <table className="table">
             <thead>
               <tr>
-                <th className="wide">ロケーション名</th>
+                <th colSpan="2">  </th>
+                <th colSpan="3"><InstaIcon/> </th>
+                <th colSpan="3"><GoogleIcon/> </th>
+                <th colSpan="3"><LineIcon/> </th>
+                <th> </th>
+              </tr>
+              <tr>
+                <th className="w70">ロケーション名</th>
+                <th className="w70">アクセスユーザー</th>
                 <th className="w70">
-                  <img
-                    src="/icons/instagram-logo.svg"
-                    alt="instagram"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   投稿数{' '}
                   <span className="filter">
                     {sorts?.field === 'posting_number' &&
@@ -108,13 +121,6 @@ function LocationInfo() {
                   </span>
                 </th>
                 <th className="w70">
-                  <img
-                    src="/icons/instagram-logo.svg"
-                    alt="instagram"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   フォロワー
                   <span className="filter">
                     {sorts?.field === 'no_of_followers' &&
@@ -134,13 +140,6 @@ function LocationInfo() {
                   </span>
                 </th>
                 <th className="w70">
-                  <img
-                    src="/icons/instagram-logo.svg"
-                    alt="instagram"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   フォロー
                   <span className="filter">
                     {sorts?.field === 'no_of_followings' &&
@@ -196,15 +195,8 @@ function LocationInfo() {
                   </span>
                       </th> */}
 
-                <th className="semi-wide small-font">
-                  <img
-                    src="/icons/google-logo.svg"
-                    alt="google"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
-                  ハッシュタグ連携
+                <th className="w70 small-font">
+                  #連携
                 </th>
 
                 {/* 未連携のためコメントアウト */}
@@ -236,14 +228,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th> */}
-                <th className="semi-wide">
-                  <img
-                    src="/icons/google-logo.svg"
-                    alt="instagram"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
+                <th className="w70">
                   評価
                   <span className="filter">
                     {sorts?.field === 'rating' && sorts?.order === 'asc' ? (
@@ -262,13 +247,6 @@ function LocationInfo() {
                   </span>
                 </th>
                 <th className="w70">
-                  <img
-                    src="/icons/google-logo.svg"
-                    alt="instagram"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   ☆２以下
                   <span className="filter">
                     {sorts?.field === 'two_or_less' &&
@@ -287,35 +265,10 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-
                 <th className="w70 small-font">
-                  <img
-                    src="/icons/google-logo.svg"
-                    alt="google"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
-                  写真連携
-                </th>
-                <th className="semi-wide small-font">
-                  <img
-                    src="/icons/line-logo.svg"
-                    alt="line"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
-                  ハッシュタグ連携
+                  #連携
                 </th>
                 <th className="w70">
-                  <img
-                    src="/icons/line-logo.svg"
-                    alt="line"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   送信数/上限
                   <span className="filter">
                     {sorts?.field === 'line_official_total_usage' &&
@@ -341,13 +294,6 @@ function LocationInfo() {
                   </span>
                 </th>
                 <th className="w70">
-                  <img
-                    src="/icons/line-logo.svg"
-                    alt="line"
-                    height={20}
-                    width={20}
-                  />{' '}
-                  <br />
                   友だち数
                   <span className="filter">
                     {sorts?.field === 'line_official_followers' &&
@@ -381,7 +327,7 @@ function LocationInfo() {
                       width={20}
                     />{' '}
                     <br />
-                    ハッシュタグ連携
+                    #連携
                   </th>
                 )}
                 <th className="w60 small-font">全体投稿連携</th>
@@ -391,7 +337,8 @@ function LocationInfo() {
               {infoList.map((info) => {
                 return (
                   <tr key={info?.id}>
-                    <td className="wide ellipsis">{info?.location?.name}</td>
+                    <td className="w70">{info?.location?.name}</td>
+                    <td className="w70">{info?.location?.name}</td>
                     <td className="w70">{info.posting_number || 0}</td>
                     <td className="w70">{info.no_of_followers || 0}</td>
                     <td className="w70">{info.no_of_followings || 0}</td>
@@ -413,25 +360,25 @@ function LocationInfo() {
                       />
                       </td> */}
 
-                    <td className="semi-wide">
+                    <td className="w70">
                       <Switch
                         id={`ig-${info.id}`}
                         checked={info.hashtag_linkage_flag === 1}
-                        onChange={(event) =>
+                        onChange={(event) => {
                           locationUpdateHandler({
                             id: info.id,
                             location_id: info?.location?.id,
                             hashtag_linkage_flag: event.currentTarget.checked
                               ? 1
                               : 0,
-                          })
-                        }
+                            });
+                          handleChange();
+                          console.log("ccc");
+                        }}
+                        name="checkedA"
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
-                      <div style={{ fontSize: '10px' }}>
-                        {info.hashtag_linkage_flag
-                          ? '#拡散 が付いた投稿のみ連携'
-                          : 'すべての投稿を連携'}
-                      </div>
+                      
                     </td>
 
                     {/* 未連携のためコメントアウト */}
@@ -450,12 +397,12 @@ function LocationInfo() {
                         }
                       />
                       </td> */}
-                    <td className="semi-wide">
+                    <td className="w70">
                       <div style={{ fontSize: '10px' }}>{info.rating || 0}</div>
                       <StarRating value={info.rating || 0} />
                     </td>
                     <td className="w70">{info?.two_or_less}</td>
-                    <td className="w70">
+                    {/* <td className="w70">
                       <Switch
                         id={`photo${info.id}`}
                         checked={info.photo_linkage_flag === 1}
@@ -474,9 +421,9 @@ function LocationInfo() {
                           ? '『写真』連携ON'
                           : '『写真』連携OFF'}
                       </div>
-                    </td>
+                    </td> */}
 
-                    <td className="semi-wide">
+                    <td className="w70">
                       <Switch
                         id={`line-${info.id}`}
                         checked={info.line_hashtag_flag === 1}
@@ -489,12 +436,8 @@ function LocationInfo() {
                               : 0,
                           })
                         }
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
-                      <div style={{ fontSize: '10px' }}>
-                        {info.line_hashtag_flag
-                          ? '#LINEまたは#lineが付いた投稿のみ連携'
-                          : 'すべての投稿を連携'}
-                      </div>
                     </td>
                     {/* 未連携のためコメントアウト */}
                     {/* <td className="w60">
@@ -513,7 +456,7 @@ function LocationInfo() {
                     </td>
                     <td className="w70">{info.line_official_followers || 0}</td>
                     {config().is_show_splan && (
-                      <td className="semi-wide">
+                      <td className="w70">
                         <Switch
                           id={`splan${info.id}`}
                           checked={info.splan_hashtag_flag === 1}
@@ -526,15 +469,11 @@ function LocationInfo() {
                                 : 0,
                             })
                           }
+                          inputProps={{ 'aria-label': 'secondary checkbox' }}
                         />
-                        <div style={{ fontSize: '10px' }}>
-                          {info.splan_hashtag_flag
-                            ? '#CMSまたは#cmsが付いた投稿のみ連携'
-                            : 'すべての投稿を連携'}
-                        </div>
                       </td>
                     )}
-                    <td className="w60">
+                    <td className="w70">
                       <Switch
                         id={`follow-${info.id}`}
                         checked={info.linkage_of_feed === 1}
@@ -547,6 +486,7 @@ function LocationInfo() {
                               : 0,
                           })
                         }
+                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
                     </td>
                   </tr>
