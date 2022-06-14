@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+// import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams, Route, useLocation } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
+import Modal from '../../../commons/components/Modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
 // import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
@@ -30,9 +32,9 @@ import {
   SPLAN_SETTINGS_BY_LOCATION,
 } from '../../../commons/constants/url';
 import { BOOK_ID } from '../../../commons/constants/key';
-import { AppContext } from '../../../commons/helpers/appContext';
+// import { AppContext } from '../../../commons/helpers/appContext';
 import './linkage.scss';
-import config from '../../../OEMConfig';
+// import config from '../../../OEMConfig';
 
 function Dialogs() {
   const { id } = useParams();
@@ -48,7 +50,8 @@ function Dialogs() {
   const [lineOfficialStatus, setLineOfficialStatus] = useState(false);
   const [lineOfficialToken, setLineOfficialToken] = useState('');
   const [lineOfficialDisplayName, setLineOfficialDisplayName] = useState('');
-  const [splanStatus, setSplanStatus] = useState(false);
+  const [splanStatus, setSplanStatus] = useState(true);
+  
   const [splanEndpoint, setSplanEndpoint] = useState('');
   const [splanUser, setSplanUser] = useState('');
   const [splanPassword, setSplanPassword] = useState('');
@@ -71,7 +74,7 @@ function Dialogs() {
   );
   const { post: linkLineOfficial } = useFetch(LINE_OFFICIAL_SETTINGS);
   const { post: linkSplan } = useFetch(SPLAN_SETTINGS);
-
+  
   // const { delete: deleteInstagram } = useFetch(`${INSTAGRAM_SETTINGS}/${id}`);
   // const { delete: deleteGMB } = useFetch(`${GMB_SETTINGS}/${id}`);
   const currentUrl = useLocation();
@@ -122,9 +125,10 @@ function Dialogs() {
       window.location = resp?.result?.redirect_url;
     }
   };
-
+  const [modalValue, setModalValue] = useState('');
   const handleTokenUpdate = (event) => {
     setLineOfficialToken(event.target.value);
+    setModalValue(event.target.value);
   };
 
   const handleSplanEndpointUpdate = (event) => {
@@ -167,7 +171,11 @@ function Dialogs() {
       setSplanPassword(status?.result?.password);
     });
   };
-	
+  const [modalStatus, setModalStatus] = useState(false);
+	const modalOpen = () => {
+    setModalStatus(true);
+  }
+
   return (
     <div className="dialog-list">
       {location?.service?.id !== BOOK_ID && (
@@ -208,18 +216,14 @@ function Dialogs() {
                   {/* })} */}
                 </div>
               <div className="dialog-footer">
-                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
+                <p className={igStatus ? 'linked' : ''}>Status:<span>{igStatus
+                  ? t('location:LINKAGE.STATUS_CONNECTED')
+                  : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
                 <p><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED')}筑前貴裕 / Optbusiness</span></p>
                 <p><InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED')}allfree1188 / ALL Fr...</span></p>
               </div>
             </div>
-          </div>
-          <div className="status">
-            <div>
-              <div className={igStatus ? 'linked' : ''}>
-                {igStatus
-                  ? t('location:LINKAGE.STATUS_CONNECTED')
-                  : t('location:LINKAGE.STATUS_DISCONNECTED')}
+          </div>      
                 {/* 連携解除が機能していないようなので表示しないようにする */}
                 {/* {igStatus && (
                   <div
@@ -233,10 +237,7 @@ function Dialogs() {
                     {t('location:LINKAGE.RELEASE')}
                   </div>
                   )}  */}
-              </div>{' '}
-              
-            </div>
-          </div>
+              {/* {' '} */}
         </div>
       )}
 
@@ -268,17 +269,20 @@ function Dialogs() {
               </button>
             </div>
             <div className="dialog-footer">
-                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
-                <p><GoogleIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED')}株式会社inside</span></p>
+                <p className={gmbStatus ? 'linked' : ''}>Status:<span>
+                  {gmbStatus
+                ? t('location:LINKAGE.STATUS_CONNECTED')
+                : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
+                <p><GoogleIcon /><span>{location?.gmb_location_name}株式会社inside</span></p>
             </div>
           </div>
         </div>
-        <div className="status">
-          <div>
-            <div className={gmbStatus ? 'linked' : ''}>
+        {/* <div className="status">
+          <div> */}
+            {/* <div className={gmbStatus ? 'linked' : ''}>
               {gmbStatus
                 ? t('location:LINKAGE.STATUS_CONNECTED')
-                : t('location:LINKAGE.STATUS_DISCONNECTED')}
+                : t('location:LINKAGE.STATUS_DISCONNECTED')} */}
               {/* {gmbStatus && (
                 <div
                   className="release"
@@ -291,8 +295,8 @@ function Dialogs() {
                   {t('location:LINKAGE.RELEASE')}
                 </div>
                 )}  */}
-            </div>{' '}
-            {gmbStatus && (
+            {/* </div>{' '} */}
+            {/* {gmbStatus && (
               <>
                 <div className="id-display">
                   <GoogleIcon className="icon-svg" />
@@ -301,9 +305,9 @@ function Dialogs() {
                   </span>
                 </div>
               </>
-            )}
-          </div>
-        </div>
+            )} */}
+          {/* </div> */}
+        {/* </div> */}
       </div>
 
       {location?.service?.id !== BOOK_ID && (
@@ -336,25 +340,37 @@ function Dialogs() {
                     id="outlined-start-adornment"
                     className="field"
                     InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
+                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen}/></InputAdornment>,
                     }}
                     variant="outlined"
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
                   />
+                  <Modal active={modalStatus} variant="input" value={modalValue} />
+                  {console.log(modalStatus)}
               </div>
               <div className="dialog-footer line">
-                <p>Status:<span>{t('location:LINKAGE.STATUS_CONNECTED')}</span></p>
-                <p><LineIcon /><span>{t('location:LINKAGE.LINE_AlREADY_LINKED')}inside通知アカウント</span></p>
+                <p className={lineOfficialStatus ? 'linked' : ''}>Status:
+                <span>
+                  {lineOfficialStatus
+                  ? t('location:LINKAGE.STATUS_CONNECTED')
+                  : t('location:LINKAGE.STATUS_DISCONNECTED')}
+                  </span></p>
+                <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
+                  <>
+                    {lineOfficialDisplayName}
+                  </>
+                )}inside通知アカウント
+                </span></p>
               </div>
             </div>
           </div>
-          <div className="status">
+          {/* <div className="status">
             <div>
-              <div className={lineOfficialStatus ? 'linked' : ''}>
-                {lineOfficialStatus
+              <div className={lineOfficialStatus ? 'linked' : ''}> */}
+                {/* {lineOfficialStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
-                  : t('location:LINKAGE.STATUS_DISCONNECTED')}
+                  : t('location:LINKAGE.STATUS_DISCONNECTED')} */}
                 {/* {gmbStatus && (
                 <div
                   className="release"
@@ -367,7 +383,7 @@ function Dialogs() {
                   {t('location:LINKAGE.RELEASE')}
                 </div>
                 )} */}
-              </div>
+              {/* </div>
               {lineOfficialStatus && lineOfficialDisplayName && (
                 <>
                   <div className="id-display">
@@ -376,10 +392,12 @@ function Dialogs() {
                 </>
               )}
             </div>
-          </div>
+          </div> */}
         </div>
       )}
-      {location?.service?.id !== BOOK_ID && config().is_show_splan && (
+      {/* {location?.service?.id !== BOOK_ID && config().is_show_splan && ( */}
+      {location?.service?.id !== BOOK_ID &&  (
+
         <div className="dialog-row">
           <div className="dialog">
             <div className="header">
@@ -390,55 +408,76 @@ function Dialogs() {
                 <div>
                   {t('location:LINKAGE.CMS_BODY')}
                 </div>
-                </div>
+              </div>
+              
+              <div className="right">
+                <button
+                  type="button"
+                  className="button cms"
+                  onClick={handleSplanLinkage}
+                >
+                  <img
+                    src="/icons/cms.png"
+                    alt="CMS"
+                    height="33px"
+                    width="33px"
+                    style={{ borderRadius: '5px' }}
+                  />
+                  <span>{t('location:LINKAGE.SUBMIT')}</span>
+                </button>
                 <div className="center">
-                  <div className="textbox">
-                    <input
-                      type="text"
-                      value={splanEndpoint || ''}
-                      placeholder="APIエンドポイント"
-                      onChange={handleSplanEndpointUpdate}
-                    />
-                  </div>
-                  <div className="textbox">
-                    <input
-                      type="text"
-                      className="textbox"
-                      value={splanUser || ''}
-                      placeholder="user"
-                      onChange={handleSplanUserUpdate}
-                    />
-                  </div>
-                  <div className="textbox">
-                    <input
-                      type="text"
-                      className="textbox"
-                      value={splanPassword || ''}
-                      placeholder="password"
-                      onChange={handleSplanPasswordUpdate}
-                    />
-                  </div>
+                  <TextField 
+                    label=""
+                    className="field"
+                    placeholder="APIエンドポイント"
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
+                    }}
+                    variant="outlined"
+                    value={splanEndpoint || ''}
+                    onChange={handleSplanEndpointUpdate}
+                  />
+                  <TextField 
+                    label=""
+                    className="field"
+                    placeholder="user"
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
+                    }}
+                    variant="outlined"
+                    value={splanUser || ''}
+                    onChange={handleSplanUserUpdate}
+                  />
+                  <TextField 
+                    label=""
+                    className="field"
+                    placeholder="password"
+                    InputProps={{
+                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen}/></InputAdornment>,
+                    }}
+                    variant="outlined"
+                    value={splanPassword || ''}
+                    onChange={handleSplanPasswordUpdate}
+                  />
                 </div>
-                <div className="right">
-                  <button
-                    type="button"
-                    className="button cms"
-                    onClick={handleSplanLinkage}
-                  >
-                    <img
-                      src="/icons/cms.png"
-                      alt="CMS"
-                      height="33px"
-                      width="33px"
-                      style={{ borderRadius: '5px' }}
-                    />
-                    <span>{t('location:LINKAGE.SUBMIT')}</span>
-                  </button>
-                </div>
-                
+              </div>
+              <div className="dialog-footer line">
+                <p className={splanStatus ? 'linked' : ''}>Status:
+                <span>
+                  {splanStatus
+                  ? t('location:LINKAGE.STATUS_CONNECTED')
+                  : t('location:LINKAGE.STATUS_DISCONNECTED')}
+                  </span></p>
+                <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
+                  <>
+                    {lineOfficialDisplayName}
+                  </>
+                )}連携されたアカウント名
+                </span></p>
+              </div>
             </div>
           </div>
-          <div className="status">
+          {/* <div className="status">
             <div>
               <div className={splanStatus ? 'linked' : ''}>
                 {splanStatus
@@ -446,7 +485,7 @@ function Dialogs() {
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
 
@@ -458,24 +497,24 @@ function Dialogs() {
     </div>
   );
 }
-function LocationLinkage() {
-  const { menuMode } = useContext(AppContext);
-  return (
-    <div className="location-linkage">
-      {menuMode === 'sidebar' && (
-        <>
-          <Explanation screen="LINKAGE" />
-          <Navigation />
-        </>
-      )}
 
+function LocationLinkage() {
+  // const { menuMode } = useContext(AppContext);
+  return (
+    <>
+    <div className="location-linkage">
+      <div className="head">
+          <Explanation screen="LINKAGE" />
+          <LocationList url="/locations/linkage" />
+      </div>
+          <Navigation />
       <div className="linkage-content">
-        <LocationList url="/locations/linkage" />
         <Route path="/locations/linkage/:id">
           <Dialogs />
         </Route>
       </div>
     </div>
+    </>
   );
 }
 

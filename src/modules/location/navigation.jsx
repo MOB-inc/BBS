@@ -20,34 +20,34 @@ function LocationNavigation() {
   };
   return (
     <ToggleButtonGroup
-            className="location-navigation"
-						value={alignment}
-						exclusive
-						onChange={handleAlignment}
-						aria-label="text alignment"
-            
-					>
-						<ToggleButton value="first" aria-label="left aligned">
-              <NavLink to={`${url}/linkage`} activeClassName="active">
-                {t('location:COMMON.LINK_INFO')}
-              </NavLink>
-            </ToggleButton>
-						<ToggleButton value="center" aria-label="centered">
-              <NavLink to={`${url}/info`} activeClassName="active">
-                {t('location:COMMON.LOCATION_INFO')}
-              </NavLink>
-						</ToggleButton>
-						<ToggleButton value="right" aria-label="right aligned">
-              <NavLink to={`${url}/contact_info`} activeClassName="active">
-                {t('location:COMMON.CONTRACT_INFO')}
-              </NavLink>
-						</ToggleButton>
-						<ToggleButton value="justify" aria-label="justified">
-              <NavLink to={`${url}/bulk_edit`} activeClassName="active">
-                {t('location:COMMON.BULK_EDIT')}
-              </NavLink>
-						</ToggleButton>
-					</ToggleButtonGroup>
+      className="location-navigation"
+      value={alignment}
+      exclusive
+      onChange={handleAlignment}
+      aria-label="text alignment"
+      
+    >
+      <ToggleButton value="first" aria-label="left aligned">
+        <NavLink to={`${url}/linkage`} activeClassName="active">
+          {t('location:COMMON.LINK_INFO')}
+        </NavLink>
+      </ToggleButton>
+      <ToggleButton value="center" aria-label="centered">
+        <NavLink to={`${url}/info`} activeClassName="active">
+          {t('location:COMMON.LOCATION_INFO')}
+        </NavLink>
+      </ToggleButton>
+      <ToggleButton value="right" aria-label="right aligned">
+        <NavLink to={`${url}/contact_info`} activeClassName="active">
+          {t('location:COMMON.CONTRACT_INFO')}
+        </NavLink>
+      </ToggleButton>
+      <ToggleButton value="justify" aria-label="justified">
+        <NavLink to={`${url}/bulk_edit`} activeClassName="active">
+          {t('location:COMMON.BULK_EDIT')}
+        </NavLink>
+      </ToggleButton>
+    </ToggleButtonGroup>
     // <div className="location-navigation">
       
     //   <div className="tab">

@@ -5,8 +5,9 @@
   background-color:transparent;
 }
 a{
-  line-height: 20px;
-  padding:14px;
+  line-height: 1;
+  padding:17px 12px;
+  font-size:14px;
   color:rgba(0, 0, 0, 0.54);
 }
 a.active{
@@ -15,4 +16,40 @@ a.active{
 }
 .MuiButtonBase-root{
   padding:0;
+  background-color: #fff;
+}
+.MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+}
+.head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:12px;
+  div.explanation{
+    margin-bottom:0 !important;
+  }
+}
+.location-navigation{
+  text-align: left;
+  display: block;
+  button a{
+    width:140px;
+  }
+}
+.MuiSelect-outlined.MuiSelect-outlined{
+  height:40px;
+  box-sizing: border-box;
+  padding:4px 32px 4px 12px;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+}
+.MuiSelect-select{
+  background-color: #fff;
+}
+.MuiSelect-select:focus{
+  background-color: #fff;
+}
+.MuiInputLabel-outlined {
+  transform: translate(14px, 12px) scale(1);
 }

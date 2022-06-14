@@ -9,12 +9,22 @@
     @media (min-width: $sm) {
       flex-direction: row;
     }
+    .MuiFormControl-root{
+      display: block;
+      margin-bottom:6px;
+      input{
+        height:33px;
+        width:226px;
+      }
+    }
+    .MuiOutlinedInput-input {
+      padding: 4px 10px;
+      box-sizing: border-box;
+    }
     .dialog-list {
       width: 100%;
       margin-top: 5px;
       @media (min-width: $sm) {
-        margin-top: 45px;
-        margin-left: 45px;
         height: 637px;
         overflow: scroll;
       }
@@ -30,13 +40,15 @@
         .dialog {
           @media (min-width: $sm) {
             width: 631px;
-            margin-bottom: 45px;
+            margin-bottom: 24px;
           }
+          width:100%;
           border: 1px solid $gray;
           box-sizing: border-box;
           border-radius: 8px;
           text-align: left;
           color: $black;
+          background-color:#fff;
           .header {
             display: flex;
             justify-content: left;
@@ -74,11 +86,7 @@
             .right {
               display: inline-block;
               width: 100%;
-              padding-top: 10px;
-              .MuiOutlinedInput-input {
-                padding: 4px 20px;
-                box-sizing: border-box;
-              }
+              margin-top: 20px;
               .button {
                 float:right;
                 outline: none;
@@ -97,10 +105,6 @@
                   color: $paper-color;
                   text-align: center;
                 }
-              }
-              .field input{
-                height:33px;
-                width:226px;
               }
               .textbox {
                 margin-top: 10px;

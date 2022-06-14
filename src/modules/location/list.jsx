@@ -2,24 +2,28 @@ import React, { useState, useEffect } from 'react';
 import useFetch from 'use-http';
 import { useMount, useDebounce } from 'ahooks';
 import PropTypes from 'prop-types';
+// import { useTranslation } from 'react-i18next';
+// import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
 import { LOCATION_LIST } from '../../commons/constants/url';
-import Pagination from '../../commons/components/Pagination';
-import Input from '../../commons/components/Input';
-import { ReactComponent as SearchIcon } from '../../commons/icons/search.svg';
+// import Pagination from '../../commons/components/Pagination';
+// import Input from '../../commons/components/Input';
+// import { ReactComponent as SearchIcon } from '../../commons/icons/search.svg';
 
 import './list.scss';
 
 function LocationList({ url, allLocations, allLocationsSelect }) {
   const history = useHistory();
   const route = useRouteMatch(`${url}/:id`);
-  const { t } = useTranslation(['location']);
+  // const { t } = useTranslation(['location']);
   const { get, response } = useFetch(LOCATION_LIST);
   const [locations, setLocations] = useState([]);
   const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
-  const [searchText, setSearchText] = useState('');
+  // const [lastPage, setLastPage] = useState(1);
+  // const [searchText, setSearchText] = useState('');
+  const [searchText] = useState('');
   const debouncedSearchText = useDebounce(searchText, { wait: 250 });
 
   useMount(async () => {
@@ -30,7 +34,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     const resp = await get(`?${new URLSearchParams(params).toString()}`);
     if (response.ok) {
       setLocations(resp?.result?.data);
-      setLastPage(resp?.result?.pagination?.total_pages || 1);
+      // setLastPage(resp?.result?.pagination?.total_pages || 1);
       if (!route?.params?.id && resp?.result?.data?.[0].id) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
@@ -48,7 +52,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     );
     if (response.ok) {
       setLocations(resp?.result?.data);
-      setLastPage(resp?.result?.pagination?.total_pages || 1);
+      // setLastPage(resp?.result?.pagination?.total_pages || 1);
       if (!route?.params?.id && resp?.result?.data?.[0].id) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
@@ -67,23 +71,26 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     if (response.ok) {
       setPage(1);
       setLocations(resp?.result?.data);
-      setLastPage(resp?.result?.pagination?.total_pages || 1);
+      // setLastPage(resp?.result?.pagination?.total_pages || 1);
       if (!route?.params?.id && resp?.result?.data?.[0].id) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
     }
   }, [debouncedSearchText]);
 
-  const pageChangeHandler = (p) => {
-    setPage(p);
-  };
+  // const pageChangeHandler = (p) => {
+  //   setPage(p);
+  // };
 
   if (allLocationsSelect && !allLocations) {
     history.push(`${url}/${locations[0].id}`);
   }
+  const { t } = useTranslation(['location']);
+
+
   return (
     <div className="location-list">
-      <div className="search-box">
+      {/* <div className="search-box">
         <div className="search-input">
           <Input
             height={25}
@@ -92,33 +99,48 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           />
         </div>
         <SearchIcon height={23} width={23} />
-      </div>
-      <div className="pages">
+      </div> */}
+      {/* <div className="pages">
         <Pagination
           current={page}
           last={lastPage}
           onPageChange={pageChangeHandler}
         />
-      </div>
-      <div className="header item">{t('location:COMMON:LIST_HEADER')}</div>
-      <div className="body">
-        {allLocations && (
+      </div> */}
+      
+      {/* <div className="header item">{
+      t('location:COMMON:LIST_HEADER')}
+      </div> */}
+      {/* <div className="body"> */}
+        {/* {allLocations && (
           <div className="item">
             <NavLink to={`${url}/allLocations`} activeClassName="active">
               {t('location:COMMON:ALL_LOCATIONS')}
             </NavLink>
           </div>
-        )}
+        )} */}
+        
+    <TextField
+      id="outlined-select-currency-native"
+      select
+      label={t('location:COMMON.LIST_HEADER')}
+      SelectProps={{
+        native: true,
+      }}
+      variant="outlined"
+      >
+        <option>  </option>
         {locations.map((loc) => {
           return (
-            <div className="item" key={loc.id}>
-              <NavLink to={`${url}/${loc.id}`} activeClassName="active">
+            <option className="item" key={loc.id} value={loc.name}>
+              {/* <NavLink to={`${url}/${loc.id}`} activeClassName="active"> */}
                 {loc.name}
-              </NavLink>
-            </div>
+              {/* </NavLink> */}
+            </option>
           );
         })}
-      </div>
+    </TextField>
+      {/* </div> */}
     </div>
   );
 }
