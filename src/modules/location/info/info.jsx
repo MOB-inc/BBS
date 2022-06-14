@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
-import Switch from '@material-ui/core/Switch';
+// import Switch from '@material-ui/core/Switch';
 import Navigation from '../navigation';
-// import Switch from '../../../commons/components/Switch';
+import Switch from '../../../commons/components/Switch';
 
 import StarRating from '../../../commons/components/Rating';
 import Explanation from '../../../commons/components/Explanation';
@@ -64,14 +64,7 @@ function LocationInfo() {
   const pageChangeHandler = (p) => {
     setPage(p);
   };
-  const [state2, setState2] = React.useState({
-    checkedA: true,
-    checkedB: true,
-  });
 
-  const handleChange = (event) => {
-    setState2({ ...state2, [event.target.name]: event.target.checked });
-  };
   return (
     <div className="location-info">
       {menuMode === 'sidebar' && (
@@ -372,11 +365,7 @@ function LocationInfo() {
                               ? 1
                               : 0,
                             });
-                          handleChange();
-                          console.log("ccc");
                         }}
-                        name="checkedA"
-                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
                       
                     </td>
@@ -436,7 +425,6 @@ function LocationInfo() {
                               : 0,
                           })
                         }
-                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
                     </td>
                     {/* 未連携のためコメントアウト */}
@@ -469,7 +457,6 @@ function LocationInfo() {
                                 : 0,
                             })
                           }
-                          inputProps={{ 'aria-label': 'secondary checkbox' }}
                         />
                       </td>
                     )}
@@ -486,7 +473,6 @@ function LocationInfo() {
                               : 0,
                           })
                         }
-                        inputProps={{ 'aria-label': 'secondary checkbox' }}
                       />
                     </td>
                   </tr>
