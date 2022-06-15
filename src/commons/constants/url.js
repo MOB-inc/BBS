@@ -36,7 +36,7 @@ export const SPLAN_SETTINGS = `/splan_settings`;
 export const SPLAN_SETTINGS_BY_LOCATION = `${SPLAN_SETTINGS}/by-location`;
 export const GMB_SETTINGS_BY_LOCATION = `${GMB_SETTINGS}/by-location`;
 export const LOCATION_INFORMATIONS = '/location_informations';
-export const FIXED_PHRASES = '/fixed_phrases';
+export const FIXED_PHRASES = '/phrase';
 export const FIXED_PHRASE_BY_LOCATION = (id, serviceType) =>
   `${LOCATIONS}/${id}/fixed-phrase-by-location/${serviceType}`;
 export const FIXED_REVIEW_PHRASES = '/fixed_review_phrases';

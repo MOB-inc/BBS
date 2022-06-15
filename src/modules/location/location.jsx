@@ -22,7 +22,7 @@ function LocationPage() {
         <Route path={`${url}/contract`}>
           <Contract />
         </Route>
-        <Route path={`${url}/fixed-phrase/:id?`}>
+        <Route path={`${url}/fixed_phrases`}>
           <FixedPhrase />
         </Route>
         <Redirect from={path} to={`${url}/linkage`} />

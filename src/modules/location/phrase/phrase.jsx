@@ -21,7 +21,7 @@ import './phrase.scss';
 import {
   SERVICE_GMB,
   SERVICE_CMS,
-  SERVICE_REVIEW,
+  // SERVICE_REVIEW,
   SERVICE_LINE_OFFICIAL,
 } from '../../../commons/constants/key';
 import { EXAMPLE_TYPE } from './modals/constant';
@@ -159,13 +159,12 @@ function FixedPhrase() {
 
   return (
     <div className="fixed-phrase">
-      <div className="header">{menuMode === 'sidebar' && <Navigation />}</div>
+      <div className="head">
+          <Explanation screen="CONTRACT" />
+          <LocationList url="/locations/fixed_phrases" />
+      </div>
+      <Navigation />
       <div className="content">
-        <LocationList
-          url="/locations/fixed-phrase"
-          allLocations={selected === SERVICE_REVIEW}
-          allLocationsSelect={locationId === 'allLocations'}
-        />
         <div className="service-list">
           <div className="services">
             <button

@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
-// import Switch from '@material-ui/core/Switch';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { useTranslation } from 'react-i18next';
 import Navigation from '../navigation';
 import Switch from '../../../commons/components/Switch';
-
 import StarRating from '../../../commons/components/Rating';
 import Explanation from '../../../commons/components/Explanation';
 import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
@@ -16,6 +18,7 @@ import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon
 import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
 import './info.scss';
 import config from '../../../OEMConfig';
+import { ReactComponent as SearchIcon } from '../../../commons/icons/search-icon.svg';
 
 function LocationInfo() {
   const { menuMode } = useContext(AppContext);
@@ -44,7 +47,10 @@ function LocationInfo() {
       setLastPage(resp?.result?.pagination?.total_pages || 1);
     }
   }, [sorts, page]);
-
+  const [searchText, setSerchText] = useState("");
+  const handleSearch = (event) => {
+    setSerchText(event.target.value);
+  }
   const locationUpdateHandler = async (params) => {
     const resp = await updateLocationInfo(`/${params.id}`, params);
     if (updateResponse.ok) {
@@ -64,7 +70,7 @@ function LocationInfo() {
   const pageChangeHandler = (p) => {
     setPage(p);
   };
-
+  const { t } = useTranslation(['location']);
   return (
     <div className="location-info">
       {menuMode === 'sidebar' && (
@@ -82,6 +88,21 @@ function LocationInfo() {
       </div>
       <div className="info-content">
         <div className="tab-container">
+          <div className="flex">
+            <TextField 
+              label=""
+              id=""
+              className="search"
+              InputProps={{
+                startAdornment: <InputAdornment position="end"><SearchIcon className="searchIcon"/></InputAdornment>,
+              }}
+              variant="outlined"
+              onChange={handleSearch}
+              value={searchText}
+              placeholder={t('location:CONTRACTOR.SEARCH')}
+            />
+            <Button className="button" variant="contained" size="large">{t('location:CONTRACTOR.SEARCH_BTN')}</Button>
+          </div>
           <table className="table">
             <thead>
               <tr>

@@ -13,7 +13,7 @@
     "LINK_INFO": "基本情報",
     "LOCATION_INFO": "ロケーション情報",
     "CONTRACT_INFO": "契約者情報",
-    "BULK_EDIT": "一括編集",
+    "PHRASE_INFO": "定型文",
     "LIST_HEADER": "ロケーション",
     "ALL_LOCATIONS": "全ロケーション共通"
   },
@@ -44,7 +44,10 @@
   "CONTRACTOR": {
     "STORE_CLERK": "店舗担当者",
     "START_DATE": "契約開始日",
-    "END_DATE": "次回更新日"
+    "END_DATE": "次回更新日",
+    "DETAILS": "契約内容",
+    "SEARCH": "ユーザー名を検索",
+    "SEARCH_BTN": "検索"
   },
   "PHRASE": {
     "EDIT": "編集",

@@ -13,7 +13,7 @@
     "LINK_INFO": "Linkinfo",
     "LOCATION_INFO": "Location",
     "CONTRACT_INFO": "Contractor",
-    "BULK_EDIT": "Bulkedit",
+    "PHRASE_INFO": "Fixed phrase",
     "LIST_HEADER": "Location",
     "ALL_LOCATIONS": "Common to all locations"
   },
@@ -39,7 +39,10 @@
   "CONTRACTOR": {
     "STORE_CLERK": "Store clerk",
     "START_DATE": "Start date",
-    "END_DATE": "End date"
+    "END_DATE": "End date",
+    "DETAILS":"Contract details",
+    "SEARCH": "Search username",
+    "SEARCH_BTN": "Search"
   },
   "PHRASE": {
     "EDIT": "Edit",
