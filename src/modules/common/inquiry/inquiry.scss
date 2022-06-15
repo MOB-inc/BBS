@@ -4,10 +4,22 @@
 .inquiry-page {
   min-height: 400px;
   padding: 9px 9px 9px 14px;
+	text-align: left;
   @media (min-width: $sm) {
     min-height: 700px;
-    padding: 25px 25px 25px 50px;
+    padding: 49px 80px;
   }
+
+	div.explanation p {
+		font-size: 1rem;
+		font-weight: 400;
+	}
+	.MuiInputLabel-root {
+		color: $black;
+	}
+	.MuiInputLabel-root {
+		transform: translate(0, 1.5px) scale(1);
+	}
 
   > .input {
     display: flex;
@@ -20,14 +32,28 @@
       height: 38px;
     }
     > textarea {
-      width: 100%;
+			width: 100%;
+      max-width: 500px;
+			min-height: 117px;
       outline: none;
       resize: none;
+			border: 1px solid $inquiry-border-color;
+      border-radius: 4px;
+			font-size: 1rem;
+			padding: 8px 11px;
+			margin-bottom: 19px;
     }
+		> .makeStyles-margin-49 {
+			margin: 0 0 26px;
+		}
+		> div {
+			font-size: 1rem;
+			color: $black;
+		}
   }
   .contact {
     color: $reset-color;
-    margin-top: 60px;
+    margin-top: 38px;
     .phone-message {
       font-weight: bold;
     }
@@ -37,7 +63,44 @@
     }
     .phone-hour {
       font-size: 12px;
-      font-weight: bold;
+			font-weight: bold;
     }
   }
+	.MuiButton-containedPrimary {
+		background:  $button-active-color;
+    border-radius: 4px;
+		margin-right: 16px;
+		min-width: 93px;
+	}
+	.MuiButton-outlinedSecondary {
+		color: $button-active-color;
+		border: 1px solid $inquiry-border-color-2;
+    border-radius: 4px;
+	}
+	.contact {
+		> .phone-message {
+			font-size: 15px;
+			font-weight: 400;
+			font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+			color: $black;
+			margin-bottom: 9px;
+		}
+		> .phone-number {
+			font-size: 24px;
+			font-weight: 400;
+			font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+			color: $black;
+			margin-bottom: 16px;
+			line-height: 1;
+		}
+		> .phone-hour {
+			font-size: 16px;
+			font-weight: 400;
+			font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+			color: $black;
+		}
+	}
+	.MuiNativeSelect-icon {
+		right: 10px;
+	}
 }

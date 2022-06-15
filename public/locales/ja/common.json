@@ -30,7 +30,7 @@
     "INQUIRY": "お問い合わせ内容",
     "SEND": "送信",
     "RETURN": "戻る",
-    "TELEPHONE_MESSAGE": "緊急のお問い合わせはこちら"
+    "TELEPHONE_MESSAGE": "◆緊急のお問い合わせはこちら"
   },
   "SHOP_LIST": {
     "GROUP": {
@@ -38,7 +38,7 @@
       "CREATION": "グループ作成"
     },
     "LOCATION": {
-      "HEADER": "ロケーション"
+      "HEADER": "ロケーション"		
     },
     "CREATE": {
       "HEADER": "グループ名",
