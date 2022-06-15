@@ -86,14 +86,14 @@ function LocationInfo() {
             <thead>
               <tr>
                 <th colSpan="2">  </th>
-                <th colSpan="3"><InstaIcon/> </th>
-                <th colSpan="3"><GoogleIcon/> </th>
-                <th colSpan="3"><LineIcon/> </th>
-                <th> </th>
+                <th colSpan="3" className="wide"><InstaIcon/> </th>
+                <th colSpan="3" className="wide"><GoogleIcon/> </th>
+                <th colSpan="3" className="wide"><LineIcon/> </th>
+                <th className="w70"> </th>
               </tr>
               <tr>
-                <th className="w70">ロケーション名</th>
-                <th className="w70">アクセスユーザー</th>
+                <th className="">ロケーション名</th>
+                <th className="">アクセスユーザー</th>
                 <th className="w70">
                   投稿数{' '}
                   <span className="filter">
@@ -330,8 +330,8 @@ function LocationInfo() {
               {infoList.map((info) => {
                 return (
                   <tr key={info?.id}>
-                    <td className="w70">{info?.location?.name}</td>
-                    <td className="w70">{info?.location?.name}</td>
+                    <td className="">{info?.location?.name}</td>
+                    <td className="">{info?.location?.name}</td>
                     <td className="w70">{info.posting_number || 0}</td>
                     <td className="w70">{info.no_of_followers || 0}</td>
                     <td className="w70">{info.no_of_followings || 0}</td>
@@ -387,7 +387,6 @@ function LocationInfo() {
                       />
                       </td> */}
                     <td className="w70">
-                      <div style={{ fontSize: '10px' }}>{info.rating || 0}</div>
                       <StarRating value={info.rating || 0} />
                     </td>
                     <td className="w70">{info?.two_or_less}</td>

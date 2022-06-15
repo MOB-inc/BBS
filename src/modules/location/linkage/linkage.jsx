@@ -11,7 +11,7 @@ import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
-// import Modal from '../../../commons/components/Modal';
+import Modal from '../../../commons/components/Modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
 // import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
@@ -35,6 +35,7 @@ import { BOOK_ID } from '../../../commons/constants/key';
 // import { AppContext } from '../../../commons/helpers/appContext';
 import './linkage.scss';
 // import config from '../../../OEMConfig';
+
 
 function Dialogs() {
   const { id } = useParams();
@@ -125,10 +126,10 @@ function Dialogs() {
       window.location = resp?.result?.redirect_url;
     }
   };
-  // const [modalValue, setModalValue] = useState('');
+  const [modalValue, setModalValue] = useState('');
   const handleTokenUpdate = (event) => {
     setLineOfficialToken(event.target.value);
-    // setModalValue(event.target.value);
+    setModalValue(event.target.value);
   };
 
   const handleSplanEndpointUpdate = (event) => {
@@ -171,9 +172,12 @@ function Dialogs() {
       setSplanPassword(status?.result?.password);
     });
   };
-  const [modalStatus, setModalStatus] = useState(false);
-	const modalOpen = () => {
-    setModalStatus(true);
+  const modalOpen = () => {
+    const elem = document.getElementById('input');
+    elem.style.display = "block"; 
+    setTimeout(function(){ 
+      elem.style.opacity = 1; 
+		}, 0);
   }
 
   return (
@@ -337,17 +341,16 @@ function Dialogs() {
                 </button>
                 <TextField 
                     label=""
-                    id="outlined-start-adornment"
+                    id="result"
                     className="field"
                     InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen}/></InputAdornment>,
+                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
                     }}
                     variant="outlined"
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
                   />
-                  {/* <Modal active={modalStatus} variant="input" value={modalValue} /> */}
-                  {console.log(modalStatus)}
+                  <Modal variant="input" value={modalValue} />
               </div>
               <div className="dialog-footer line">
                 <p className={lineOfficialStatus ? 'linked' : ''}>Status:

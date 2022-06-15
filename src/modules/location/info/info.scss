@@ -1,6 +1,9 @@
 @import 'src/commons/styles/color.scss';
 @import 'src/commons/styles/variables.scss';
 
+.location-info > .explanation{
+  padding-top:8px;
+}
 .location-info {
   $border: 1px solid rgba(0, 0, 0, 0.22);
   .info-content {
@@ -31,19 +34,20 @@
         top: 0;
         tr th {
           font-weight: 600;
-          font-size: 12px;
+          font-size: 10px;
           white-space: nowrap;
         }
         th{
           border-bottom:none;
           border-top:none;
+          position:relative
         }
         tr:nth-child(1){
           th:nth-child(2){
-            background-color: $table-color;
+            background-color: $button-active-bg-color;
           }
           th:nth-child(4){
-            background-color: $table-color;
+            background-color: $button-active-bg-color;
           }
         } 
         tr:nth-child(2){
@@ -53,8 +57,23 @@
           th:nth-child(9),
           th:nth-child(10),
           th:nth-child(11){
-            background-color: $table-color;
+            background-color: $button-active-bg-color;
           }
+          th:nth-child(1):before,
+          th:nth-child(2):before,
+          th:nth-child(3):before,
+          th:nth-child(6):before,
+          th:nth-child(9):before,
+          th:nth-child(12):before{
+            content:"";
+            width:1px;
+            height:14px;
+            background-color:  #e0e0e0;
+            position:absolute;
+            left:0;
+            top:14px;
+          }
+
         } 
       }
 
@@ -66,21 +85,24 @@
         @media (min-width: $sm) {
           height: calc(100vh - 300px);
         }
-      }
-      table tbody tr {
-        width: 100%;
-        td:nth-child(3),
-        td:nth-child(4),
-        td:nth-child(5),
-        td:nth-child(9),
-        td:nth-child(10),
-        td:nth-child(11){
-          background-color: $table-color;
+        tr {
+          width: 100%;
+          td{
+            font-size:12px;
+          }
+          td:nth-child(3),
+          td:nth-child(4),
+          td:nth-child(5),
+          td:nth-child(9),
+          td:nth-child(10),
+          td:nth-child(11){
+            background-color: $button-active-bg-color;
+          }
         }
-      }
-      table tbody tr:last-of-type {
-        width: 100%;
-        border-bottom: $border;
+        tr:last-of-type {
+          width: 100%;
+          border-bottom: $border;
+        }
       }
       table thead,
       table tbody tr {
@@ -98,7 +120,7 @@
       th.wide,
       td.wide {
         @media (min-width: $sm) {
-          width: 200px;
+          width: 210px;
         }
       }
       td.ellipsis {
@@ -120,7 +142,7 @@
         }
       }
       th.w70 {
-        font-size: 9px;
+        font-size: 10px;
       }
       th.w150,
       td.w150 {

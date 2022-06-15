@@ -8,8 +8,8 @@
     #dc9090;
   display: inline-flex;
   align-items: center;
-  flex-direction: column;
   position: relative;
+  justify-content: center;
   input[type='checkbox'] {
     height: 0;
     width: 0;
@@ -21,14 +21,15 @@
     height: 14px;
     transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-radius: 7px;
-    background-color: #c4c4c4;
+    background-color:$switch-bg-color;
     cursor: pointer;
     display: block;
     border-radius: 999px;
     position: relative;
+    margin-bottom:0;
   }
   input:checked + label{
-    background-color:$button-active-bg-color;
+    background-color:$switch-active-bg-color;
   }
   label:after {
     content: '';
