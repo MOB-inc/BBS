@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
 import Button from '@material-ui/core/Button';
-// import TextField from '@material-ui/core/TextField';
-// import InputAdornment from '@material-ui/core/InputAdornment';
 import { useTranslation } from 'react-i18next';
 import Navigation from '../navigation';
 import Switch from '../../../commons/components/Switch';
@@ -20,7 +18,6 @@ import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon
 import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
 import './info.scss';
 import config from '../../../OEMConfig';
-// import { ReactComponent as SearchIcon } from '../../../commons/icons/search-icon.svg';
 
 function LocationInfo() {
   const { menuMode } = useContext(AppContext);
@@ -49,10 +46,6 @@ function LocationInfo() {
       setLastPage(resp?.result?.pagination?.total_pages || 1);
     }
   }, [sorts, page]);
-  // const [searchText, setSerchText] = useState("");
-  // const handleSearch = (event) => {
-  //   setSerchText(event.target.value);
-  // }
   const locationUpdateHandler = async (params) => {
     const resp = await updateLocationInfo(`/${params.id}`, params);
     if (updateResponse.ok) {

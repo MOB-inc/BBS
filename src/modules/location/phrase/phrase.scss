@@ -22,8 +22,35 @@
 
     > .service-list {
       width: 100%;
-      @media (min-width: $sm) {
-        margin-left: 45px;
+      overflow: hidden;
+      padding-left: 35px;
+      padding-right: 35px;
+      padding-bottom: 35px;
+      .MuiPaper-elevation1 {
+        box-shadow: none;
+        margin-top:18px;
+        margin-bottom:16px ;
+        .MuiTabs-flexContainer{
+          justify-content: center;
+          button{
+            margin:0 15px;
+            font-size:14px;
+          }
+          button:focus{
+            outline:none;
+          }
+          .MuiTab-textColorPrimary.Mui-selected {
+            color: $button-active-color;
+          }
+        }
+        .MuiTabs-scroller{
+          overflow-x: auto !important;
+        }
+        .PrivateTabIndicator-colorPrimary-54 {
+          background-color: $button-active-color;
+          bottom: 4px;
+          height:4px;
+        }
       }
       > .services {
         display: flex;
@@ -44,7 +71,11 @@
         .service.active:after {
           content:"";
           position:absolute;
-          
+          width:calc(100% - 12px);
+          height:3px;
+          left:6px;
+          bottom:0px;
+          background-color: $button-active-color;
         }
       }
       div.title {
@@ -98,29 +129,38 @@
             right: 27px;
             bottom: 11px;
           }
-        }
-        > .edit-button {
-          background: #fff;
-
-          > .pills {
-            width: 70px;
-            border-radius: 15px;
-            margin: 6px 6px;
-            padding: 3px;
-            color: $paper-color;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: bold;
-            line-height: 17px;
-          }
-          > .reply-example {
-            background: $blue;
-          }
-          > .register {
-            background: $accent-color;
-          }
-          > .cancel {
-            background: $reset-color;
+          > .edit-button {
+            position: absolute;
+            right: 17px;
+            top: 10px;
+            svg{
+              margin-bottom:4px;
+            }
+            button{
+              font-size:14px;
+              color:$button-active-color;
+              font-weight: 500;
+            }
+            > .pills {
+              width: 70px;
+              border-radius: 15px;
+              margin: 6px 6px;
+              padding: 3px;
+              color: $paper-color;
+              cursor: pointer;
+              font-size: 10px;
+              font-weight: bold;
+              line-height: 17px;
+            }
+            > .reply-example {
+              background: $blue;
+            }
+            > .register {
+              background: $accent-color;
+            }
+            > .cancel {
+              background: $reset-color;
+            }
           }
         }
         div.editor-small {
@@ -149,54 +189,59 @@
             line-height: 20px;
             background: transparent;
           }
-        }
-        > .edit-button {
-          > .pills {
-            width: 70px;
-            border-radius: 15px;
-            margin: 6px 6px;
-            padding: 3px;
-            color: $paper-color;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: bold;
-            line-height: 17px;
-          }
-          > .register {
-            background: $accent-color;
-          }
-          > .cancel {
-            background: $reset-color;
+          > .edit-button {
+            position: absolute;
+            right: 17px;
+            top: 10px;
+            button{
+              font-size:14px;
+              color:$button-active-color;
+              font-weight: 500;
+            }
+            > .pills {
+              width: 70px;
+              border-radius: 15px;
+              margin: 6px 6px;
+              padding: 3px;
+              color: $paper-color;
+              cursor: pointer;
+              font-size: 10px;
+              font-weight: bold;
+              line-height: 17px;
+            }
+            > .register {
+              background: $accent-color;
+            }
+            > .cancel {
+              background: $reset-color;
+            }
           }
         }
       }
       div.url-box {
+        margin-top: 20px;
+        text-align: left;
         .link-name {
           display: flex;
           align-items: baseline;
-          input {
-            border-radius: 4px;
-            border: 1px solid hsl(0, 0%, 80%);
-            width: 285px;
-            padding: 10px 0px 10px 15px;
-            margin-bottom: 10px;
-            margin-right: 10px;
+          .addBtn {
+            width:320px;
+            height:40px;
+            font-size:16px;
           }
         }
-        margin-top: 20px;
-        width: 100%;
-        text-align: left;
-        font-size: 12px;
-        input {
-          border-radius: 4px;
-          border: 1px solid hsl(0, 0%, 80%);
-          width: 485px;
-          padding: 10px 0px 10px 15px;
+        .urlField{
+          margin-top:14px;
+          height:40px;
+          width:100%;
+          input{
+            font-size: 16px;
+            box-sizing: border-box;
+          }
         }
       }
-
       div.editor.active {
-        background: rgba(229, 229, 229, 0.4);
+        background:#f0f0f0 !important;
       }
     }
   }

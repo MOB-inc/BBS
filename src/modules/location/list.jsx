@@ -82,6 +82,11 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   //   setPage(p);
   // };
 
+  const output = (event)  => {
+    const elem = document.getElementById("locName");
+    elem.innerHTML = event.target.value;
+  };
+  
   if (allLocationsSelect && !allLocations) {
     history.push(`${url}/${locations[0].id}`);
   }
@@ -128,6 +133,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
         native: true,
       }}
       variant="outlined"
+      onChange={output}
       >
         <option>  </option>
         {locations.map((loc) => {

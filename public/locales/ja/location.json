@@ -62,6 +62,7 @@
     "LINE_OFFICIAL": "LINE公式連動投稿：定型文",
     "SELECT_PLACEHOLDER": "例を選択",
     "RETURN": "戻る",
+    "ADD_BUTTON": "ボタンを追加（省略可）",
     "LINK_TYPE_PLACEHOLDER": "リンク追加（省略可）",
     "LINK_NAME_PLACEHOLDER": "リンク名（例：予約はこちら）",
     "LINK_TEXT_GBP": "GBPの投稿にリンクボタンをつけることができます。",

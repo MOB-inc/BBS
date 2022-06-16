@@ -3,7 +3,12 @@ import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { CButton } from '@coreui/react';
-import Select, { components } from 'react-select';
+// import Select, { components } from 'react-select';
+// import { components } from 'react-select';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import TextField from '@material-ui/core/TextField';
 import {
   GMB_POST,
   BUTTON_TYPES,
@@ -14,8 +19,9 @@ import { counter } from '../../../commons/helpers/util';
 import Explanation from '../../../commons/components/Explanation';
 import Navigation from '../navigation';
 import LocationList from '../list';
-import { ReactComponent as EditIcon } from '../../../commons/icons/edit.svg';
-import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
+// import { ReactComponent as EditIcon } from '../../../commons/icons/edit.svg';
+import { ReactComponent as EditIcon } from '../../../commons/icons/pen-icon.svg';
+// import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
 import { AppContext } from '../../../commons/helpers/appContext';
 import './phrase.scss';
 import {
@@ -55,13 +61,13 @@ function FixedPhrase() {
   );
   const [optionsLinkType, setOptionsLinkType] = useState([]);
 
-  const DropdownIndicator = (props) => {
-    return (
-      <components.DropdownIndicator {...props}>
-        <ArrowDown />
-      </components.DropdownIndicator>
-    );
-  };
+  // const DropdownIndicator = (props) => {
+  //   return (
+  //     <components.DropdownIndicator {...props}>
+  //       <ArrowDown />
+  //     </components.DropdownIndicator>
+  //   );
+  // };
   useEffect(async () => {
     const responseButton = await getButtonTypes();
     if (buttonResponse.ok) {
@@ -156,7 +162,10 @@ function FixedPhrase() {
       setBusy(false);
     });
   };
-
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div className="fixed-phrase">
       <div className="head">
@@ -165,8 +174,37 @@ function FixedPhrase() {
       </div>
       <Navigation />
       <div className="content">
+        <p id="locName"> </p>
         <div className="service-list">
-          <div className="services">
+        <Paper square>
+          <Tabs
+            value={value}
+            indicatorColor="primary"
+            textColor="primary"
+            onChange={handleChange}
+            aria-label="disabled tabs example"
+          >
+            <Tab 
+            label={t('location:PHRASE.GMB')} 
+            className={`service ${
+              selected === SERVICE_LINE_OFFICIAL && 'active'
+            }`}
+            onClick={() => setSelected(SERVICE_GMB)}
+            />
+            <Tab 
+            label={t('location:PHRASE.LINE_OFFICIAL')}
+            className={`service ${
+              selected === SERVICE_LINE_OFFICIAL && 'active'
+            }`}
+            onClick={() => setSelected(SERVICE_LINE_OFFICIAL)}
+            />
+            <Tab 
+            label={t('location:PHRASE.CMS')}
+            className={`service ${selected === SERVICE_CMS && 'active'}`}
+            onClick={() => setSelected(SERVICE_CMS)} />
+          </Tabs>
+        </Paper>
+          {/* <div className="services">
             <button
               type="button"
               className={`service ${selected === SERVICE_GMB && 'active'}`}
@@ -184,13 +222,12 @@ function FixedPhrase() {
               {t('location:PHRASE.LINE_OFFICIAL')}
             </button>
             <button
-              disabled
               type="button"
               className={`service ${selected === SERVICE_CMS && 'active'}`}
               onClick={() => setSelected(SERVICE_CMS)}
             >
               {t('location:PHRASE.CMS')}
-            </button>
+            </button> */}
             {/* <button
               disabled
               type="button"
@@ -207,7 +244,7 @@ function FixedPhrase() {
             >
               HPB
             </button> */}
-          </div>
+          {/* </div> */}
           {selected === SERVICE_GMB && (
             <>
               {menuMode === 'sidebar' && <Explanation screen="PHRASE_GMB" />}
@@ -235,11 +272,7 @@ GBPへの投稿に以下が含まれると、
 お待ちしております。
 ---------------------------------------------------------------"
                   />
-                  <div className="counter">
-                    {counter(phrase?.phrase || '')} {t('location:PHRASE.TEXT')}
-                  </div>
-                </div>
-                <div className="edit-button">
+                  <div className="edit-button">
                   {editable ? (
                     <>
                       <div
@@ -270,14 +303,33 @@ GBPへの投稿に以下が含まれると、
                       onClick={handleEditOrRegister}
                       disabled={busy}
                     >
-                      <EditIcon height={20} width={20} />
+                      <EditIcon height={18} width={18} /> EDIT
                     </CButton>
                   )}
+                </div>
+                  <div className="counter">
+                    {counter(phrase?.phrase || '')} {t('location:PHRASE.TEXT')}
+                  </div>
                 </div>
               </div>
               <div className="url-box">
                 <div className="link-name">
-                  <Select
+                  <TextField
+                    id=""
+                    className="addBtn"
+                    select
+                    label={t('location:PHRASE.ADD_BUTTON')}
+                    SelectProps={{
+                      native: true,
+                    }}
+                    variant="outlined"
+                    >
+                      <option>None</option>
+                      <option>Button1</option>
+                      <option>Button2</option>
+                      <option>Button3</option>
+                  </TextField>
+                  {/* <Select
                     options={optionsLinkType}
                     components={{ DropdownIndicator }}
                     isClearable
@@ -300,9 +352,9 @@ GBPへの投稿に以下が含まれると、
                     }}
                     placeholder={t('location:PHRASE.LINK_TYPE_PLACEHOLDER')}
                   />
-                  {t('location:PHRASE.LINK_TEXT_GBP')}
+                  {t('location:PHRASE.LINK_TEXT_GBP')} */}
                 </div>
-                {optionsLinkType.find((link) => {
+                {/* {optionsLinkType.find((link) => {
                   return link.label === '今すぐ電話';
                 })?.value !== linkType && (
                   <input
@@ -311,7 +363,15 @@ GBPへの投稿に以下が含まれると、
                     onChange={(event) => setLinkUrl(event?.target?.value)}
                     placeholder="URL"
                   />
-                )}
+                )} */}
+                <TextField
+                  className="urlField"
+                  value={linkUrl}
+                  // disabled={!editable}
+                  onChange={(event) => setLinkUrl(event?.target?.value)}
+                  placeholder="URL"
+                  variant="outlined"
+                />
               </div>
             </>
           )}
@@ -336,62 +396,80 @@ GBPへの投稿に以下が含まれると、
 お待ちしております。
 ---------------------------------------------------------------"
                   />
+                  <div className="edit-button">
+                    {editable ? (
+                      <>
+                        <div
+                          className="pills reply-example"
+                          role="presentation"
+                          onClick={() => handlerExample(EXAMPLE_TYPE.LINE)}
+                        >
+                          {t('location:PHRASE.PHRASE_EXAMPLE')}
+                        </div>
+                        <div
+                          className="pills register"
+                          role="presentation"
+                          onClick={handleEditOrRegister}
+                        >
+                          {t('location:PHRASE.REGISTER')}
+                        </div>
+                        <div
+                          className="pills cancel"
+                          role="presentation"
+                          onClick={handleCancel}
+                        >
+                          {t('location:PHRASE.CANCEL')}
+                        </div>
+                      </>
+                    ) : (
+                      <CButton
+                        shape="pill"
+                        onClick={handleEditOrRegister}
+                        disabled={busy}
+                      >
+                        <EditIcon height={18} width={18} /> EDIT
+                      </CButton>
+                    )}
+                  </div>
                   <div className="counter">
                     {counter(phrase?.phrase || '')} {t('location:PHRASE.TEXT')}
                   </div>
                 </div>
-                <div className="edit-button">
-                  {editable ? (
-                    <>
-                      <div
-                        className="pills reply-example"
-                        role="presentation"
-                        onClick={() => handlerExample(EXAMPLE_TYPE.LINE)}
-                      >
-                        {t('location:PHRASE.PHRASE_EXAMPLE')}
-                      </div>
-                      <div
-                        className="pills register"
-                        role="presentation"
-                        onClick={handleEditOrRegister}
-                      >
-                        {t('location:PHRASE.REGISTER')}
-                      </div>
-                      <div
-                        className="pills cancel"
-                        role="presentation"
-                        onClick={handleCancel}
-                      >
-                        {t('location:PHRASE.CANCEL')}
-                      </div>
-                    </>
-                  ) : (
-                    <CButton
-                      shape="pill"
-                      onClick={handleEditOrRegister}
-                      disabled={busy}
-                    >
-                      <EditIcon height={20} width={20} />
-                    </CButton>
-                  )}
-                </div>
               </div>
-
               <div className="url-box">
                 <div className="link-name">
-                  <input
+                  <TextField
+                    id=""
+                    className="addBtn"
+                    select
+                    label={t('location:PHRASE.ADD_BUTTON')}
+                    // disabled={!editable}
+                    onChange={(event) => setLinkName(event?.target?.value)}
+                    SelectProps={{
+                      native: true,
+                    }}
+                    variant="outlined"
+                    >
+                      <option>None</option>
+                      <option>Button1</option>
+                      <option>Button2</option>
+                      <option>Button3</option>
+                  </TextField>
+                  {/* <input
                     value={linkName}
                     disabled={!editable}
                     onChange={(event) => setLinkName(event?.target?.value)}
                     placeholder={t('location:PHRASE.LINK_NAME_PLACEHOLDER')}
                   />
-                  {t('location:PHRASE.LINK_TEXT_LINE')}
+                  {t('location:PHRASE.LINK_TEXT_LINE')} */}
                 </div>
-                <input
+                <TextField
+                  className="urlField"
                   value={linkUrl}
                   disabled={!editable}
                   onChange={(event) => setLinkUrl(event?.target?.value)}
                   placeholder="URL"
+                  variant="outlined"
                 />
               </div>
             </>
