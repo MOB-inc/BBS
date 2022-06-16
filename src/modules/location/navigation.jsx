@@ -38,13 +38,13 @@ function LocationNavigation() {
         </NavLink>
       </ToggleButton>
       <ToggleButton value="right" aria-label="right aligned">
-        <NavLink to={`${url}/contact_info`} activeClassName="active">
+        <NavLink to={`${url}/contract`} activeClassName="active">
           {t('location:COMMON.CONTRACT_INFO')}
         </NavLink>
       </ToggleButton>
       <ToggleButton value="justify" aria-label="justified">
-        <NavLink to={`${url}/bulk_edit`} activeClassName="active">
-          {t('location:COMMON.BULK_EDIT')}
+        <NavLink to={`${url}/fixed_phrases`} activeClassName="active">
+          {t('location:COMMON.PHRASE_INFO')}
         </NavLink>
       </ToggleButton>
     </ToggleButtonGroup>

@@ -223,8 +223,8 @@ function Dialogs() {
                 <p className={igStatus ? 'linked' : ''}>Status:<span>{igStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
-                <p><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED')}筑前貴裕 / Optbusiness</span></p>
-                <p><InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED')}allfree1188 / ALL Fr...</span></p>
+                <p><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"}</span></p>
+                <p><InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Fr..."}</span></p>
               </div>
             </div>
           </div>      
@@ -277,7 +277,7 @@ function Dialogs() {
                   {gmbStatus
                 ? t('location:LINKAGE.STATUS_CONNECTED')
                 : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
-                <p><GoogleIcon /><span>{location?.gmb_location_name}株式会社inside</span></p>
+                <p><GoogleIcon /><span>{location?.gmb_location_name || "株式会社inside"}</span></p>
             </div>
           </div>
         </div>
@@ -504,20 +504,18 @@ function Dialogs() {
 function LocationLinkage() {
   // const { menuMode } = useContext(AppContext);
   return (
-    <>
     <div className="location-linkage">
       <div className="head">
           <Explanation screen="LINKAGE" />
           <LocationList url="/locations/linkage" />
       </div>
-          <Navigation />
+      <Navigation />
       <div className="linkage-content">
         <Route path="/locations/linkage/:id">
           <Dialogs />
         </Route>
       </div>
     </div>
-    </>
   );
 }
 

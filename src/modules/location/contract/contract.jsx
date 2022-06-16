@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useFetch from 'use-http';
@@ -8,7 +8,7 @@ import Navigation from '../navigation';
 import LocationList from '../list';
 import { LOCATION_INFO_BY_LOCATION_ID } from '../../../commons/constants/url';
 import Explanation from '../../../commons/components/Explanation';
-import { AppContext } from '../../../commons/helpers/appContext';
+// import { AppContext } from '../../../commons/helpers/appContext';
 import './contract.scss';
 
 dayjs.extend(customParseFormat);
@@ -34,6 +34,7 @@ function Info() {
         <thead>
           <tr>
             <th>{t('location:CONTRACTOR.STORE_CLERK')}</th>
+            <th>{t('location:CONTRACTOR.DETAILS')}</th>
             <th>{t('location:CONTRACTOR.START_DATE')}</th>
             <th>{t('location:CONTRACTOR.END_DATE')}</th>
           </tr>
@@ -41,6 +42,7 @@ function Info() {
         <tbody>
           <tr>
             <td>{info?.location_person}</td>
+            <td>{info?.location_detail || "instagram連携"}</td>
             <td>
               {dayjs(info?.contract_start, 'YYYY-MM-DD').format('YYYY/MM/DD')}
             </td>
@@ -54,18 +56,15 @@ function Info() {
   );
 }
 function CustomerInfo() {
-  const { menuMode } = useContext(AppContext);
+  // const { menuMode } = useContext(AppContext);
   return (
     <div className="customer-info">
-      {menuMode === 'sidebar' && (
-        <>
+      <div className="head">
           <Explanation screen="CONTRACT" />
-          <Navigation />
-        </>
-      )}
-
+          <LocationList url="/locations/contract" />
+      </div>
+      <Navigation />
       <div className="customer-content">
-        <LocationList url="/locations/contract" />
         <Route path="/locations/contract/:id">
           <Info />
         </Route>
