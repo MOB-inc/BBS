@@ -1,0 +1,11 @@
+@import '/src/commons/styles/color.scss';
+
+.search input{
+	font-size: 12px;
+	height: 40px;
+	box-sizing: border-box;
+	padding-left:14px;
+}
+.MuiOutlinedInput-adornedStart{
+	padding-left:4px;
+}
