@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext,useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import {
   GMB_POST,
   BUTTON_TYPES,
@@ -166,16 +167,17 @@ function FixedPhrase() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const NavigationMemo = useMemo(() => <Navigation />, []); 
   return (
     <div className="fixed-phrase">
       <div className="head">
           <Explanation screen="CONTRACT" />
           <LocationList url="/locations/fixed_phrases" />
       </div>
-      <Navigation />
+      {NavigationMemo}
       <div className="content">
-        <p id="locName"> </p>
         <div className="service-list">
+        <p id="locName"> </p>
         <Paper square>
           <Tabs
             value={value}
@@ -474,6 +476,11 @@ GBPへの投稿に以下が含まれると、
               </div>
             </>
           )}
+          <div style={{textAlign: "right",marginTop: "115px"}}>
+            <Button className="cancel2">{t('location:PHRASE.CANCEL')}</Button>
+            <Button className="preview">{t('location:PHRASE.PREVIEW')}</Button>
+            <Button className="release">{t('location:PHRASE.RELEASE')}</Button>
+          </div>
         </div>
       </div>
       <ExampleModal

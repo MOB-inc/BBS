@@ -20,12 +20,12 @@ function LocationNavigation() {
   };
   return (
     <ToggleButtonGroup
-      className="location-navigation"
-      value={alignment}
-      exclusive
-      onChange={handleAlignment}
-      aria-label="text alignment"
-      
+    className="location-navigation"
+    value={alignment}
+    exclusive
+    onChange={handleAlignment}
+    aria-label="text alignment"
+    
     >
       <ToggleButton value="first" aria-label="left aligned">
         <NavLink to={`${url}/linkage`} activeClassName="active">

@@ -1,5 +1,5 @@
 // import React, { useContext, useEffect, useState } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams, Route, useLocation } from 'react-router-dom';
@@ -503,13 +503,14 @@ function Dialogs() {
 
 function LocationLinkage() {
   // const { menuMode } = useContext(AppContext);
+  const NavigationMemo = useMemo(() => <Navigation />, []); 
   return (
     <div className="location-linkage">
       <div className="head">
           <Explanation screen="LINKAGE" />
           <LocationList url="/locations/linkage" />
       </div>
-      <Navigation />
+      {NavigationMemo}
       <div className="linkage-content">
         <Route path="/locations/linkage/:id">
           <Dialogs />

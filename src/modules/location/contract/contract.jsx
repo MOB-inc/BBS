@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo} from 'react';
 import { Route, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useFetch from 'use-http';
@@ -56,14 +56,14 @@ function Info() {
   );
 }
 function CustomerInfo() {
-  // const { menuMode } = useContext(AppContext);
+  const NavigationMemo = useMemo(() => <Navigation />, []); 
   return (
     <div className="customer-info">
       <div className="head">
           <Explanation screen="CONTRACT" />
           <LocationList url="/locations/contract" />
       </div>
-      <Navigation />
+      {NavigationMemo}
       <div className="customer-content">
         <Route path="/locations/contract/:id">
           <Info />

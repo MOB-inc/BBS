@@ -37,6 +37,9 @@
         height:40px;
         margin-left:13px;
       }
+      .button:focus{
+        outline: none;
+      }
       table {
         display: flex;
         flex-flow: column;

@@ -81,12 +81,13 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   // const pageChangeHandler = (p) => {
   //   setPage(p);
   // };
-
-  const output = (event)  => {
-    const elem = document.getElementById("locName");
-    elem.innerHTML = event.target.value;
-  };
-  
+  const output = (event) => {
+    const path = window.location.pathname;
+    if( path.match(/fixed_phrases/)){
+      const elem = document.getElementById("locName");
+      elem.innerHTML = event.target.value;
+    }
+  };  
   if (allLocationsSelect && !allLocations) {
     history.push(`${url}/${locations[0].id}`);
   }

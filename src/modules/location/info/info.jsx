@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import useFetch from 'use-http';
 import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
@@ -66,12 +66,13 @@ function LocationInfo() {
     setPage(p);
   };
   const { t } = useTranslation(['location']);
+  const NavigationMemo = useMemo(() => <Navigation />, []); 
   return (
     <div className="location-info">
       {menuMode === 'sidebar' && (
         <>
           <Explanation screen="LOCATION_INFO" />
-          <Navigation />
+          {NavigationMemo}
         </>
       )}
       <div className="pages">

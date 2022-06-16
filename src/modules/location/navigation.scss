@@ -33,6 +33,7 @@ a:hover{
   text-align: left;
   display: block;
   button{
+    color:$button-active-color;
     overflow: hidden;
     a{
       width:140px;
