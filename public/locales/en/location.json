@@ -57,6 +57,7 @@
     "LINE_OFFICIAL": "LINE OFFICIAL linked posts",
     "SELECT_PLACEHOLDER": "Select an example",
     "RETURN": "Return",
+    "ADD_BUTTON": "Add button(optional)",
     "LINK_TYPE_PLACEHOLDER": "Add link (optional)",
     "LINK_NAME_PLACEHOLDER": "Link name (e.g. click here to make a reservation)",
     "LINK_TEXT_GBP": "When linking postings to GBP, a link button can be added to the latest information postings.",
