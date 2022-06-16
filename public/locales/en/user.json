@@ -67,6 +67,7 @@
   },
   "EDIT": {
     "BUTTON": "Edit",
-    "SUCCESS": { "MESSAGE": "Editing is complete" }
-  }
+    "SUCCESS": { "MESSAGE": "Editing is complete" },
+		"SEARCH": "Search username",
+		"SEARCH_BTN": "Search"
 }

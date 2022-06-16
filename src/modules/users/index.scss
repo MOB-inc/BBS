@@ -4,33 +4,22 @@
 div.user-page {
   $border: 1px solid rgba(0, 0, 0, 0.22);
   padding: 12px 9px 9px 12px;
+	text-align: left;
   @media (min-width: $sm) {
     padding: 32px 29px 29px 53px;
   }
-  > .navbar {
-    margin: 3px 3px 3px 3px;
-    padding: 0 !important;
-    > .col {
-      padding: 0 !important;
-      margin-bottom: 18px;
-    }
-    > .left {
-      display: flex;
-      justify-content: flex-start;
-    }
-    > .right {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      .search-bar {
-        width: 266px;
-      }
-      .search-icon {
-        padding: 0 12px;
-      }
-    }
-  }
 
+	.search-bar {
+		width: 266px;
+		display: flex;
+	}
+	.search-icon {
+		padding: 0 12px;
+	}
+	.container {
+		background-color: $paper-color;
+		padding: 21px 30px;
+	}
   > .list {
     overflow-x: auto;
     > div.table {
@@ -92,6 +81,7 @@ div.user-page {
         }
         > div.cell:not(:last-child) {
           border-right: 1px solid rgba(0, 0, 0, 0.22);
+
         }
       }
       > div.thead div.row,
@@ -115,6 +105,7 @@ div.user-page {
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+				border: $border;
       }
       div.tbody div.row:hover {
         div.cell:not(:first-child) {

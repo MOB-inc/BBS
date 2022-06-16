@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as SearchIcon } from '../../icons/search-icon.svg';
 import './index.scss';
 
-
 const SearchForm = () => {
 	const { t } = useTranslation(['location']);
 	const [searchText, setSerchText] = useState("");
@@ -14,7 +13,7 @@ const SearchForm = () => {
   }
 
 	return(
-		<TextField 
+		<TextField
 			label=""
 			id=""
 			className="search"

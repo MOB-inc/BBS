@@ -24,7 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 
 package.json
-src/modules/components/
 routes.js
 
 src/modules/aikou/

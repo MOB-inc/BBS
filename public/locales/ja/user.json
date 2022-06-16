@@ -69,6 +69,8 @@
   },
   "EDIT": {
     "BUTTON": "編集",
-    "SUCCESS": { "MESSAGE": "編集が完了しました。" }
+    "SUCCESS": { "MESSAGE": "編集が完了しました。" },
+		"SEARCH": "ユーザー名を検索",
+		"SEARCH_BTN": "検索"
   }
 }

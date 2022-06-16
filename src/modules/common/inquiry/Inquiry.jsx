@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import MuiButton from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 
 import useFetch from 'use-http';
 import { useMount } from 'ahooks';
@@ -130,7 +130,7 @@ function Inquiry() {
               placeholder="Minimum 3 rows"
             />
           </div>
-          <MuiButton
+          <Button
             variant="contained"
             color="primary"
             className={classes.button}
@@ -139,14 +139,14 @@ function Inquiry() {
             // disabled={!(contents?.length > 0)}
           >
             送る
-          </MuiButton>
-          <MuiButton
+          </Button>
+          <Button
             variant="outlined"
             color="secondary"
             onClick={() => history.goBack()}
           >
             戻る
-          </MuiButton>
+          </Button>
           {config().inquiries_phone_number && (
             <div className="contact">
               <p className="phone-message">
