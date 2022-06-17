@@ -32,14 +32,24 @@
     }
   }
   .buttons {
-    margin: 0 auto;
     display: flex;
-    font-size: 12px;
-    line-height: 20px;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     button {
-      margin-top: 10px;
+      margin:50px 15px 0;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+      padding:11px;
+      width:150px;
+      height:43px;
     }
+  }
+  .back{
+    color: $button-active-color;
+    border-color:$button-active-color;
+  }
+  .submit{
+    color:#fff;
+    background-color:$button-active-color;
   }
 }

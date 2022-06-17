@@ -6,6 +6,7 @@ import { useParams, Route, useLocation } from 'react-router-dom';
 
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Tooltip from '@material-ui/core/Tooltip';
 import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 
 import Navigation from '../navigation';
@@ -179,7 +180,7 @@ function Dialogs() {
       elem.style.opacity = 1; 
 		}, 0);
   }
-
+  // const longText="筑前貴裕 / Optbusiness";
   return (
     <div className="dialog-list">
       {location?.service?.id !== BOOK_ID && (
@@ -208,10 +209,10 @@ function Dialogs() {
                     onClick={handleInstagramLinkage}
                   >
                     <img
-                      src="/icons/fb.jpeg"
+                      src="/icons/face-insta.svg"
                       alt="FB"
                       height="33px"
-                      width="33px"
+                      width="40px"
                       style={{ borderRadius: '5px' }}
                     />
                     <span>{t('location:LINKAGE.LOGIN')}</span>
@@ -223,8 +224,12 @@ function Dialogs() {
                 <p className={igStatus ? 'linked' : ''}>Status:<span>{igStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
-                <p><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"}</span></p>
-                <p><InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Fr..."}</span></p>
+                <Tooltip title={t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"} arrow interactive style={{cursor:"pointer"}}>
+                  <p className="over"><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"}</span></p>
+                </Tooltip>
+                <Tooltip title={t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Freeわんぱくグルメ日記🍖✨✨"} arrow interactive style={{cursor:"pointer"}}>
+                  <p className="over">/ <InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Freeわんぱくグルメ日記🍖✨✨"}</span></p>
+                </Tooltip>
               </div>
             </div>
           </div>      
@@ -277,7 +282,9 @@ function Dialogs() {
                   {gmbStatus
                 ? t('location:LINKAGE.STATUS_CONNECTED')
                 : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
-                <p><GoogleIcon /><span>{location?.gmb_location_name || "株式会社inside"}</span></p>
+                <Tooltip title={location?.gmb_location_name || "株式会社inside"} arrow interactive style={{cursor:"pointer"}}>
+                  <p className="over"><GoogleIcon /><span>{location?.gmb_location_name || "株式会社inside"}</span></p>
+                </Tooltip>
             </div>
           </div>
         </div>
@@ -349,8 +356,8 @@ function Dialogs() {
                     variant="outlined"
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
-                  />
-                  <Modal variant="input" value={modalValue} />
+                />
+                <Modal variant="input" value={modalValue} />
               </div>
               <div className="dialog-footer line">
                 <p className={lineOfficialStatus ? 'linked' : ''}>Status:
@@ -359,12 +366,14 @@ function Dialogs() {
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
                   </span></p>
-                <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
-                  <>
-                    {lineOfficialDisplayName}
-                  </>
-                )}inside通知アカウント
-                </span></p>
+                <Tooltip title={lineOfficialDisplayName || "inside通知アカウント"} arrow interactive style={{cursor:"pointer"}}>
+                  <p className='over'><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
+                    <>
+                      {lineOfficialDisplayName}
+                    </>
+                  ) || "inside通知アカウント"}
+                  </span></p>
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -420,7 +429,7 @@ function Dialogs() {
                   onClick={handleSplanLinkage}
                 >
                   <img
-                    src="/icons/cms.png"
+                    src="/icons/cms.svg"
                     alt="CMS"
                     height="33px"
                     width="33px"
@@ -471,12 +480,15 @@ function Dialogs() {
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
                   </span></p>
-                <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
-                  <>
-                    {lineOfficialDisplayName}
-                  </>
-                )}連携されたアカウント名
-                </span></p>
+
+                <Tooltip title={lineOfficialDisplayName || "連携されたアカウント名"} arrow interactive style={{cursor:"pointer"}}>
+                  <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
+                    <>
+                      {lineOfficialDisplayName}
+                    </>
+                  )}連携されたアカウント名
+                  </span></p>
+                </Tooltip>  
               </div>
             </div>
           </div>

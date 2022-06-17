@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useMemo } from 'react';
 import useFetch from 'use-http';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 import { useTranslation } from 'react-i18next';
 import Navigation from '../navigation';
 import Switch from '../../../commons/components/Switch';
@@ -16,6 +17,8 @@ import Pagination from '../../../commons/components/Pagination';
 import { ReactComponent as InstaIcon } from '../../../commons/icons/insta-trans.svg';
 import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon.svg';
 import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
+import { ReactComponent as QuesIcon } from '../../../commons/icons/question.svg';
+
 import './info.scss';
 import config from '../../../OEMConfig';
 
@@ -92,15 +95,15 @@ function LocationInfo() {
             <thead>
               <tr>
                 <th colSpan="2">  </th>
-                <th colSpan="3" className="wide"><InstaIcon/> </th>
-                <th colSpan="3" className="wide"><GoogleIcon/> </th>
-                <th colSpan="3" className="wide"><LineIcon/> </th>
-                <th className="w70"> </th>
+                <th colSpan="3" className=""><InstaIcon/> </th>
+                <th colSpan="4" className=""><GoogleIcon/> </th>
+                <th colSpan="3" className=""><LineIcon/> </th>
+                <th className=""> </th>
               </tr>
               <tr>
                 <th className="">ロケーション名</th>
                 <th className="">アクセスユーザー</th>
-                <th className="w70">
+                <th className="">
                   投稿数{' '}
                   <span className="filter">
                     {sorts?.field === 'posting_number' &&
@@ -119,7 +122,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="w70">
+                <th className="">
                   フォロワー
                   <span className="filter">
                     {sorts?.field === 'no_of_followers' &&
@@ -138,7 +141,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="w70">
+                <th className="">
                   フォロー
                   <span className="filter">
                     {sorts?.field === 'no_of_followings' &&
@@ -162,7 +165,7 @@ function LocationInfo() {
                 </th>
 
                 {/* フィード連携は常にONのためコメントアウト */}
-                {/* <th className="w70">
+                {/* <th className="">
                   <img
                     src="/icons/instagram.png"
                     alt="instagram"
@@ -193,13 +196,18 @@ function LocationInfo() {
                     )}
                   </span>
                       </th> */}
-
-                <th className="w70 small-font">
+                <th className=" small-font">
+                  写真連携
+                </th>
+                <th className=" small-font">
                   #連携
+                  <Tooltip title={t('location:TOOLTIPS.GOOGLE_LINK')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip>
                 </th>
 
                 {/* 未連携のためコメントアウト */}
-                {/* <th className="w70">
+                {/* <th className="">
                   <img
                     src="/icons/instagram.png"
                     alt="instagram"
@@ -227,7 +235,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th> */}
-                <th className="w70">
+                <th className="">
                   評価
                   <span className="filter">
                     {sorts?.field === 'rating' && sorts?.order === 'asc' ? (
@@ -245,7 +253,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="w70">
+                <th className="">
                   ☆２以下
                   <span className="filter">
                     {sorts?.field === 'two_or_less' &&
@@ -264,10 +272,13 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="w70 small-font">
+                <th className=" small-font">
                   #連携
+                  <Tooltip title={t('location:TOOLTIPS.LINE_LINK')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip>
                 </th>
-                <th className="w70">
+                <th className="">
                   送信数/上限
                   <span className="filter">
                     {sorts?.field === 'line_official_total_usage' &&
@@ -292,7 +303,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="w70">
+                <th className="">
                   友だち数
                   <span className="filter">
                     {sorts?.field === 'line_official_followers' &&
@@ -318,7 +329,7 @@ function LocationInfo() {
                   </span>
                 </th>
                 {config().is_show_splan && (
-                  <th className="semi-wide small-font">
+                  <th className=" small-font">
                     <img
                       src="/icons/cms-logo.svg"
                       alt="cms"
@@ -329,21 +340,30 @@ function LocationInfo() {
                     #連携
                   </th>
                 )}
-                <th className="w60 small-font">全体投稿連携</th>
+                <th className=" small-font">全体投稿連携
+                  <Tooltip title={t('location:TOOLTIPS.ALL_LINK')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip></th>
               </tr>
             </thead>
             <tbody>
               {infoList.map((info) => {
                 return (
                   <tr key={info?.id}>
-                    <td className="">{info?.location?.name}</td>
-                    <td className="">{info?.location?.name}</td>
-                    <td className="w70">{info.posting_number || 0}</td>
-                    <td className="w70">{info.no_of_followers || 0}</td>
-                    <td className="w70">{info.no_of_followings || 0}</td>
+                    <Tooltip title={info?.location?.name} arrow interactive style={{cursor:"pointer"}}>
+                      <td className="over">
+                        {info?.location?.name}
+                      </td>
+                    </Tooltip>
+                    <Tooltip title={info?.location?.name} arrow interactive style={{cursor:"pointer"}}>
+                      <td className="over">{info?.location?.name}</td>
+                    </Tooltip>
+                    <td className="">{info.posting_number || 0}</td>
+                    <td className="">{info.no_of_followers || 0}</td>
+                    <td className="">{info.no_of_followings || 0}</td>
 
                     {/* 未連携のためコメントアウト */}
-                    {/* <td className="w70">
+                    {/* <td className="">
                       <Switch
                         id={`follow-${info.id}`}
                         checked={info.linkage_of_feed === 1}
@@ -358,8 +378,22 @@ function LocationInfo() {
                         }
                       />
                       </td> */}
-
-                    <td className="w70">
+                    <td className="">
+                      <Switch
+                        id={`photo${info.id}`}
+                        checked={info.photo_linkage_flag === 1}
+                        onChange={(event) =>
+                          locationUpdateHandler({
+                            id: info.id,
+                            location_id: info?.location?.id,
+                            photo_linkage_flag: event.currentTarget.checked
+                              ? 1
+                              : 0,
+                          })
+                        }
+                      />
+                    </td>
+                    <td className="">
                       <Switch
                         id={`ig-${info.id}`}
                         checked={info.hashtag_linkage_flag === 1}
@@ -377,7 +411,7 @@ function LocationInfo() {
                     </td>
 
                     {/* 未連携のためコメントアウト */}
-                    {/* <td className="w70">
+                    {/* <td className="">
                       <Switch
                         id={`story-${info.id}`}
                         checked={info.linkage_of_story === 1}
@@ -392,11 +426,11 @@ function LocationInfo() {
                         }
                       />
                       </td> */}
-                    <td className="w70">
+                    <td className="">
                       <StarRating value={info.rating || 0} />
                     </td>
-                    <td className="w70">{info?.two_or_less}</td>
-                    {/* <td className="w70">
+                    <td className="">{info?.two_or_less}</td>
+                    {/* <td className="">
                       <Switch
                         id={`photo${info.id}`}
                         checked={info.photo_linkage_flag === 1}
@@ -417,7 +451,7 @@ function LocationInfo() {
                       </div>
                     </td> */}
 
-                    <td className="w70">
+                    <td className="">
                       <Switch
                         id={`line-${info.id}`}
                         checked={info.line_hashtag_flag === 1}
@@ -443,13 +477,13 @@ function LocationInfo() {
                     <td className="w60">
                       <Switch id={`hpb-${info.id}`} />
                     </td> */}
-                    <td className="w70">
+                    <td className="">
                       {info.line_official_total_usage || 0}/
                       {info.line_official_quota || 0}
                     </td>
-                    <td className="w70">{info.line_official_followers || 0}</td>
+                    <td className="">{info.line_official_followers || 0}</td>
                     {config().is_show_splan && (
-                      <td className="w70">
+                      <td className="">
                         <Switch
                           id={`splan${info.id}`}
                           checked={info.splan_hashtag_flag === 1}
@@ -465,7 +499,7 @@ function LocationInfo() {
                         />
                       </td>
                     )}
-                    <td className="w70">
+                    <td className="">
                       <Switch
                         id={`follow-${info.id}`}
                         checked={info.linkage_of_feed === 1}

@@ -61,3 +61,11 @@ a:hover{
 .MuiInputLabel-outlined {
   transform: translate(14px, 12px) scale(1);
 }
+.fade{
+  background: #f3f4f6;
+}
+.over{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

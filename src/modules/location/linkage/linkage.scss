@@ -101,20 +101,25 @@
                 flex-direction: space-between;
                 span {
                   display: block;
-                  width: 100%;
+                  width: auto;
                   font-weight: 600;
                   font-size: 14px;
                   line-height: 33px;
                   color: $paper-color;
                   text-align: center;
+                  padding-left:8px;
                 }
               }
               .textbox {
                 margin-top: 10px;
               }
               .fb {
-                background: #385495;
-                border-radius: 2px;
+                background: $button-active-color;
+                border-radius: 4px;
+                padding-left:6px;
+                img{
+                  margin-top:3px;
+                }
               }
               .gmb {
                 background: #4c98dd;
@@ -152,19 +157,23 @@
                 font-weight:500;
                 margin-bottom:0;
                 span{
-                  padding:0 16px 0 8px;              
+                  padding:0 0px 0 8px;              
                 }
+              }
+              p:nth-child(1){
+                min-width: 105px;
               }
               p:nth-child(1) span{
                 color:$menu-hover-color;
               }
-              p:nth-child(2) span,
-              p:nth-child(3) span{
+              p:nth-child(2),
+              p:nth-child(3){
                 color:rgba(0,0,0,.6);
+                margin-left:27px;
               }
             }
             .dialog-footer.line{
-              margin-top:50px
+              margin-top:50px;
             }
           }
         }

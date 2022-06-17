@@ -10,6 +10,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 import {
   GMB_POST,
   BUTTON_TYPES,
@@ -22,6 +23,7 @@ import Navigation from '../navigation';
 import LocationList from '../list';
 // import { ReactComponent as EditIcon } from '../../../commons/icons/edit.svg';
 import { ReactComponent as EditIcon } from '../../../commons/icons/pen-icon.svg';
+import { ReactComponent as ExIcon } from '../../../commons/icons/ex-icon.svg';
 // import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
 import { AppContext } from '../../../commons/helpers/appContext';
 import './phrase.scss';
@@ -249,7 +251,14 @@ function FixedPhrase() {
           {/* </div> */}
           {selected === SERVICE_GMB && (
             <>
-              {menuMode === 'sidebar' && <Explanation screen="PHRASE_GMB" />}
+              {menuMode === 'sidebar' && (
+                <>  
+                <Explanation screen="PHRASE_GMB" />
+                <Tooltip title={<span style={{ whiteSpace: 'pre-line' }}>{t('location:TOOLTIPS.NOTE')} </span>} arrow interactive style={{cursor:"pointer"}} >
+                  <ExIcon style={{width:"20px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                </Tooltip> 
+                </>
+              )}
               <div className="content">
                 <div className={`editor ${(editable && 'active') || ''}`}>
                   <textarea

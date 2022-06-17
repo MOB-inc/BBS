@@ -7,8 +7,9 @@ $border: 1px solid rgba(0, 0, 0, 0.22);
   .customer-content {
     margin-top: 21px;
     padding:30px;
-    border-radius: 8px;
+    border-radius: 16px;
     background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
     .info {
       overflow: auto;
       width: 100%;
@@ -18,7 +19,6 @@ $border: 1px solid rgba(0, 0, 0, 0.22);
         height: 100%;
         min-height: 544px;
         width: 100%;
-        min-width: 1007px;
         table-layout: auto;
         color: $black;
         background-color: #fff;
@@ -48,7 +48,7 @@ $border: 1px solid rgba(0, 0, 0, 0.22);
             background-color:  #e0e0e0;
             position:absolute;
             left:0;
-            top:14px;
+            top:20px;
           }
   
         }

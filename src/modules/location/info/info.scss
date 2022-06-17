@@ -11,6 +11,7 @@
     padding:16px;
     border-radius: 8px;
     background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
     .tab-container {
       overflow-x: auto;
       .flex{
@@ -71,32 +72,51 @@
         tr:nth-child(1){
           th:nth-child(2){
             background-color: $button-active-bg-color;
+            width:210px;
+          }
+          th:nth-child(3){
+            width:280px;
           }
           th:nth-child(4){
             background-color: $button-active-bg-color;
+            width:210px;
+          }
+          th:nth-child(5){
+            width:100px;
           }
         } 
         tr:nth-child(2){
+          th{
+            width:70px;
+            font-size: 10px;
+          }
+          th:nth-child(13){
+            width:100px;
+          }
+          th:nth-child(1),
+          th:nth-child(2){
+            width:auto;
+          }
           th:nth-child(3),
           th:nth-child(4),
           th:nth-child(5),
-          th:nth-child(9),
           th:nth-child(10),
-          th:nth-child(11){
+          th:nth-child(11),
+          th:nth-child(12){
             background-color: $button-active-bg-color;
           }
           th:nth-child(2):before,
           th:nth-child(3):before,
           th:nth-child(6):before,
-          th:nth-child(9):before,
-          th:nth-child(12):before{
+          th:nth-child(10):before,
+          th:nth-child(13):before{
             content:"";
             width:1px;
             height:14px;
             background-color:  #e0e0e0;
             position:absolute;
             left:0;
-            top:14px;
+            top:11px;
           }
 
         } 
@@ -115,14 +135,22 @@
           td{
             font-size:12px;
             height:64px;
+            width:70px;
+          }
+          td:nth-child(1),
+          td:nth-child(2){
+            width:auto;
           }
           td:nth-child(3),
           td:nth-child(4),
           td:nth-child(5),
-          td:nth-child(9),
           td:nth-child(10),
-          td:nth-child(11){
+          td:nth-child(11),
+          td:nth-child(12){
             background-color: $button-active-bg-color;
+          }
+          td:nth-child(13){
+            width:100px;
           }
         }
         tr:last-of-type {
@@ -137,64 +165,18 @@
         td,
         th {
           vertical-align: middle;
-          padding: 0 0;
+          padding:0 8px;
         }
       }
-      th.wide,
-      td.wide {
-        @media (min-width: $sm) {
-          width: 210px;
-        }
-      }
+  
       td.ellipsis {
         padding: 0 5px;
         white-space: pre;
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      th.semi-wide,
-      td.semi-wide {
-        @media (min-width: $sm) {
-          width: 105px;
-        }
-      }
-      th.w70,
-      td.w70 {
-        @media (min-width: $sm) {
-          width: 70px;
-        }
-      }
-      th.w70 {
-        font-size: 10px;
-      }
-      th.w150,
-      td.w150 {
-        @media (min-width: $sm) {
-          width: 150px;
-          font-size: 9px;
-        }
-      }
-      th.w150 {
-        font-size: 9px;
-      }
-      th.w60,
-      td.w60 {
-        @media (min-width: $sm) {
-          width: 60px;
-        }
-      }
       .small-font {
         font-size: 10px;
-      }
-      .wide.pre {
-        white-space: pre;
-        max-height: 2em;
-        overflow-y: hidden;
-      }
-      .w150.pre {
-        white-space: pre;
-        max-height: 2em;
-        overflow-y: hidden;
       }
       span.filter {
         cursor: pointer;
