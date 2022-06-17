@@ -8,6 +8,7 @@ const Remand = React.lazy(() => import('./remand/Remand'));
 function Recognition() {
   const { path, url } = useRouteMatch();
   return (
+    
     <div className="recognition">
       <Switch>
         <Route path={`${url}/approval`}>

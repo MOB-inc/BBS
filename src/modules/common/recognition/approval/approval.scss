@@ -26,7 +26,7 @@
   }
   > .filter-pages {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 3px;
     > .sub-header {
       display: flex;
@@ -53,8 +53,42 @@
   }
   > .approval-table {
     overflow-x: auto;
+    padding:30px;
+    border-radius: 16px;
+    margin-top:25px;
+    background-color: #fff;
+    .flex{
+      justify-content: flex-start;
+      text-align: left;
+      margin-bottom:35px; 
+    }
+    .search input{
+      font-size: 12px;
+      height: 40px;
+      box-sizing: border-box;
+      padding-left:14px;
+    }
+    .MuiOutlinedInput-adornedStart{
+      padding-left:4px;
+    }
+    .button{
+      color:#fff;
+      background-color: $button-active-color;
+      font-weight: 500;
+      font-size: 14px;
+      width:65px;
+      height:40px;
+      margin-left:13px;
+    }
+    .button:focus{
+      outline: none;
+    }
     > div.table {
       table-layout: fixed;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      overflow: hidden;
+      overflow-x: scroll;
       > div.thead,
       div.tbody {
         display: block;
@@ -83,7 +117,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          border-top: 1px solid rgba(0, 0, 0, 0.22);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.22);
           margin: 0 0;
           position: relative;
         }
@@ -94,9 +128,6 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        > div.cell:not(:last-child) {
-          border-right: 1px solid rgba(0, 0, 0, 0.22);
         }
         .remand-icon {
           margin-right: 5px;

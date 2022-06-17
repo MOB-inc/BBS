@@ -7,10 +7,11 @@
     "APPROVAL_MSG": "承認してもよろしいですか。",
     "PUBLISH_MSG": "公開してもよろしいですか。",
     "REMAND_MSG": "差し戻してもよろしいですか。",
-    "BULK_APPROVAL": "一括承認",
+    "APPROVAL_CONFIRMED": "承認確定",
     "APPROVAL_LATER_MSG": "承認ステップがある場合、承認後に公開されます。",
     "NEWPOST_DATE_MSG": "に公開してもよろしいですか。",
-    "NONE": "なし"
+    "NONE": "なし",
+    "SEARCH_BUTTON" : "検索"
   },
   "REMAND": {
     "TAB_NAME": "差し戻し",

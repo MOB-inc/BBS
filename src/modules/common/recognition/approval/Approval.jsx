@@ -8,6 +8,10 @@ import {
   CDropdownMenu,
   CDropdownItem,
 } from '@coreui/react';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { ReactComponent as SearchIcon } from '../../../../commons/icons/search-icon.svg';
 import { AppContext } from '../../../../commons/helpers/appContext';
 import Navigation from '../navigation/navigation';
 import Pagination from '../../../../commons/components/Pagination/index';
@@ -47,12 +51,12 @@ function Approval() {
   const [endDate, setEndDate] = useState();
   const [summary, setSummary] = useState({});
   const [pageItemCount, setPageItemCount] = useState(30);
-  const [bulkState, setBulkState] = useState(false);
+  // const [bulkState, setBulkState] = useState(false);
   const [bulkIds, setBulkIds] = useState(new Set());
   const [reviewIds, setReviewIds] = useState(new Set());
   const [postIds, setPostIds] = useState(new Set());
   const [locationId, setLocationId] = useState();
-  const { menuMode, setRecognitionCount } = useContext(AppContext);
+  const { setRecognitionCount } = useContext(AppContext);
   const pageChangeHandler = (p) => {
     setPage(p);
   };
@@ -164,10 +168,15 @@ function Approval() {
   useEffect(() => {
     loadApprovalList();
   }, [page, startDate, endDate, pageItemCount, orderField, orderType]);
+  const [searchText, setSerchText] = useState("");
+  const handleSearch = (event) => {
+    setSerchText(event.target.value);
+  }
+
   return (
     <div className="approval">
       {/* <Explanation screen="APPROVAL" /> */}
-      <button
+      {/* <button
         type="button"
         className={`bulk-button ${
           menuMode === 'sidebar' ? 'bulk-button--sidebar' : ''
@@ -175,8 +184,8 @@ function Approval() {
         onClick={bulkState ? toggleBulkApprovalModal : () => setBulkState(true)}
         disabled={bulkState && bulkIds.size === 0}
       >
-        {t('recognition:APPROVAL.BULK_APPROVAL')}
-      </button>
+        {t('recognition:APPROVAL.APPROVAL_CONFIRMED')}
+      </button> */}
       <div className="filter-pages">
         <Navigation
           summary={summary}
@@ -184,7 +193,7 @@ function Approval() {
           startDate={startDate}
           endDate={endDate}
         />
-        <div className="sub-header">
+        <div className="sub-header" style={{display:"none"}}>
           <Pagination
             current={page}
             last={lastPage}
@@ -211,19 +220,35 @@ function Approval() {
         </div>
       </div>
       <div className="approval-table">
+        <div className="flex">
+          <TextField
+            label=""
+            id=""
+            className="search"
+            InputProps={{
+              startAdornment: <InputAdornment position="end"><SearchIcon className="searchIcon"/></InputAdornment>,
+            }}
+            variant="outlined"
+            onChange={handleSearch}
+            value={searchText}
+            placeholder={t('recognition:APPROVAL.SEARCH_BUTTON')}
+          />
+          <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
+        </div>
         <div className="table">
+          <p style={{color:"#cc0099",textAlign:"left"}}>FILTERS</p>
           <div className="thead">
             <div className="row">
-              <div className="cell w2d5p border-none" />
+              <div className="cell w2d5p" />
               <div className="cell w15p">
                 <div className="start">
-                  {bulkState && (
+                  {/* {bulkState && ( */}
                     <input
                       type="checkbox"
                       checked={bulkIds.size === approvalList?.length}
                       onChange={toggleBulkIds}
                     />
-                  )}
+                  {/* )} */}
                 </div>
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp; &nbsp; &nbsp;
@@ -305,7 +330,7 @@ function Approval() {
                       </div>
                       <div className="cell w15p">
                         <div className="start">
-                          {bulkState && (
+                          {/* {bulkState && ( */}
                             <input
                               type="checkbox"
                               checked={bulkIds.has(item?.id)}
@@ -314,7 +339,7 @@ function Approval() {
                                 toggleBulkId(item?.id, item?.type)
                               }
                             />
-                          )}
+                          {/* )} */}
                         </div>
                         {dayjs
                           .utc(item?.post_datetime)

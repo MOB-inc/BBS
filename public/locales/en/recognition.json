@@ -7,10 +7,11 @@
     "APPROVAL_MSG": "Are you sure you want to approve it?",
     "PUBLISH_MSG": "Are you sure you want to publish it?",
     "REMAND_MSG": "May I send it back?",
-    "BULK_APPROVAL": "BULK APPROVAL",
+    "APPROVAL_CONFIRMED": "Approval confirmed",
     "NEWPOST_LATER_MSG": "If there is an approval step, it will be published after approval.",
     "NEWPOST_DATE_MSG": "May I publish it on ",
-    "NONE": "None"
+    "NONE": "None",
+    "SEARCH_BUTTON" : "Search"
   },
   "REMAND": {
     "TAB_NAME": "Remand",
