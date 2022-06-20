@@ -41,6 +41,7 @@
     "EVENT_TITLE": "Event title (eg this week's sale)",
     "EVENT_DETAILS": "Eventon details",
     "REPLY_PLACEHOLDER": "Please enter your reply.",
-    "SELECT_PLACEHOLDER": "Select from fixed phrase"
+    "SELECT_PLACEHOLDER": "Select from fixed phrase",
+    "NUM": "差し戻し回数"
   }
 }

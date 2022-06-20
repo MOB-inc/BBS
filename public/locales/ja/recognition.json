@@ -41,6 +41,7 @@
     "EVENT_TITLE": "イベントのタイトル（例：今週のセール）",
     "EVENT_DETAILS": "イベントの詳細",
     "REPLY_PLACEHOLDER": "返信内容を入力してください。",
-    "SELECT_PLACEHOLDER": "定型文から選択"
+    "SELECT_PLACEHOLDER": "定型文から選択",
+    "NUM": "差し戻し回数"
   }
 }

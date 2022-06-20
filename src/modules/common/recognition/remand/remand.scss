@@ -1,11 +1,12 @@
 @import 'src/commons/styles/color.scss';
 
 .remand {
-  padding: 15px 15px 0 42px;
+  padding: 15px 15px 0 25px;
   > .filter-pages {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-bottom: 3px;
+    margin-top:33px;
     > .sub-header {
       display: flex;
       justify-content: flex-end;
@@ -16,8 +17,16 @@
   }
   > .remand-table {
     overflow-x: auto;
+    padding:30px;
+    border-radius: 16px;
+    margin-top:25px;
+    background-color: #fff;
     > div.table {
       table-layout: fixed;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      overflow: hidden;
+      overflow-x: scroll;
       > div.thead,
       div.tbody {
         display: block;
@@ -46,7 +55,6 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          border-top: 1px solid rgba(0, 0, 0, 0.22);
           margin: 0 0;
         }
         > div.cell.content {
@@ -56,9 +64,6 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        > div.cell:not(:last-child) {
-          border-right: 1px solid rgba(0, 0, 0, 0.22);
         }
       }
       > div.thead div.row,
@@ -99,6 +104,18 @@
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        position: relative;
+      }
+      div.thead div.row div.cell:before {
+        content:"";
+        width:1px;
+        height:12px;
+        background-color:rgba(0, 0, 0, 0.22);
+        position:absolute;
+        left:0;
+      }
+      div.thead div.row div.cell:nth-child(1):before {
+        width: 0;
       }
       span.ellipsis {
         white-space: nowrap;
@@ -108,4 +125,27 @@
       }
     }
   }
+}
+.flex{
+  justify-content: flex-start;
+  text-align: left;
+  margin-bottom:35px; 
+}
+.search input{
+  font-size: 12px;
+  height: 40px;
+  box-sizing: border-box;
+  padding-left:14px;
+}
+.remand-table .button{
+  color:#fff;
+  background-color: $button-active-color;
+  font-weight: 500;
+  font-size: 14px;
+  width:65px;
+  height:40px;
+  margin-left:13px;
+}
+.button:focus{
+  outline: none;
 }

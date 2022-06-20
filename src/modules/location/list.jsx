@@ -83,7 +83,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   // };
   const output = (event) => {
     const path = window.location.pathname;
-    if( path.match(/fixed_phrases/)){
+    if( path.match(/fixed_phrases/) || path.match(/linkage/)){
       const elem = document.getElementById("locName");
       elem.innerHTML = event.target.value;
     }

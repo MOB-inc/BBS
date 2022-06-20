@@ -2,6 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import * as dayjs from 'dayjs';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Button from '@material-ui/core/Button';
 import { AppContext } from '../../../../commons/helpers/appContext';
 import Navigation from '../navigation/navigation';
 import Pagination from '../../../../commons/components/Pagination/index';
@@ -9,6 +12,8 @@ import Pagination from '../../../../commons/components/Pagination/index';
 import { REMANDING_REQUEST } from '../../../../commons/constants/url';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow-down.svg';
 import { ReactComponent as ArrowUp } from '../../../../commons/icons/arrow-up.svg';
+import { ReactComponent as SearchIcon } from '../../../../commons/icons/search-icon.svg';
+import { ReactComponent as AntenaIcon } from '../../../../commons/icons/antena.svg';
 import './remand.scss';
 
 const tz = dayjs.tz.guess();
@@ -94,6 +99,10 @@ function Remand() {
   useEffect(() => {
     loadRemandList();
   }, [page, startDate, endDate, orderField, orderType]);
+  const [searchText, setSerchText] = useState("");
+  const handleSearch = (event) => {
+    setSerchText(event.target.value);
+  }
   return (
     <div className="remand">
       {/* <Explanation screen="REMAND" /> */}
@@ -113,10 +122,33 @@ function Remand() {
         </div>
       </div>
       <div className="remand-table">
+        <div className="flex">
+          <TextField
+            label=""
+            id=""
+            className="search"
+            InputProps={{
+              startAdornment: <InputAdornment position="end"><SearchIcon className="searchIcon"/></InputAdornment>,
+            }}
+            variant="outlined"
+            onChange={handleSearch}
+            value={searchText}
+            placeholder={t('recognition:APPROVAL.SEARCH_BUTTON')}
+          />
+          <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
+        </div>
         <div className="table">
+          <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p>
           <div className="thead">
             <div className="row">
-              <div className="cell w10p">
+              {/* <div className="cell w10p">
+                <Checkbox
+                  checked={checked}
+                  onChange={handleChange}
+                  inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+              </div> */}
+              <div className="cell w15p">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -133,7 +165,7 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w10p">
+              <div className="cell w15p">
                 {t('recognition:REMAND.REMAND_DATE_TIME')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -152,7 +184,7 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w15p">
+              <div className="cell w20p">
                 {t('recognition:REMAND.APPLICANT')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -165,9 +197,9 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w7d5p">
+              {/* <div className="cell w7d5p">
                 {t('recognition:REMAND.NO_OF_STORE')}
-              </div>
+              </div> */}
               <div className="cell w15p">
                 {t('recognition:REMAND.LOCATION')}
                 &nbsp; &nbsp; &nbsp;
@@ -188,8 +220,8 @@ function Remand() {
               <div className="cell w20p">
                 {t('recognition:REMAND.CONTENTS')}
               </div>
-              <div className="cell w7d5p">{t('recognition:REMAND.TYPE')}</div>
-              <div className="cell w15p">{t('recognition:REMAND.REASON')}</div>
+              {/* <div className="cell w7d5p">{t('recognition:REMAND.TYPE')}</div> */}
+              <div className="cell w15p">{t('recognition:REMAND.NUM')}</div>
             </div>
           </div>
           <div className="tbody">
