@@ -13,8 +13,8 @@
   "CREATE": {
     "BUTTON": "新規作成",
     "SEARCH": {
-      "HEADER": "ユーザー名",
-      "PLACEHOLDER": "新規ユーザー名"
+      "HEADER": "①ユーザー名を入力",
+      "PLACEHOLDER": "例：関東エリアマネージャー等"
     },
     "LOCATION": "ロケーション",
     "PERMISSION": {

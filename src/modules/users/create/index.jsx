@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TextField from '@material-ui/core/TextField';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'ahooks';
@@ -7,7 +8,7 @@ import { LOCATIONS_LIST, USERS } from '../../../commons/constants/url';
 import Input from '../../../commons/components/Input';
 import Button from '../../../commons/components/Button';
 import { ReactComponent as DeleteIcon } from '../../../commons/icons/delete.svg';
-import { ReactComponent as SearchIcon } from '../../../commons/icons/search.svg';
+// import { ReactComponent as SearchIcon } from '../../../commons/icons/search.svg';
 import './index.scss';
 import '../../../commons/components/List/table.scss';
 import Explanation from '../../../commons/components/Explanation';
@@ -135,7 +136,20 @@ function UserCreatePage() {
               {t('user:CREATE.SEARCH.HEADER')}
             </span>
             <div className="input">
-              <Input
+							<TextField
+								id="outlined-textarea"
+								label=""
+								autoComplete="off"
+								placeholder={t('user:CREATE.SEARCH.PLACEHOLDER')}
+								onChange={(event) =>
+									setModalData({ ...modalData, name: event.target.value })
+								}
+								// maxLength="32"
+								value={modalData?.name}
+								multiline
+								variant="outlined"
+							/>
+              {/* <Input
                 autoComplete="off"
                 placeholder={t('user:CREATE.SEARCH.PLACEHOLDER')}
                 onChange={(event) =>
@@ -143,7 +157,7 @@ function UserCreatePage() {
                 }
                 maxLength="32"
                 value={modalData?.name}
-              />
+              /> */}
               <input
                 type="email"
                 placeholder="ID"
@@ -157,14 +171,6 @@ function UserCreatePage() {
             </div>
           </div>
         </div>
-        <Button
-          onClick={() => setPermissionId(-1)}
-          disabled={
-            !(modalData?.name?.length > 0 && modalData?.locations?.size)
-          }
-        >
-          {t('user:CREATE.PERMISSION.BUTTON')}
-        </Button>
       </div>
       <div className="locations">
         <div className="locations-header">
@@ -176,7 +182,7 @@ function UserCreatePage() {
                 onChange={(event) => setSearchText(event?.target?.value)}
               />
             </div>
-            <SearchIcon height={23} width={23} />
+            {/* <SearchIcon height={23} width={23} /> */}
           </div>
         </div>
         <div style={{ overflowX: 'auto' }}>
@@ -232,6 +238,12 @@ function UserCreatePage() {
         toggle={() => setDeleteModal(!deleteModal)}
         back={() => history.replace('/users')}
       />
+      <Button
+        onClick={() => setPermissionId(-1)}
+        disabled={!(modalData?.name?.length > 0 && modalData?.locations?.size)}
+      >
+        {t('user:CREATE.PERMISSION.BUTTON')}
+      </Button>
     </div>
   );
 }
