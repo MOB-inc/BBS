@@ -174,7 +174,7 @@ function Dialogs() {
     });
   };
   const modalOpen = () => {
-    const elem = document.getElementById('input');
+    const elem = document.getElementById('linkage');
     elem.style.display = "block"; 
     setTimeout(function(){ 
       elem.style.opacity = 1; 
@@ -183,6 +183,7 @@ function Dialogs() {
   // const longText="筑前貴裕 / Optbusiness";
   return (
     <div className="dialog-list">
+      <p id="locName"> </p>
       {location?.service?.id !== BOOK_ID && (
         <div className="dialog-row">
           <div className="dialog">
@@ -357,7 +358,7 @@ function Dialogs() {
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
                 />
-                <Modal variant="input" value={modalValue} />
+                <Modal variant="linkage" value={modalValue} />
               </div>
               <div className="dialog-footer line">
                 <p className={lineOfficialStatus ? 'linked' : ''}>Status:

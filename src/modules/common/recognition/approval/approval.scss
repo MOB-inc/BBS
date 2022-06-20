@@ -2,7 +2,7 @@
 @import 'src/commons/styles/variables.scss';
 
 .approval {
-  padding: 15px 15px 0 42px;
+  padding: 15px 15px 0 25px;
   .bulk-button {
     width: 114px;
     height: 37px;
@@ -28,6 +28,7 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 3px;
+    margin-top:33px;
     > .sub-header {
       display: flex;
       justify-content: flex-end;
@@ -67,9 +68,6 @@
       height: 40px;
       box-sizing: border-box;
       padding-left:14px;
-    }
-    .MuiOutlinedInput-adornedStart{
-      padding-left:4px;
     }
     .button{
       color:#fff;
@@ -133,10 +131,7 @@
           margin-right: 5px;
           transform: rotate(-180deg);
         }
-        .start {
-          position: absolute;
-          left: 10px;
-        }
+      
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -164,6 +159,18 @@
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        position:relative;
+      }
+      div.thead div.row div.cell:before {
+        content:"";
+        width:1px;
+        height:12px;
+        background-color:rgba(0, 0, 0, 0.22);
+        position:absolute;
+        left:0;
+      }
+      div.thead div.row div.cell:nth-child(1):before {
+        width: 0;
       }
       span.ellipsis {
         white-space: nowrap;
@@ -173,4 +180,13 @@
       }
     }
   }
+}
+.MuiCheckbox-colorSecondary.Mui-checked {
+  color: #cc0099;
+}
+input[type='checkbox']{
+  position:absolute;
+}
+.MuiOutlinedInput-adornedStart{
+  padding-left:4px;
 }

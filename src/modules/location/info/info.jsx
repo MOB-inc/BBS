@@ -78,13 +78,7 @@ function LocationInfo() {
           {NavigationMemo}
         </>
       )}
-      <div className="pages">
-        <Pagination
-          current={page}
-          last={lastPage}
-          onPageChange={pageChangeHandler}
-        />
-      </div>
+      
       <div className="info-content">
         <div className="tab-container">
           <div className="flex">
@@ -519,6 +513,13 @@ function LocationInfo() {
               })}
             </tbody>
           </table>
+          <div className="pages">
+            <Pagination
+              current={page}
+              last={lastPage}
+              onPageChange={pageChangeHandler}
+            />
+          </div>
         </div>
       </div>
     </div>

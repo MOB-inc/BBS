@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import * as dayjs from 'dayjs';
@@ -11,6 +11,7 @@ import {
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Checkbox from '@material-ui/core/Checkbox';
 import { ReactComponent as SearchIcon } from '../../../../commons/icons/search-icon.svg';
 import { AppContext } from '../../../../commons/helpers/appContext';
 import Navigation from '../navigation/navigation';
@@ -21,6 +22,8 @@ import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow-dow
 import { ReactComponent as ArrowUp } from '../../../../commons/icons/arrow-up.svg';
 import { ReactComponent as RemandIcon } from '../../../../commons/icons/remand-icon.svg';
 import { ReactComponent as FilterIcon } from '../../../../commons/icons/filter.svg';
+import { ReactComponent as AntenaIcon } from '../../../../commons/icons/antena.svg';
+
 import './approval.scss';
 
 const tz = dayjs.tz.guess();
@@ -172,7 +175,11 @@ function Approval() {
   const handleSearch = (event) => {
     setSerchText(event.target.value);
   }
-
+  const NavigationMemo = useMemo(() => <Navigation 
+  summary={summary}
+  dateChangeHandler={dateChangeHandler}
+  startDate={startDate}
+  endDate={endDate} />, []); 
   return (
     <div className="approval">
       {/* <Explanation screen="APPROVAL" /> */}
@@ -187,12 +194,13 @@ function Approval() {
         {t('recognition:APPROVAL.APPROVAL_CONFIRMED')}
       </button> */}
       <div className="filter-pages">
-        <Navigation
+        {/* <Navigation
           summary={summary}
           dateChangeHandler={dateChangeHandler}
           startDate={startDate}
           endDate={endDate}
-        />
+        /> */}
+        { NavigationMemo }
         <div className="sub-header" style={{display:"none"}}>
           <Pagination
             current={page}
@@ -236,20 +244,26 @@ function Approval() {
           <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
         <div className="table">
-          <p style={{color:"#cc0099",textAlign:"left"}}>FILTERS</p>
+          <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p>
           <div className="thead">
             <div className="row">
-              <div className="cell w2d5p" />
-              <div className="cell w15p">
+              <div className="cell w5p" >
                 <div className="start">
                   {/* {bulkState && ( */}
-                    <input
+                  <Checkbox
+                    checked={bulkIds.size === approvalList?.length}
+                    onChange={toggleBulkIds}
+                    inputProps={{ 'aria-label': 'primary checkbox' }}
+                  />
+                    {/* <input
                       type="checkbox"
                       checked={bulkIds.size === approvalList?.length}
                       onChange={toggleBulkIds}
-                    />
+                    /> */}
                   {/* )} */}
                 </div>
+              </div>
+              <div className="cell w15p">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -266,7 +280,7 @@ function Approval() {
                   )}
                 </span>
               </div>
-              <div className="cell w15p">
+              <div className="cell w25p">
                 {t('recognition:REMAND.APPLICANT')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -279,10 +293,10 @@ function Approval() {
                   )}
                 </span>
               </div>
-              <div className="cell w7d5p">
+              {/* <div className="cell w7p">
                 {t('recognition:REMAND.NO_OF_STORE')}
-              </div>
-              <div className="cell w20p">
+              </div> */}
+              <div className="cell w25p">
                 {t('recognition:REMAND.LOCATION')}
                 &nbsp; &nbsp; &nbsp;
                 <span
@@ -299,10 +313,11 @@ function Approval() {
                   )}
                 </span>
               </div>
-              <div className="cell w30p">
+              <div className="cell w20p">
                 {t('recognition:REMAND.CONTENTS')}
               </div>
-              <div className="cell w7d5p">{t('recognition:REMAND.TYPE')}</div>
+              {/* <div className="cell w10p">{t('recognition:REMAND.TYPE')}</div> */}
+              <div className="cell w10p">{t('recognition:REMAND.NUM')}</div>
             </div>
           </div>
           <div className="tbody">
