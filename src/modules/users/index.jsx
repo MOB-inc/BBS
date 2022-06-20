@@ -7,6 +7,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useHistory } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 // import Input from '../../commons/components/Input';
 import { USERS } from '../../commons/constants/url';
 import Explanation from '../../commons/components/Explanation';
@@ -14,6 +15,7 @@ import { AppContext } from '../../commons/helpers/appContext';
 import { ReactComponent as SearchIcon } from '../../commons/icons/search-icon.svg';
 import { ReactComponent as CrossIcon } from '../../commons/icons/cross.svg';
 import { ReactComponent as CircleIcon } from '../../commons/icons/circle.svg';
+import { ReactComponent as QuesIcon } from '../../commons/icons/question.svg';
 import './index.scss';
 
 function UsersPage() {
@@ -85,9 +87,9 @@ function UsersPage() {
             // value={searchText2}
             placeholder={t('user:EDIT.SEARCH')}
           />
-					<Button className="button" variant="contained" size="large">
-						{t('user:EDIT.SEARCH_BTN')}
-					</Button>
+          <Button className="button" variant="contained" size="large">
+            {t('user:EDIT.SEARCH_BTN')}
+          </Button>
         </div>
         {/* <div className="search-icon">
           <SearchIcon height={23} width={23} />
@@ -96,56 +98,79 @@ function UsersPage() {
           <div className="table">
             <div className="thead">
               <div className="row">
-                <div className="cell w15p">
+                <div className="username cell">
                   {t('user:TABLE.COLUMNS.USERNAME')}
                 </div>
-                <div className="cell w20p">{t('user:TABLE.COLUMNS.ID')}</div>
-                <div className="cell w5p">
+                <div className="login-id cell">
+                  {t('user:TABLE.COLUMNS.ID')}
+                </div>
+                <div className="count cell">
                   {t('user:TABLE.COLUMNS.MANAGEMENT_COUNT')}
                 </div>
-                <div className="cell w15p">
+                <div className="location cell">
                   {t('user:TABLE.COLUMNS.LOCATION')}
                 </div>
-                <div className="cell w15p">
+                <div className="approval cell">
                   {t('user:TABLE.COLUMNS.APPROVAL')}
                 </div>
-                <div className="cell w10p">
-                  {t('user:TABLE.COLUMNS.CONNECTED')}
+                <div className="connect cell">
+									{t('user:TABLE.COLUMNS.CONNECTED')}
+									<Tooltip title={t('user:TOOLTIPS.CONNECT')} arrow interactive style={{ cursor: "pointer" }} >
+                  <QuesIcon
+                    style={{
+                      width: '15px',
+                      marginLeft: '4px',
+                      paddingBottom: '2px',
+                    }}
+                  />
+									</Tooltip>
                 </div>
-                <div className="cell w10p">
-                  {t('user:TABLE.COLUMNS.FIXED_PHRASE')}
+                <div className="fix-p cell">
+									{t('user:TABLE.COLUMNS.FIXED_PHRASE')}
+									<Tooltip title={t('user:TOOLTIPS.EDIT')} arrow interactive style={{ cursor: "pointer"}} >
+										<QuesIcon
+											style={{
+												width: '15px',
+												marginLeft: '4px',
+												paddingBottom: '2px',
+											}}
+										/>
+									</Tooltip>
                 </div>
-                <div className="cell w10p" />
+                <div className="edit cell" />
               </div>
             </div>
             <div className="tbody">
               {users?.map((item) => {
                 return (
                   <div className="row" key={item.id}>
-                    <div className="cell w15p">{item.name}</div>
-                    <div className="cell w20p">{item.email}</div>
-                    <div className="cell w5p">{item.locations?.length}</div>
-                    <div className="cell w15p scroll">
+                    <div className="cell username">{item.name}</div>
+                    <div className="cell login-id">{item.email}</div>
+                    <div className="cell count">{item.locations?.length}</div>
+                    <div className="cell location scroll">
                       {item.locations?.map((l) => l.name).join('\r\n')}
                     </div>
-                    <div className="cell w15p" style={{ whiteSpace: 'pre' }}>
+                    <div
+                      className="cell approval"
+                      style={{ whiteSpace: 'pre' }}
+                    >
                       {item.approvers?.map((a) => a.name).join('\r\n')}
                     </div>
-                    <div className="cell w10p">
+                    <div className="cell connect">
                       {item.is_linkage_authority === 1 ? (
                         <CircleIcon />
                       ) : (
                         <CrossIcon />
                       )}
                     </div>
-                    <div className="cell w10p">
+                    <div className="cell fix-p">
                       {item.is_fixed_sentence_edit_authority === 1 ? (
                         <CircleIcon />
                       ) : (
                         <CrossIcon />
                       )}
                     </div>
-                    <div className="cell w10p">
+                    <div className="cell edit">
                       {item.roles[0].name !== 'admin' && (
                         <Button
                           height={24}

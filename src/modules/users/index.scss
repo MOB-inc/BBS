@@ -2,38 +2,96 @@
 @import 'src/commons/styles/variables.scss';
 
 div.user-page {
-  $border: 1px solid rgba(0, 0, 0, 0.22);
+  $border: 1px solid rgba(224,224,224,1);
   padding: 12px 9px 9px 12px;
 	text-align: left;
   @media (min-width: $sm) {
-    padding: 32px 29px 29px 53px;
+    padding: 26px 39px;
   }
-
-	.search-bar {
-		width: 266px;
-		display: flex;
+	> div.explanation p {
+		font-weight: 400;
+		font-size: 12px;
 	}
-	.search-icon {
-		padding: 0 12px;
+	> a .MuiButtonBase-root {
+		background-color: $button-active-color;
+		color: $paper-color;
+		width: 90px;
+		height: 36px;
 	}
 	.container {
 		background-color: $paper-color;
 		padding: 21px 30px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+		border-radius: 16px;
+		margin: 32px auto 0 0;
 	}
-  > .list {
+	.search-bar {
+		display: flex;
+		align-items: center;
+		margin-bottom: 26px;
+		>.search {
+			margin-right: 13px;
+		.MuiInputBase-input {
+			font-size: 12px;
+		}
+		.MuiInputBase-root {
+			color: rgba(0,0,0,0.4);
+			width: 220px;
+			height: 40px;
+			padding-left: 0;
+			.MuiInputAdornment-positionEnd {
+				margin-left: 10px;
+			}
+			svg {
+				width: 18px;
+				height: auto;
+			}
+			> input {
+				padding-left: 16px;
+			}
+			> .PrivateNotchedOutline-root-49 {
+				border-color: #c4c4c4;
+			}
+		}
+		}
+		> .button {
+			width: 65px;
+			height: 36px;
+			font-size: 14px;
+			color: $paper-color;
+			background-color: $button-active-color;
+			> .MuiButton-label {
+				writing-mode: vertical-lr;
+				line-height: 1;
+			}
+		}
+	}
+	.search-icon {
+		padding: 0 12px;
+	}
+  .list {
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
     overflow-x: auto;
     > div.table {
       table-layout: fixed;
       margin-bottom: 0;
-      > div.thead .cell {
-        border-top: 1px solid rgba(0, 0, 0, 0.22);
-      }
+			> div.thead .row {
+				margin: 0;
+			}
+      // > div.thead .cell {
+      //   border-top: 1px solid rgba(0, 0, 0, 0.22);
+      // }
       > div.thead,
       div.tbody {
         display: block;
-        min-width: 1220px;
+        // min-width: 1220px;
+        min-width: 1272px;
         overflow-y: scroll;
       }
+			> div.tbody .row {
+				margin: 0;
+			}
       > div.tbody .cell {
         color: $black;
       }
@@ -45,12 +103,12 @@ div.user-page {
         margin: 0;
         cursor: pointer;
         > div.cell {
-          font-weight: bold;
-          font-size: 14px;
+          font-weight: 400;
+          font-size: 13px;
           line-height: 21px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           margin: 0 0;
           position: relative;
           > div.delete {
@@ -79,10 +137,9 @@ div.user-page {
             }
           }
         }
-        > div.cell:not(:last-child) {
-          border-right: 1px solid rgba(0, 0, 0, 0.22);
-
-        }
+        // > div.cell:not(:last-child) {
+        //   border-right: 1px solid rgba(0, 0, 0, 0.22);
+        // }
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -91,7 +148,8 @@ div.user-page {
       > div.tbody {
         height: calc(100vh - 348px);
         @media (min-width: $sm) {
-          height: calc(100vh - 280px);
+          // height: calc(100vh - 280px);
+          height: calc(100vh - 420px);
         }
         overflow-x: hidden;
         div.row div.cell {
@@ -99,13 +157,14 @@ div.user-page {
         }
         div.row:nth-child(odd) {
           div.cell {
-            background: $background-color-list-odd;
+            // background: $background-color-list-odd;
+						border-bottom: 1px solid #e0e0e0;
           }
         }
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
-				border: $border;
+				justify-content: center;
       }
       div.tbody div.row:hover {
         div.cell:not(:first-child) {
@@ -118,6 +177,104 @@ div.user-page {
       div.tbody div.row div.cell:first-child:hover {
         color: $black;
       }
+			div.thead div.row .cell.username {
+				width: 17%;
+			}
+			div.thead div.row .cell.login-id {
+				width: 21%;
+			}
+			div.thead div.row .cell.count {
+				width: 7%;
+			}
+			div.thead div.row .cell.location {
+				width: 14%;
+			}
+			div.thead div.row .cell.approval {
+				width: 14%;
+			}
+			div.thead div.row .cell.connect {
+				width: 12%;
+			}
+			div.thead div.row .cell.fix-p {
+				width: 11%;
+			}
+			div.thead div.row .cell.edit {
+				width: 4%;
+			}
+			div.tbody div.row .cell.username {
+				width: 17%;
+				padding-left: 25px;
+			}
+			div.tbody div.row .cell.login-id {
+				width: 21%;
+				padding-left: 17px;
+			}
+			div.tbody div.row .cell.count {
+				width: 7%;
+				justify-content: center;
+			}
+			div.tbody div.row .cell.location {
+				width: 14%;
+			}
+			div.tbody div.row .cell.approval {
+				width: 14%;
+			}
+			div.tbody div.row .cell.connect {
+				width: 12%;
+				justify-content: center;
+			}
+			div.tbody div.row .cell.fix-p {
+				width: 11%;
+				justify-content: center;
+			}
+			div.tbody div.row .cell.edit {
+				width: 4%;
+				justify-content: center;
+			}
+			div.thead div.row .cell.username,
+			div.thead div.row .cell.login-id,
+			div.thead div.row .cell.count,
+			div.thead div.row .cell.location,
+			div.thead div.row .cell.approval,
+			div.thead div.row .cell.connect,
+			div.thead div.row .cell.fix-p {
+				position: relative;
+			}
+			div.thead div.row .cell.username:before,
+			div.thead div.row .cell.login-id:before,
+			div.thead div.row .cell.count:before,
+			div.thead div.row .cell.location:before,
+			div.thead div.row .cell.approval:before,
+			div.thead div.row .cell.connect:before,
+			div.thead div.row .cell.fix-p:before {
+				position: absolute;
+				display: block;
+				content: "";
+				width: 1px;
+				height: 14px;
+				background-color: #e0e0e0;
+			}
+			div.thead div.row .cell.username:before{
+				left: 11px;
+			}
+			div.thead div.row .cell.login-id:before {
+				left: 0;
+			}
+			div.thead div.row .cell.count:before {
+				left: 0;
+			}
+			div.thead div.row .cell.location:before {
+				left: 0;
+			}
+			div.thead div.row .cell.approval:before {
+				left: 0;
+			}
+			div.thead div.row .cell.connect:before {
+				left: 0;
+			}
+			div.thead div.row .cell.fix-p:before {
+				left: 0;
+			}
     }
   }
 }
