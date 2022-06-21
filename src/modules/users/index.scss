@@ -12,6 +12,11 @@ div.user-page {
 		font-weight: 400;
 		font-size: 12px;
 	}
+	> a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
 	> a .MuiButtonBase-root {
 		background-color: $button-active-color;
 		color: $paper-color;

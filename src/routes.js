@@ -12,7 +12,6 @@ const Locations = React.lazy(() => import('./modules/location/location'));
 const BasicInfoTab = React.lazy(() =>
   import('./modules/basicInfo/Navigation/TabInfo'),
 );
-const Aikou = React.lazy(() => import('./modules/aikou'));
 const Top = React.lazy(() => import('./modules/top/Top'));
 const Components = React.lazy(() => import('./modules/components'));
 const Users = React.lazy(() => import('./modules/users'));
@@ -28,12 +27,6 @@ const Notification = React.lazy(() =>
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
-  {
-    path: '/aikou',
-    name: 'Aikou',
-    component: Aikou,
-    isPrivate: true,
-  },
   {
     path: '/top',
     name: 'Top',

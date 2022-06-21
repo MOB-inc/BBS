@@ -61,7 +61,7 @@ function UsersPage() {
     <div className="user-page">
       {menuMode === 'sidebar' && <Explanation screen="USER_MANAGE" />}
       <NavLink to="/users/create">
-        <Button>{t('user:CREATE:BUTTON')}</Button>
+        <Button variant="contained">{t('user:CREATE:BUTTON')}</Button>
       </NavLink>
       <div className="container">
         <div className="search-bar">
@@ -114,28 +114,38 @@ function UsersPage() {
                   {t('user:TABLE.COLUMNS.APPROVAL')}
                 </div>
                 <div className="connect cell">
-									{t('user:TABLE.COLUMNS.CONNECTED')}
-									<Tooltip title={t('user:TOOLTIPS.CONNECT')} arrow interactive style={{ cursor: "pointer" }} >
-                  <QuesIcon
-                    style={{
-                      width: '15px',
-                      marginLeft: '4px',
-                      paddingBottom: '2px',
-                    }}
-                  />
-									</Tooltip>
+                  {t('user:TABLE.COLUMNS.CONNECTED')}
+                  <Tooltip
+                    title={t('user:TOOLTIPS.CONNECT')}
+                    arrow
+                    interactive
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <QuesIcon
+                      style={{
+                        width: '15px',
+                        marginLeft: '4px',
+                        paddingBottom: '2px',
+                      }}
+                    />
+                  </Tooltip>
                 </div>
                 <div className="fix-p cell">
-									{t('user:TABLE.COLUMNS.FIXED_PHRASE')}
-									<Tooltip title={t('user:TOOLTIPS.EDIT')} arrow interactive style={{ cursor: "pointer"}} >
-										<QuesIcon
-											style={{
-												width: '15px',
-												marginLeft: '4px',
-												paddingBottom: '2px',
-											}}
-										/>
-									</Tooltip>
+                  {t('user:TABLE.COLUMNS.FIXED_PHRASE')}
+                  <Tooltip
+                    title={t('user:TOOLTIPS.EDIT')}
+                    arrow
+                    interactive
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <QuesIcon
+                      style={{
+                        width: '15px',
+                        marginLeft: '4px',
+                        paddingBottom: '2px',
+                      }}
+                    />
+                  </Tooltip>
                 </div>
                 <div className="edit cell" />
               </div>

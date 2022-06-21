@@ -13,11 +13,18 @@
   "CREATE": {
     "BUTTON": "新規作成",
     "SEARCH": {
-      "HEADER": "①ユーザー名を入力",
+      "HEADERNUM": "①",
+      "HEADER": "ユーザー名を入力",
       "PLACEHOLDER": "例：関東エリアマネージャー等"
     },
-    "LOCATION": "ロケーション",
+    "LOCATION": {
+			"SELECTNUM":"②",
+			"SELECT": "ロケーション選択",
+			"DESC": "ユーザー名で入力した方が、管理するロケーションを選択下さい。",
+			"SEARCH": "Search"
+		},
     "PERMISSION": {
+      "BUTTONNUM": "③",
       "BUTTON": "権限設定",
       "TITLE": "権限設定",
       "CONNECT": "連携ON/OFF",

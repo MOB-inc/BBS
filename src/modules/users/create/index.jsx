@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'ahooks';
 import { useHistory, useParams } from 'react-router-dom';
 import { LOCATIONS_LIST, USERS } from '../../../commons/constants/url';
-import Input from '../../../commons/components/Input';
-import Button from '../../../commons/components/Button';
+// import Input from '../../../commons/components/Input';
+// import Button from '../../../commons/components/Button';
 import { ReactComponent as DeleteIcon } from '../../../commons/icons/delete.svg';
+import { ReactComponent as SearchIcon } from '../../../commons/icons/search-icon.svg';
 // import { ReactComponent as SearchIcon } from '../../../commons/icons/search.svg';
 import './index.scss';
 import '../../../commons/components/List/table.scss';
@@ -132,23 +135,26 @@ function UserCreatePage() {
         <div className="dummy" />
         <div className="username">
           <div className="search">
-            <span style={{ fontSize: '12px', fontWeight: 600 }}>
+            <span className="header-num">
+              {t('user:CREATE.SEARCH.HEADERNUM')}
+            </span>
+            <span className="header-desc">
               {t('user:CREATE.SEARCH.HEADER')}
             </span>
             <div className="input">
-							<TextField
-								id="outlined-textarea"
-								label=""
-								autoComplete="off"
-								placeholder={t('user:CREATE.SEARCH.PLACEHOLDER')}
-								onChange={(event) =>
-									setModalData({ ...modalData, name: event.target.value })
-								}
-								// maxLength="32"
-								value={modalData?.name}
-								multiline
-								variant="outlined"
-							/>
+              <TextField
+                id="outlined-textarea"
+                label=""
+                autoComplete="off"
+                placeholder={t('user:CREATE.SEARCH.PLACEHOLDER')}
+                onChange={(event) =>
+                  setModalData({ ...modalData, name: event.target.value })
+                }
+                // maxLength="32"
+                value={modalData?.name}
+                multiline
+                variant="outlined"
+              />
               {/* <Input
                 autoComplete="off"
                 placeholder={t('user:CREATE.SEARCH.PLACEHOLDER')}
@@ -173,77 +179,115 @@ function UserCreatePage() {
         </div>
       </div>
       <div className="locations">
-        <div className="locations-header">
-          <div className="label">{t('user:CREATE.LOCATION')}</div>
-          <div className="search-box">
-            <div className="search-input">
-              <Input
-                value={searchText}
-                onChange={(event) => setSearchText(event?.target?.value)}
-              />
+        <div className="locations-box">
+          <div className="locations-header">
+            <div className="label">
+              <span className="select-num">
+                {t('user:CREATE.LOCATION.SELECTNUM')}
+              </span>
+              <span className="select">{t('user:CREATE.LOCATION.SELECT')}</span>
             </div>
-            {/* <SearchIcon height={23} width={23} /> */}
+            <div>{t('user:CREATE.LOCATION.DESC')}</div>
+            <div className="search-box">
+              <div className="search-input">
+                <TextField
+                  // label=""
+                  // id=""
+                  value={searchText}
+                  autoComplete="off"
+                  onChange={(event) => setSearchText(event.target.value)}
+                  className="search"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="end">
+                        <SearchIcon className="searchIcon" />
+                      </InputAdornment>
+                    ),
+                  }}
+                  variant="outlined"
+                  placeholder={t('user:CREATE.LOCATION.SEARCH')}
+                />
+                {/* <Input
+									value={searchText}
+									onChange={(event) => setSearchText(event?.target?.value)}
+								/> */}
+              </div>
+              {/* <SearchIcon height={23} width={23} /> */}
+            </div>
+          </div>
+          <div style={{ overflowX: 'auto' }}>
+            <div className="table-list">
+              {locations.map((item) => {
+                return (
+                  <div key={item.id}>
+                    <span>
+                      <input
+                        type="checkbox"
+                        value={item.id}
+                        checked={isUserLocationSelected(item.id)}
+                        onChange={addUserLocation}
+                      />
+                    </span>
+                    <span className="ellipsis">{item.name}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div style={{ overflowX: 'auto' }}>
-          <div className="table-list">
-            {locations.map((item) => {
-              return (
-                <div key={item.id}>
-                  <span className="ellipsis">{item.name}</span>
-                  <span>
-                    <input
-                      type="checkbox"
-                      value={item.id}
-                      checked={isUserLocationSelected(item.id)}
-                      onChange={addUserLocation}
-                    />
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <PermissionModal
+          id={permissionId}
+          data={modalData}
+          onPasswordHandler={permission2password}
+          onApproveHandler={permission2approve}
+          onCloseHandler={permissionCloseHandler}
+          onSuccess={userCreationSuccessHandler}
+        />
+        <ApproverModal
+          show={approverModal}
+          data={modalData}
+          onPasswordHandler={approve2password}
+          onSuccess={userCreationSuccessHandler}
+          onPermissionHandler={approve2Permission}
+        />
+        <PasswordModal
+          data={modalData}
+          show={passwordModal}
+          onPermissionHandler={password2permission}
+          onSuccess={userCreationSuccessHandler}
+        />
+        <SuccessModal
+          show={successModal}
+          name={modalData?.name}
+          toggle={userCreationCompleteHandler}
+        />
+        <DeleteModal
+          show={deleteModal}
+          id={modalData?.id}
+          name={modalData?.name}
+          toggle={() => setDeleteModal(!deleteModal)}
+          back={() => history.replace('/users')}
+        />
+        {/* <Button
+          onClick={() => setPermissionId(-1)}
+          disabled={
+            !(modalData?.name?.length > 0 && modalData?.locations?.size)
+          }
+        >
+          <span>{t('user:CREATE.PERMISSION.BUTTONNUM')}</span>
+          <span>{t('user:CREATE.PERMISSION.BUTTON')}</span>
+        </Button> */}
+        <Button
+          variant="contained"
+          onClick={() => setPermissionId(-1)}
+          disabled={
+            !(modalData?.name?.length > 0 && modalData?.locations?.size)
+          }
+        >
+          <span>{t('user:CREATE.PERMISSION.BUTTONNUM')}</span>
+          <span>{t('user:CREATE.PERMISSION.BUTTON')}</span>
+        </Button>
       </div>
-      <PermissionModal
-        id={permissionId}
-        data={modalData}
-        onPasswordHandler={permission2password}
-        onApproveHandler={permission2approve}
-        onCloseHandler={permissionCloseHandler}
-        onSuccess={userCreationSuccessHandler}
-      />
-      <ApproverModal
-        show={approverModal}
-        data={modalData}
-        onPasswordHandler={approve2password}
-        onSuccess={userCreationSuccessHandler}
-        onPermissionHandler={approve2Permission}
-      />
-      <PasswordModal
-        data={modalData}
-        show={passwordModal}
-        onPermissionHandler={password2permission}
-        onSuccess={userCreationSuccessHandler}
-      />
-      <SuccessModal
-        show={successModal}
-        name={modalData?.name}
-        toggle={userCreationCompleteHandler}
-      />
-      <DeleteModal
-        show={deleteModal}
-        id={modalData?.id}
-        name={modalData?.name}
-        toggle={() => setDeleteModal(!deleteModal)}
-        back={() => history.replace('/users')}
-      />
-      <Button
-        onClick={() => setPermissionId(-1)}
-        disabled={!(modalData?.name?.length > 0 && modalData?.locations?.size)}
-      >
-        {t('user:CREATE.PERMISSION.BUTTON')}
-      </Button>
     </div>
   );
 }

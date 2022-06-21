@@ -5,11 +5,19 @@
   text-align: left;
   padding: 9px 9px 9px 14px;
   @media (min-width: $sm) {
-    padding: 25px 25px 25px 50px;
+    // padding: 25px 25px 25px 50px;
+		padding: 29px 15px;
   }
+	div.explanation {
+		margin: 0 0 16px !important;
+		p {
+			font-weight: 400;
+			font-size: 12px;
+		}
+	}
   .header {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin: 18px 46px 0 0;
     .username {
       display: block;
@@ -24,12 +32,28 @@
         @media (min-width: $sm) {
           width: 571px;
         }
+				>.header-num {
+					font-size: 17px;
+					color: $black;
+					vertical-align: -8%;
+				}
+				>.header-desc {
+					font-size: 12px;
+					font-weight: 400;
+					color: $black;
+				}
         div.input {
           display: flex;
           flex-direction: row;
           > input {
             padding: 4px 0 4px 13px;
           }
+					.MuiOutlinedInput-multiline {
+						width: 220px;
+						font-size: 14px;
+						padding: 8px 7px 8px 7px;
+						background-color: $paper-color;
+					}
           .delete {
             margin: auto 29px;
             cursor: pointer;
@@ -44,12 +68,29 @@
   .locations {
     height: 430px;
     overflow-y: auto;
-    background-color: $background-color;
-    border-radius: 24px;
+    background-color: $paper-color;
+    border-radius: 16px;
     @media (min-width: $sm) {
       height: 630px;
-      padding: 0 46px 20px 50px;
+      // padding: 0 46px 20px 50px;
+			padding: 35px 19px 99px;
     }
+		.locations-box {
+			border: 1px solid #E0E0E0;
+			border-radius: 4px;
+			padding: 24px 20px 72px;
+			.table-list {
+				border: none;
+				input[type='checkbox'] {
+					width: 18px;
+					height: 18px;
+					border-radius: 2px;
+				}
+				input[type='checkbox']:checked {
+					background-color: $button-active-color;
+				}
+			}
+		}
     .label {
       margin: 7px 0;
       text-decoration: underline;
@@ -64,8 +105,8 @@
     }
     .locations-header {
       margin: 10px;
-      display: flex;
-      justify-content: space-between;
+      // display: flex;
+      // justify-content: space-between;
       > .search-box {
         display: flex;
         align-items: center;
