@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'ahooks';
@@ -126,7 +128,7 @@ function UserCreatePage() {
       searchText ? `?searchText=${searchText}` : '',
     );
     setLocations(locationData?.result?.data);
-  }, [debouncedSearchText]);
+	}, [debouncedSearchText]);
 
   return (
     <div className="user-create-page">
@@ -220,7 +222,7 @@ function UserCreatePage() {
               {locations.map((item) => {
                 return (
                   <div key={item.id}>
-                    <span>
+                    {/* <span>
                       <input
                         type="checkbox"
                         value={item.id}
@@ -228,10 +230,22 @@ function UserCreatePage() {
                         onChange={addUserLocation}
                       />
                     </span>
-                    <span className="ellipsis">{item.name}</span>
+                    <span className="ellipsis">{item.name}</span> */}
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          type="checkbox"
+                          value={item.id}
+                          checked={isUserLocationSelected(item.id)}
+                          onChange={addUserLocation}
+                        />
+                      }
+                      label={item.name}
+                    />
                   </div>
                 );
-              })}
+							})}
+
             </div>
           </div>
         </div>
@@ -284,7 +298,7 @@ function UserCreatePage() {
             !(modalData?.name?.length > 0 && modalData?.locations?.size)
           }
         >
-          <span>{t('user:CREATE.PERMISSION.BUTTONNUM')}</span>
+          <span className='button-num'>{t('user:CREATE.PERMISSION.BUTTONNUM')}</span>
           <span>{t('user:CREATE.PERMISSION.BUTTON')}</span>
         </Button>
       </div>
