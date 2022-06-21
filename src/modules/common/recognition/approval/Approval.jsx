@@ -20,7 +20,7 @@ import Pagination from '../../../../commons/components/Pagination/index';
 import { APPROVAL_REQUEST } from '../../../../commons/constants/url';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow_d.svg';
 import { ReactComponent as ArrowUp } from '../../../../commons/icons/arrow_u.svg';
-import { ReactComponent as RemandIcon } from '../../../../commons/icons/remand-icon.svg';
+// import { ReactComponent as RemandIcon } from '../../../../commons/icons/remand-icon.svg';
 import { ReactComponent as FilterIcon } from '../../../../commons/icons/filter.svg';
 import { ReactComponent as AntenaIcon } from '../../../../commons/icons/antena.svg';
 
@@ -332,7 +332,7 @@ function Approval() {
                       }
                       role="presentation"
                     >
-                      <div className="cell w2d5p border-none">
+                      {/* <div className="cell w2d5p border-none">
                         {item.is_remanded === 1 ? (
                           <RemandIcon
                             className="remand-icon"
@@ -342,30 +342,39 @@ function Approval() {
                         ) : (
                           <></>
                         )}
-                      </div>
-                      <div className="cell w15p">
+                      </div> */}
+                      <div className="cell w5p">
                         <div className="start">
                           {/* {bulkState && ( */}
-                            <input
+                            {/* <input
                               type="checkbox"
                               checked={bulkIds.has(item?.id)}
                               onClick={(event) => event.stopPropagation()}
                               onChange={() =>
                                 toggleBulkId(item?.id, item?.type)
-                              }
+                              } */}
+
+                            <Checkbox
+                              checked={bulkIds.has(item?.id)}
+                              onClick={(event) => event.stopPropagation()}
+                              onChange={() =>
+                                toggleBulkId(item?.id, item?.type)
+                              } 
                             />
                           {/* )} */}
                         </div>
+                      </div>
+                      <div className="cell w15p">
                         {dayjs
                           .utc(item?.post_datetime)
                           .tz(tz)
-                          .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
+                          .format('YYYY/MM/DD, \xa0 HH:mm')}
                       </div>
-                      <div className="cell w15p">{item?.user_name}</div>
-                      <div className="cell w7d5p">{item?.no_of_store}</div>
-                      <div className="cell w20p">{item?.location_name}</div>
-                      <div className="cell w30p content">{item?.contents}</div>
-                      <div className="cell w7d5p">
+                      <div className="cell w25p">{item?.user_name}</div>
+                      {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
+                      <div className="cell w25p">{item?.location_name}</div>
+                      <div className="cell w20p content">{item?.contents}</div>
+                      <div className="cell w10p">
                         {item.type === 1 ? 'GBP投稿' : '口コミ返信'}
                       </div>
                     </div>

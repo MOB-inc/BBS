@@ -151,11 +151,6 @@
           font-weight: normal;
           cursor: pointer;
         }
-        div.row:nth-child(odd) {
-          div.cell {
-            background: $background-color-list-odd;
-          }
-        }
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
@@ -172,6 +167,9 @@
       div.thead div.row div.cell:nth-child(1):before {
         width: 0;
       }
+      div.tbody div.row {
+        height:72px;
+      }
       span.ellipsis {
         white-space: nowrap;
         overflow: hidden;
@@ -184,9 +182,11 @@
 .MuiCheckbox-colorSecondary.Mui-checked {
   color: #cc0099;
 }
-input[type='checkbox']{
-  position:absolute;
-}
 .MuiOutlinedInput-adornedStart{
   padding-left:4px;
+}.MuiSvgIcon-root{
+  position:absolute;
+}
+.default-layout .content{
+  background: $button-active-bg-color;
 }
