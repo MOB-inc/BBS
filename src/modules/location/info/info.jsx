@@ -9,8 +9,8 @@ import MySearch from '../../../commons/components/SearchForm';
 
 import StarRating from '../../../commons/components/Rating';
 import Explanation from '../../../commons/components/Explanation';
-import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
-import { ReactComponent as ArrowUp } from '../../../commons/icons/arrow-up.svg';
+import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow_d.svg';
+import { ReactComponent as ArrowUp } from '../../../commons/icons/arrow_u.svg';
 import { LOCATION_INFORMATIONS } from '../../../commons/constants/url';
 import { AppContext } from '../../../commons/helpers/appContext';
 import Pagination from '../../../commons/components/Pagination';

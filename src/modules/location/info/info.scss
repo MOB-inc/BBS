@@ -6,6 +6,7 @@
 }
 .location-info {
   $border: 1px solid rgba(0, 0, 0, 0.22);
+  $block:80px;
   .info-content {
     margin-top: 40px;
     padding:16px;
@@ -69,17 +70,21 @@
           position:relative;
           height:39px;
         }
+
         tr:nth-child(1){
+          th:nth-child(1){
+            width: auto;
+          }
           th:nth-child(2){
             background-color: $button-active-bg-color;
-            width:210px;
+            width:$block * 3;
           }
           th:nth-child(3){
-            width:280px;
+            width:$block * 4;
           }
           th:nth-child(4){
             background-color: $button-active-bg-color;
-            width:210px;
+            width:$block * 3;
           }
           th:nth-child(5){
             width:100px;
@@ -87,7 +92,7 @@
         } 
         tr:nth-child(2){
           th{
-            width:70px;
+            width:$block;
             font-size: 10px;
           }
           th:nth-child(13){
@@ -135,7 +140,7 @@
           td{
             font-size:12px;
             height:64px;
-            width:70px;
+            width:$block;
           }
           td:nth-child(1),
           td:nth-child(2){

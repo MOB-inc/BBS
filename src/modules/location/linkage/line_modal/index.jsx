@@ -5,11 +5,11 @@ import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
 
 type Props = {
-	variant: string;
+	id: string;
 	value: string;
 };
 const Modal = (props: Props) => {
-  const {variant,value} = props;
+  const {id,value} = props;
 	const { t } = useTranslation(['location']);
 	const [val, setVal] = useState("");
 	const valHandle = (event) => {
@@ -17,7 +17,7 @@ const Modal = (props: Props) => {
 	}
 	
 	const modalClose = () => {
-		const elem = document.getElementById(variant);
+		const elem = document.getElementById(id);
 		setTimeout(function(){ 
 			elem.style.display = "none"; 
 		}, 500);
@@ -30,7 +30,7 @@ const Modal = (props: Props) => {
 	}
 	return (
 		<>
-			<div id={variant} className="modal">
+			<div id={id} className="modal">
 					<input type="button" className="modalBack" onClick={modalClose} />
 					<div className="modalBody">
 						<TextField

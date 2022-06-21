@@ -12,7 +12,7 @@ import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
-import Modal from '../../../commons/components/Modal';
+import Modal from './line_modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
 // import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
@@ -358,7 +358,7 @@ function Dialogs() {
                     value={lineOfficialToken || ''}
                     onChange={handleTokenUpdate}
                 />
-                <Modal variant="linkage" value={modalValue} />
+                <Modal id="linkage" value={modalValue} />
               </div>
               <div className="dialog-footer line">
                 <p className={lineOfficialStatus ? 'linked' : ''}>Status:

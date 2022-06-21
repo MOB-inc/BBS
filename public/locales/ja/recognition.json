@@ -42,6 +42,7 @@
     "EVENT_DETAILS": "イベントの詳細",
     "REPLY_PLACEHOLDER": "返信内容を入力してください。",
     "SELECT_PLACEHOLDER": "定型文から選択",
-    "NUM": "差し戻し回数"
+    "NUM": "差し戻し回数",
+    "BULK_APPROVAL" : "一括承認"
   }
 }

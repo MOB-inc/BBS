@@ -42,6 +42,7 @@
     "EVENT_DETAILS": "Eventon details",
     "REPLY_PLACEHOLDER": "Please enter your reply.",
     "SELECT_PLACEHOLDER": "Select from fixed phrase",
-    "NUM": "差し戻し回数"
+    "NUM": "差し戻し回数",
+    "BULK_APPROVAL" : "Bulk approval"
   }
 }
