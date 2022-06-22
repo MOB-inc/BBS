@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 // import DatePicker from 'react-datepicker';
 import ToggleButton from '@material-ui/lab/ToggleButton';
-import Button from '@material-ui/core/Button';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { ReactComponent as CalendarIcon } from '../../../../commons/icons/calendar.svg';
 import './navigation.scss';
@@ -51,15 +50,6 @@ function RecognitionNavigation(
           </NavLink>
         </ToggleButton>
       </ToggleButtonGroup>
-      <Button
-          // onClick={bulkState ? toggleBulkApprovalModal : () => setBulkState(true)}
-          // disabled={bulkState && bulkIds.size === 0}
-          variant="contained"
-          className="submit button"
-          size="large"
-      >
-        {t('recognition:APPROVAL.APPROVAL_CONFIRMED')}
-      </Button> 
     </>
     // <div className="recognition-navigation">
     //   <div className="calendar-filter">

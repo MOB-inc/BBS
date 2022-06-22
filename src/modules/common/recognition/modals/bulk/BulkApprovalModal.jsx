@@ -104,9 +104,11 @@ function BulkApprovalModal({
                 </CRow>
               </>
             )}
+          <p>bulkapproval</p>
           </CForm>
         </CModalBody>
       </CModal>
+      
     </>
   );
 }

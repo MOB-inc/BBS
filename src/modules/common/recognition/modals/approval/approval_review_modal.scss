@@ -6,7 +6,7 @@
     max-width: 456px;
     .modal-content {
       height: 800px;
-      border-radius: 22px;
+      border-radius: 4px;
       border: 1px solid $border-color;
       .modal-body {
         padding: 0;
@@ -19,12 +19,9 @@
             height: 100%;
             .review-user {
               width: 90%;
-              height: 136px;
-              margin-top: 16px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
+              height: 76px;
+              margin-top: 30px;
               outline: 0;
-              padding: 20px;
               @media (min-width: $sm) {
                 width: 424px;
               }
@@ -54,11 +51,11 @@
             }
             .review-reply {
               width: 90%;
-              height: 200px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
+              height: 193px;
               outline: 0;
-              padding: 20px;
+              font-size: 16px;
+              line-height: 24px ;
+              letter-spacing: 0.15px;
               @media (min-width: $sm) {
                 width: 424px;
               }
@@ -72,30 +69,44 @@
               align-items: center;
               color: rgba(0, 0, 0, 0.4);
             }
-            .reply-header {
+            .dropdown-wrapper {
+              margin-top: 37px;
+            // .reply-header {
+            //   display: flex;
+            //   justify-content: space-between;
+            //   height: 40px;
+            //   padding: 0 16px;
+            //   text-align: left;
+             
+                // .css-yk16xz-control {
+                //   border: none;
+                //   min-height: 22px;
+                //   .css-1okebmr-indicatorSeparator {
+                //     display: none;
+                //   }
+                //   .css-tlfecz-indicatorContainer {
+                //     color: $text-color;
+                //   }
+                //   .css-1wa3eu0-placeholder {
+                //     color: $black;
+                //     font-size: 13px;
+                //   }
+                //}
+              //}
+            }
+            .image-area{
+              border: 1px dashed #cc0099;
+              color:#cc0099;
+              border-radius: 4px;
+              height: 140px;
               display: flex;
-              justify-content: space-between;
-              height: 40px;
-              padding: 0 16px;
-              text-align: left;
-              .dropdown-wrapper {
-                width: 260px;
-                margin-left: 10px;
-                margin-bottom: 5px;
-                .css-yk16xz-control {
-                  border: none;
-                  min-height: 22px;
-                  .css-1okebmr-indicatorSeparator {
-                    display: none;
-                  }
-                  .css-tlfecz-indicatorContainer {
-                    color: $text-color;
-                  }
-                  .css-1wa3eu0-placeholder {
-                    color: $black;
-                    font-size: 13px;
-                  }
-                }
+              justify-content: center;
+              flex-direction: column;
+              width:424px;
+              margin:0 auto;
+              svg{
+                display: block;
+                width: 100%;
               }
             }
           }
@@ -128,4 +139,22 @@
       }
     }
   }
+}
+.modal-body{
+  textarea.MuiInputBase-input{
+    font-size: 16px;
+    line-height: 24px ;
+    letter-spacing: 0.15px;
+    color:$text-color2;
+  }
+  .MuiFormControl-root{
+    width:424px;
+    margin:0 auto;
+  }
+  .flex{
+    margin-top:40px;
+  }
+}
+.MuiOutlinedInput-multiline{
+  padding:8px 12px;
 }

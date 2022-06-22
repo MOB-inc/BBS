@@ -18,10 +18,12 @@ const Modal = (props: Props) => {
 	
 	const modalClose = () => {
 		const elem = document.getElementById(id);
+		const elemB = document.getElementById('modalBody');
+		elemB.style.opacity = 0; 
+		elemB.style.top = "30%";  
 		setTimeout(function(){ 
 			elem.style.display = "none"; 
 		}, 500);
-		elem.style.opacity = 0; 
 	}
 	const submit = () =>{
 		const elem2 = document.getElementById("result");
@@ -32,7 +34,7 @@ const Modal = (props: Props) => {
 		<>
 			<div id={id} className="modal">
 					<input type="button" className="modalBack" onClick={modalClose} />
-					<div className="modalBody">
+					<div id="modalBody" className="modalBody">
 						<TextField
 							id="textArea"
 							className="textArea"

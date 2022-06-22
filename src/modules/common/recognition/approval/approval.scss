@@ -126,6 +126,7 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
+          background: $button-active-bg-color;
         }
         .remand-icon {
           margin-right: 5px;
@@ -186,7 +187,4 @@
   padding-left:4px;
 }.MuiSvgIcon-root{
   position:absolute;
-}
-.default-layout .content{
-  background: $button-active-bg-color;
 }

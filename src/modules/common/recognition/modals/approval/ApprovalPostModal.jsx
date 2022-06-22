@@ -470,6 +470,7 @@ function ApprovalPostModal({ modal, closeModal, currentId, reloadList, type }) {
                 )}
               </CCol>
             </CRow>
+          <p>postmodal</p>
           </CForm>
         </CModalBody>
         <ApprovalModal
@@ -494,6 +495,7 @@ function ApprovalPostModal({ modal, closeModal, currentId, reloadList, type }) {
           modal={remandModal}
           closeModal={toggleRemandModal}
         />
+      
       </CModal>
     </>
   );

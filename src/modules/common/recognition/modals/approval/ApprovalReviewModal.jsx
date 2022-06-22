@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
-import Select, { components } from 'react-select';
+// import { components } from 'react-select';
 import PropTypes from 'prop-types';
 import * as dayjs from 'dayjs';
 import { CModal, CModalBody, CForm, CCol, CRow } from '@coreui/react';
-import { STAR_MAP } from '../../../../gmb/reviews/constant';
-import Rating from '../../../../../commons/components/Rating';
+import Select from '@material-ui/core/Select';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
+// import { STAR_MAP } from '../../../../gmb/reviews/constant';
+// import Rating from '../../../../../commons/components/Rating';
 import {
   REVIEWS,
   FIXED_REVIEW_PHRASE_SELECT,
 } from '../../../../../commons/constants/url';
-import { ReactComponent as ArrowDown } from '../../../../../commons/icons/arrow-down.svg';
-
+// import { ReactComponent as ArrowDown } from '../../../../../commons/icons/arrow-down.svg';
+import { ReactComponent as CloudIcon } from '../../../../../commons/icons/cloud-up.svg';
 import './approval_review_modal.scss';
 
 const relativeTime = require('dayjs/plugin/relativeTime');
@@ -37,16 +41,16 @@ function ApprovalReviewModal({
   const [active, setActive] = useState(false);
   const [reply, setReply] = useState();
   const [review, setReview] = useState();
-  const [reviewInfo, setReviewInfo] = useState({});
-  const [selectList, setSelectList] = useState([]);
-  const [selectValue, setSelectValue] = useState();
-  const DropdownIndicator = (props) => {
-    return (
-      <components.DropdownIndicator {...props}>
-        <ArrowDown />
-      </components.DropdownIndicator>
-    );
-  };
+  // const [reviewInfo, setReviewInfo] = useState({});
+  // const [selectList, setSelectList] = useState([]);
+  // const [selectValue, setSelectValue] = useState();
+  // const DropdownIndicator = (props) => {
+  //   return (
+  //     <components.DropdownIndicator {...props}>
+  //       <ArrowDown />
+  //     </components.DropdownIndicator>
+  //   );
+  // };
   const { get: getPhrase } = useFetch(
     locationId ? FIXED_REVIEW_PHRASE_SELECT(locationId) : null,
   );
@@ -66,27 +70,31 @@ function ApprovalReviewModal({
   };
   const loadReviews = async () => {
     const responseReviews = await getReviews();
-    setReviewInfo(responseReviews?.result);
+    // setReviewInfo(responseReviews?.result);
     setReview(responseReviews?.result?.review_comment);
     setReply(responseReviews?.result?.reply);
   };
   const openHandler = async () => {
     loadReviews();
-    setSelectList([]);
+    // setSelectList([]);
     const phraseResp = await getPhrase();
     const newSelectList = [];
     phraseResp?.result?.forEach((e) => {
       newSelectList.push({ value: e.title, label: e.title, phrase: e.phrase });
     });
-    setSelectList(newSelectList);
+    // setSelectList(newSelectList);
   };
   const clear = () => {
     setActive(false);
-    setSelectValue(null);
+    // setSelectValue(null);
   };
   const reload = () => {
     setActive(false);
     loadReviews();
+  };
+
+  const handleChange = () => {
+
   };
   return (
     <>
@@ -102,7 +110,7 @@ function ApprovalReviewModal({
           <CForm action="" method="post" className="form-horizontal">
             <CRow className="remand-row">
               <CCol md="12" className="right">
-                <div className="section google-user">
+                {/* <div className="section google-user">
                   <div className="user-image">
                     {reviewInfo?.gmb_reviewer_profile_photo_url && (
                       <img
@@ -128,13 +136,80 @@ function ApprovalReviewModal({
                       )}
                     </div>
                   </div>
-                </div>
-                <textarea
+                </div> */}
+                <TextField
+                  id="outlined-textarea"
                   className="review-user custom"
+                  multiline
+                  variant="outlined"
                   value={review}
                   disabled
                 />
-                <div className="reply-header">
+                {/* <textarea
+                  className="review-user custom"
+                  value={review}
+                  disabled
+                /> */}
+                <TextField
+                  id="outlined-textarea"
+                  label={t('recognition:REMAND.CONTENTS')}
+                  multiline
+                  rows={6}
+                  variant="outlined"
+                  value={reply || ''}
+                  className="review-reply custom"
+                  disabled
+                />
+                <div className="image-area"><CloudIcon/>UPLOAD IMAGE</div>
+                <FormControl variant="outlined">
+                  <Select
+                    className="dropdown-wrapper"
+                    native
+                    onChange={handleChange}
+                    inputProps={{
+                      comment: '',
+                    }}
+                    placeholder={t('recognition:REMAND.SELECT_PLACEHOLDER')}
+                    
+                  >
+                    <option aria-label="None" value="なし" />
+                    <option value={10}>Ten</option>
+                    <option value={20}>Twenty</option>
+                    <option value={30}>Thirty</option>
+                  </Select>
+                </FormControl>
+                <div className="flex">
+                  <Button
+                      onClick={toggleApprovalModal}
+                      variant="contained"
+                      className="submit button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.APPROVAL_BUTTON')}
+                  </Button>
+                  <Button
+                      onChange={(event) => onTextAreaChange(event)}
+                      variant="contained"
+                      className="edit button"
+                      onClick={
+                        active ? toggleEditConfirmModal : () => setActive(true)
+                      }
+                      size="large"
+                  >
+                    {active
+                      ? t('recognition:APPROVAL.RELEASE_BUTTON')
+                      : t('recognition:REMAND.EDIT_BUTTON')}
+                  </Button>
+                  <Button
+                      onClick={active ? reload : toggleRemandModal}
+                      variant="outlined"
+                      className="remand button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.REMAND_BUTTON')}
+                  </Button>  
+                </div>
+                {/* <div className="reply-header">
                   <div className="reply-content">
                     {t('recognition:REMAND.REPLY_CONTENT_TITLE')}
                   </div>
@@ -151,8 +226,8 @@ function ApprovalReviewModal({
                       className="dropdown-wrapper"
                     />
                   )}
-                </div>
-                {active ? (
+                </div> */}
+                {/* {active ? (
                   <textarea
                     className="review-reply"
                     value={reply || ''}
@@ -224,7 +299,7 @@ function ApprovalReviewModal({
                     </button>
                   </CCol>
                   <CCol xs="3" />
-                </CRow>
+                </CRow> */}
               </CCol>
             </CRow>
           </CForm>

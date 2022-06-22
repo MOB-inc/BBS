@@ -175,9 +175,11 @@ function Dialogs() {
   };
   const modalOpen = () => {
     const elem = document.getElementById('linkage');
+    const elemB = document.getElementById('modalBody');
     elem.style.display = "block"; 
     setTimeout(function(){ 
-      elem.style.opacity = 1; 
+      elemB.style.opacity = 1; 
+      elemB.style.top = "50%"; 
 		}, 0);
   }
   // const longText="筑前貴裕 / Optbusiness";
