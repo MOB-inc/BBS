@@ -42,14 +42,15 @@
       "SELECTION": "承認者選択",
       "STEP": {
         "LABEL": "ステップ承認設定",
-        "DESCRIPTION": "指定全承認者の承認が必要"
+        "DESCRIPTION": "上長権限を設定する場合は、管理者の上長にあたる方を選択し、承認者を選択してください。"
       },
       "SPEED": {
         "LABEL": "スピード承認設定",
         "DESCRIPTION": "指定承認者のいずれかの承認が必要"
       },
       "RECOGNIZER": "承認者①",
-      "PASSWORD": "パスワード設定",
+      "SKIP": "スキップ",
+      "PASSWORD": "(ID・パスワード設定へ)",
       "RETURN": "戻る"
     },
     "PASSWORD": {

@@ -54,11 +54,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Inquiry() {
 	const classes = useStyles();
-  const [age, setAge] = React.useState('');
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
-
   const { t } = useTranslation();
   const history = useHistory();
   const [locations, setLocations] = useState([]);

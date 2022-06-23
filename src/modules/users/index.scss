@@ -129,7 +129,7 @@ div.user-page {
           overflow-x: scroll;
           overflow-y: scroll;
           white-space: pre;
-          padding: 0 5px;
+          padding: 15px;
           max-height: 200px;
         }
         > div.cell.column {
@@ -160,7 +160,7 @@ div.user-page {
         div.row div.cell {
           font-weight: normal;
         }
-        div.row:nth-child(odd) {
+        div.row {
           div.cell {
             // background: $background-color-list-odd;
 						border-bottom: 1px solid #e0e0e0;
@@ -168,7 +168,8 @@ div.user-page {
         }
       }
       div.thead div.row div.cell {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        // border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        border-bottom: 1px solid #e0e0e0;
 				justify-content: center;
       }
       div.tbody div.row:hover {
@@ -220,9 +221,12 @@ div.user-page {
 			}
 			div.tbody div.row .cell.location {
 				width: 14%;
+				white-space: inherit;
+				text-align: left;
 			}
 			div.tbody div.row .cell.approval {
 				width: 14%;
+				padding: 15px;
 			}
 			div.tbody div.row .cell.connect {
 				width: 12%;

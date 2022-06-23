@@ -189,7 +189,7 @@ function UserCreatePage() {
               </span>
               <span className="select">{t('user:CREATE.LOCATION.SELECT')}</span>
             </div>
-            <div>{t('user:CREATE.LOCATION.DESC')}</div>
+            <div className='location-select'>{t('user:CREATE.LOCATION.DESC')}</div>
             <div className="search-box">
               <div className="search-input">
                 <TextField

@@ -26,7 +26,8 @@
         margin: 0 0 20px 0;
       }
       .search {
-        margin: 0 auto;
+        // margin: 0 auto;
+        margin: 0 auto 0 0;
         width: 50%;
         color: $gray;
         @media (min-width: $sm) {
@@ -70,10 +71,11 @@
     overflow-y: auto;
     background-color: $paper-color;
     border-radius: 16px;
+		padding: 35px 19px 99px;
     @media (min-width: $sm) {
       height: 630px;
       // padding: 0 46px 20px 50px;
-			padding: 35px 19px 99px;
+			// padding: 35px 19px 99px;
     }
 		.locations-box {
 			border: 1px solid #E0E0E0;
@@ -87,6 +89,8 @@
 				}
 				> div:nth-child(10n + 1), div:nth-child(10n + 2), div:nth-child(10n + 3), div:nth-child(10n + 4), div:nth-child(10n + 5) {
 					background-color: $paper-color;
+					margin-top: 22px;
+					padding-left: 0;
 				}
 				.MuiCheckbox-colorSecondary.Mui-checked svg path {
 					color: $button-active-color;
@@ -98,14 +102,31 @@
 					-webkit-line-clamp: 1;
 					-webkit-box-orient: vertical;
 				}
+				label {
+					margin: 0;
+					> .MuiButtonBase-root {
+						padding-left: 0;
+					}
+					.MuiIconButton-colorSecondary:hover {
+						background-color: transparent;
+					}
+				}
 			}
+		}
+		.flex-container {
+			display: flex;
 		}
 		button.MuiButtonBase-root {
 			color: $paper-color;
 			background-color: $button-active-color;
+			display: block;
+			margin: 20px 0 0 auto;
+			padding: 6px 16px;
+			border-radius: 4px;
 		}
     .label {
-      margin: 7px 0;
+      // margin: 7px 0;
+			margin: 0 0 10px;
       // text-decoration: underline;
       // font-size: 14px;
 			font-size: 17px;
@@ -114,6 +135,10 @@
 				font-size: 20px;
 			}
     }
+		.location-select {
+			font-size: 12px;
+			margin-bottom: 14px;
+		}
     span.ellipsis {
       white-space: nowrap;
       overflow: hidden;
@@ -121,19 +146,34 @@
       padding: 0 5px;
     }
     .locations-header {
-      margin: 10px;
+      // margin: 10px;
       // display: flex;
       // justify-content: space-between;
       > .search-box {
         display: flex;
         align-items: center;
-        margin-bottom: 5px;
+        // margin-bottom: 5px;
         > .search-input {
           margin-right: 6px;
           @media (min-width: $sm) {
-            width: 266px;
+            // width: 266px;
+						width: 220px;
+						height: 40px;
             margin-right: 12px;
           }
+					> .MuiFormControl-root {
+						height: 100%;
+						> .MuiOutlinedInput-adornedStart {
+							height: 100%;
+							padding-left: 12px;
+							> .MuiInputAdornment-positionEnd {
+								margin-left: 0;
+							}
+							> .MuiOutlinedInput-inputAdornedStart {
+								padding-left: 8px;
+							}
+						}
+					}
         }
       }
     }

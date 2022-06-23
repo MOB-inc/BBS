@@ -16,6 +16,7 @@ import { ReactComponent as SearchIcon } from '../../commons/icons/search-icon.sv
 import { ReactComponent as CrossIcon } from '../../commons/icons/cross.svg';
 import { ReactComponent as CircleIcon } from '../../commons/icons/circle.svg';
 import { ReactComponent as QuesIcon } from '../../commons/icons/question.svg';
+import { ReactComponent as PenIcon } from '../../commons/icons/pen-icon.svg';
 import './index.scss';
 
 function UsersPage() {
@@ -182,13 +183,15 @@ function UsersPage() {
                     </div>
                     <div className="cell edit">
                       {item.roles[0].name !== 'admin' && (
-                        <Button
-                          height={24}
-                          width={74}
-                          onClick={() => editHandler(item.id)}
-                        >
-                          {t('user:EDIT:BUTTON')}
-                        </Button>
+                        // <Button
+                        //   height={24}
+                        //   width={74}
+                        //   onClick={() => editHandler(item.id)}
+                        // >
+                        //   {t('user:EDIT:BUTTON')}
+                        // </Button>
+                        // <button onClick={() => editHandler(item.id)}></button>
+                        <PenIcon onClick={() => editHandler(item.id)} />
                       )}
                     </div>
                   </div>

@@ -1,13 +1,15 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useState, useEffect } from 'react';
 import { CModal } from '@coreui/react';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
 import useFetch from 'use-http';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { useTranslation } from 'react-i18next';
 import { USERS } from '../../../../commons/constants/url';
 import { ReactComponent as AddIcon } from '../../../../commons/icons/add.svg';
-import Button from '../../../../commons/components/Button';
+// import Button from '../../../../commons/components/Button';
 import './index.scss';
 
 function Approver(props) {
@@ -98,7 +100,7 @@ function ApproverModal(props) {
 
   const closedHandler = () => {
     setUsers([]);
-  };
+	};
 
   useEffect(() => {
     setApproverType(data?.approved_type);
@@ -120,18 +122,26 @@ function ApproverModal(props) {
     >
       <div className="settings-list">
         <div className="row settings">
-          <div className="col-9">
+          {/* <div className="col-9"> */}
+          <div className="approve-label">
             <div className="title">{t('user:CREATE:APPROVER:STEP:LABEL')}</div>
-            <div className="subtitle">
-              {t('user:CREATE:APPROVER:STEP:DESCRIPTION')}
-            </div>
-          </div>
-          <div className="col-3">
-            <input
+            {/* <div className="col-3"> */}
+            {/* <div>
+              <input
+                type="checkbox"
+                checked={approverType === 1}
+                onChange={() => setApproverType(1)}
+              />
+            </div> */}
+            <Checkbox
               type="checkbox"
               checked={approverType === 1}
               onChange={() => setApproverType(1)}
+              inputProps={{ 'aria-label': 'primary checkbox' }}
             />
+          </div>
+          <div className="subtitle">
+            {t('user:CREATE:APPROVER:STEP:DESCRIPTION')}
           </div>
         </div>
         {/* スピード承認設定の機能がまだなのでコメントアウト */}
@@ -175,18 +185,21 @@ function ApproverModal(props) {
             </Button>{' '}
             <br />
           </>
-        )}
-        <Button onClick={passwordHandler} style={{ fontSize: '12px' }}>
-          {t('user:CREATE.APPROVER.PASSWORD')}
-        </Button>
+				)}
+				<div className='flex-container'>
+					<Button
+						type="reset"
+						onClick={() => onPermissionHandler(data?.id || -1)}
+						style={{ fontSize: '12px' }}
+					>
+						{t('user:CREATE.APPROVER.RETURN')}
+					</Button>
+					<Button onClick={passwordHandler} style={{ fontSize: '12px' }}>
+						{t('user:CREATE.APPROVER.SKIP')}
+						{t('user:CREATE.APPROVER.PASSWORD')}
+					</Button>
+				</div>
         <br />
-        <Button
-          type="reset"
-          onClick={() => onPermissionHandler(data?.id || -1)}
-          style={{ fontSize: '12px' }}
-        >
-          {t('user:CREATE.APPROVER.RETURN')}
-        </Button>
       </div>
     </CModal>
   );
