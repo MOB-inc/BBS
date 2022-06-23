@@ -8,6 +8,7 @@
     "PUBLISH_MSG": "Are you sure you want to publish it?",
     "REMAND_MSG": "May I send it back?",
     "APPROVAL_CONFIRMED": "Approval confirmed",
+    "BULK_APPROVAL": "BULK APPROVAL",
     "NEWPOST_LATER_MSG": "If there is an approval step, it will be published after approval.",
     "NEWPOST_DATE_MSG": "May I publish it on ",
     "NONE": "None",

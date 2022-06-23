@@ -11,6 +11,7 @@
     "APPROVAL_LATER_MSG": "承認ステップがある場合、承認後に公開されます。",
     "NEWPOST_DATE_MSG": "に公開してもよろしいですか。",
     "NONE": "なし",
+    "BULK_APPROVAL": "一括承認",
     "SEARCH_BUTTON" : "検索"
   },
   "REMAND": {

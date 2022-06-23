@@ -3,6 +3,7 @@ import useFetch from 'use-http';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { CModal, CModalBody, CForm, CCol, CRow } from '@coreui/react';
+import Button from '@material-ui/core/Button';
 import {
   GMB_POST,
   REVIEWS,
@@ -77,34 +78,32 @@ function BulkApprovalModal({
                 <CRow>
                   <CCol xs="3" />
                   <CCol xs="6">
-                    <button
+                    <Button
                       type="button"
-                      color="primary"
-                      className="px-4 success-button"
+                      className="submit"
                       onClick={bulkApprove}
                     >
                       {t('recognition:REMAND.OKAY')}
-                    </button>
+                    </Button>
                   </CCol>
                   <CCol xs="3" />
                 </CRow>
                 <CRow>
                   <CCol xs="3" />
                   <CCol xs="6">
-                    <button
+                    <Button
                       type="button"
                       color="primary"
-                      className="px-4 cancel-button"
+                      className="back"
                       onClick={closeModal}
                     >
                       {t('basic_info:MENU.COMMON_RETURN')}
-                    </button>
+                    </Button>
                   </CCol>
                   <CCol xs="3" />
                 </CRow>
               </>
             )}
-          <p>bulkapproval</p>
           </CForm>
         </CModalBody>
       </CModal>

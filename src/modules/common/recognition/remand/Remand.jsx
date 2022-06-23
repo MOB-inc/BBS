@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import * as dayjs from 'dayjs';
@@ -102,18 +102,24 @@ function Remand() {
   const [searchText, setSerchText] = useState("");
   const handleSearch = (event) => {
     setSerchText(event.target.value);
-  }
+  };
+  const NavigationMemo = useMemo(() => <Navigation 
+  summary={summary}
+  dateChangeHandler={dateChangeHandler}
+  startDate={startDate}
+  endDate={endDate} />, []); 
   return (
     <div className="remand">
       {/* <Explanation screen="REMAND" /> */}
+      { NavigationMemo }
       <div className="filter-pages">
-        <Navigation
+        {/* <Navigation
           summary={summary}
           dateChangeHandler={dateChangeHandler}
           startDate={startDate}
           endDate={endDate}
-        />
-        <div className="sub-header">
+        /> */}
+        <div className="sub-header" style={{display:"none"}}>
           <Pagination
             current={page}
             last={lastPage}
@@ -138,7 +144,7 @@ function Remand() {
           <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
         <div className="table">
-          <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p>
+          <p className="filter" ><AntenaIcon />FILTERS</p>
           <div className="thead">
             <div className="row">
               {/* <div className="cell w10p">
@@ -150,7 +156,7 @@ function Remand() {
               </div> */}
               <div className="cell w15p">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp;
                 <span
                   className={`${
                     orderField === 'post_datetime' ? 'highlight' : ''
@@ -167,7 +173,7 @@ function Remand() {
               </div>
               <div className="cell w15p">
                 {t('recognition:REMAND.REMAND_DATE_TIME')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; 
                 <span
                   className={`${
                     orderField === 'remand_datetime' ? 'highlight' : ''
@@ -186,7 +192,7 @@ function Remand() {
               </div>
               <div className="cell w20p">
                 {t('recognition:REMAND.APPLICANT')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; 
                 <span
                   className={`${orderField === 'user_name' ? 'highlight' : ''}`}
                 >
@@ -202,7 +208,7 @@ function Remand() {
               </div> */}
               <div className="cell w15p">
                 {t('recognition:REMAND.LOCATION')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp; 
                 <span
                   className={`${
                     orderField === 'location_name' ? 'highlight' : ''
@@ -235,26 +241,26 @@ function Remand() {
                     }
                     role="presentation"
                   >
-                    <div className="cell w10p">
+                    <div className="cell w15p">
                       {dayjs
                         .utc(item?.post_datetime)
                         .tz(tz)
                         .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
                     </div>
-                    <div className="cell w10p">
+                    <div className="cell w15p">
                       {dayjs
                         .utc(item?.remand_datetime)
                         .tz(tz)
                         .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
                     </div>
-                    <div className="cell w15p">{item?.user_name}</div>
-                    <div className="cell w7d5p">{item?.no_of_store}</div>
+                    <div className="cell w20p">{item?.user_name}</div>
+                    {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
                     <div className="cell w15p">{item?.location_name}</div>
                     <div className="cell w20p content">{item?.contents}</div>
-                    <div className="cell w7d5p">
+                    <div className="cell w15p">
                       {item?.type === 1 ? 'GBP投稿' : '口コミ返信'}
                     </div>
-                    <div className="cell w15p">{item?.reason_for_remand}</div>
+                    {/* <div className="cell w15p">{item?.reason_for_remand}</div> */}
                   </div>
                 );
               })}

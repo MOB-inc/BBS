@@ -2,33 +2,47 @@
 @import 'src/commons/styles/variables.scss';
 
 .approval {
-  padding: 15px 15px 0 25px;
-  .bulk-button {
-    width: 114px;
-    height: 37px;
-    background: linear-gradient(0deg, $accent-color, $accent-color),
-      linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 10px;
-    color: $paper-color;
-    border: 0;
-    font-size: 12px;
-    line-height: 24px;
-    font-weight: bold;
-    outline: 0;
-    @media (min-width: $sm) {
-      top: 135px;
-      right: 90px;
-      position: absolute;
-      &--sidebar {
-        top: 85px;
-      }
-    }
+  padding: 24px 15px 0 25px;
+  // .bulk-button {
+  //   width: 114px;
+  //   height: 37px;
+  //   background: linear-gradient(0deg, $accent-color, $accent-color),
+  //     linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
+  //   border-radius: 10px;
+  //   color: $paper-color;
+  //   border: 0;
+  //   font-size: 12px;
+  //   line-height: 24px;
+  //   font-weight: bold;
+  //   outline: 0;
+  //   @media (min-width: $sm) {
+  //     top: 135px;
+  //     right: 90px;
+  //     position: absolute;
+  //     &--sidebar {
+  //       top: 85px;
+  //     }
+  //   }
+  // }
+  .pagination{
+    display: none;
   }
-  > .filter-pages {
+  .filter{
+    color:#cc0099;
+    text-align:left;
+    padding-top:4px;
+    font-size: 13px;
+    margin-bottom:10px;
+  }
+  .filter svg{
+    margin-right:12px;
+    margin-bottom:4px;
+  }
+  .filter-pages {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 3px;
-    margin-top:33px;
+    width: 100px;
     > .sub-header {
       display: flex;
       justify-content: flex-end;
@@ -46,6 +60,9 @@
             justify-content: flex-end;
           }
         }
+      }
+      .dropdown-toggle{
+        padding-bottom:0;
       }
       .dropdown-toggle::after {
         content: none;

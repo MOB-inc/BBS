@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import useFetch from 'use-http';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { CModal, CModalBody, CForm, CCol, CRow } from '@coreui/react';
@@ -72,28 +73,30 @@ function EditConfirmModal({
                 <CRow>
                   <CCol xs="3" />
                   <CCol xs="6">
-                    <button
+                    <Button className="submit" variant="contained" size="large" onClick={type === 1 ? editPost : editReview}>{t('recognition:REMAND.OKAY')}</Button>
+                    {/* <button
                       type="button"
                       color="primary"
                       className="px-4 success-button"
                       onClick={type === 1 ? editPost : editReview}
                     >
                       {t('recognition:REMAND.OKAY')}
-                    </button>
+                    </button> */}
                   </CCol>
                   <CCol xs="3" />
                 </CRow>
                 <CRow>
                   <CCol xs="3" />
                   <CCol xs="6">
-                    <button
+                    <Button className="back" variant="contained" size="large" onClick={closeModal}>{t('basic_info:MENU.COMMON_RETURN')}</Button>
+                    {/* <button
                       type="button"
                       color="primary"
                       className="px-4 cancel-button"
                       onClick={closeModal}
                     >
                       {t('basic_info:MENU.COMMON_RETURN')}
-                    </button>
+                    </button> */}
                   </CCol>
                   <CCol xs="3" />
                 </CRow>

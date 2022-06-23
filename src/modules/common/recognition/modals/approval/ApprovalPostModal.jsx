@@ -495,7 +495,6 @@ function ApprovalPostModal({ modal, closeModal, currentId, reloadList, type }) {
           modal={remandModal}
           closeModal={toggleRemandModal}
         />
-      
       </CModal>
     </>
   );

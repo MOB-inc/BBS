@@ -21,8 +21,7 @@ import { APPROVAL_REQUEST } from '../../../../commons/constants/url';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow_d.svg';
 import { ReactComponent as ArrowUp } from '../../../../commons/icons/arrow_u.svg';
 // import { ReactComponent as RemandIcon } from '../../../../commons/icons/remand-icon.svg';
-import { ReactComponent as FilterIcon } from '../../../../commons/icons/filter.svg';
-import { ReactComponent as AntenaIcon } from '../../../../commons/icons/antena.svg';
+import { ReactComponent as FilterIcon } from '../../../../commons/icons/antena.svg';
 
 import './approval.scss';
 
@@ -54,12 +53,12 @@ function Approval() {
   const [endDate, setEndDate] = useState();
   const [summary, setSummary] = useState({});
   const [pageItemCount, setPageItemCount] = useState(30);
-  // const [bulkState, setBulkState] = useState(false);
+  const [bulkState, setBulkState] = useState(false);
   const [bulkIds, setBulkIds] = useState(new Set());
   const [reviewIds, setReviewIds] = useState(new Set());
   const [postIds, setPostIds] = useState(new Set());
   const [locationId, setLocationId] = useState();
-  const { setRecognitionCount } = useContext(AppContext);
+  const { menuMode, setRecognitionCount } = useContext(AppContext);
   const pageChangeHandler = (p) => {
     setPage(p);
   };
@@ -183,50 +182,20 @@ function Approval() {
   return (
     <div className="approval">
       {/* <Explanation screen="APPROVAL" /> */}
-      {/* <button
-        type="button"
-        className={`bulk-button ${
-          menuMode === 'sidebar' ? 'bulk-button--sidebar' : ''
-        }`}
-        onClick={bulkState ? toggleBulkApprovalModal : () => setBulkState(true)}
-        disabled={bulkState && bulkIds.size === 0}
-      >
-        {t('recognition:APPROVAL.APPROVAL_CONFIRMED')}
-      </button> */}
-      <div className="filter-pages">
-        {/* <Navigation
-          summary={summary}
-          dateChangeHandler={dateChangeHandler}
-          startDate={startDate}
-          endDate={endDate}
-        /> */}
+      <div className="flex">
         { NavigationMemo }
-        <div className="sub-header" style={{display:"none"}}>
-          <Pagination
-            current={page}
-            last={lastPage}
-            onPageChange={pageChangeHandler}
-          />
-          &nbsp;
-          <CDropdown direction="dropup">
-            <CDropdownToggle href="#">
-              <FilterIcon height={13} width={13} />
-            </CDropdownToggle>
-            <CDropdownMenu>
-              <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
-              <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
-                30 {t('gmb:REVIEWS.ITEM')}
-              </CDropdownItem>
-              <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
-                100 {t('gmb:REVIEWS.ITEM')}
-              </CDropdownItem>
-              <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
-                200 {t('gmb:REVIEWS.ITEM')}
-              </CDropdownItem>
-            </CDropdownMenu>
-          </CDropdown>
-        </div>
+        <Button
+          type="button"
+          className={`bulksubmit ${
+            menuMode === 'sidebar' ? 'bulk-button--sidebar' : ''
+          }`}
+          onClick={bulkState ? toggleBulkApprovalModal : () => setBulkState(true)}
+          // disabled={bulkState && bulkIds.size === 0}
+        >
+          {bulkState ? t('recognition:APPROVAL.APPROVAL_CONFIRMED') : t('recognition:APPROVAL.BULK_APPROVAL') }
+        </Button>
       </div>
+      
       <div className="approval-table">
         <div className="flex">
           <TextField
@@ -244,28 +213,64 @@ function Approval() {
           <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
         <div className="table">
-          <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p>
+          {/* <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p> */}
+          <div className="filter-pages">
+            {/* <Navigation
+              summary={summary}
+              dateChangeHandler={dateChangeHandler}
+              startDate={startDate}
+              endDate={endDate}
+            /> */}
+            <div className="sub-header">
+              
+              <Pagination
+                current={page}
+                last={lastPage}
+                onPageChange={pageChangeHandler}
+              />
+              <CDropdown direction="dropup">
+                <CDropdownToggle href="#">
+                  <p className="filter"><FilterIcon height={12} width={18}/>FILTERS</p>
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
+                    30 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
+                    100 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
+                    200 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            </div>
+          </div>
           <div className="thead">
             <div className="row">
-              <div className="cell w5p" >
-                <div className="start">
-                  {/* {bulkState && ( */}
-                  <Checkbox
-                    checked={bulkIds.size === approvalList?.length}
-                    onChange={toggleBulkIds}
-                    inputProps={{ 'aria-label': 'primary checkbox' }}
-                  />
-                    {/* <input
-                      type="checkbox"
+              {bulkState && (
+                <div className="cell w5p" >
+                  <div className="start">
+                    {/* {bulkState && ( */}
+                    <Checkbox
                       checked={bulkIds.size === approvalList?.length}
                       onChange={toggleBulkIds}
-                    /> */}
-                  {/* )} */}
+                      inputProps={{ 'aria-label': 'primary checkbox' }}
+                    />
+                      {/* <input
+                        type="checkbox"
+                        checked={bulkIds.size === approvalList?.length}
+                        onChange={toggleBulkIds}
+                      /> */}
+                    {/* )} */}
+                  </div>
                 </div>
-              </div>
+
+              )}
               <div className="cell w15p">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp;
                 <span
                   className={`${
                     orderField === 'post_datetime' ? 'highlight' : ''
@@ -282,7 +287,7 @@ function Approval() {
               </div>
               <div className="cell w25p">
                 {t('recognition:REMAND.APPLICANT')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp;
                 <span
                   className={`${orderField === 'user_name' ? 'highlight' : ''}`}
                 >
@@ -298,7 +303,7 @@ function Approval() {
               </div> */}
               <div className="cell w25p">
                 {t('recognition:REMAND.LOCATION')}
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp;
                 <span
                   className={`${
                     orderField === 'location_name' ? 'highlight' : ''
@@ -343,27 +348,29 @@ function Approval() {
                           <></>
                         )}
                       </div> */}
-                      <div className="cell w5p">
-                        <div className="start">
-                          {/* {bulkState && ( */}
-                            {/* <input
-                              type="checkbox"
-                              checked={bulkIds.has(item?.id)}
-                              onClick={(event) => event.stopPropagation()}
-                              onChange={() =>
-                                toggleBulkId(item?.id, item?.type)
-                              } */}
+                      {bulkState && (
+                        <div className="cell w5p">
+                          <div className="start">
+                            {/* {bulkState && ( */}
+                              {/* <input
+                                type="checkbox"
+                                checked={bulkIds.has(item?.id)}
+                                onClick={(event) => event.stopPropagation()}
+                                onChange={() =>
+                                  toggleBulkId(item?.id, item?.type)
+                                } */}
 
-                            <Checkbox
-                              checked={bulkIds.has(item?.id)}
-                              onClick={(event) => event.stopPropagation()}
-                              onChange={() =>
-                                toggleBulkId(item?.id, item?.type)
-                              } 
-                            />
-                          {/* )} */}
+                              <Checkbox
+                                checked={bulkIds.has(item?.id)}
+                                onClick={(event) => event.stopPropagation()}
+                                onChange={() =>
+                                  toggleBulkId(item?.id, item?.type)
+                                } 
+                              />
+                            {/* )} */}
+                          </div>
                         </div>
-                      </div>
+                      )}
                       <div className="cell w15p">
                         {dayjs
                           .utc(item?.post_datetime)

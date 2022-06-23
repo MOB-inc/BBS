@@ -39,9 +39,13 @@ a:hover{
 .MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
   border-left: 1px solid rgba(0, 0, 0, 0.12);
 }
+.flex{
+  display: flex;
+}
 .recognition-navigation{
   text-align: left;
   display: block;
+  width:auto;
   button{
     color:$button-active-color;
     overflow: hidden;
@@ -80,6 +84,7 @@ a:hover{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.bulksubmit,
 .submit{
   margin:3px 15px 0;
   font-weight: 600;
@@ -91,7 +96,11 @@ a:hover{
   color:#fff;
   background-color:$button-active-color !important;
 }
-.submit:focus{
+.bulksubmit:focus,
+.submit:focus,
+.edit:focus,
+.remand:focus,
+.back:focus{
   outline:none;
 }
 .modal-body{
@@ -100,9 +109,11 @@ a:hover{
     flex-direction: column;
     align-items: center;
   }
+  .bulksubmit,
   .submit,
   .edit,
-  .remand{
+  .remand,
+  .back{
     margin:13.5px 15px;
     font-weight: 600;
     font-size: 14px;
@@ -115,7 +126,8 @@ a:hover{
     background-color:$button-active-color;
     color:#fff;
   }
-  .edit{
+  .edit,
+  .back{
     background-color: #d9d9d9;
     color:$text-color2;
   }
@@ -123,4 +135,7 @@ a:hover{
     border-color: $button-active-color;
     color: $button-active-color;
   }
+}
+.MuiButton-contained{
+  box-shadow: none;
 }

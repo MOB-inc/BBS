@@ -1,12 +1,24 @@
 @import 'src/commons/styles/color.scss';
 
 .remand {
-  padding: 15px 15px 0 25px;
+  padding: 24px 15px 0 25px;
+  .filter{
+    color:#cc0099;
+    text-align:left;
+    padding-top:11px;
+    padding-left:13px;
+    padding-bottom:0;
+    font-size: 13px;
+    margin-bottom:14px;
+  }
+  .filter svg{
+    margin-right:12px;
+    margin-bottom:4px;
+  }
   > .filter-pages {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 3px;
-    margin-top:33px;
     > .sub-header {
       display: flex;
       justify-content: flex-end;
@@ -21,6 +33,11 @@
     border-radius: 16px;
     margin-top:25px;
     background-color: #fff;
+    .flex{
+      justify-content: flex-start;
+      text-align: left;
+      margin-bottom:35px; 
+    }
     > div.table {
       table-layout: fixed;
       border-radius: 4px;
@@ -64,6 +81,7 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
+          background-color: $button-active-bg-color;
         }
       }
       > div.thead div.row,
@@ -96,11 +114,11 @@
           font-weight: normal;
           cursor: pointer;
         }
-        div.row:nth-child(odd) {
-          div.cell {
-            background: $background-color-list-odd;
-          }
-        }
+        // div.row:nth-child(odd) {
+        //   div.cell {
+        //     background: $background-color-list-odd;
+        //   }
+        // }
       }
       div.thead div.row div.cell {
         border-bottom: 1px solid rgba(0, 0, 0, 0.22);
@@ -117,6 +135,9 @@
       div.thead div.row div.cell:nth-child(1):before {
         width: 0;
       }
+      div.tbody div.row {
+        height:72px;
+      }
       span.ellipsis {
         white-space: nowrap;
         overflow: hidden;
@@ -126,11 +147,7 @@
     }
   }
 }
-.flex{
-  justify-content: flex-start;
-  text-align: left;
-  margin-bottom:35px; 
-}
+
 .search input{
   font-size: 12px;
   height: 40px;
