@@ -175,7 +175,6 @@ function ApproverModal(props) {
               />
             );
           })}
-
           <AddIcon className="add-icon" onClick={addApprover} />
         </div>
         {data?.id && (
@@ -185,20 +184,25 @@ function ApproverModal(props) {
             </Button>{' '}
             <br />
           </>
-				)}
-				<div className='flex-container'>
+        )}
+        <div className="flex-container">
 					<Button
-						type="reset"
-						onClick={() => onPermissionHandler(data?.id || -1)}
+						className='btn-return'
+            type="reset"
+            onClick={() => onPermissionHandler(data?.id || -1)}
 						style={{ fontSize: '12px' }}
+          >
+            {t('user:CREATE.APPROVER.RETURN')}
+          </Button>
+					<Button
+						className='btn-skip'
+						onClick={passwordHandler}
+						// style={{ fontSize: '12px' }}
 					>
-						{t('user:CREATE.APPROVER.RETURN')}
-					</Button>
-					<Button onClick={passwordHandler} style={{ fontSize: '12px' }}>
-						{t('user:CREATE.APPROVER.SKIP')}
-						{t('user:CREATE.APPROVER.PASSWORD')}
-					</Button>
-				</div>
+            <span className='phrase-skip'>{t('user:CREATE.APPROVER.SKIP')}</span>
+						<span className='phrase-pass'>{t('user:CREATE.APPROVER.PASSWORD')}</span>
+          </Button>
+        </div>
         <br />
       </div>
     </CModal>
