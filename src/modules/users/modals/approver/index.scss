@@ -64,10 +64,15 @@
           flex-direction: column;
           // margin-bottom: 10px;
           div.text {
-            color: $gray;
-            font-weight: 600;
+						color: $black;
+            font-weight: 400;
             text-align: left;
-            font-size: 12px;
+            font-size: 10px;
+						width: 50px;
+						background-color: $paper-color;
+						position: relative;
+						top: 9px;
+						left: 10px;
           }
           span.circle {
             border-radius: 50%;

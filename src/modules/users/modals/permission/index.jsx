@@ -3,9 +3,12 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useFetch from 'use-http';
 import { CModal, CTooltip } from '@coreui/react';
+// import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
+// import Checkbox from '@material-ui/core/Checkbox';
 import { useTranslation } from 'react-i18next';
 import { USERS } from '../../../../commons/constants/url';
-import Button from '../../../../commons/components/Button';
+// import Button from '../../../../commons/components/Button';
 import { ReactComponent as QuestionIcon } from '../../../../commons/icons/question.svg';
 
 import './index.scss';
@@ -60,22 +63,22 @@ function PermissionModal({
       <div className="settings">
         <div className="label">
           <div>
+            {t('user:CREATE.PERMISSION.CONNECT')}
             <CTooltip
               content={t('user:CREATE.PERMISSION.CONNECT_TOOLTIP')}
               placement="left"
             >
               <QuestionIcon className="question" />
             </CTooltip>
-            {t('user:CREATE.PERMISSION.CONNECT')}
           </div>
           <div>
+            {t('user:CREATE.PERMISSION.PHRASE')}
             <CTooltip
               content={t('user:CREATE.PERMISSION.PHRASE_TOOLTIP')}
               placement="left"
             >
               <QuestionIcon className="question" />
             </CTooltip>
-            {t('user:CREATE.PERMISSION.PHRASE')}
           </div>
         </div>
         <div className="option">
@@ -86,6 +89,11 @@ function PermissionModal({
               checked={data?.is_linkage_authority === 1}
               onChange={() => setData({ ...data, is_linkage_authority: 1 })}
             />
+            {/* <Checkbox
+              type="checkbox"
+              checked={data?.is_linkage_authority === 1}
+              onChange={() => setData({ ...data, is_linkage_authority: 1 })}
+            /> */}
           </div>
           <div>
             {t('user:CREATE.PERMISSION.YES')} &nbsp;{' '}
@@ -96,6 +104,13 @@ function PermissionModal({
                 setData({ ...data, is_fixed_sentence_edit_authority: 1 })
               }
             />
+            {/* <Checkbox
+              type="checkbox"
+              checked={data?.is_fixed_sentence_edit_authority === 1}
+              onChange={() =>
+                setData({ ...data, is_fixed_sentence_edit_authority: 1 })
+              }
+            /> */}
           </div>
         </div>
         <div className="option">
@@ -106,6 +121,11 @@ function PermissionModal({
               checked={data?.is_linkage_authority === 0}
               onChange={() => setData({ ...data, is_linkage_authority: 0 })}
             />
+            {/* <Checkbox
+              type="checkbox"
+              checked={data?.is_linkage_authority === 0}
+              onChange={() => setData({ ...data, is_linkage_authority: 0 })}
+            /> */}
           </div>
           <div>
             {t('user:CREATE.PERMISSION.NO')} &nbsp;{' '}
@@ -116,32 +136,41 @@ function PermissionModal({
                 setData({ ...data, is_fixed_sentence_edit_authority: 0 })
               }
             />
+            {/* <Checkbox
+              type="checkbox"
+              checked={data?.is_fixed_sentence_edit_authority === 0}
+              onChange={() =>
+                setData({ ...data, is_fixed_sentence_edit_authority: 0 })
+              }
+            /> */}
           </div>
         </div>
       </div>
       <div className="actions">
-        {data?.id && (
-          <Button disabled={isValid()} onClick={register}>
-            {t('user:CREATE.PERMISSION.REGISTRATION')}
+        <div className="flex-container">
+          <Button type="reset" onClick={onCloseHandler} className="btn-return">
+            {t('user:CREATE.PERMISSION.RETURN')}
           </Button>
-        )}
-        {!data?.id && (
-          <Button disabled={isValid()} onClick={() => onApproveHandler(data)}>
-            {t('user:CREATE.PERMISSION.APPROVER')}
-          </Button>
-        )}
-        <Button type="reset" onClick={onCloseHandler}>
-          {t('user:CREATE.PERMISSION.RETURN')}
-        </Button>
-        {data?.id && (
-          <span
-            role="presentation"
-            className="link"
-            onClick={() => !isValid() && onApproveHandler(data)}
-          >
-            {t('user:CREATE.PERMISSION.APPROVER')}
-          </span>
-        )}
+          {data?.id && (
+            <Button disabled={isValid()} onClick={register}>
+              {t('user:CREATE.PERMISSION.REGISTRATION')}
+            </Button>
+          )}
+          {!data?.id && (
+            <Button disabled={isValid()} onClick={() => onApproveHandler(data)}>
+              {t('user:CREATE.PERMISSION.APPROVER')}
+            </Button>
+          )}
+          {data?.id && (
+            <span
+              role="presentation"
+              className="link"
+              onClick={() => !isValid() && onApproveHandler(data)}
+            >
+              {t('user:CREATE.PERMISSION.APPROVER')}
+            </span>
+          )}
+        </div>
         <span
           role="presentation"
           className="link"
