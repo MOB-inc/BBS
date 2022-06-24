@@ -135,6 +135,11 @@ a:hover{
     border-color: $button-active-color;
     color: $button-active-color;
   }
+  .edit.a{
+    border-color: $button-active-color;
+    color: $button-active-color;
+    background-color: #fff;
+  }
 }
 .MuiButton-contained{
   box-shadow: none;

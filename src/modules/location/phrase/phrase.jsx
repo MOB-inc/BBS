@@ -487,7 +487,6 @@ GBPへの投稿に以下が含まれると、
           )}
           <div style={{textAlign: "right",marginTop: "115px"}}>
             <Button className="cancel2">{t('location:PHRASE.CANCEL')}</Button>
-            <Button className="preview">{t('location:PHRASE.PREVIEW')}</Button>
             <Button className="release">{t('location:PHRASE.RELEASE')}</Button>
           </div>
         </div>

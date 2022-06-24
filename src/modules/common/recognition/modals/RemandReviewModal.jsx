@@ -3,9 +3,15 @@ import React, { useState } from 'react';
 import useFetch from 'use-http';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import Select, { components } from 'react-select';
+// import Select, { components } from 'react-select';
+import { components } from 'react-select';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import Button from '@material-ui/core/Button';
 import * as dayjs from 'dayjs';
 import { CModal, CModalBody, CForm, CCol, CRow } from '@coreui/react';
+import { ReactComponent as CloudIcon } from '../../../../commons/icons/cloud-up.svg';
 import { STAR_MAP } from '../../../gmb/reviews/constant';
 import Rating from '../../../../commons/components/Rating';
 import {
@@ -91,6 +97,9 @@ function RemandReviewModal({
     setActive(false);
     loadReviews();
   };
+  const handleChange = () => {
+
+  };
   return (
     <>
       <CModal
@@ -105,14 +114,96 @@ function RemandReviewModal({
           <CForm action="" method="post" className="form-horizontal">
             <CRow className="remand-row">
               <CCol md="6" className="left">
-                <div className="left-title">
-                  {t('recognition:REMAND.LEFT_TITLE')}
+                <div>
+                  <TextField id="outlined-basic" className="day" label="申請日時" variant="outlined" />
+                  <TextField id="outlined-basic" className="Applicant" label="申請者" variant="outlined" />
                 </div>
-                <textarea
-                  className="left-content custom"
-                  value={remandReason || ''}
-                  disabled
-                />
+                <TextField id="outlined-basic" label="最新情報" variant="outlined" />
+                <TextField id="outlined-basic" label="内容" variant="outlined" />
+  
+                <div className="image-area"><CloudIcon/>UPLOAD IMAGE</div>
+                <FormControl variant="outlined">
+                  <Select
+                    className="dropdown-wrapper"
+                    native
+                    onChange={handleChange}
+                    inputProps={{
+                      comment: '',
+                    }}
+                    placeholder={t('recognition:REMAND.SELECT_PLACEHOLDER')}
+                    
+                  >
+                    <option aria-label="None" value="なし" />
+                    <option value={10}>Ten</option>
+                    <option value={20}>Twenty</option>
+                    <option value={30}>Thirty</option>
+                  </Select>
+                </FormControl>
+                <div className="flex">
+                  {/* <Button
+                      onClick={toggleApprovalModal}
+                      variant="contained"
+                      className="submit button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.APPROVAL_BUTTON')}
+                  </Button> */}
+                  <Button
+                  //     onChange={(event) => onTextAreaChange(event)}
+                  //     variant="contained"
+                  //     className="edit button"
+                  //     onClick={
+                  //       active ? toggleEditConfirmModal : () => setActive(true)
+                  //     }
+                  //     size="large"
+                  // >
+                  //   {active
+                  //     ? t('recognition:APPROVAL.RELEASE_BUTTON')
+                  //     : t('recognition:REMAND.EDIT_BUTTON')}
+                    
+                      variant="outlined"
+                      className="edit a button"
+                      size="large"
+                      onClick={
+                        active ? toggleRemandEditModal : () => setActive(true)
+                      }
+                    >
+                      {active
+                        ? t('recognition:REMAND.APPLICATION')
+                        : t('recognition:REMAND.EDIT_BUTTON')}
+                  </Button>
+                  <Button
+                  //     onChange={(event) => onTextAreaChange(event)}
+                  //     variant="contained"
+                  //     className="edit button"
+                  //     onClick={
+                  //       active ? toggleEditConfirmModal : () => setActive(true)
+                  //     }
+                  //     size="large"
+                  // >
+                  //   {active
+                  //     ? t('recognition:APPROVAL.RELEASE_BUTTON')
+                  //     : t('recognition:REMAND.EDIT_BUTTON')}
+                    
+                      variant="contained"
+                      className="back button"
+                      size="large"
+                      onClick={active ? reload : toggleRemandDeleteModal}
+                      >
+                        {active
+                          ? t('basic_info:MENU.COMMON_RETURN')
+                          : t('recognition:REMAND.DELETE_BUTTON')}
+                  </Button>
+                  {/* <Button
+                      onClick={active ? reload : toggleRemandModal}
+                      variant="outlined"
+                      className="remand button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.REMAND_BUTTON')}
+                  </Button>   */}
+                </div>
+              
               </CCol>
               <CCol md="6" className="right">
                 <div className="section google-user">
@@ -142,6 +233,14 @@ function RemandReviewModal({
                     </div>
                   </div>
                 </div>
+                <div className="left-title">
+                  {t('recognition:REMAND.LEFT_TITLE')}
+                </div>
+                <textarea
+                  className="left-content custom"
+                  value={remandReason || ''}
+                  disabled
+                />
                 <textarea
                   className="review-user custom"
                   value={review}
@@ -182,7 +281,7 @@ function RemandReviewModal({
                 <div className="review-bottom-text">
                   {t('recognition:REMAND.REMAND_REVIEW_MSG')}
                 </div>
-                <CRow>
+                {/* <CRow>
                   <CCol xs="12">
                     <button
                       type="button"
@@ -211,7 +310,7 @@ function RemandReviewModal({
                         : t('recognition:REMAND.DELETE_BUTTON')}
                     </button>
                   </CCol>
-                </CRow>
+                </CRow> */}
               </CCol>
             </CRow>
           </CForm>

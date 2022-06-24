@@ -10,7 +10,7 @@
     }
   },
   "COMMON": {
-    "LINK_INFO": "基本情報",
+    "LINK_INFO": "連携情報",
     "LOCATION_INFO": "ロケーション情報",
     "CONTRACT_INFO": "契約者情報",
     "PHRASE_INFO": "定型文",
