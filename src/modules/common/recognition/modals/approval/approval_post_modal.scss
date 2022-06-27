@@ -3,13 +3,16 @@
 
 .approval-post-modal {
   > .modal-dialog {
-    max-width: 456px;
+    max-width: 520px;
     .modal-content {
       height: 800px;
-      border-radius: 22px;
+      border-radius: 4px;
       border: 1px solid $border-color;
       .modal-body {
-        padding: 0;
+        padding: 30px;
+        .line > div{
+          height:40px;
+        }
         .remand-row {
           height: 800px;
           textarea.custom:disabled {
@@ -18,15 +21,14 @@
           .right {
             height: 100%;
             .right-tab {
-              width: 90%;
-              height: 37px;
+              width: 100%;
+              height: 40px;
               border: 1px solid $border-color;
-              border-radius: 13px;
-              margin-top: 18px;
+              border-radius: 4px;
               display: flex;
-              margin-left: 15px;
+              margin-bottom:30px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
               .tab-items {
                 padding-left: 9px;
@@ -48,27 +50,31 @@
               }
             }
             .right-content {
-              width: 90%;
-              height: 256px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
+              width: 100%;
               outline: none;
-              margin-top: 17px;
-              padding: 20px;
+              margin-bottom: 30px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
+              }
+              div{
+                border:1px solid $border-color;
               }
             }
+            
             .right-image {
-              width: 90%;
-              height: 134px;
-              border: 1px solid #828282;
-              border-radius: 13px;
-              margin-top: 17px;
+              width: 100%;
+              height: 135px;
+              border: 1px dashed #e0e0e0;
+              border-radius: 4px;
+              margin-bottom: 30px;
+              margin-top:30px;
               outline: 0;
-              margin-left: 15px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
+              }
+              .image-msg{
+                margin-top:55px;
+                color:#cc0099;
               }
               .photo-select-section {
                 height: 100%;
@@ -88,7 +94,7 @@
                       rgba(255, 255, 255, 0) 100%
                     );
                   border: 1px solid $paper-color;
-                  border-radius: 10px;
+                  border-radius: 4px;
                   color: $paper-color;
                   font-size: 12px;
                   line-height: 18px;
@@ -100,7 +106,6 @@
                 position: relative;
                 width: 121px;
                 height: 86px;
-                margin-left: 15px;
                 margin-top: 24px;
                 .preview-image {
                   width: 100%;
@@ -138,47 +143,40 @@
               margin-top: 25px;
             }
             .covid-right-content {
-              width: 90%;
+              width: 100%;
               height: 82px;
               border: 1px solid $border-color;
-              border-radius: 13px;
+              border-radius: 4px;
               outline: none;
               margin-top: 24px;
               padding: 20px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
             }
             .right-event-title {
-              width: 90%;
-              height: 37px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
+              width: 100%;
+              height: 40px;
+              border-radius: 4px;
               outline: none;
-              margin-top: 17px;
-              padding: 6px;
+              margin-bottom: 30px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
             }
             .right-event-description {
-              width: 90%;
-              height: 82px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
+              width: 100%;
+              border-radius: 4px;
               outline: none;
-              margin-top: 17px;
-              padding: 10px;
+              margin-bottom: 30px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
             }
             .start-date-time,
             .end-date-time {
               display: flex;
-              margin-top: 17px;
-              margin-left: 15px;
-              width: 90%;
+              width: 100%;
               @media (min-width: $sm) {
                 width: unset;
               }
@@ -188,7 +186,7 @@
                 height: 37px;
                 margin-right: 10px;
                 border: 1px solid $border-color;
-                border-radius: 13px;
+                border-radius: 4px;
                 outline: none;
                 @media (min-width: $sm) {
                   margin-right: 22px;
@@ -217,18 +215,16 @@
               .start-time,
               .end-time {
                 width: 50%;
-                height: 37px;
+                height: 40px;
                 margin-right: 5px;
-                border: 1px solid $border-color;
-                border-radius: 13px;
+                border-radius: 4px;
                 outline: none;
                 @media (min-width: $sm) {
                   margin-right: 15px;
                   width: 201px;
                 }
-                .dropdown-wrapper {
-                  width: 90%;
-                  margin-left: 10px;
+                .dropdown- {
+                  width: 100%;
                   @media (min-width: $sm) {
                     margin-right: 15px;
                     width: 180px;
@@ -259,31 +255,29 @@
             .benefits-coupon,
             .benefits-link,
             .benefits-tou {
-              width: 90%;
+              width: 100%;
               height: 37px;
               border: 1px solid $border-color;
-              border-radius: 13px;
+              border-radius: 4px;
               outline: none;
               margin-top: 12px;
               padding: 6px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
             }
             .right-dropdown {
-              width: 90%;
-              height: 37px;
-              border: 1px solid $border-color;
-              border-radius: 13px;
-              margin-top: 17px;
-              margin-left: 15px;
+              width: 100%;
+              height: 40px;
+              border-radius: 4px;
+              margin-bottom: 30px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
               .pill-dropdown {
                 width: 99px;
                 height: 25px;
-                border-radius: 10px;
+                border-radius: 4px;
                 background-color: $blue;
                 margin-top: 5px;
                 margin-left: 11px;
@@ -299,7 +293,6 @@
               }
               .dropdown-wrapper {
                 width: 160px;
-                margin-left: 10px;
                 .css-yk16xz-control {
                   border: 0;
                   min-height: 22px;
@@ -313,15 +306,15 @@
               }
             }
             .right-button-link {
-              width: 90%;
-              height: 37px;
+              width: 100%;
+              height: 40px;
               border: 1px solid $border-color;
-              border-radius: 13px;
+              border-radius: 4px;
               outline: none;
-              margin-top: 17px;
               padding: 6px;
+              margin-top:-15px;
               @media (min-width: $sm) {
-                width: 425px;
+                // width: 425px;
               }
             }
           }
@@ -330,12 +323,6 @@
           margin-top: 50px !important;
           @media (min-width: $sm) {
             margin-top: 55px !important;
-          }
-        }
-        .latest-2 {
-          margin-top: 100px !important;
-          @media (min-width: $sm) {
-            margin-top: 105px !important;
           }
         }
         .benefits-margin {
@@ -360,13 +347,12 @@
           }
         }
         .success-button {
-          margin-top: 160px;
           height: 36px;
           width: 114px;
           background: linear-gradient(0deg, $accent-color, $accent-color),
             linear-gradient(180deg, #f15b5b 0%, rgba(255, 255, 255, 0) 100%);
           border: 1px solid $paper-color;
-          border-radius: 10px;
+          border-radius: 4px;
           color: $paper-color;
           font-size: 12px;
           line-height: 18px;

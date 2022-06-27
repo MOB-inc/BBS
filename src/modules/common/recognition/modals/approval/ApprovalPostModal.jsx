@@ -12,6 +12,7 @@ import CategoryOne from '../../common/CategoryOne';
 import CategoryTwo from '../../common/CategoryTwo';
 import CategoryThree from '../../common/CategoryThree';
 import CategoryFour from '../../common/CategoryFour';
+
 import {
   GMB_POST,
   BUTTON_TYPES,
@@ -470,7 +471,6 @@ function ApprovalPostModal({ modal, closeModal, currentId, reloadList, type }) {
                 )}
               </CCol>
             </CRow>
-          <p>postmodal</p>
           </CForm>
         </CModalBody>
         <ApprovalModal

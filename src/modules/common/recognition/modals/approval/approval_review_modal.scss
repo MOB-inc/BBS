@@ -139,22 +139,22 @@
       }
     }
   }
-}
-.modal-body{
-  textarea.MuiInputBase-input{
-    font-size: 16px;
-    line-height: 24px ;
-    letter-spacing: 0.15px;
-    color:$text-color2;
+  .modal-body{
+    textarea.MuiInputBase-input{
+      font-size: 16px;
+      line-height: 24px ;
+      letter-spacing: 0.15px;
+      color:$text-color2;
+    }
+    .MuiFormControl-root{
+      width:424px;
+      margin:0 auto;
+    }
+    .flex{
+      margin-top:40px;
+    }
   }
-  .MuiFormControl-root{
-    width:424px;
-    margin:0 auto;
+  .MuiOutlinedInput-multiline{
+    padding:8px 12px;
   }
-  .flex{
-    margin-top:40px;
-  }
-}
-.MuiOutlinedInput-multiline{
-  padding:8px 12px;
 }

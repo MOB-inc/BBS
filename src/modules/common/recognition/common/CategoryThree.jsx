@@ -5,9 +5,13 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { CCol, CRow } from '@coreui/react';
 import Select, { components } from 'react-select';
+// import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { ReactComponent as DeleteIcon } from '../../../../commons/icons/delete.svg';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow-down.svg';
 import '../modals/approval/approval_post_modal.scss';
+import { ReactComponent as CloudIcon } from '../../../../commons/icons/cloud-up.svg';
 
 function CategoryThree({
   active,
@@ -44,21 +48,43 @@ function CategoryThree({
   };
   return (
     <>
-      {active ? (
-        <textarea
-          className="right-content"
-          value={contents || ''}
-          placeholder={t('recognition:REMAND.CONTENTS')}
-          onChange={(event) => onTextAreaChange(event, 'contents')}
-        />
-      ) : (
-        <textarea
-          className="right-content custom"
-          value={contents || ''}
-          placeholder={t('recognition:REMAND.CONTENTS')}
-          disabled
-        />
-      )}
+      {/* <TextField
+        id="outlined-textarea"
+        className="review-user custom"
+        multiline
+        variant="outlined"
+        value={review}
+        disabled
+      /> */}
+                {/* <textarea
+                  className="review-user custom"
+                  value={review}
+                  disabled
+                /> */}
+    {active ? (
+      <TextField
+        className="right-content"
+        value={contents || ''}
+        placeholder={t('recognition:REMAND.CONTENTS')}
+        onChange={(event) => onTextAreaChange(event, 'contents')}
+        label={t('recognition:REMAND.CONTENTS')}
+        multiline
+        rows={6}
+        variant="outlined"
+      />
+    ) : (
+      <TextField
+        className="right-content"
+        value={contents || ''}
+        placeholder={t('recognition:REMAND.CONTENTS')}
+        disabled
+        label={t('recognition:REMAND.CONTENTS')}
+        multiline
+        rows={6}
+        variant="outlined"
+      />
+     )}
+
       <div className="right-image">
         {imageUrl ? (
           <div className={imageZoom ? 'zoom-image-side' : 'image-side'}>
@@ -81,19 +107,21 @@ function CategoryThree({
             )}
           </div>
         ) : (
-          <div
+          <div className="image-area"
             {...getRootProps({
               className: active ? 'photo-select-section' : 'dropzone disabled',
             })}
           >
             <input {...getInputProps()} />
-            <p className="image-msg msg-margin">
-              {t('basic_info:IMAGE_TAB.MSG_1')}
+            <div>
+            <p className="image-msg msg-margin"><CloudIcon/> UPLOAD IMAGE
+              {/* {t('basic_info:IMAGE_TAB.MSG_1')} */}
             </p>
-            <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p>
-            <button type="button" className="upload-button">
+            {/* <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p> */}
+            {/* <button type="button" className="upload-button">
               {t('basic_info:IMAGE_TAB.SELECT_PHOTO_BUTTON')}
-            </button>
+            </button> */}
+            </div>
           </div>
         )}
       </div>
@@ -117,6 +145,73 @@ function CategoryThree({
           </div>
         </div>
       )}
+                {/* <div className="flex">
+                  <Button
+                      onClick={toggleApprovalModal}
+                      variant="contained"
+                      className="submit button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.APPROVAL_BUTTON')}
+                  </Button>
+                  <Button
+                      onChange={(event) => onTextAreaChange(event)}
+                      variant="contained"
+                      className="edit button"
+                      onClick={
+                        active ? toggleEditConfirmModal : () => setActive(true)
+                      }
+                      size="large"
+                  >
+                    {active
+                      ? t('recognition:APPROVAL.RELEASE_BUTTON')
+                      : t('recognition:REMAND.EDIT_BUTTON')}
+                  </Button>
+                  <Button
+                      onClick={active ? reload : toggleRemandModal}
+                      variant="outlined"
+                      className="remand button"
+                      size="large"
+                  >
+                    {t('recognition:APPROVAL.REMAND_BUTTON')}
+                  </Button>  
+                </div> */}
+      {/* {active ? (
+        <textarea
+          className="right-content"
+          value={contents || ''}
+          placeholder={t('recognition:REMAND.CONTENTS')}
+          onChange={(event) => onTextAreaChange(event, 'contents')}
+        />
+      ) : (
+        <textarea
+          className="right-content custom"
+          value={contents || ''}
+          placeholder={t('recognition:REMAND.CONTENTS')}
+          disabled
+        />
+      )} */}
+      
+      {/* {active ? (
+        <div className="right-dropdown">
+          <Select
+            closeMenuOnSelect
+            options={buttonList}
+            value={buttonId ? buttonList[buttonId] : buttonList[0]}
+            onChange={(event) => onButtonTypeChange(event)}
+            components={{ DropdownIndicator }}
+            className="dropdown-wrapper"
+          />
+        </div>
+      ) : (
+        <div className="right-dropdown">
+          <div className="pill-dropdown">
+            <div className="dropdown-content">
+              {buttonName || t('recognition:APPROVAL.NONE')}
+            </div>
+          </div>
+        </div>
+      )} */}
       {active &&
       buttonId &&
       buttonList.find((link) => {
@@ -147,14 +242,14 @@ function CategoryThree({
           <CRow>
             <CCol xs="3" />
             <CCol xs="6">
-              <button
+              <Button
                 type="button"
                 color="primary"
-                className="px-4 success-button latest"
+                className="submit"
                 onClick={toggleApprovalModal}
               >
                 {t('recognition:APPROVAL.APPROVAL_BUTTON')}
-              </button>
+              </Button>
             </CCol>
             <CCol xs="3" />
           </CRow>
@@ -163,34 +258,35 @@ function CategoryThree({
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
+          <Button
             type="button"
             color="primary"
-            className={`px-4 success-button ${
-              active ? 'latest-2' : 'pivot-button-margin'
-            }`}
+            className={active
+            ? "submit"
+            : "edit"}
             onClick={active ? toggleEditConfirmModal : () => setActive(true)}
           >
             {active
               ? t('recognition:APPROVAL.RELEASE_BUTTON')
               : t('recognition:REMAND.EDIT_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
+          <Button
             type="button"
             color="primary"
-            className="px-4 cancel-button"
+            className="remand"
             onClick={active ? reload : toggleRemandModal}
+            variant="outlined"
           >
             {active
               ? t('basic_info:MENU.COMMON_RETURN')
               : t('recognition:APPROVAL.REMAND_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>

@@ -6,11 +6,14 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { CCol, CRow } from '@coreui/react';
-import Select, { components } from 'react-select';
+import Select, {components } from 'react-select';
 import * as dayjs from 'dayjs';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { ReactComponent as DeleteIcon } from '../../../../commons/icons/delete.svg';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow-down.svg';
 import { ReactComponent as CalendarIcon } from '../../../../commons/icons/calendar.svg';
+import { ReactComponent as CloudIcon } from '../../../../commons/icons/cloud-up.svg';
 import '../modals/approval/approval_post_modal.scss';
 
 const CustomInput = React.forwardRef((props, ref) => {
@@ -72,37 +75,45 @@ function CategoryFour({
   return (
     <>
       {active ? (
-        <textarea
-          className="right-event-title"
+        <TextField
+          className="right-event-title line"
           value={title || ''}
           placeholder={t('recognition:REMAND.EVENT_TITLE')}
           onChange={(event) => onTextAreaChange(event, 'title')}
+          variant="outlined"
         />
       ) : (
-        <textarea
-          className="right-event-title custom"
+        <TextField
+          className="right-event-title custom line"
           value={title || ''}
           placeholder={t('recognition:REMAND.EVENT_TITLE')}
           disabled
+          variant="outlined"
         />
       )}
       {active ? (
-        <textarea
+        <TextField
           className="right-event-description"
           value={contents || ''}
           placeholder={t('recognition:REMAND.EVENT_DETAILS')}
           onChange={(event) => onTextAreaChange(event, 'contents')}
+          variant="outlined"
+          multiline
+          rows={2}
         />
       ) : (
-        <textarea
+        <TextField
           className="right-event-description custom"
           value={contents || ''}
           placeholder={t('recognition:REMAND.EVENT_DETAILS')}
           disabled
+          variant="outlined"
+          multiline
+          rows={2}
         />
       )}
       <div className="start-date-time">
-        <div className="start-date">
+        <div className="start-date line">
           <DatePicker
             disabled={!active}
             selected={startDate ? new Date(startDate) : false}
@@ -113,7 +124,7 @@ function CategoryFour({
             customInput={<CustomInput />}
           />
         </div>
-        <div className="start-time">
+        <div className="start-time line">
           <Select
             closeMenuOnSelect
             isDisabled={!active}
@@ -187,13 +198,16 @@ function CategoryFour({
             })}
           >
             <input {...getInputProps()} />
-            <p className="image-msg msg-margin">
+            {/* <p className="image-msg msg-margin">
               {t('basic_info:IMAGE_TAB.MSG_1')}
+            </p> */}
+            <p className="image-msg msg-margin"><CloudIcon/> UPLOAD IMAGE
+              {/* {t('basic_info:IMAGE_TAB.MSG_1')} */}
             </p>
-            <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p>
-            <button type="button" className="upload-button">
+            {/* <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p> */}
+            {/* <button type="button" className="upload-button">
               {t('basic_info:IMAGE_TAB.SELECT_PHOTO_BUTTON')}
-            </button>
+            </button> */}
           </div>
         )}
       </div>
@@ -247,14 +261,13 @@ function CategoryFour({
           <CRow>
             <CCol xs="3" />
             <CCol xs="6">
-              <button
-                type="button"
-                color="primary"
-                className="px-4 success-button latest"
+              <Button
+                className="submit"
                 onClick={toggleApprovalModal}
+                variant="contained"
               >
                 {t('recognition:APPROVAL.APPROVAL_BUTTON')}
-              </button>
+              </Button>
             </CCol>
             <CCol xs="3" />
           </CRow>
@@ -263,34 +276,30 @@ function CategoryFour({
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
-            type="button"
+          <Button
             color="primary"
-            className={`px-4 success-button ${
-              active ? 'latest-2' : 'pivot-button-margin'
-            }`}
+            className="submit"
             onClick={active ? toggleEditConfirmModal : () => setActive(true)}
           >
             {active
               ? t('recognition:APPROVAL.RELEASE_BUTTON')
               : t('recognition:REMAND.EDIT_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
-            type="button"
-            color="primary"
-            className="px-4 cancel-button"
+          <Button
+            className="back"
             onClick={active ? reload : toggleRemandModal}
+            variant="contained"
           >
             {active
               ? t('basic_info:MENU.COMMON_RETURN')
               : t('recognition:APPROVAL.REMAND_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>

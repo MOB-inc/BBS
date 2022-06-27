@@ -6,7 +6,7 @@
     width: 348px;
     @media (min-width: $sm) {
       width: unset;
-      max-width: 912px;
+      max-width: 1040px;
     }
     .modal-content {
       height: 800px;
@@ -14,8 +14,16 @@
       border: 1px solid $border-color;
       .modal-body {
         padding: 0;
-        .flex{
+        .flex-r{
           display:flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+        .w100{
+          width:100%;
+        }
+        .line > div{
+          height:40px;
         }
         .image-area{
           border: 1px dashed #cc0099;
@@ -42,8 +50,17 @@
             height: 100%;
             width: 50%;
             padding:40px 30px;
+            > div{
+              margin-bottom:40px;
+            }
             @media (min-width: $sm) {
               width: unset;
+            }
+            .day{
+              width:180px;
+            }
+            .applicant{
+              width:230px;
             }
             .left-title {
               margin-top: 40px;
@@ -71,8 +88,17 @@
             height: 100%;
             width: 50%;
             padding:40px 30px;
+            > div{
+              margin-bottom:40px;
+            }
             @media (min-width: $sm) {
               width: unset;
+            }
+            .day-r{
+              width:180px;
+            }
+            .applicant-r{
+              width:230px;
             }
             .review-user {
               width: 80%;
@@ -104,6 +130,9 @@
             }
             .section {
               margin: 22px 0 0 0;
+            }
+            .num{
+              float:left;
             }
             .reply-content {
               font-size: 13px;
