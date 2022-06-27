@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useState } from 'react';
 import { CModal } from '@coreui/react';
+import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import useFetch from 'use-http';
@@ -11,7 +12,7 @@ import {
   errorMessageGenerator,
 } from '../../../../commons/helpers/validation';
 import Input from '../../../../commons/components/Input';
-import Button from '../../../../commons/components/Button';
+// import Button from '../../../../commons/components/Button';
 import './index.scss';
 
 function PasswordSettingModal({
@@ -102,11 +103,16 @@ function PasswordSettingModal({
       onClose={() => onPermissionHandler(data?.id)}
     >
       <div className="header">
-        <div style={{ whiteSpace: 'nowrap' }}>
-          {t('user:CREATE.PASSWORD.USERNAME')}
+        <div className="config">{t('user:CREATE.PASSWORD.CONFIG')}</div>
+        <div className="desc1">{t('user:CREATE.PASSWORD.DESC1')}</div>
+        <div className="desc2">{t('user:CREATE.PASSWORD.DESC2')}</div>
+        <div className="flex-container">
+          <div style={{ whiteSpace: 'nowrap' }}>
+            {t('user:CREATE.PASSWORD.USERNAME')}
+          </div>
+          <div>：</div>
+          <div>{data?.name}</div>
         </div>
-        <div>：</div>
-        <div>{data?.name}</div>
       </div>
       <div className="body">
         <div className="credentials">
@@ -148,16 +154,16 @@ function PasswordSettingModal({
         <div className="message">{message || apiMessage}</div>
       </div>
       <div className="actions">
-        <Button disabled={!!message} onClick={onCreateHandler}>
-          {isEdit
-            ? t('user:CREATE.PASSWORD.UPDATE')
-            : t('user:CREATE.PASSWORD.CREATE')}
-        </Button>
         <Button
           type="reset"
           onClick={() => onPermissionHandler(data?.id || -1)}
         >
           {t('user:CREATE.PASSWORD.RETURN')}
+        </Button>
+        <Button disabled={!!message} onClick={onCreateHandler}>
+          {isEdit
+            ? t('user:CREATE.PASSWORD.UPDATE')
+            : t('user:CREATE.PASSWORD.CREATE')}
         </Button>
       </div>
     </CModal>
