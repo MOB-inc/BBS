@@ -15,7 +15,8 @@
     display: flex;
     float: left;
     @media (min-width: $sm) {
-      width: 200px;
+      // width: 200px;
+      width: 256px;
     }
     transition: all 0.2s ease 0s;
   }

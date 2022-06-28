@@ -2,13 +2,18 @@
 @import 'src/commons/styles/color.scss';
 
 .user-approver-modal {
+	.modal-dialog {
+		max-width: none;
+		justify-content: center;
+	}
   .modal-content {
     border: 0;
     padding-bottom: 20px;
-    margin: 16px 17px 27px 33px;
+    // margin: 16px 17px 27px 33px;
     // border-radius: 22px;
 		border-radius: 4px;
-    width: 456px;
+    // width: 456px;
+		width: 399px;
     > .settings-list {
       margin-top: 40px;
       .settings {

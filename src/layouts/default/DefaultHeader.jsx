@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import useFetch from 'use-http';
 import { CDropdown, CDropdownToggle } from '@coreui/react';
+// import { CDropdown } from '@coreui/react';
 import { useTranslation } from 'react-i18next';
 // import { isMobile } from 'react-device-detect';
 import { AppContext } from '../../commons/helpers/appContext';
@@ -106,20 +107,22 @@ function DefaultHeader() {
                 display: 'flex',
               }}
             >
-              <div>
+              <div className='header-recog-box'>
                 <HeaderRecognzationIcon
                   className="icon-svg"
-                  style={{ fill: config().header_text_color, fillOpacity: 1 }}
-                />
+                  style={{ fill: config().header_text_color, fillOpacity: 1, }}
+								/>
+								{recognitionCount !== 0 ? (
+									<>
+										<div className="total-number">
+											{/* ({recognitionCount}) */}
+										</div>
+									</>
+								) : (
+									<></>
+								)}
               </div>
-              <div>{t('common:HEADER.RECOGNITION')}</div>
-              {recognitionCount !== 0 ? (
-                <>
-                  <div className="total-number">({recognitionCount})</div>
-                </>
-              ) : (
-                <></>
-              )}
+              <div className='header-recog'>{t('common:HEADER.RECOGNITION')}</div>
             </div>
             <CDropdown
               className={`${

@@ -49,10 +49,10 @@
     justify-content: flex-end;
     align-items: center;
     height: 61px;
-    padding: 9px 18px 10px 0px;
-    * {
-      padding-left: 5px;
-    }
+    padding: 9px 30px 10px 0px;
+    // * {
+    //   padding-left: 5px;
+    // }
     .menu {
       color: $paper-color;
       text-decoration: none;
@@ -64,23 +64,41 @@
       white-space: nowrap;
       cursor: pointer;
       position: relative;
-      padding-right: 10px;
+      // padding-right: 10px;
+      padding-right: 30px;
       display: flex;
+			.header-recog {
+				margin-left: 11px;
+			}
+			.header-recog-box {
+				position: relative;
+			}
       .total-number {
-        position: relative;
+        // position: relative;
+				position: absolute;
+				top: 0;
+				right: -2px;
         font-size: 14px;
-        color: $text-color-selected !important;
+        // color: $text-color-selected !important;
+				color: $paper-color;
+				background-color: #d32f2f;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				display: block;
       }
     }
     .header-location-list {
       button {
         color: $paper-color;
+				margin-right: 30px;
         &:after {
           vertical-align: 0.2em;
         }
       }
     }
     .header-location-list-visible {
+			margin-right: 30px;
       button {
         color: $text-color-selected !important;
       }
@@ -93,7 +111,7 @@
         font-weight: 400;
         font-size: 14px;
         /* or 20px */
-
+				margin-left: 11px;
         text-align: right;
         letter-spacing: 0.17px;
 
@@ -105,6 +123,7 @@
     .info {
       display: flex;
       flex-direction: column;
+			padding-left: 11px;
       .company {
         font-size: 14px;
         line-height: 143%;
@@ -112,6 +131,8 @@
 
         text-align: right;
         letter-spacing: 0.17px;
+
+				white-space: nowrap;
 
         /* Light/Text/Primary */
 
@@ -181,6 +202,7 @@
 }
 
 .icon-svg {
+	vertical-align: top;
   path {
     fill-opacity: 1;
   }
@@ -196,10 +218,12 @@
 }
 
 .bell {
-  width: 100px;
+  // width: 100px;
+  // width: 85px;
   display: flex;
   // margin-top: 22px;
   // margin-bottom: 5px;
+	margin-right: 28px;
   div {
     div {
       svg {
