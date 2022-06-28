@@ -334,6 +334,9 @@ GBPへの投稿に以下が含まれると、
                       native: true,
                     }}
                     variant="outlined"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
                     >
                       <option>None</option>
                       <option>Button1</option>
@@ -378,7 +381,7 @@ GBPへの投稿に以下が含まれると、
                 <TextField
                   className="urlField"
                   value={linkUrl}
-                  // disabled={!editable}
+                  disabled={!editable}
                   onChange={(event) => setLinkUrl(event?.target?.value)}
                   placeholder="URL"
                   variant="outlined"
@@ -454,12 +457,117 @@ GBPへの投稿に以下が含まれると、
                     className="addBtn"
                     select
                     label={t('location:PHRASE.ADD_BUTTON')}
-                    // disabled={!editable}
+                    disabled={!editable}
+                    onChange={(event) => setLinkName(event?.target?.value)}
+                    SelectProps={{
+                      native: true,
+                    }}
+                    variant="outlined" 
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    >
+                      <option>None</option>
+                      <option>Button1</option>
+                      <option>Button2</option>
+                      <option>Button3</option>
+                  </TextField>
+                  {/* <input
+                    value={linkName}
+                    disabled={!editable}
+                    onChange={(event) => setLinkName(event?.target?.value)}
+                    placeholder={t('location:PHRASE.LINK_NAME_PLACEHOLDER')}
+                  />
+                  {t('location:PHRASE.LINK_TEXT_LINE')} */}
+                </div>
+                <TextField
+                  className="urlField"
+                  value={linkUrl}
+                  disabled={!editable}
+                  onChange={(event) => setLinkUrl(event?.target?.value)}
+                  placeholder="URL"
+                  variant="outlined"
+                />
+              </div>
+            </>
+          )}
+          {selected === SERVICE_CMS && (
+            <>
+              <Explanation screen="PHRASE_CMS" />
+              <div className="content">
+                <div className={`editor ${(editable && 'active') || ''}`}>
+                  <textarea
+                    disabled={!editable}
+                    value={phrase?.phrase || ''}
+                    onChange={handlePhraseUpdate}
+                    placeholder="
+---------------------------------------------------------------
+【定形文例】
+大衆居酒屋 ○○
+○○駅から徒歩30秒！
+お客様に大人気！大山鶏を使用した焼き鳥をはじめ、一品料理や水炊き
+などの鍋メニューも充実しています。
+焼酎は常時50種類！ほか、日本酒やワインも充実しています。
+お一人様はもちろん、団体様のご来店も大歓迎ですのでぜひご来店のほど
+お待ちしております。
+---------------------------------------------------------------"
+                  />
+                  <div className="edit-button">
+                    {editable ? (
+                      <>
+                        <div
+                          className="pills reply-example"
+                          role="presentation"
+                          onClick={() => handlerExample(EXAMPLE_TYPE.CMS)}
+                        >
+                          {t('location:PHRASE.PHRASE_EXAMPLE')}
+                        </div>
+                        <div
+                          className="pills register"
+                          role="presentation"
+                          onClick={handleEditOrRegister}
+                        >
+                          {t('location:PHRASE.REGISTER')}
+                        </div>
+                        <div
+                          className="pills cancel"
+                          role="presentation"
+                          onClick={handleCancel}
+                        >
+                          {t('location:PHRASE.CANCEL')}
+                        </div>
+                      </>
+                    ) : (
+                      <CButton
+                        shape="pill"
+                        onClick={handleEditOrRegister}
+                        disabled={busy}
+                      >
+                        <EditIcon height={18} width={18} /> EDIT
+                      </CButton>
+                    )}
+                  </div>
+                  <div className="counter">
+                    {counter(phrase?.phrase || '')} {t('location:PHRASE.TEXT')}
+                  </div>
+                </div>
+              </div>
+              <div className="url-box">
+                <div className="link-name">
+                  <TextField
+                    id=""
+                    className="addBtn"
+                    select
+                    disabled={!editable}
                     onChange={(event) => setLinkName(event?.target?.value)}
                     SelectProps={{
                       native: true,
                     }}
                     variant="outlined"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    label={t('location:PHRASE.ADD_BUTTON')}
                     >
                       <option>None</option>
                       <option>Button1</option>
@@ -486,8 +594,7 @@ GBPへの投稿に以下が含まれると、
             </>
           )}
           <div style={{textAlign: "right",marginTop: "115px"}}>
-            <Button className="cancel2">{t('location:PHRASE.CANCEL')}</Button>
-            <Button className="release">{t('location:PHRASE.RELEASE')}</Button>
+            <Button className="submit">{t('location:PHRASE.REGISTER')}</Button>
           </div>
         </div>
       </div>
