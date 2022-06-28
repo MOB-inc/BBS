@@ -1,12 +1,16 @@
 @import 'src/commons/styles/color.scss';
 @import 'src/commons/styles/variables.scss';
 
-.location-info > .explanation{
-  padding-top:10px;
-}
+
 .location-info {
   $border: 1px solid rgba(0, 0, 0, 0.22);
   $block:80px;
+  .explanation{
+    padding-top:10px;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 28px !important;
+  }
   .info-content {
     margin-top: 40px;
     padding:16px;
@@ -94,6 +98,7 @@
           th{
             width:$block;
             font-size: 10px;
+            font-weight: 700;
           }
           th:nth-child(13){
             width:100px;

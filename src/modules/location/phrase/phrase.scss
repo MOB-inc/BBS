@@ -2,6 +2,11 @@
 @import '/src/commons/styles/variables.scss';
 
 .fixed-phrase {
+  .explanation p{
+    padding-top:10px;
+    display: block;
+    font-size: 16px;
+  }
   > .header {
     display: flex;
     flex-direction: column;
@@ -20,7 +25,14 @@
     @media (min-width: $sm) {
       flex-direction: row;
     }
-
+    .explanation{
+      display:inline-block;
+      width: auto !important;
+      > p:nth-child(1){
+        font-weight: 500;
+      }
+    }
+    
     > .service-list {
       width: 100%;
       overflow: hidden;
@@ -54,7 +66,7 @@
         .MuiTabs-scroller{
           overflow-x: auto !important;
         }
-        .PrivateTabIndicator-colorPrimary-54 {
+        .MuiTabs-indicator{
           background-color: $button-active-color;
           bottom: 9px;
           height:4px;
@@ -279,12 +291,5 @@
         outline:none;
       }
     }
-  }
-}
-.explanation{
-  display:inline-block;
-  width: auto !important;
-  > p:nth-child(1){
-    font-weight: 500;
   }
 }

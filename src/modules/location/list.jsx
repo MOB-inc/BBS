@@ -5,13 +5,19 @@ import PropTypes from 'prop-types';
 // import { useTranslation } from 'react-i18next';
 // import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-import { useTranslation } from 'react-i18next';
-import { LOCATION_LIST } from '../../commons/constants/url';
+// import TextField from '@material-ui/core/TextField';
+import Box from '@material-ui/core/Box'; 
+// import { useTranslation } from 'react-i18next';
+import Select, { components } from 'react-select';
+import { withStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import { LOCATION_LIST, LOCATION_FOR_INSTAGRAM} from '../../commons/constants/url';
+import config from '../../OEMConfig';
+
 // import Pagination from '../../commons/components/Pagination';
 // import Input from '../../commons/components/Input';
 // import { ReactComponent as SearchIcon } from '../../commons/icons/search.svg';
-
+import { ReactComponent as ArrowDown } from '../../commons/icons/arrow-down-select.svg';
 import './list.scss';
 
 function LocationList({ url, allLocations, allLocationsSelect }) {
@@ -24,8 +30,10 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   // const [lastPage, setLastPage] = useState(1);
   // const [searchText, setSearchText] = useState('');
   const [searchText] = useState('');
+  const [locationsArr, setLocationsArr] = useState([]);
   const debouncedSearchText = useDebounce(searchText, { wait: 250 });
-
+  const [selectedValue, setSelectedValue] = useState('');
+  const { get: getLocations } = useFetch(LOCATION_FOR_INSTAGRAM);
   useMount(async () => {
     const params = {
       page,
@@ -59,6 +67,8 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     }
   }, [page]);
 
+
+
   useEffect(async () => {
     const params = {
       page: 1,
@@ -81,21 +91,112 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   // const pageChangeHandler = (p) => {
   //   setPage(p);
   // };
-  const output = (event) => {
-    const path = window.location.pathname;
-    if( path.match(/fixed_phrases/) || path.match(/linkage/)){
-      const elem = document.getElementById("locName");
-      elem.innerHTML = event.target.value;
-    }
-  };  
+  // const output = (event) => {
+  //   const path = window.location.pathname;
+  //   if( path.match(/fixed_phrases/) || path.match(/linkage/)){
+  //     const elem = document.getElementById("locName");
+  //     elem.innerHTML = event.target.value;
+  //   }
+  // };  
   if (allLocationsSelect && !allLocations) {
     history.push(`${url}/${locations[0].id}`);
   }
-  const { t } = useTranslation(['location']);
+  // const { t } = useTranslation(['location']);
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <ArrowDown />
+      </components.DropdownIndicator>
+    );
+  };
 
+  const GreenRadio = withStyles({
+    root: {
+      color: '#000000',
+      '&$checked': {
+        color: config().side_menu_color,
+      },
+    },
+    checked: {},
+  })((props) => {
+    return <Radio color="default" {...props} />;
+  });
+  const { Option } = components;
+  const IconOption = (props) => {
+  const { data, value } = props;
+    console.log('value in select option', value, selectedValue);
+    return (
+      <Option {...props}>
+        <Box display="flex" alignItems="center">
+          <Box>
+            <GreenRadio
+              checked={selectedValue === value}
+              // onChange={(event) => handleChange(event,value,"r")}
+              value={value}
+              name="radio-buttons"
+              label={data.label}
+              size="small"
+              color={config().side_menu_color}
+              inputProps={{ 'aria-label': 'A' }}
+            />
+          </Box>
+          <Box>{data.label}</Box>
+        </Box>
+      </Option>
+    );
+  };
+  IconOption.defaultProps = {
+    data: '',
+    value: '',
+  };
+  IconOption.propTypes = {
+    data: PropTypes.string,
+    value: PropTypes.string,
+  };
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected ? 'white' : 'white',
+      color: '#666666',
+    }),
+    menu: (styles) => ({
+      ...styles,
+      width: '330px',
+      flexDirection: 'reverse-row',
+    }),
+  };
+  const handleChange = (event) => {
+    setSelectedValue(event.value);
+    const elem2 = document.getElementById('locName');
+    elem2.innerHTML = event.label;
+  };
+  const getLocationsData = async () => {
+    const responseData = await getLocations();
+    if (responseData?.success) {
+      const locationArrLoop = responseData.result.data.map((val) => ({
+        label: val.name,
+        value: val.id,
+      }));
+      console.log('locationArrLoop', locationArrLoop);
 
+      setLocationsArr(locationArrLoop);
+    }
+  };
+  useEffect(() => {
+    getLocationsData();
+  }, []);
+  useEffect(() => {
+    const elem = document.getElementById('list');
+    const path = window.location.pathname;
+    if(path.match(/contract/)){
+      elem.style.display = "none"; 
+    }else{
+      elem.style.display = "block";
+    }
+   
+  }, []);
   return (
-    <div className="location-list">
+    <div id="list" className="location-list">
       {/* <div className="search-box">
         <div className="search-input">
           <Input
@@ -126,28 +227,28 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           </div>
         )} */}
         
-    <TextField
-      id="outlined-select-currency-native"
-      select
-      label={t('location:COMMON.LIST_HEADER')}
-      SelectProps={{
-        native: true,
-      }}
-      variant="outlined"
-      onChange={output}
-      >
-        <option>  </option>
-        {locations.map((loc) => {
-          return (
-            <option className="item" key={loc.id} value={loc.name}>
-              {/* <NavLink to={`${url}/${loc.id}`} activeClassName="active"> */}
-                {loc.name}
-              {/* </NavLink> */}
-            </option>
-          );
-        })}
-    </TextField>
-      {/* </div> */}
+  
+
+      <Box>
+        <Select
+          components={{
+            DropdownIndicator,
+            Option: IconOption,
+            IndicatorSeparator: () => null,
+          }}
+          // styles={customStyles}
+          // isMulti
+          // closeMenuOnSelect
+          className="select-width-tree-select-group"
+          styles={customStyles}
+          options={locationsArr}
+          value={locationsArr.filter(
+            (option) => option.value === selectedValue,
+          )}
+          onChange={(event) => handleChange(event, '', '')}
+        />
+        {/* <Select components={{ Option: IconOption }} isMulti name="hvhgvghvghvghvh" options={options} /> */}
+      </Box>
     </div>
   );
 }

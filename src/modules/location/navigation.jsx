@@ -18,6 +18,9 @@ function LocationNavigation() {
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
+ 
+
+  
   return (
     <ToggleButtonGroup
     className="location-navigation"

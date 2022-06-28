@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext,useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -169,14 +169,14 @@ function FixedPhrase() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const NavigationMemo = useMemo(() => <Navigation />, []); 
+  
   return (
     <div className="fixed-phrase">
       <div className="head">
           <Explanation screen="CONTRACT" />
           <LocationList url="/locations/fixed_phrases" />
       </div>
-      {NavigationMemo}
+      <Navigation />
       <div className="content">
         <div className="service-list">
         <p id="locName"> </p>

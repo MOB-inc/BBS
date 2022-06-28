@@ -1,5 +1,5 @@
 // import React, { useContext, useEffect, useState } from 'react';
-import React, { useEffect, useState,useMemo } from 'react';
+import React, { useEffect, useState} from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams, Route, useLocation } from 'react-router-dom';
@@ -7,12 +7,13 @@ import { useParams, Route, useLocation } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Tooltip from '@material-ui/core/Tooltip';
+import Button from '@material-ui/core/Button';
 import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
-import Modal from './line_modal';
+// import Modal from './line_modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
 // import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
@@ -127,11 +128,9 @@ function Dialogs() {
       window.location = resp?.result?.redirect_url;
     }
   };
-  const [modalValue, setModalValue] = useState('');
-  const handleTokenUpdate = (event) => {
-    setLineOfficialToken(event.target.value);
-    setModalValue(event.target.value);
-  };
+  // const handleTokenUpdate = (event) => {
+  //   setLineOfficialToken(event.target.value);
+  // };
 
   const handleSplanEndpointUpdate = (event) => {
     setSplanEndpoint(event.target.value);
@@ -173,15 +172,31 @@ function Dialogs() {
       setSplanPassword(status?.result?.password);
     });
   };
+  const [TokenTxt, setTokenTxt] = useState('');
   const modalOpen = () => {
-    const elem = document.getElementById('linkage');
+    const elem = document.getElementById('line');
     const elemB = document.getElementById('modalBody');
     elem.style.display = "block"; 
     setTimeout(function(){ 
       elemB.style.opacity = 1; 
       elemB.style.top = "50%"; 
 		}, 0);
+    setTokenTxt(lineOfficialToken);
   }
+	const modalClose = () => {
+		const elem = document.getElementById("line");
+		const elemB = document.getElementById('modalBody');
+		elemB.style.opacity = 0; 
+		elemB.style.top = "30%";  
+		setTimeout(function(){ 
+			elem.style.display = "none"; 
+		}, 500);
+	}
+	const submit = () => {
+    setLineOfficialToken(TokenTxt);
+		modalClose();
+	}
+
   // const longText="筑前貴裕 / Optbusiness";
   return (
     <div className="dialog-list">
@@ -353,14 +368,40 @@ function Dialogs() {
                     label=""
                     id="result"
                     className="field"
-                    InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
-                    }}
                     variant="outlined"
                     value={lineOfficialToken || ''}
-                    onChange={handleTokenUpdate}
+                    // onChange={handleTokenUpdate}
+                    InputProps={{
+                      readOnly: true,
+                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
+                    }}
                 />
-                <Modal id="linkage" value={modalValue} />
+                {/* MODAL */}
+                <>
+                  <div id="line" className="modal">
+                      <input type="button" className="modalBack" onClick={modalClose} />
+                      <div id="modalBody" className="modalBody">
+                        <TextField
+                          id="textArea"
+                          className="textArea"
+                          multiline
+                          rows={4}
+                          // defaultValue={lineOfficialToken || ''}
+                          variant="outlined"
+                          onChange={(event) => setTokenTxt(event.target.value)}
+                          value={TokenTxt}
+                        />
+                        <div className="flex">
+                          <Button className="back" variant="outlined" size="large" onClick={modalClose}>
+                            {t('location:PHRASE.RETURN')}
+                          </Button>
+                          <Button className="submit" variant="contained" size="large" onClick = {submit}>
+                            {t('location:PHRASE.REGISTER')}
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                </>
               </div>
               <div className="dialog-footer line">
                 <p className={lineOfficialStatus ? 'linked' : ''}>Status:
@@ -518,14 +559,13 @@ function Dialogs() {
 
 function LocationLinkage() {
   // const { menuMode } = useContext(AppContext);
-  const NavigationMemo = useMemo(() => <Navigation />, []); 
   return (
     <div className="location-linkage">
       <div className="head">
           <Explanation screen="LINKAGE" />
           <LocationList url="/locations/linkage" />
       </div>
-      {NavigationMemo}
+      <Navigation />
       <div className="linkage-content">
         <Route path="/locations/linkage/:id">
           <Dialogs />
@@ -534,5 +574,6 @@ function LocationLinkage() {
     </div>
   );
 }
+
 
 export default LocationLinkage;

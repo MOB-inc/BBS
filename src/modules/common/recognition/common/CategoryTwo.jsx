@@ -7,9 +7,12 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { CCol, CRow } from '@coreui/react';
 import Select, { components } from 'react-select';
 import * as dayjs from 'dayjs';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { ReactComponent as DeleteIcon } from '../../../../commons/icons/delete.svg';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow-down.svg';
 import { ReactComponent as CalendarIcon } from '../../../../commons/icons/calendar.svg';
+import { ReactComponent as CloudIcon } from '../../../../commons/icons/cloud-up.svg';
 import '../modals/approval/approval_post_modal.scss';
 
 const CustomInput = React.forwardRef((props, ref) => {
@@ -69,18 +72,20 @@ function CategoryTwo({
   return (
     <>
       {active ? (
-        <textarea
+        <TextField
           className="right-event-title"
           value={title || ''}
           placeholder={t('recognition:REMAND.TITLE_2')}
           onChange={(event) => onTextAreaChange(event, 'title')}
+          variant="outlined"
         />
       ) : (
-        <textarea
+        <TextField
           className="right-event-title custom"
           value={title || ''}
           placeholder={t('recognition:REMAND.TITLE_2')}
           disabled
+          variant="outlined"
         />
       )}
       <div className="start-date-time">
@@ -170,74 +175,82 @@ function CategoryTwo({
             })}
           >
             <input {...getInputProps()} />
-            <p className="image-msg msg-margin">
-              {t('basic_info:IMAGE_TAB.MSG_1')}
+            <p className="image-msg msg-margin"><CloudIcon/> UPLOAD IMAGE
+              {/* {t('basic_info:IMAGE_TAB.MSG_1')} */}
             </p>
-            <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p>
-            <button type="button" className="upload-button">
+            {/* <p className="image-msg">{t('basic_info:IMAGE_TAB.MSG_2')}</p> */}
+            {/* <button type="button" className="upload-button">
               {t('basic_info:IMAGE_TAB.SELECT_PHOTO_BUTTON')}
-            </button>
+            </button> */}
           </div>
         )}
       </div>
       {active ? (
-        <textarea
+        <TextField
           className="benefits-details"
           value={contents || ''}
           placeholder={t('recognition:REMAND.CONTENTS')}
           onChange={(event) => onTextAreaChange(event, 'contents')}
+          variant="outlined"
         />
       ) : (
-        <textarea
+        <TextField
           className="benefits-details custom"
           placeholder={t('recognition:REMAND.CONTENTS')}
           value={contents || ''}
           disabled
+          variant="outlined"
         />
       )}
       {active ? (
-        <textarea
+        <TextField
           className="benefits-coupon"
           placeholder={t('recognition:REMAND.COUPON')}
           value={coupon || ''}
           onChange={(event) => onTextAreaChange(event, 'coupon')}
+          variant="outlined"
         />
       ) : (
-        <textarea
+        <TextField
           className="benefits-coupon custom"
           placeholder={t('recognition:REMAND.COUPON')}
           value={coupon || ''}
           disabled
+          variant="outlined"
         />
       )}
       {active ? (
-        <textarea
+        <TextField
           className="benefits-link"
           value={link || ''}
           placeholder={t('recognition:REMAND.LINK_TO_BENEFIT')}
           onChange={(event) => onTextAreaChange(event, 'link')}
+          variant="outlined"
         />
       ) : (
-        <textarea
+        <TextField
           className="benefits-link custom"
           value={link || ''}
           placeholder={t('recognition:REMAND.LINK_TO_BENEFIT')}
           disabled
+          variant="outlined"
         />
       )}
       {active ? (
-        <textarea
+        <TextField
           className="benefits-tou"
           value={tou || ''}
           placeholder={t('recognition:REMAND.TERMS')}
           onChange={(event) => onTextAreaChange(event, 'tou')}
+          variant="outlined"
         />
       ) : (
-        <textarea
+        <TextField
           className="benefits-tou custom"
           value={tou || ''}
           placeholder={t('recognition:REMAND.TERMS')}
           disabled
+          variant="outlined"
         />
       )}
       {active ? (
@@ -263,7 +276,7 @@ function CategoryTwo({
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
+          <Button
             type="button"
             color="primary"
             className={`px-4 success-button ${
@@ -274,14 +287,14 @@ function CategoryTwo({
             {active
               ? t('recognition:APPROVAL.RELEASE_BUTTON')
               : t('recognition:REMAND.EDIT_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>
       <CRow>
         <CCol xs="3" />
         <CCol xs="6">
-          <button
+          <Button
             type="button"
             color="primary"
             className="px-4 cancel-button"
@@ -290,7 +303,7 @@ function CategoryTwo({
             {active
               ? t('basic_info:MENU.COMMON_RETURN')
               : t('recognition:APPROVAL.REMAND_BUTTON')}
-          </button>
+          </Button>
         </CCol>
         <CCol xs="3" />
       </CRow>

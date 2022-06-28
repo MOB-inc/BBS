@@ -27,7 +27,7 @@
     "LINE_AlREADY_LINKED": "{{lineAccountName}}",
     "GMB_HEADER": "Google連携",
     "GMB_NOTICE": "※PlaceIDが未設定です。",
-    "GMB_BODY": "Googleアカウントにログインします。 \n管理しているGoogleアカウントが表示されるので、 \n選択し連携します。※Googleビジネスプロフィールの管理者の必要あり",
+    "GMB_BODY": "Googleアカウントにログインします。 \n管理しているGoogleアカウントが表示されるので、 \n選択し連携します。\n※Googleビジネスプロフィールの管理者の必要あり",
     "LINE_OFFICIAL_HEADER": "LINE公式連携",
     "LINE_OFFICIAL_BODY": "LINE公式のアクセストークンを登録します。",
     "CMS_HEADER": "CMS連携",

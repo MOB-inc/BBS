@@ -2,8 +2,12 @@
 @import 'src/commons/styles/variables.scss';
 
 $border: 1px solid rgba(0, 0, 0, 0.22);
-
 .customer-info {
+  .explanation p{
+    padding-top:10px;
+    display: block;
+    font-size: 16px;
+  }
   .customer-content {
     margin-top: 40px;
     padding:30px;
@@ -32,12 +36,12 @@ $border: 1px solid rgba(0, 0, 0, 0.22);
           position: sticky;
           top: 0;
           th{
-            font-weight: 500;
+            font-weight: 700;
             font-size: 14px;
             white-space: nowrap;
             border-bottom:none;
             border-top:none;
-            position:relative
+            position:relative;
           }
           th:nth-child(2):before,
           th:nth-child(3):before,
