@@ -36,28 +36,28 @@ div.user-page {
 		margin-bottom: 26px;
 		>.search {
 			margin-right: 13px;
-		.MuiInputBase-input {
-			font-size: 12px;
-		}
-		.MuiInputBase-root {
-			color: rgba(0,0,0,0.4);
-			width: 220px;
-			height: 40px;
-			padding-left: 0;
-			.MuiInputAdornment-positionEnd {
-				margin-left: 10px;
+			.MuiInputBase-input {
+				font-size: 12px;
 			}
-			svg {
-				width: 18px;
-				height: auto;
+			.MuiInputBase-root {
+				color: rgba(0,0,0,0.4);
+				width: 220px;
+				height: 40px;
+				padding-left: 0;
+				.MuiInputAdornment-positionEnd {
+					margin-left: 10px;
+				}
+				svg {
+					width: 18px;
+					height: auto;
+				}
+				> input {
+					padding-left: 16px;
+				}
+				> .PrivateNotchedOutline-root-49 {
+					border-color: #c4c4c4;
+				}
 			}
-			> input {
-				padding-left: 16px;
-			}
-			> .PrivateNotchedOutline-root-49 {
-				border-color: #c4c4c4;
-			}
-		}
 		}
 		> .button {
 			width: 65px;
@@ -65,10 +65,7 @@ div.user-page {
 			font-size: 14px;
 			color: $paper-color;
 			background-color: $button-active-color;
-			> .MuiButton-label {
-				writing-mode: vertical-lr;
-				line-height: 1;
-			}
+			padding: 8px 15px;
 		}
 	}
 	.search-icon {
