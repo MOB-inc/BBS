@@ -27,6 +27,7 @@
       "BUTTONNUM": "③",
       "BUTTON": "権限設定",
       "TITLE": "権限設定",
+			"NOTE": "管理者に与える権限を選択してください。",
       "CONNECT": "連携ON/OFF",
       "PHRASE": "定型文登録/編集",
       "YES": "あり",

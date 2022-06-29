@@ -67,20 +67,24 @@
     }
   }
   .locations {
-    height: 430px;
+    // height: 430px;
+		height: auto;
     overflow-y: auto;
     background-color: $paper-color;
     border-radius: 16px;
-		padding: 35px 19px 99px;
+		// padding: 35px 19px 99px;
+		padding: 24px 24px 43px;
     @media (min-width: $sm) {
-      height: 630px;
+      // height: 630px;
+			height: auto;
       // padding: 0 46px 20px 50px;
 			// padding: 35px 19px 99px;
     }
 		.locations-box {
 			border: 1px solid #E0E0E0;
 			border-radius: 4px;
-			padding: 24px 20px 72px;
+			// padding: 24px 20px 72px;
+			padding: 24px 20px;
 			.table-list {
 				border: none;
 				> div {

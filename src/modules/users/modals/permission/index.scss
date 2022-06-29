@@ -5,8 +5,10 @@
     display: flex;
     position: relative;
     justify-content: center;
-    width: 456px;
-    height: 442px;
+    // width: 456px;
+		width: 520px;
+    // height: 442px;
+		height: 358px;
     background: $paper-color;
     border: 1px solid $border-color;
     border-radius: 4px;
@@ -15,8 +17,17 @@
     .header {
       font-weight: 400;
       color: $black;
-      margin: -30px auto 30px;
+      // margin: -30px auto 30px;
+      margin: -30px auto 24px;
 			font-size: 16px;
+			flex-direction: column;
+			text-align: center;
+			padding-top: 40px;
+			> .note {
+				font-size: 10px;
+				font-weight: 400;
+				padding-top: 8px;
+			}
     }
     .settings {
       display: flex;
@@ -28,13 +39,28 @@
       .label {
         text-align: end;
         .question {
-          width: 20px;
+          // width: 20px;
+					width: 15px;
           // margin-right: 5px;
 					margin-left: 5px;
+					vertical-align: -15%;
         }
       }
 			.option {
-				margin-bottom: 11px;
+				// margin-bottom: 11px;
+				> label {
+					> .MuiButtonBase-root{
+
+						> .MuiIconButton-label {
+							> input {
+
+							}
+						}
+						> .MuiTouchRipple-root {
+
+						}
+					}
+				}
 			}
       div > div {
         margin-bottom: 24px;
@@ -43,6 +69,9 @@
 				font-weight: 400;
 				color: $black;
       }
+			.MuiCheckbox-colorSecondary.Mui-checked {
+					color: $button-active-color;
+				}
     }
     .actions {
       display: flex;
@@ -50,7 +79,8 @@
       align-items: center;
       margin-top: 25px;
       button:not(:last-child) {
-        margin-bottom: 14px;
+        // margin-bottom: 14px;
+				margin-bottom: 20px;
         font-size: 0.75rem;
       }
       button[type='reset'] {
@@ -64,7 +94,9 @@
 			}
       .link {
         text-decoration: underline;
-        color: blue;
+        // color: blue;
+				color: $button-active-color;
+				text-decoration: none;
         cursor: pointer;
         margin-bottom: 14px;
       }

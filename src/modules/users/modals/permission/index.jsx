@@ -5,7 +5,8 @@ import useFetch from 'use-http';
 import { CModal, CTooltip } from '@coreui/react';
 // import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
-// import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { useTranslation } from 'react-i18next';
 import { USERS } from '../../../../commons/constants/url';
 // import Button from '../../../../commons/components/Button';
@@ -59,7 +60,10 @@ function PermissionModal({
       onClosed={onClosedHandler}
       className="user-permission-modal"
     >
-      <div className="header">{t('user:CREATE.PERMISSION.TITLE')}</div>
+      <div className="header">
+        <div>{t('user:CREATE.PERMISSION.TITLE')}</div>
+        <div className="note">{t('user:CREATE.PERMISSION.NOTE')}</div>
+      </div>
       <div className="settings">
         <div className="label">
           <div>
@@ -83,27 +87,35 @@ function PermissionModal({
         </div>
         <div className="option">
           <div>
-            {t('user:CREATE.PERMISSION.YES')} &nbsp;{' '}
+            {/* {t('user:CREATE.PERMISSION.YES')} &nbsp;{' '}
             <input
               type="checkbox"
               checked={data?.is_linkage_authority === 1}
               onChange={() => setData({ ...data, is_linkage_authority: 1 })}
-            />
+            /> */}
             {/* <Checkbox
               type="checkbox"
               checked={data?.is_linkage_authority === 1}
               onChange={() => setData({ ...data, is_linkage_authority: 1 })}
             /> */}
+            <FormControlLabel
+              control={<Checkbox />}
+              label={t('user:CREATE.PERMISSION.YES')}
+              labelPlacement="start"
+              type="checkbox"
+              checked={data?.is_linkage_authority === 1}
+              onChange={() => setData({ ...data, is_linkage_authority: 1 })}
+            />
           </div>
           <div>
-            {t('user:CREATE.PERMISSION.YES')} &nbsp;{' '}
+            {/* {t('user:CREATE.PERMISSION.YES')} &nbsp;{' '}
             <input
               type="checkbox"
               checked={data?.is_fixed_sentence_edit_authority === 1}
               onChange={() =>
                 setData({ ...data, is_fixed_sentence_edit_authority: 1 })
               }
-            />
+            /> */}
             {/* <Checkbox
               type="checkbox"
               checked={data?.is_fixed_sentence_edit_authority === 1}
@@ -111,31 +123,49 @@ function PermissionModal({
                 setData({ ...data, is_fixed_sentence_edit_authority: 1 })
               }
             /> */}
+            <FormControlLabel
+              control={<Checkbox />}
+              label={t('user:CREATE.PERMISSION.YES')}
+              labelPlacement="start"
+              type="checkbox"
+              checked={data?.is_fixed_sentence_edit_authority === 1}
+              onChange={() =>
+                setData({ ...data, is_fixed_sentence_edit_authority: 1 })
+              }
+            />
           </div>
         </div>
         <div className="option">
           <div>
-            {t('user:CREATE.PERMISSION.NO')} &nbsp;{' '}
+            {/* {t('user:CREATE.PERMISSION.NO')} &nbsp;{' '}
             <input
               type="checkbox"
               checked={data?.is_linkage_authority === 0}
               onChange={() => setData({ ...data, is_linkage_authority: 0 })}
-            />
+            /> */}
             {/* <Checkbox
               type="checkbox"
               checked={data?.is_linkage_authority === 0}
               onChange={() => setData({ ...data, is_linkage_authority: 0 })}
             /> */}
+            <FormControlLabel
+              control={<Checkbox />}
+              label={t('user:CREATE.PERMISSION.NO')}
+              labelPlacement="start"
+              type="checkbox"
+              checked={data?.is_linkage_authority === 0}
+              onChange={() => setData({ ...data, is_linkage_authority: 0 })}
+            />
           </div>
           <div>
-            {t('user:CREATE.PERMISSION.NO')} &nbsp;{' '}
+            {/* {t('user:CREATE.PERMISSION.NO')} &nbsp;{' '}
             <input
               type="checkbox"
               checked={data?.is_fixed_sentence_edit_authority === 0}
               onChange={() =>
                 setData({ ...data, is_fixed_sentence_edit_authority: 0 })
               }
-            />
+            /> */}
             {/* <Checkbox
               type="checkbox"
               checked={data?.is_fixed_sentence_edit_authority === 0}
@@ -143,6 +173,16 @@ function PermissionModal({
                 setData({ ...data, is_fixed_sentence_edit_authority: 0 })
               }
             /> */}
+            <FormControlLabel
+              control={<Checkbox />}
+              label={t('user:CREATE.PERMISSION.NO')}
+              labelPlacement="start"
+              type="checkbox"
+              checked={data?.is_fixed_sentence_edit_authority === 0}
+              onChange={() =>
+                setData({ ...data, is_fixed_sentence_edit_authority: 0 })
+              }
+            />
           </div>
         </div>
       </div>
