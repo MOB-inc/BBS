@@ -26,7 +26,8 @@ html {
   border: 1px solid #c4c4c4;
 }
 * {
-  font-family: Mukta;
+  // font-family: Mukta;
+	font-family: Roboto,'Noto Sans JP', sans-serif !important;
 }
 .App {
   background-color: $paper-color;

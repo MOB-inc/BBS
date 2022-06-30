@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import useFetch from 'use-http';
-import { CModal, CTooltip } from '@coreui/react';
+// import { CModal, CTooltip } from '@coreui/react';
+import { CModal } from '@coreui/react';
 // import Tooltip from '@material-ui/core/Tooltip';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Tooltip from '@material-ui/core/Tooltip';
 import { useTranslation } from 'react-i18next';
 import { USERS } from '../../../../commons/constants/url';
 // import Button from '../../../../commons/components/Button';
@@ -68,21 +70,33 @@ function PermissionModal({
         <div className="label">
           <div>
             {t('user:CREATE.PERMISSION.CONNECT')}
-            <CTooltip
+            {/* <CTooltip
               content={t('user:CREATE.PERMISSION.CONNECT_TOOLTIP')}
               placement="left"
             >
               <QuestionIcon className="question" />
-            </CTooltip>
+            </CTooltip> */}
+            <Tooltip
+              title={t('user:CREATE.PERMISSION.CONNECT_TOOLTIP')}
+              placement="left"
+            >
+              <QuestionIcon className="question" />
+            </Tooltip>
           </div>
           <div>
             {t('user:CREATE.PERMISSION.PHRASE')}
-            <CTooltip
+            {/* <CTooltip
               content={t('user:CREATE.PERMISSION.PHRASE_TOOLTIP')}
               placement="left"
             >
               <QuestionIcon className="question" />
-            </CTooltip>
+            </CTooltip> */}
+            <Tooltip
+              title={t('user:CREATE.PERMISSION.PHRASE_TOOLTIP')}
+              placement="left"
+            >
+              <QuestionIcon className="question" />
+            </Tooltip>
           </div>
         </div>
         <div className="option">
