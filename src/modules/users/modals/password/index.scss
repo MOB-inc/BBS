@@ -54,7 +54,8 @@
       .credentials {
         display: flex;
         flex-direction: column;
-        margin-top: 31px;
+        // margin-top: 31px;
+				margin-top: 14px;
         // border: 1px solid $border-color;
         width: 235px;
         .cred {
@@ -64,6 +65,7 @@
           padding: 0 15px;
           font-weight: 400;
 					border-radius: 4px;
+					margin-bottom: -1px;
         }
         > .cred::placeholder {
           color: $gray;

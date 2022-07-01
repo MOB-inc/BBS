@@ -78,7 +78,8 @@ function PermissionModal({
             </CTooltip> */}
             <Tooltip
               title={t('user:CREATE.PERMISSION.CONNECT_TOOLTIP')}
-              placement="left"
+              placement="bottom"
+              arrow="true"
             >
               <QuestionIcon className="question" />
             </Tooltip>
@@ -93,7 +94,8 @@ function PermissionModal({
             </CTooltip> */}
             <Tooltip
               title={t('user:CREATE.PERMISSION.PHRASE_TOOLTIP')}
-              placement="left"
+              placement="bottom"
+              arrow="true"
             >
               <QuestionIcon className="question" />
             </Tooltip>

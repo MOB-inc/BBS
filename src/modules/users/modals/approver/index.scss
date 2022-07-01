@@ -69,7 +69,8 @@
           flex-direction: column;
           // margin-bottom: 10px;
           div.text {
-						color: $black;
+						// color: $black;
+						color: rgba(0,0,0,.6);
             font-weight: 400;
             text-align: left;
             font-size: 10px;
@@ -94,8 +95,10 @@
             outline: none;
           }
           select.approver {
-            padding: 0 5px;
+            // padding: 0 5px;
+						padding: 8px 12px;
 						border-radius: 4px;
+						color: rgba(0,0,0,.6);
           }
         }
       }
