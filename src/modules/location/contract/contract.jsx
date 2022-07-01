@@ -26,6 +26,7 @@ function Info() {
     if (response.ok) {
       setInfo(resp?.result);
     }
+    console.log(resp?.result);
   }, [id]);
 
   return (

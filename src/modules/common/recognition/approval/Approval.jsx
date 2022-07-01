@@ -382,8 +382,9 @@ function Approval() {
                       <div className="cell w25p">{item?.location_name}</div>
                       <div className="cell w20p content">{item?.contents}</div>
                       <div className="cell w10p">
-                        {item.type === 1 ? 'GBP投稿' : '口コミ返信'}
+                        {item?.is_remanded}
                       </div>
+                      {console.log(item)}
                     </div>
                   </>
                 );

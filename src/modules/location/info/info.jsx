@@ -321,7 +321,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                {config().is_show_splan && (
+                {/* {config().is_show_splan && (
                   <th className=" small-font">
                     <img
                       src="/icons/cms-logo.svg"
@@ -332,7 +332,7 @@ function LocationInfo() {
                     <br />
                     #連携
                   </th>
-                )}
+                )} */}
                 <th className=" small-font">全体投稿連携
                   <Tooltip title={t('location:TOOLTIPS.ALL_LINK')} arrow interactive style={{cursor:"pointer"}} >
                     <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>

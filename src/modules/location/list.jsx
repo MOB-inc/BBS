@@ -68,7 +68,15 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   }, [page]);
 
 
-
+  useEffect(() => {
+    if (
+      locationsArr &&
+      locationsArr.length > 0 &&
+      locationsArr[0].value !== undefined
+    ) {
+      setSelectedValue(locationsArr[0].value);
+    }
+  }, [locationsArr]);
   useEffect(async () => {
     const params = {
       page: 1,
@@ -220,8 +228,6 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           </div>
         )} */}
         
-  
-
       <Box>
         <Select
           components={{
@@ -238,7 +244,6 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           value={locationsArr.filter(
             (option) => option.value === selectedValue,
           )}
-          defaultValue={1}
           label={t('location:COMMON.LIST_HEADER')}
           InputLabelProps={{
             shrink: true,

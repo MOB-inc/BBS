@@ -13,7 +13,6 @@ const BasicInfoTab = React.lazy(() =>
   import('./modules/basicInfo/Navigation/TabInfo'),
 );
 const Top = React.lazy(() => import('./modules/top/Top'));
-const Components = React.lazy(() => import('./modules/components'));
 const Users = React.lazy(() => import('./modules/users'));
 const UserCreate = React.lazy(() => import('./modules/users/create'));
 const Logout = React.lazy(() => import('./modules/common/logout/Logout'));
@@ -31,12 +30,6 @@ const routes = [
     path: '/top',
     name: 'Top',
     component: Top,
-    isPrivate: true,
-  },
-  {
-    path: '/components',
-    name: 'Components',
-    component: Components,
     isPrivate: true,
   },
   {
