@@ -18,7 +18,6 @@ function LocationNavigation() {
   const handleAlignment = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
- 
 
   
   return (

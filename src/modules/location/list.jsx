@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useFetch from 'use-http';
 import { useMount, useDebounce } from 'ahooks';
 import PropTypes from 'prop-types';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 // import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 // import TextField from '@material-ui/core/TextField';
@@ -23,7 +23,7 @@ import './list.scss';
 function LocationList({ url, allLocations, allLocationsSelect }) {
   const history = useHistory();
   const route = useRouteMatch(`${url}/:id`);
-  // const { t } = useTranslation(['location']);
+  const { t } = useTranslation(['location']);
   const { get, response } = useFetch(LOCATION_LIST);
   const [locations, setLocations] = useState([]);
   const [page, setPage] = useState(1);
@@ -166,9 +166,12 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     }),
   };
   const handleChange = (event) => {
+    const url2 = window.location.pathname;
     setSelectedValue(event.value);
-    const elem2 = document.getElementById('locName');
-    elem2.innerHTML = event.label;
+    if(!url2.match(/contract/)){
+      const elem2 = document.getElementById('locName');
+      elem2.innerHTML = event.label;
+    }
   };
   const getLocationsData = async () => {
     const responseData = await getLocations();
@@ -184,16 +187,6 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   };
   useEffect(() => {
     getLocationsData();
-  }, []);
-  useEffect(() => {
-    const elem = document.getElementById('list');
-    const path = window.location.pathname;
-    if(path.match(/contract/)){
-      elem.style.display = "none"; 
-    }else{
-      elem.style.display = "block";
-    }
-   
   }, []);
   return (
     <div id="list" className="location-list">
@@ -245,6 +238,11 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           value={locationsArr.filter(
             (option) => option.value === selectedValue,
           )}
+          defaultValue={1}
+          label={t('location:COMMON.LIST_HEADER')}
+          InputLabelProps={{
+            shrink: true,
+          }}
           onChange={(event) => handleChange(event, '', '')}
         />
         {/* <Select components={{ Option: IconOption }} isMulti name="hvhgvghvghvghvh" options={options} /> */}
