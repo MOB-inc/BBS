@@ -105,7 +105,7 @@ div.user-page {
         min-height: 45px;
         text-align: center;
         margin: 0;
-        cursor: pointer;
+        // cursor: pointer;
         > div.cell {
           font-weight: 400;
           font-size: 13px;
@@ -171,13 +171,21 @@ div.user-page {
         border-bottom: 1px solid #e0e0e0;
 				justify-content: center;
       }
+			div.tbody div.row div.cell.edit {
+				cursor: pointer;
+			}
       div.tbody div.row:hover {
-        div.cell:not(:first-child) {
-          color: $text-color-selected;
-          svg path {
-            fill: $text-color-selected;
-          }
-        }
+        // div.cell:not(:first-child) {
+        //   color: $text-color-selected;
+        //   svg path {
+        //     fill: $text-color-selected;
+        //   }
+        // }
+				div.cell.edit {
+					svg path {
+						fill: $text-color-selected;
+					}
+				}
       }
       div.tbody div.row div.cell:first-child:hover {
         color: $black;
