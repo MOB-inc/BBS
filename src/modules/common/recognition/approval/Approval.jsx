@@ -384,7 +384,6 @@ function Approval() {
                       <div className="cell w10p">
                         {item?.is_remanded}
                       </div>
-                      {console.log(item)}
                     </div>
                   </>
                 );

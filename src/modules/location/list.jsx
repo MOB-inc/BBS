@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 // import { NavLink, useHistory, useRouteMatch } from 'react-router-dom';
 import { useHistory, useRouteMatch } from 'react-router-dom';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormControl from '@material-ui/core/FormControl';
 // import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box'; 
 // import { useTranslation } from 'react-i18next';
@@ -47,6 +49,12 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
     }
+    const url2 = window.location.pathname;
+    if(!url2.match(/contract/)){
+      const elem2 = document.getElementById('locName');
+      elem2.innerHTML = "";
+      
+    }
   });
 
   useEffect(async () => {
@@ -76,6 +84,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     ) {
       setSelectedValue(locationsArr[0].value);
     }
+
   }, [locationsArr]);
   useEffect(async () => {
     const params = {
@@ -228,7 +237,8 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           </div>
         )} */}
         
-      <Box>
+      <FormControl variant="outlined" >
+        <InputLabel className="label" htmlFor="outlined-age-native-simple">{t('location:COMMON.LIST_HEADER')}</InputLabel>
         <Select
           components={{
             DropdownIndicator,
@@ -244,14 +254,14 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
           value={locationsArr.filter(
             (option) => option.value === selectedValue,
           )}
-          label={t('location:COMMON.LIST_HEADER')}
+          // label={t('location:COMMON.LIST_HEADER')}
           InputLabelProps={{
             shrink: true,
           }}
           onChange={(event) => handleChange(event, '', '')}
-        />
+          />
         {/* <Select components={{ Option: IconOption }} isMulti name="hvhgvghvghvghvh" options={options} /> */}
-      </Box>
+      </FormControl>
     </div>
   );
 }

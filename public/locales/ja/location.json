@@ -68,7 +68,8 @@
     "LINK_TYPE_PLACEHOLDER": "リンク追加（省略可）",
     "LINK_NAME_PLACEHOLDER": "リンク名（例：予約はこちら）",
     "LINK_TEXT_GBP": "GBPの投稿にリンクボタンをつけることができます。",
-    "LINK_TEXT_LINE": "LINE公式の投稿にリンクボタンをつけることができます。"
+    "LINK_TEXT_LINE": "LINE公式の投稿にリンクボタンをつけることができます。",
+    "LINK_TEXT_CMS": "CMSの投稿にリンクボタンをつけることができます。"
   },
   "TOOLTIPS": {
     "GOOGLE_LINK": "OFFの場合は全ての投稿を連携ONの場合は＃連携が付いた投稿のみ連携",

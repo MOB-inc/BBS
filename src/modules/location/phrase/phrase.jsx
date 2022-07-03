@@ -3,14 +3,14 @@ import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { CButton } from '@coreui/react';
-// import Select, { components } from 'react-select';
-// import { components } from 'react-select';
+import Select, { components } from 'react-select';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+import { FormControl } from '@material-ui/core';
+import InputLabel from '@material-ui/core/InputLabel';
 import {
   GMB_POST,
   BUTTON_TYPES,
@@ -21,10 +21,12 @@ import { counter } from '../../../commons/helpers/util';
 import Explanation from '../../../commons/components/Explanation';
 import Navigation from '../navigation';
 import LocationList from '../list';
+
 // import { ReactComponent as EditIcon } from '../../../commons/icons/edit.svg';
 import { ReactComponent as EditIcon } from '../../../commons/icons/pen-icon.svg';
 import { ReactComponent as ExIcon } from '../../../commons/icons/ex-icon.svg';
 // import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
+import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down-select.svg';
 import { AppContext } from '../../../commons/helpers/appContext';
 import './phrase.scss';
 import {
@@ -34,6 +36,7 @@ import {
   SERVICE_LINE_OFFICIAL,
 } from '../../../commons/constants/key';
 import { EXAMPLE_TYPE } from './modals/constant';
+import { ReactComponent as QuesIcon } from '../../../commons/icons/question.svg';
 
 const ExampleModal = React.lazy(() => import('./modals/example'));
 
@@ -64,13 +67,13 @@ function FixedPhrase() {
   );
   const [optionsLinkType, setOptionsLinkType] = useState([]);
 
-  // const DropdownIndicator = (props) => {
-  //   return (
-  //     <components.DropdownIndicator {...props}>
-  //       <ArrowDown />
-  //     </components.DropdownIndicator>
-  //   );
-  // };
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <ArrowDown />
+      </components.DropdownIndicator>
+    );
+  };
   useEffect(async () => {
     const responseButton = await getButtonTypes();
     if (buttonResponse.ok) {
@@ -173,7 +176,7 @@ function FixedPhrase() {
   return (
     <div className="fixed-phrase">
       <div className="head">
-          <Explanation screen="CONTRACT" />
+          <Explanation screen="PHRASE" />
           <LocationList url="/locations/fixed_phrases" />
       </div>
       <Navigation />
@@ -325,67 +328,47 @@ GBPへの投稿に以下が含まれると、
               </div>
               <div className="url-box">
                 <div className="link-name">
-                  <TextField
-                    id=""
-                    className="addBtn"
-                    select
-                    label={t('location:PHRASE.ADD_BUTTON')}
-                    SelectProps={{
-                      native: true,
-                    }}
-                    variant="outlined"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    >
-                      <option>None</option>
-                      <option>Button1</option>
-                      <option>Button2</option>
-                      <option>Button3</option>
-                  </TextField>
-                  {/* <Select
-                    options={optionsLinkType}
-                    components={{ DropdownIndicator }}
-                    isClearable
-                    value={
-                      optionsLinkType[
-                        optionsLinkType.findIndex((el) => el.value === linkType)
-                      ] || false
-                    }
-                    onChange={(select) => {
-                      setLinkType(select?.value);
-                    }}
-                    isDisabled={!editable}
-                    styles={{
-                      container: (provided) => ({
-                        ...provided,
-                        width: '185px',
-                        marginBottom: '10px',
-                        marginRight: '10px',
-                      }),
-                    }}
-                    placeholder={t('location:PHRASE.LINK_TYPE_PLACEHOLDER')}
-                  />
-                  {t('location:PHRASE.LINK_TEXT_GBP')} */}
+                  <FormControl variant="outlined" >
+                    <InputLabel className="label" htmlFor="outlined-age-native-simple">{t('location:PHRASE.ADD_BUTTON')}</InputLabel>
+                    <Select
+                      options={optionsLinkType}
+                      components={{ DropdownIndicator }}
+                      isClearable
+                      value={
+                        optionsLinkType[
+                          optionsLinkType.findIndex((el) => el.value === linkType)
+                        ] || false
+                      }
+                      onChange={(select) => {
+                        setLinkType(select?.value);
+                      }}
+                      isDisabled={!editable}
+                      styles={{
+                        container: (provided) => ({
+                          ...provided,
+                          width: '185px',
+                          marginBottom: '10px',
+                          marginRight: '10px',
+                        }),
+                      }}
+                    />
+                  </FormControl>
+                  <Tooltip title={t('location:PHRASE.LINK_TEXT_GBP')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip>
+                  
                 </div>
-                {/* {optionsLinkType.find((link) => {
+                {optionsLinkType.find((link) => {
                   return link.label === '今すぐ電話';
                 })?.value !== linkType && (
                   <input
+                    className="urlField"
                     value={linkUrl}
                     disabled={!editable}
                     onChange={(event) => setLinkUrl(event?.target?.value)}
                     placeholder="URL"
                   />
-                )} */}
-                <TextField
-                  className="urlField"
-                  value={linkUrl}
-                  disabled={!editable}
-                  onChange={(event) => setLinkUrl(event?.target?.value)}
-                  placeholder="URL"
-                  variant="outlined"
-                />
+                )}
               </div>
             </>
           )}
@@ -451,43 +434,47 @@ GBPへの投稿に以下が含まれると、
                 </div>
               </div>
               <div className="url-box">
-                <div className="link-name">
-                  <TextField
-                    id=""
-                    className="addBtn"
-                    select
-                    label={t('location:PHRASE.ADD_BUTTON')}
-                    disabled={!editable}
-                    onChange={(event) => setLinkName(event?.target?.value)}
-                    SelectProps={{
-                      native: true,
-                    }}
-                    variant="outlined" 
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    >
-                      <option>None</option>
-                      <option>Button1</option>
-                      <option>Button2</option>
-                      <option>Button3</option>
-                  </TextField>
-                  {/* <input
-                    value={linkName}
-                    disabled={!editable}
-                    onChange={(event) => setLinkName(event?.target?.value)}
-                    placeholder={t('location:PHRASE.LINK_NAME_PLACEHOLDER')}
-                  />
-                  {t('location:PHRASE.LINK_TEXT_LINE')} */}
+                <div className="link-name"> 
+                  <FormControl variant="outlined" >
+                    <InputLabel className="label" htmlFor="outlined-age-native-simple">{t('location:PHRASE.ADD_BUTTON')}</InputLabel>
+                    <Select
+                      options={optionsLinkType}
+                      components={{ DropdownIndicator }}
+                      isClearable
+                      value={
+                        optionsLinkType[
+                          optionsLinkType.findIndex((el) => el.value === linkType)
+                        ] || false
+                      }
+                      onChange={(select) => {
+                        setLinkType(select?.value);
+                      }}
+                      isDisabled={!editable}
+                      styles={{
+                        container: (provided) => ({
+                          ...provided,
+                          width: '185px',
+                          marginBottom: '10px',
+                          marginRight: '10px',
+                        }),
+                      }}
+                    />
+                  </FormControl>
+                  <Tooltip title={t('location:PHRASE.LINK_TEXT_LINE')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip>
                 </div>
-                <TextField
-                  className="urlField"
-                  value={linkUrl}
-                  disabled={!editable}
-                  onChange={(event) => setLinkUrl(event?.target?.value)}
-                  placeholder="URL"
-                  variant="outlined"
-                />
+                {optionsLinkType.find((link) => {
+                  return link.label === '今すぐ電話';
+                })?.value !== linkType && (
+                  <input
+                    className="urlField"
+                    value={linkUrl}
+                    disabled={!editable}
+                    onChange={(event) => setLinkUrl(event?.target?.value)}
+                    placeholder="URL"
+                  />
+                )}
               </div>
             </>
           )}
@@ -554,42 +541,46 @@ GBPへの投稿に以下が含まれると、
               </div>
               <div className="url-box">
                 <div className="link-name">
-                  <TextField
-                    id=""
-                    className="addBtn"
-                    select
-                    disabled={!editable}
-                    onChange={(event) => setLinkName(event?.target?.value)}
-                    SelectProps={{
-                      native: true,
-                    }}
-                    variant="outlined"
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    label={t('location:PHRASE.ADD_BUTTON')}
-                    >
-                      <option>None</option>
-                      <option>Button1</option>
-                      <option>Button2</option>
-                      <option>Button3</option>
-                  </TextField>
-                  {/* <input
-                    value={linkName}
-                    disabled={!editable}
-                    onChange={(event) => setLinkName(event?.target?.value)}
-                    placeholder={t('location:PHRASE.LINK_NAME_PLACEHOLDER')}
-                  />
-                  {t('location:PHRASE.LINK_TEXT_LINE')} */}
+                <FormControl variant="outlined" >
+                    <InputLabel className="label" htmlFor="outlined-age-native-simple">{t('location:PHRASE.ADD_BUTTON')}</InputLabel>
+                    <Select
+                      options={optionsLinkType}
+                      components={{ DropdownIndicator }}
+                      isClearable
+                      value={
+                        optionsLinkType[
+                          optionsLinkType.findIndex((el) => el.value === linkType)
+                        ] || false
+                      }
+                      onChange={(select) => {
+                        setLinkType(select?.value);
+                      }}
+                      isDisabled={!editable}
+                      styles={{
+                        container: (provided) => ({
+                          ...provided,
+                          width: '185px',
+                          marginBottom: '10px',
+                          marginRight: '10px',
+                        }),
+                      }}
+                    />
+                  </FormControl>
+                  <Tooltip title={t('location:PHRASE.LINK_TEXT_CMS')} arrow interactive style={{cursor:"pointer"}} >
+                    <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>
+                  </Tooltip>
                 </div>
-                <TextField
-                  className="urlField"
-                  value={linkUrl}
-                  disabled={!editable}
-                  onChange={(event) => setLinkUrl(event?.target?.value)}
-                  placeholder="URL"
-                  variant="outlined"
-                />
+                {optionsLinkType.find((link) => {
+                  return link.label === '今すぐ電話';
+                })?.value !== linkType && (
+                  <input
+                    className="urlField"
+                    value={linkUrl}
+                    disabled={!editable}
+                    onChange={(event) => setLinkUrl(event?.target?.value)}
+                    placeholder="URL"
+                  />
+                )}
               </div>
             </>
           )}

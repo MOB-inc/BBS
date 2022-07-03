@@ -2,6 +2,24 @@
 @import '/src/commons/styles/variables.scss';
 
 .fixed-phrase {
+  .css-1okebmr-indicatorSeparator,
+  .css-109onse-indicatorSeparator{
+    display: none;
+  }
+  .label{
+    font-size: 10px;
+    left: -3px;
+    top: -24px;
+  }
+  .label:before{
+    content:"";
+    width:100%;
+    height:50%;
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    top: calc(50% - 1px);
+  }
   .explanation p{
     padding-top:10px;
     display: block;
@@ -248,21 +266,33 @@
         .link-name {
           display: flex;
           align-items: baseline;
-          .addBtn select {
-            width:320px;
-            height:40px;
-            font-size:16px;
-            box-sizing: border-box;
+          >div{
+            >div{
+              font-size:16px;
+              box-sizing: border-box;
+              width:320px;
+              height:40px;
+            }
+            >div:hover{
+              border-color:#000 ;
+            }
           }
         }
         .urlField{
-          margin-top:14px;
-          height:40px;
-          width:100%;
-          input{
-            font-size: 16px;
-            box-sizing: border-box;
-          }
+          margin-top: 14px;
+          height: 40px;
+          width: 100%;
+          border-radius: 4px;
+          padding: 0 10px;
+          font-size: 16px;
+          box-sizing: border-box;
+          border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+        input:disabled,
+        .css-1insrsq-control {
+          background: #f0f0f0;
+          border: 1px solid rgba(0, 0, 0, 0.12);
+          color: #acacac;
         }
       }
       div.editor.active {

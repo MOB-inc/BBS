@@ -87,11 +87,15 @@ function LocationInfo() {
           <table className="table">
             <thead>
               <tr>
-                <th colSpan="2">  </th>
+                <th colSpan="2"> </th>
                 <th colSpan="3" className=""><InstaIcon/> </th>
                 <th colSpan="4" className=""><GoogleIcon/> </th>
                 <th colSpan="3" className=""><LineIcon/> </th>
-                <th className=""> </th>
+                {config().is_show_splan === undefined ? 
+                  <th colSpan="1" style={{width:'100px'}}> </th>
+                  : <th colSpan="2" style={{width:'200px'}}> </th>
+                }
+                {console.log(config().is_show_splan === undefined ? 1 : 2)}
               </tr>
               <tr>
                 <th className="">ロケーション名</th>
@@ -321,7 +325,7 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                {/* {config().is_show_splan && (
+                {config().is_show_splan && (
                   <th className=" small-font">
                     <img
                       src="/icons/cms-logo.svg"
@@ -332,7 +336,7 @@ function LocationInfo() {
                     <br />
                     #連携
                   </th>
-                )} */}
+                )}
                 <th className=" small-font">全体投稿連携
                   <Tooltip title={t('location:TOOLTIPS.ALL_LINK')} arrow interactive style={{cursor:"pointer"}} >
                     <QuesIcon style={{width:"15px",marginLeft:"4px",paddingBottom: "2px"}}/>

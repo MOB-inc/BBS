@@ -9,6 +9,7 @@
   "LINKAGE": "インスタグラムと各サービスの接続設定が行えます",
   "LOCATION_INFO": "インスタグラムから各サービスへの連携ON/OFFが行えます",
   "CONTRACT": "ご契約状況をご確認頂けます",
+  "PHRASE" : "各連携先に自動付与する定型文を設定できます",
   "PHRASE_GMB": "Instagram投稿からGBPに反映する際、自動で付与する定型文を設定できます",
   "PHRASE_REVIEW": "GBPの口コミに返信を行う際、以下で登録した定型文を選択し返信が行えます",
   "PHRASE_REVIEW_AUTO_REPLY": "GBPの口コミに自動返信する設定が行えます",

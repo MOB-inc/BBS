@@ -45,10 +45,10 @@ function Dialogs() {
   const [location, setLocation] = useState();
   const [igStatus, setIgStatus] = useState(false);
   const [placeID, setPlaceID] = useState(false);
-  // const [igAccountName, setIgAccountName] = useState('');
-  // const [igDisplayName, setIgDisplayName] = useState('');
-  // const [facebookName, setFacebookName] = useState('');
-  // const [facebookPageName, setFacebookPageName] = useState('');
+  const [igAccountName, setIgAccountName] = useState('');
+  const [igDisplayName, setIgDisplayName] = useState('');
+  const [facebookName, setFacebookName] = useState('');
+  const [facebookPageName, setFacebookPageName] = useState('');
   const [gmbStatus, setGmbStatus] = useState(false);
   const [lineOfficialStatus, setLineOfficialStatus] = useState(false);
   const [lineOfficialToken, setLineOfficialToken] = useState('');
@@ -88,10 +88,10 @@ function Dialogs() {
     });
     getIgStatus().then((data) => {
       setIgStatus(data?.result?.status);
-      // setIgAccountName(data?.result?.account_name);
-      // setIgDisplayName(data?.result?.instagram_display_name);
-      // setFacebookName(data?.result?.facebook_name);
-      // setFacebookPageName(data?.result?.facebook_page_name);
+      setIgAccountName(data?.result?.account_name);
+      setIgDisplayName(data?.result?.instagram_display_name);
+      setFacebookName(data?.result?.facebook_name);
+      setFacebookPageName(data?.result?.facebook_page_name);
     });
     getGmbStatus().then((data) => setGmbStatus(data?.result?.status));
     getLineOfficialStatus().then((data) => {
@@ -104,11 +104,13 @@ function Dialogs() {
       setSplanEndpoint(data?.result?.endpoint);
       setSplanUser(data?.result?.user);
       setSplanPassword(data?.result?.password);
+      console.log(data?.result);
     });
     // Insta連携リダイレクト後
     if (currentUrl.pathname.substr(-6) === 'select') {
       setSelectFacebookPage(true);
     }
+
   }, [id]);
 
   const toggleSelectFacebookPage = () => {
@@ -242,11 +244,11 @@ function Dialogs() {
                 <p className={igStatus ? 'linked' : ''}>Status:<span>{igStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
-                <Tooltip title={t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"} arrow interactive style={{cursor:"pointer"}}>
-                  <p className="over"><FbIcon /><span>{t('location:LINKAGE.FB_AlREADY_LINKED') || "筑前貴裕 / Optbusiness"}</span></p>
+                <Tooltip title={`${facebookName} / ${facebookPageName}`} arrow interactive style={{cursor:"pointer"}}>
+                  <p className="over"><FbIcon /><span>{`${facebookName} / ${facebookPageName}`}</span></p>
                 </Tooltip>
-                <Tooltip title={t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Freeわんぱくグルメ日記🍖✨✨"} arrow interactive style={{cursor:"pointer"}}>
-                  <p className="over">/ <InstaIcon /><span>{t('location:LINKAGE.IG_AlREADY_LINKED') || "allfree1188 / ALL Freeわんぱくグルメ日記🍖✨✨"}</span></p>
+                <Tooltip title={`${igAccountName} / ${igDisplayName}`} arrow interactive style={{cursor:"pointer"}}>
+                  <p className="over">/ <InstaIcon /><span>{`${igAccountName} / ${igDisplayName}`}</span></p>
                 </Tooltip>
               </div>
             </div>
@@ -525,12 +527,8 @@ function Dialogs() {
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
                   </span></p>
 
-                <Tooltip title={lineOfficialDisplayName || "連携されたアカウント名"} arrow interactive style={{cursor:"pointer"}}>
-                  <p><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
-                    <>
-                      {lineOfficialDisplayName}
-                    </>
-                  )}連携されたアカウント名
+                <Tooltip title={splanUser || ''} arrow interactive style={{cursor:"pointer"}}>
+                  <p><LineIcon /><span>{splanUser || ''}
                   </span></p>
                 </Tooltip>  
               </div>

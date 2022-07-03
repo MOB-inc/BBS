@@ -4,8 +4,25 @@
 .location-list {
   height: fit-content;
   float:right;
-  width: 220px;
-  height:40px;
+  >div>div{
+    width: 220px ;
+    height:40px;
+    text-align: left;
+  }
+  .label{
+    font-size: 10px;
+    left: -3px;
+    top: -24px;
+  }
+  .label:before{
+    content:"";
+    width:100%;
+    height:50%;
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    top: calc(50% - 1px);
+  }
   .item {
     height: 45px;
     line-height: 45px;
