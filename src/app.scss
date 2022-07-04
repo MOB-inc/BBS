@@ -52,3 +52,21 @@ select {
 textarea {
   resize: none;
 }
+
+
+// Mui-css -------------------------------------------------------------------
+.MuiTooltip-popper .MuiTooltip-tooltip{
+  font-size: 11px ;
+  font-weight: 400;
+  padding:8px 12px;
+  line-height: 16px;
+  background-color: #757575;
+}
+span.highlight {
+  svg {
+    path {            
+      fill: #cc0099;
+      fill-opacity: 1;
+    }
+  }
+}

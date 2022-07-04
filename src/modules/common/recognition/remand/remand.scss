@@ -49,13 +49,6 @@
         display: block;
         min-width: 1220px;
       }
-      span.highlight {
-        svg {
-          path {
-            fill: $text-color-selected;
-          }
-        }
-      }
       > div.tbody .cell {
         color: $black;
       }

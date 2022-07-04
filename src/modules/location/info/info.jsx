@@ -102,7 +102,9 @@ function LocationInfo() {
                 <th className="">アクセスユーザー</th>
                 <th className="">
                   投稿数{' '}
-                  <span className="filter">
+                  <span className={`${
+                    sorts?.field === 'posting_number' ? 'highlight filter' : 'filter'
+                  }`}>
                     {sorts?.field === 'posting_number' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
@@ -121,7 +123,9 @@ function LocationInfo() {
                 </th>
                 <th className="">
                   フォロワー
-                  <span className="filter">
+                  <span className={`${
+                    sorts?.field === 'no_of_followers' ? 'highlight filter' : 'filter'
+                  }`}>
                     {sorts?.field === 'no_of_followers' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
@@ -140,7 +144,9 @@ function LocationInfo() {
                 </th>
                 <th className="">
                   フォロー
-                  <span className="filter">
+                  <span className={`${
+                    sorts?.field === 'no_of_followings' ? 'highlight filter' : 'filter'
+                  }`}>
                     {sorts?.field === 'no_of_followings' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
@@ -232,9 +238,9 @@ function LocationInfo() {
                     )}
                   </span>
                 </th> */}
-                <th className="">
+                <th>
                   評価
-                  <span className="filter">
+                  <span className={`${ sorts?.field === 'rating' ? 'highlight filter' : 'filter' }`}>
                     {sorts?.field === 'rating' && sorts?.order === 'asc' ? (
                       <ArrowUp
                         onClick={() =>
@@ -250,9 +256,9 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className="">
+                <th className={`${ sorts?.field === 'two_or_less' ? 'highlight filter' : 'filter' }`}>
                   ☆２以下
-                  <span className="filter">
+                  <span rating>
                     {sorts?.field === 'two_or_less' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
@@ -277,7 +283,7 @@ function LocationInfo() {
                 </th>
                 <th className="">
                   送信数/上限
-                  <span className="filter">
+                  <span className={`${ sorts?.field === 'line_official_total_usage' ? 'highlight filter' : 'filter' }`}>
                     {sorts?.field === 'line_official_total_usage' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
@@ -302,7 +308,7 @@ function LocationInfo() {
                 </th>
                 <th className="">
                   友だち数
-                  <span className="filter">
+                  <span className={`${ sorts?.field === 'line_official_followers' ? 'highlight filter' : 'filter' }`}>
                     {sorts?.field === 'line_official_followers' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp

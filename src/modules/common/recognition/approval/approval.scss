@@ -109,14 +109,6 @@
         display: block;
         min-width: 1220px;
       }
-      span.highlight {
-        svg {
-          path {            
-            fill: #cc0099;
-            fill-opacity: 1;
-          }
-        }
-      }
       > div.tbody .cell {
         color: $black;
       }
