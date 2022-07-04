@@ -83,15 +83,14 @@
   }
 
   .selected {
-    // background: linear-gradient(
-    //     0deg,
-    //     $side-menu-selected-color,
-    //     $side-menu-selected-color
-    //   ),
-    //   linear-gradient(0deg, #f8ccee, #f8ccee),
-    //   linear-gradient(0deg, #f8ccee, #f8ccee), #f8ccee;
-		// background-color: $side-menu-selected-color;
-		background: #F8CCEE;
+    background: linear-gradient(
+        0deg,
+        $side-menu-selected-color,
+        $side-menu-selected-color
+      ),
+      linear-gradient(0deg, #f8ccee, #f8ccee),
+      linear-gradient(0deg, #f8ccee, #f8ccee), #f8ccee;
+		background-color: $side-menu-selected-color;
     svg {
       path {
         fill: $side-menu-color;
