@@ -111,8 +111,9 @@
       }
       span.highlight {
         svg {
-          path {
-            fill: $text-color-selected;
+          path {            
+            fill: #cc0099;
+            fill-opacity: 1;
           }
         }
       }
