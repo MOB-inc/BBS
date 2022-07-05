@@ -22,8 +22,10 @@ const getOEMConfig = () => {
 
   switch (getSubDomain()) {
     case 'localhost': // ローカル
-      config.header_background_color = '#181818';
-      config.header_text_color = '#ffffff';
+      // config.header_background_color = '#181818';
+      config.header_background_color = '#ffffff';
+      // config.header_text_color = '#ffffff';
+      config.header_text_color = '#000000';
       config.inquiries_phone_number = '03-5358-9956';
       config.inquiries_phone_hour = '平日10:00~17:00';
       config.header_logo_image_path = `${process.env.REACT_APP_AWS_S3_BASE_URL}/files/uploaded/local/partners/header_logo.png`;
@@ -31,7 +33,8 @@ const getOEMConfig = () => {
       config.login_background_image_path = `${process.env.REACT_APP_AWS_S3_BASE_URL}/files/uploaded/local/partners/login_background.jpg`;
       config.app_location_add_text = 'ロケーション追加';
       config.app_location_add_url = 'https://forms.gle/YBKkqENEwLoRb6RH7';
-      config.side_menu_color = '#cc0099';
+			config.side_menu_color = '#cc0099';
+			config.side_menu_selected_color = '#f8ccee';
       config.contrast_color = '#fdecf0';
       config.login_text_color = '#ffffff';
       config.graph_color_main = 'rgb(204, 0, 153)';

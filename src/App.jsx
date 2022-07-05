@@ -69,7 +69,7 @@ function App() {
   // mob
   document.documentElement.style.setProperty(
     '--prime-color', // #cc0099
-    config().prime_color, 
+    config().prime_color,
   );
   document.documentElement.style.setProperty(
     '--second-color', // #F8CCEE

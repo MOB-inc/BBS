@@ -75,7 +75,7 @@ function DefaultHeader() {
       }`}
       style={{
         backgroundColor: config().header_background_color,
-        color: config().header_text_color,
+				color: config().header_text_color,
       }}
     >
       <div className="left col-xs-12 col-md-6">
@@ -107,22 +107,24 @@ function DefaultHeader() {
                 display: 'flex',
               }}
             >
-              <div className='header-recog-box'>
+              <div className="header-recog-box">
                 <HeaderRecognzationIcon
                   className="icon-svg"
-                  style={{ fill: config().header_text_color, fillOpacity: 1, }}
-								/>
-								{recognitionCount !== 0 ? (
-									<>
-										<div className="total-number">
-											{/* ({recognitionCount}) */}
-										</div>
-									</>
-								) : (
-									<></>
-								)}
+                  style={{ fill: config().header_text_color, fillOpacity: 1 }}
+                />
+                {recognitionCount !== 0 ? (
+                  <>
+                    <div className="total-number">
+                      {/* ({recognitionCount}) */}
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
               </div>
-              <div className='header-recog'>{t('common:HEADER.RECOGNITION')}</div>
+              <div className="header-recog">
+                {t('common:HEADER.RECOGNITION')}
+              </div>
             </div>
             <CDropdown
               className={`${

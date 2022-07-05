@@ -64,9 +64,17 @@ textarea {
 }
 span.highlight {
   svg {
-    path {            
+    path {
       fill: #cc0099;
       fill-opacity: 1;
     }
   }
+}
+
+.MuiInputBase-root {
+	color: $font-color-black;
+}
+.WithStyles\(ForwardRef\(InputBase\)\)-input-51 {
+	border: 1px solid $border-color;
+	color: $font-color-gray;
 }
