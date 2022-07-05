@@ -50,13 +50,13 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
       }
     }
     const url2 = window.location.pathname;
-    if(!url2.match(/contract/)){
-      const elem2 = document.getElementById('locName');
-      elem2.innerHTML = "";
-      
+    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
+      // const elem2 = document.getElementById('locName');
+      console.log("ttt");
+      // elem2.innerHTML = "abc";
     }
   });
-
+  
   useEffect(async () => {
     const params = {
       page,
@@ -141,6 +141,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   const { Option } = components;
   const IconOption = (props) => {
   const { data, value } = props;
+  
     console.log('value in select option', value, selectedValue);
     return (
       <Option {...props}>
@@ -155,10 +156,12 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
               size="small"
               color={config().side_menu_color}
               inputProps={{ 'aria-label': 'A' }}
+              className="radio"
             />
           </Box>
           <Box>{data.label}</Box>
         </Box>
+        
       </Option>
     );
   };
@@ -185,13 +188,19 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   const handleChange = (event) => {
     const url2 = window.location.pathname;
     setSelectedValue(event.value);
-    if(!url2.match(/contract/)){
+    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
       const elem2 = document.getElementById('locName');
       elem2.innerHTML = event.label;
     }
   };
   const getLocationsData = async () => {
     const responseData = await getLocations();
+    console.log("bbb",responseData);
+    const url2 = window.location.pathname;
+    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
+      const elem2 = document.getElementById('locName');
+      elem2.innerHTML = responseData.result.data[0].name;
+    }
     if (responseData?.success) {
       const locationArrLoop = responseData.result.data.map((val) => ({
         label: val.name,

@@ -21,7 +21,7 @@
     padding:0;
   }
   .MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    border-left: 1px solid $border-color;
   }
   .head{
     display: flex;
@@ -35,6 +35,7 @@
   button{
     color:$button-active-color;
     overflow: hidden;
+    border-color: $border-color;
     a{
       width:140px;
       background-color: #fff;
@@ -62,7 +63,7 @@
     transform: translate(14px, 12px) scale(1);
   }
   .fade{
-    background: #f3f4f6;
+    background-color: $background-color;
   }
 }
 .over{

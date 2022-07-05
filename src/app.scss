@@ -52,8 +52,14 @@ select {
 textarea {
   resize: none;
 }
-
-
+// mob -------------------------------------------------
+.main > .content{
+  overflow: scroll;
+  height:calc(100vh - 61px ) !important;
+}
+.body{
+  overflow: hidden;
+}
 // Mui-css -------------------------------------------------------------------
 .MuiTooltip-popper .MuiTooltip-tooltip{
   font-size: 11px ;

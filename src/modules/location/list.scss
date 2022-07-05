@@ -3,11 +3,21 @@
 
 .location-list {
   height: fit-content;
-  float:right;
+  .radio{
+    padding:0;
+    margin:5px;
+  }
   >div>div{
     width: 220px ;
     height:40px;
     text-align: left;
+    >div{
+      height:40px;
+      border: 1px solid $border-color;
+      >div{
+        padding-top:0;
+      }
+    }
   }
   .label{
     font-size: 10px;
@@ -65,11 +75,6 @@
       width: 100%;
       margin-right: 6px;
     }
-  }
-  .header {
-    font-weight: bold;
-    color: $text-color;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
   }
   .body {
     overflow-y: auto;
