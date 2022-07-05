@@ -66,7 +66,7 @@ function App() {
     '--contrast-color',
     config().contrast_color,
   );
-  //mob
+  // mob
   document.documentElement.style.setProperty(
     '--prime-color', // #cc0099
     config().prime_color, 
@@ -86,10 +86,6 @@ function App() {
   document.documentElement.style.setProperty(
     '--tooltip-color', // #757575
     config().tooltip_color,
-  );
-  document.documentElement.style.setProperty(
-    '--prime-color',
-    config().config.button_active_main_color,// #cc0099
   );
   document.documentElement.style.setProperty(
     '--button-active-back-color',// e580cc
