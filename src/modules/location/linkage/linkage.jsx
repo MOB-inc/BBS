@@ -573,4 +573,5 @@ function LocationLinkage() {
   );
 }
 
+
 export default LocationLinkage;
