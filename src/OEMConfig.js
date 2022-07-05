@@ -45,7 +45,7 @@ const getOEMConfig = () => {
       config.background_color = '#f3f4f6'; // #F3F4F6
       config.tooltip_color = '#757575'; // #757575
       config.button_active_back_color = '#e580cc';// e580cc
-      config.border_color = '#e0e0e0'; // ?これから
+      config.border_color = '#bbbbbb'; // #bbbbbb
       break;
     case 'dev': // 開発
       config.header_background_color = '#181818';

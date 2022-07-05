@@ -1,36 +1,37 @@
 @import '/src/commons/styles/color.scss';
 @import '/src/commons/styles/variables.scss';
 
-.MuiToggleButton-root.Mui-selected {
-  background-color:transparent;
-}
-a{
-  line-height: 1;
-  padding:17px 12px;
-  font-size:14px;
-  color:rgba(0, 0, 0, 0.54);
-}
-a:hover{
-  color:#000;
-}
-.MuiButtonBase-root{
-  padding:0;
-}
-.MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
-  border-left: 1px solid rgba(0, 0, 0, 0.12);
-}
-.head{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom:12px;
-  div.explanation{
-    margin-bottom:0 !important;
-  }
-}
+
 .location-navigation{
   text-align: left;
   display: block;
+  a{
+    line-height: 1;
+    padding:17px 0;
+    font-size:14px;
+    color:rgba(0, 0, 0, 0.54);
+  }
+  a:hover{
+    color:#000;
+  }
+  .MuiToggleButton-root.Mui-selected {
+    background-color:transparent;
+  }
+  .MuiButtonBase-root{
+    padding:0;
+  }
+  .MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:12px;
+    div.explanation{
+      margin-bottom:0 !important;
+    }
+  }
   button{
     color:$button-active-color;
     overflow: hidden;
