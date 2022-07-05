@@ -66,7 +66,38 @@ function App() {
     '--contrast-color',
     config().contrast_color,
   );
-
+  //mob
+  document.documentElement.style.setProperty(
+    '--prime-color', // #cc0099
+    config().prime_color, 
+  );
+  document.documentElement.style.setProperty(
+    '--second-color', // #F8CCEE
+    config().second_color,
+  );
+  document.documentElement.style.setProperty(
+    '--third-color',  // #fbebf7
+    config().third_color,
+  );
+  document.documentElement.style.setProperty(
+    '--background-color', // #f3f4f6
+    config().background_color,
+  );
+  document.documentElement.style.setProperty(
+    '--tooltip-color', // #757575
+    config().tooltip_color,
+  );
+  document.documentElement.style.setProperty(
+    '--prime-color',
+    config().config.button_active_main_color,// #cc0099
+  );
+  document.documentElement.style.setProperty(
+    '--button-active-back-color',// e580cc
+    config().button_active_back_color,
+  );
+  document.documentElement.style.setProperty(
+    '--border-color',
+    config().border_color, // ?これから  );
   const history = useHistory();
   const [menuMode, setMenuMode] = useLocalStorageState(
     MENU_MODE_KEY,

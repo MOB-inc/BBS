@@ -38,6 +38,14 @@ const getOEMConfig = () => {
       config.graph_color_sub = 'rgb(253, 236, 240)';
       config.api_host = 'https://dev-api.optimize-business.com/api/v1';
       config.app_release_note_url = 'https://www.bbs-grp.com/releasenote';
+      // mob
+      config.prime_color = '#cc0099'; // #CC0099
+      config.second_color = 'f8ccee'; // #F8CCEE
+      config.third_color = 'fbebf7';  // #FBEBF7
+      config.background_color = '#f3f4f6'; // #F3F4F6
+      config.tooltip_color = '#757575'; // #757575
+      config.button_active_back_color = '#e580cc';// e580cc
+      config.border_color = '#e0e0e0'; // ?これから
       break;
     case 'dev': // 開発
       config.header_background_color = '#181818';
