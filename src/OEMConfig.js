@@ -69,6 +69,14 @@ const getOEMConfig = () => {
       config.is_line_notification = true;
       config.app_release_note_url = 'https://www.bbs-grp.com/releasenote';
       config.is_show_splan = true;
+      // mob
+      config.prime_color = '#cc0099'; // #CC0099
+      config.second_color = 'f8ccee'; // #F8CCEE
+      config.third_color = 'fbebf7';  // #FBEBF7
+      config.background_color = '#f3f4f6'; // #F3F4F6
+      config.tooltip_color = '#757575'; // #757575
+      config.button_active_back_color = '#e580cc';// e580cc
+      config.border_color = '#bbbbbb'; // #bbbbbb
       break;
     case 'oem-dev': // OEM開発
       config.header_background_color = '#ffffff';

@@ -60,8 +60,7 @@ function CustomerInfo() {
   return (
     <div className="customer-info">
       <div className="head">
-          <Explanation screen="CONTRACT" />
-          <LocationList url="/locations/contract" />
+          <Explanation screen="CONTRACT" /><LocationList url="/locations/contract" />
       </div>
       <Navigation />
       <div className="customer-content">

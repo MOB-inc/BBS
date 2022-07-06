@@ -73,7 +73,9 @@ function LocationInfo() {
     <div className="location-info">
       {menuMode === 'sidebar' && (
         <>
-          <Explanation screen="LOCATION_INFO" />
+          <div className="head">
+            <Explanation screen="LOCATION_INFO" />
+          </div>
           <Navigation />
         </>
       )}
