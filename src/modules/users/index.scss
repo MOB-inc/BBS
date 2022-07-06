@@ -2,7 +2,7 @@
 @import 'src/commons/styles/variables.scss';
 
 div.user-page {
-  $border: 1px solid rgba(224,224,224,1);
+  // $border: 1px solid rgba(224,224,224,1);
   padding: 12px 9px 9px 12px;
 	text-align: left;
   @media (min-width: $sm) {
@@ -18,8 +18,8 @@ div.user-page {
 		}
 	}
 	> a .MuiButtonBase-root {
-		background-color: $button-active-color;
-		color: $paper-color;
+		background-color: $prime-color;
+		color: $font-color-white;
 		width: 90px;
 		height: 36px;
 	}
@@ -42,7 +42,7 @@ div.user-page {
 				font-size: 12px;
 			}
 			.MuiInputBase-root {
-				color: rgba(0,0,0,0.4);
+				color: $font-color-gray;
 				width: 220px;
 				height: 40px;
 				padding-left: 0;
@@ -55,9 +55,12 @@ div.user-page {
 				}
 				> input {
 					padding-left: 16px;
+					&:placeholder {
+						color: $font-color-lightGlay;
+					}
 				}
 				> .PrivateNotchedOutline-root-49 {
-					border-color: #c4c4c4;
+					border-color: $border-color;
 				}
 			}
 		}
@@ -65,8 +68,8 @@ div.user-page {
 			width: 65px;
 			height: 36px;
 			font-size: 14px;
-			color: $paper-color;
-			background-color: $button-active-color;
+			color: $font-color-white;
+			background-color: $prime-color;
 			padding: 8px 15px;
 		}
 	}
@@ -74,7 +77,7 @@ div.user-page {
 		padding: 0 12px;
 	}
   .list {
-    border: 1px solid #E0E0E0;
+    border: 1px solid $border-color;
     border-radius: 4px;
     overflow-x: auto;
     > div.table {
@@ -97,7 +100,7 @@ div.user-page {
 				margin: 0;
 			}
       > div.tbody .cell {
-        color: $black;
+        color: $font-color-black;
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -162,13 +165,13 @@ div.user-page {
         div.row {
           div.cell {
             // background: $background-color-list-odd;
-						border-bottom: 1px solid #e0e0e0;
+						border-bottom: 1px solid $border-color;
           }
         }
       }
       div.thead div.row div.cell {
         // border-bottom: 1px solid rgba(0, 0, 0, 0.22);
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid $border-color;
 				justify-content: center;
       }
 			div.tbody div.row div.cell.edit {
@@ -188,7 +191,7 @@ div.user-page {
 				}
       }
       div.tbody div.row div.cell:first-child:hover {
-        color: $black;
+        color: $font-color-black;
       }
 			div.thead div.row .cell.username {
 				width: 17%;
@@ -247,32 +250,32 @@ div.user-page {
 				width: 4%;
 				justify-content: center;
 			}
-			div.thead div.row .cell.username,
 			div.thead div.row .cell.login-id,
 			div.thead div.row .cell.count,
 			div.thead div.row .cell.location,
 			div.thead div.row .cell.approval,
 			div.thead div.row .cell.connect,
-			div.thead div.row .cell.fix-p {
+			div.thead div.row .cell.fix-p,
+			div.thead div.row .cell.edit {
 				position: relative;
 			}
-			div.thead div.row .cell.username:before,
 			div.thead div.row .cell.login-id:before,
 			div.thead div.row .cell.count:before,
 			div.thead div.row .cell.location:before,
 			div.thead div.row .cell.approval:before,
 			div.thead div.row .cell.connect:before,
-			div.thead div.row .cell.fix-p:before {
+			div.thead div.row .cell.fix-p:before,
+			div.thead div.row .cell.edit:before {
 				position: absolute;
 				display: block;
 				content: "";
 				width: 1px;
 				height: 14px;
-				background-color: #e0e0e0;
+				background-color: $border-color;
 			}
-			div.thead div.row .cell.username:before{
-				left: 11px;
-			}
+			// div.thead div.row .cell.username:before{
+			// 	left: 11px;
+			// }
 			div.thead div.row .cell.login-id:before {
 				left: 0;
 			}
@@ -289,6 +292,9 @@ div.user-page {
 				left: 0;
 			}
 			div.thead div.row .cell.fix-p:before {
+				left: 0;
+			}
+			div.thead div.row .cell.edit:before {
 				left: 0;
 			}
     }

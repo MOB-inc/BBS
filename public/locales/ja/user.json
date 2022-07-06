@@ -63,7 +63,7 @@
       "PASSWORD": "パスワード",
       "CONFIRM_PASSWORD": "パスワード(確認)",
       "CAPTION": "半角英数字6文字以上",
-      "CREATE": "作成",
+      "CREATE": "パスワード設定",
       "UPDATE": "登録",
       "RETURN": "戻る",
       "MESSAGE": {

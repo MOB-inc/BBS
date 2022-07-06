@@ -98,10 +98,13 @@
             // padding: 0 5px;
 						padding: 8px 12px;
 						border-radius: 4px;
-						color: rgba(0,0,0,.6);
+						color: $font-color-black;
           }
         }
       }
+			.flex-container button.btn-return .MuiButton-label {
+					font-weight: 500;
+			}
     }
   }
 }

@@ -38,7 +38,7 @@
       "CREATION": "グループ作成"
     },
     "LOCATION": {
-      "HEADER": "ロケーション"		
+      "HEADER": "ロケーション"
     },
     "CREATE": {
       "HEADER": "グループ名",
@@ -64,7 +64,7 @@
   },
   "NOTIFICATION": {
     "NOTIFICATION_SETTING": "通知設定",
-    "LINE_LOGIN": "ログイン",
+    "LINE_LOGIN": "LINE連携（ログイン）",
     "REVIEW": "新着口コミ",
     "STATUS_CONNECTED": "連携済み",
     "STATUS_DISCONNECTED": "未連携",

@@ -87,17 +87,19 @@
 			padding: 24px 20px;
 			.table-list {
 				border: none;
+				margin-top: 20px;
 				> div {
 					width: 25%;
 					border-right: 0;
+					margin-bottom: 11px;
 				}
 				> div:nth-child(10n + 1), div:nth-child(10n + 2), div:nth-child(10n + 3), div:nth-child(10n + 4), div:nth-child(10n + 5) {
 					background-color: $paper-color;
-					margin-top: 22px;
+					// margin-top: 22px;
 					padding-left: 0;
 				}
 				.MuiCheckbox-colorSecondary.Mui-checked svg path {
-					color: $button-active-color;
+					color: $prime-color;
 				}
 				.MuiFormControlLabel-label {
 					overflow: hidden;
@@ -109,10 +111,13 @@
 				label {
 					margin: 0;
 					> .MuiButtonBase-root {
-						padding-left: 0;
+						// padding-left: 0;
 					}
 					.MuiIconButton-colorSecondary:hover {
 						background-color: transparent;
+					}
+					.MuiIconButton-label {
+						margin-left: -6px;
 					}
 				}
 			}
@@ -121,8 +126,8 @@
 			display: flex;
 		}
 		button.MuiButtonBase-root {
-			color: $paper-color;
-			background-color: $button-active-color;
+			color: $font-color-white;
+			background-color: $prime-color;
 			display: block;
 			margin: 20px 0 0 auto;
 			padding: 6px 16px;
@@ -133,8 +138,8 @@
 			margin-right: 29px;
 			margin-top: 0;
 			background-color: $paper-color;
-			color: $button-active-color;
-			border: 1px solid $button-active-color;
+			color: $prime-color;
+			border: 1px solid $prime-color;
 			> .MuiButton-label {
 				font-weight: 600;
 				font-size: 14px;

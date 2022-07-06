@@ -51,13 +51,13 @@ function Notification() {
             className="button line"
             onClick={handleLineLinkage}
           >
-            <img
+            {/* <img
               src="/icons/line.png"
               alt="LINE"
               height="30px"
               width="30px"
               style={{ borderRadius: '5px' }}
-            />
+            /> */}
             <span className="login">{t('common:NOTIFICATION.LINE_LOGIN')}</span>
           </button>
           <div className="status">
