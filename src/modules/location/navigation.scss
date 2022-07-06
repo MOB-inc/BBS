@@ -1,6 +1,7 @@
 @import '/src/commons/styles/color.scss';
 @import '/src/commons/styles/variables.scss';
 
+
 .location-navigation{
   text-align: left;
   display: block;
@@ -11,13 +12,13 @@
     color:rgba(0, 0, 0, 0.54);
   }
   a:hover{
-    color:#444;
+    color:#000;
   }
   .MuiToggleButton-root.Mui-selected {
     background-color:transparent;
   }
   .MuiButtonBase-root{
-    padding:0 0 0 0;
+    padding:0;
   }
   .MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
     border-left: 1px solid $border-color;
@@ -44,6 +45,7 @@
       background-color: $button-active-bg-color;
     }
   }
+
   .MuiSelect-outlined.MuiSelect-outlined{
     height:40px;
     box-sizing: border-box;

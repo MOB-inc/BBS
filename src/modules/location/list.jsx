@@ -49,7 +49,12 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
     }
-    console.log("mount");
+    const url2 = window.location.pathname;
+    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
+      // const elem2 = document.getElementById('locName');
+      console.log("ttt");
+      // elem2.innerHTML = "abc";
+    }
   });
   
   useEffect(async () => {
@@ -195,12 +200,12 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
         label: val.name,
         value: val.id,
       }));
-      console.log('locationArrLoop', locationArrLoop);
+      console.log('locationArrLoop', locationArrLoop);      
       setLocationsArr(locationArrLoop);
       const url2 = window.location.pathname;
       if(url2.match(/linkage/) || url2.match(/phrase/)){
         const elem2 = document.getElementById('locName');
-        elem2.innerHTML = await locationArrLoop[0].label;
+        elem2.innerHTML = responseData.result.data[0].name;
       }
     }
   };

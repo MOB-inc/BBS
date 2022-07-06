@@ -93,7 +93,7 @@ function App() {
   );
   document.documentElement.style.setProperty(
     '--border-color',
-    config().border_color, // ?これから  );
+    config().border_color, // 
   );
   const history = useHistory();
   const [menuMode, setMenuMode] = useLocalStorageState(
