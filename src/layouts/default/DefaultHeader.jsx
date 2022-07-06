@@ -115,7 +115,7 @@ function DefaultHeader() {
                 {recognitionCount !== 0 ? (
                   <>
                     <div className="total-number">
-                      ({recognitionCount})
+                      {/* ({recognitionCount}) */}
                     </div>
                   </>
                 ) : (

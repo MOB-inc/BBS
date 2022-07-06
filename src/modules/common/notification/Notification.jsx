@@ -51,16 +51,16 @@ function Notification() {
             className="button line"
             onClick={handleLineLinkage}
           >
-            {/* <img
+            <span className="login">{t('common:NOTIFICATION.LINE_LOGIN')}</span>
+          </button>
+          <div className="status">
+            <img
               src="/icons/line.png"
               alt="LINE"
               height="30px"
               width="30px"
               style={{ borderRadius: '5px' }}
-            /> */}
-            <span className="login">{t('common:NOTIFICATION.LINE_LOGIN')}</span>
-          </button>
-          <div className="status">
+            />
             <div className={lineStatus ? `linked` : ''}>
               {lineStatus
                 ? t('common:NOTIFICATION.STATUS_CONNECTED')
@@ -69,17 +69,14 @@ function Notification() {
           </div>
         </div>
       )}
-      <table className="table">
-        <thead>
-          <th>　</th>
-          <th>メール通知</th>
-          {config().is_line_notification && <th>LINE通知</th>}
-        </thead>
-        <tbody>
+      <div className="table-wrapper">
+        <table className="table">
+          <tr>
+            <th rowSpan="2">{t('common:NOTIFICATION.REVIEW')}</th>
+            <th>メール通知</th>
+            {config().is_line_notification && <th>LINE通知</th>}
+          </tr>
           <tr key={user?.id}>
-            <td>
-              <span>{t('common:NOTIFICATION.REVIEW')}</span>
-            </td>
             <td>
               <Switch
                 id={`review-email-${user.id}`}
@@ -116,8 +113,8 @@ function Notification() {
               </td>
             )}
           </tr>
-        </tbody>
-      </table>
+        </table>
+      </div>
     </div>
   );
 }

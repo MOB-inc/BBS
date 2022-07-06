@@ -1,15 +1,15 @@
 @import 'src/commons/styles/color.scss';
 
 .notification-settings {
-  $border: 1px solid rgba(0, 0, 0, 0.22);
+  // $border: 1px solid rgba(0, 0, 0, 0.22);
   .line-login {
     display: flex;
     align-items: center;
     .button {
       outline: none;
       border: none;
-      width: 125px;
-      height: 34px;
+      width: 209px;
+      height: 48px;
       display: flex;
       padding: 2px;
       flex-direction: space-between;
@@ -17,38 +17,62 @@
       span {
         display: block;
         width: 100%;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 14px;
         line-height: 33px;
         color: $paper-color;
         text-align: center;
+				line-height: 48px;
       }
     }
     .line {
-      background: #61ff61;
+      // background: #61ff61;
+			background-color: #06c755;
       border-radius: 4px;
-      padding-left: 4px;
+      // padding-left: 4px;
+			margin: 40px 48px 0 25px;
     }
     img {
       display: flex;
       align-items: center;
+			margin-right: 8px;
+			width: 30px;
+			height: 30px;
     }
     .status {
       margin: 17 auto auto 17;
+			display: flex;
+			align-items: center;
+			margin-top: 40px;
+			> div {
+				color: $prime-color;
+			}
     }
     .linked {
       color: $text-color-selected;
       font-weight: bold;
     }
   }
-  table {
-    table-layout: auto;
-  }
-  table tbody {
-    font-weight: bold;
-  }
-  table tbody tr {
-    border-right: $border;
-    border-bottom: $border;
-  }
+
+	.table-wrapper {
+		margin: 40px 25px;
+		background-color: $paper-color;
+		border-radius: 4px;
+		border: 1px solid $border-color;
+		table {
+			table-layout: auto;
+			margin-bottom: 0;
+			th {
+				vertical-align: middle;
+				border-top: none;
+				&:first-child {
+					border-right: 1px solid $border-color;
+				}
+			}
+		}
+	}
+  // table tr {
+  //   border-right: $border-color;
+  //   border-bottom: $border-color;
+  // }
 }
