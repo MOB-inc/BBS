@@ -1,7 +1,6 @@
 @import '/src/commons/styles/color.scss';
 @import '/src/commons/styles/variables.scss';
 
-
 .location-navigation{
   text-align: left;
   display: block;
@@ -45,7 +44,6 @@
       background-color: $button-active-bg-color;
     }
   }
-
   .MuiSelect-outlined.MuiSelect-outlined{
     height:40px;
     box-sizing: border-box;
