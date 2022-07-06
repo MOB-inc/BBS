@@ -48,12 +48,11 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
       if (!route?.params?.id && resp?.result?.data?.[0].id) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
-    }
-    const url2 = window.location.pathname;
-    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
-      // const elem2 = document.getElementById('locName');
-      console.log("ttt");
-      // elem2.innerHTML = "abc";
+      const url2 = window.location.pathname;
+      if(url2.match(/linkage/) || url2.match(/phrase/)){
+        const elem2 = document.getElementById('locName');
+        elem2.textContent = await resp?.result?.data[0].name;
+      }
     }
   });
   
@@ -190,7 +189,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
     setSelectedValue(event.value);
     if(url2.match(/linkage/) || url2.match(/phrase/)){
       const elem2 = document.getElementById('locName');
-      elem2.innerHTML = event.label;
+      elem2.textContent = event.label;
     }
   };
   const getLocationsData = async () => {
@@ -205,7 +204,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
       const url2 = window.location.pathname;
       if(url2.match(/linkage/) || url2.match(/phrase/)){
         const elem2 = document.getElementById('locName');
-        elem2.innerHTML = responseData.result.data[0].name;
+        elem2.textContent = await locationArrLoop[0].label;
       }
     }
   };
