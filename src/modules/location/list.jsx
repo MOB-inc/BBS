@@ -188,27 +188,25 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   const handleChange = (event) => {
     const url2 = window.location.pathname;
     setSelectedValue(event.value);
-    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
+    if(url2.match(/linkage/) || url2.match(/phrase/)){
       const elem2 = document.getElementById('locName');
       elem2.innerHTML = event.label;
     }
   };
   const getLocationsData = async () => {
     const responseData = await getLocations();
-    console.log("bbb",responseData);
-    const url2 = window.location.pathname;
-    if(url2.match(/linkage/) || url2.match(/contract/) || url2.match(/phrase/)){
-      const elem2 = document.getElementById('locName');
-      elem2.innerHTML = responseData.result.data[0].name;
-    }
     if (responseData?.success) {
       const locationArrLoop = responseData.result.data.map((val) => ({
         label: val.name,
         value: val.id,
       }));
       console.log('locationArrLoop', locationArrLoop);
-
       setLocationsArr(locationArrLoop);
+      const url2 = window.location.pathname;
+      if(url2.match(/linkage/) || url2.match(/phrase/)){
+        const elem2 = document.getElementById('locName');
+        elem2.innerHTML = responseData.result.data[0].name;
+      }
     }
   };
   useEffect(() => {
