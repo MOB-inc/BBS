@@ -230,7 +230,7 @@ function Approval() {
               />
               <CDropdown direction="dropup">
                 <CDropdownToggle href="#">
-                  <p className="filter"><FilterIcon height={12} width={18}/>FILTERS</p>
+                  <p className="filters"><FilterIcon height={12} width={18}/>FILTERS</p>
                 </CDropdownToggle>
                 <CDropdownMenu>
                   <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
@@ -250,7 +250,7 @@ function Approval() {
           <div className="thead">
             <div className="row">
               {bulkState && (
-                <div className="cell w5p" >
+                <div className="cell a" >
                   <div className="start">
                     {/* {bulkState && ( */}
                     <Checkbox
@@ -268,7 +268,7 @@ function Approval() {
                 </div>
 
               )}
-              <div className="cell w15p">
+              <div className="cell b">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp;&nbsp;
                 <span
@@ -285,7 +285,7 @@ function Approval() {
                   )}
                 </span>
               </div>
-              <div className="cell w25p">
+              <div className="cell c">
                 {t('recognition:REMAND.APPLICANT')}
                 &nbsp;&nbsp;
                 <span
@@ -301,7 +301,7 @@ function Approval() {
               {/* <div className="cell w7p">
                 {t('recognition:REMAND.NO_OF_STORE')}
               </div> */}
-              <div className="cell w25p">
+              <div className="cell d">
                 {t('recognition:REMAND.LOCATION')}
                 &nbsp;&nbsp;
                 <span
@@ -318,11 +318,11 @@ function Approval() {
                   )}
                 </span>
               </div>
-              <div className="cell w20p">
+              <div className="cell e">
                 {t('recognition:REMAND.CONTENTS')}
               </div>
-              {/* <div className="cell w10p">{t('recognition:REMAND.TYPE')}</div> */}
-              <div className="cell w10p">{t('recognition:REMAND.NUM')}</div>
+              <div className="cell f">{t('recognition:REMAND.TYPE')}</div>
+              <div className="cell g">{t('recognition:REMAND.NUM')}</div>
             </div>
           </div>
           <div className="tbody">
@@ -349,7 +349,7 @@ function Approval() {
                         )}
                       </div> */}
                       {bulkState && (
-                        <div className="cell w5p">
+                        <div className="cell a">
                           <div className="start">
                             {/* {bulkState && ( */}
                               {/* <input
@@ -371,18 +371,20 @@ function Approval() {
                           </div>
                         </div>
                       )}
-                      <div className="cell w15p">
+                      <div className="cell b">
                         {dayjs
                           .utc(item?.post_datetime)
                           .tz(tz)
                           .format('YYYY/MM/DD, \xa0 HH:mm')}
                       </div>
-                      <div className="cell w25p">{item?.user_name}</div>
+                      <div className="cell c">{item?.user_name}</div>
                       {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
-                      <div className="cell w25p">{item?.location_name}</div>
-                      <div className="cell w20p content">{item?.contents}</div>
-                      <div className="cell w10p">
+                      <div className="cell d">{item?.location_name}</div>
+                      <div className="cell e content">{item?.contents}</div>
+                      <div className="cell f">{item.type === 1 ? 'GBP投稿' : '口コミ返信'}</div>
+                      <div className="cell g">
                         {item?.is_remanded}
+                        {console.log(item)}
                       </div>
                     </div>
                   </>

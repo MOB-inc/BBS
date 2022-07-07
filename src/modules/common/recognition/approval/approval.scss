@@ -2,7 +2,7 @@
 @import 'src/commons/styles/variables.scss';
 
 .approval {
-  padding: 24px 15px 0 25px;
+  padding: 28px;
   // .bulk-button {
   //   width: 114px;
   //   height: 37px;
@@ -27,13 +27,13 @@
   .pagination{
     display: none;
   }
-  .filter{
+  .filters{
     color:$prime-color;
     text-align:left;
     font-size: 13px;
     font-weight: 500;
   }
-  .filter svg{
+  .filters svg{
     margin-right:12px;
     margin-bottom:4px;
     path{
@@ -72,15 +72,14 @@
     }
   }
   > .approval-table {
-    overflow-x: auto;
-    padding:30px;
-    border-radius: 16px;
-    margin-top:25px;
+    padding:28px;
+    border-radius: 8px;
+    margin-top:28px;
     background-color: $paper-color;
     .flex{
       justify-content: flex-start;
       text-align: left;
-      margin-bottom:35px; 
+      margin-bottom:28px; 
     }
     .search input{
       font-size: 12px;
@@ -106,13 +105,73 @@
       border: 1px solid $border-color;
       overflow: hidden;
       overflow-x: scroll;
+      height:615px;
+      margin-bottom:0;
+      width:100%;
       > div.thead,
       div.tbody {
         display: block;
-        min-width: 1220px;
       }
-      > div.tbody .cell {
-        color: $font-color-black;
+      $block :60px;
+      > div.thead{
+        .row{
+          flex-wrap: nowrap;
+        }
+        .cell {
+          color: $font-color-black;
+        }
+        .cell.a{
+          min-width:$block * 1;
+        }
+        .cell.b{
+          min-width:$block * 3;
+        }
+        .cell.c{
+          min-width:$block * 3;
+        }
+        .cell.d{
+          min-width:$block * 4;
+        }
+        .cell.e{
+          width:100%;
+          min-width:$block * 3;
+        }
+        .cell.f{
+          min-width:$block * 2;
+        }
+        .cell.g{
+          min-width:$block * 2;
+        }
+      }
+      > div.tbody {
+        .row{
+          flex-wrap: nowrap;
+        }
+        .cell {
+          color: $font-color-black;
+        }
+        .cell.a{
+          min-width:$block * 1;
+        }
+        .cell.b{
+          min-width:$block * 3;
+        }
+        .cell.c{
+          min-width:$block * 3;
+        }
+        .cell.d{
+          min-width:$block * 4;
+        }
+        .cell.e{
+          width:100%;
+          min-width:$block * 3;
+        }
+        .cell.f{
+          min-width:$block * 2;
+        }
+        .cell.g{
+          min-width:$block * 2;
+        }
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -157,9 +216,6 @@
         }
       }
       > div.tbody {
-        height: 675px;
-        overflow-y: auto;
-        overflow-x: hidden;
         div.row div.cell {
           font-weight: normal;
           cursor: pointer;
