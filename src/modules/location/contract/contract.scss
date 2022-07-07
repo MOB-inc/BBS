@@ -1,26 +1,26 @@
 @import 'src/commons/styles/color.scss';
 @import 'src/commons/styles/variables.scss';
 
-$border: 1px solid rgba(0, 0, 0, 0.22);
+$border: 1px solid $border-color;
 .customer-info {
   .customer-content {
     margin-top: 28px;
     padding:40px 28px;
-    border-radius: 16px;
-    background-color: #fff;
+    border-radius: 8px;
+    background-color: $paper-color;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+    height:690px;
     .info {
       overflow: auto;
       width: 100%;
       table {
         display: flex;
         flex-flow: column;
-        height: 100%;
-        min-height: 544px;
+        height:calc(100vh - 324px);
         width: 100%;
         table-layout: auto;
         color: $black;
-        background-color: #fff;
+        background-color: $paper-color;
         border-radius: 4px;
         border:$border;
         thead {
@@ -44,12 +44,11 @@ $border: 1px solid rgba(0, 0, 0, 0.22);
             content:"";
             width:1px;
             height:14px;
-            background-color:  #e0e0e0;
+            background-color:  $border-color;
             position:absolute;
             left:0;
             top:20px;
           }
-  
         }
         tbody {
           /* body takes all the remaining available space */

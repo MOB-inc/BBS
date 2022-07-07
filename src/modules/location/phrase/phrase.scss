@@ -15,7 +15,7 @@
     content:"";
     width:100%;
     height:50%;
-    background-color: #fff;
+    background-color: $paper-color;
     position: absolute;
     z-index: -1;
     top: calc(50% - 1px);
@@ -29,11 +29,11 @@
     }
   }
   > .content {
-    margin-top: 40px;
+    margin-top: 28px;
     display: flex;
     flex-direction: column;
-    border-radius: 16px;
-    background-color: #fff;
+    border-radius: 8px;
+    background-color: $paper-color;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
     max-width: 740px;
     @media (min-width: $sm) {
@@ -50,15 +50,12 @@
     > .service-list {
       width: 100%;
       overflow: hidden;
-      padding-left: 35px;
-      padding-right: 35px;
-      padding-bottom: 35px;
+      padding:40px 28px 80px;
       text-align: left;
-      > p{
+      > #locName{
         text-align: left;
-        margin-top: 20px;
         font-size: 17px;
-        color:#000;
+        color:$font-color-black;
       }
       .MuiPaper-elevation1 {
         box-shadow: none;
@@ -74,14 +71,14 @@
             outline:none;
           }
           .MuiTab-textColorPrimary.Mui-selected {
-            color: $button-active-color;
+            color: $prime-color;
           }
         }
         .MuiTabs-scroller{
           overflow-x: auto !important;
         }
         .MuiTabs-indicator{
-          background-color: $button-active-color;
+          background-color: $prime-color;
           bottom: 9px;
           height:4px;
         }
@@ -99,7 +96,7 @@
           margin-right: 10px;
         }
         .service.active {
-          color: $button-active-color ;
+          color: $prime-color ;
           position:relative;
         }
         .service.active:after {
@@ -109,7 +106,7 @@
           height:3px;
           left:6px;
           bottom:0px;
-          background-color: $button-active-color;
+          background-color: $prime-color;
         }
       }
       div.title {
@@ -139,14 +136,14 @@
         div.editor {
           width: 100%;
           max-height: 675px;
-          background: #fff;
+          background: $paper-color;
           @media (max-width: $sm) {
             padding: 10px 10px 10px 10px;
           }
           padding: 10px 90px 10px 45px;
           position: relative;
           ::placeholder {
-            color: #acacac;
+            color: $font-color-lightGlay;
           }
           > textarea {
             min-height: 355px;
@@ -173,7 +170,7 @@
             }
             button{
               font-size:14px;
-              color:$button-active-color;
+              color:$prime-color;
               font-weight: 500;
             }
             > .pills {
@@ -212,7 +209,8 @@
           position: relative;
           background: $background-color-contrast;
           ::placeholder {
-            color: #acacac;
+            color: $font-color-lightGlay;
+            ;
           }
           > textarea {
             min-height: 65px;
@@ -231,7 +229,7 @@
             top: 10px;
             button{
               font-size:14px;
-              color:$button-active-color;
+              color:$prime-color;
               font-weight: 500;
             }
             > .pills {
@@ -281,12 +279,12 @@
           padding: 0 10px;
           font-size: 16px;
           box-sizing: border-box;
-          border: 1px solid rgba(0, 0, 0, 0.12);
+          border: 1px solid $border-color;
         }
         input:disabled,
         .css-1insrsq-control {
           background: #f0f0f0;
-          border: 1px solid rgba(0, 0, 0, 0.12);
+          border: 1px solid $border-color;
           color: #acacac;
         }
       }
@@ -303,13 +301,13 @@
 				padding:11px;
 				width:90px;
 				height:43px;
-        color:#fff;
+        color:$font-color-white;
         background-color:$button-active-color;
 			}
       .cancel2,
       .preview{
         background-color: #fff;
-        color:$button-active-color;
+        color:$prime-color;
       }
       .MuiInputBase-root{
         border-color:$border-color;

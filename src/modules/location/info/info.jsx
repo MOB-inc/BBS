@@ -258,9 +258,9 @@ function LocationInfo() {
                     )}
                   </span>
                 </th>
-                <th className={`${ sorts?.field === 'two_or_less' ? 'highlight filter' : 'filter' }`}>
+                <th>
                   ☆２以下
-                  <span rating>
+                  <span className={`${ sorts?.field === 'two_or_less' ? 'highlight filter' : 'filter' }`}>
                     {sorts?.field === 'two_or_less' &&
                     sorts?.order === 'asc' ? (
                       <ArrowUp
