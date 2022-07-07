@@ -6,12 +6,12 @@
     position: sticky;
     top: 122px;
     @media (min-width: $sm) {
-      top: 61px;
+      top: 64px;
     }
     bottom: 0;
     left: 0;
     width: auto;
-    height: calc(100vh - 61px);
+    height: calc(100vh - 64px);
     display: flex;
     float: left;
     @media (min-width: $sm) {
@@ -25,7 +25,7 @@
     flex-direction: row;
     .menubar {
       position: sticky;
-      top: 61px;
+      top: 64px;
       background-color: white;
       z-index: 2;
       &--closed {
