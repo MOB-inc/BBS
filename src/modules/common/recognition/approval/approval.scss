@@ -28,15 +28,17 @@
     display: none;
   }
   .filter{
-    color:#cc0099;
+    color:$prime-color;
     text-align:left;
-    padding-top:4px;
     font-size: 13px;
-    margin-bottom:10px;
+    font-weight: 500;
   }
   .filter svg{
     margin-right:12px;
     margin-bottom:4px;
+    path{
+      fill-opacity: 1;
+    }
   }
   .filter-pages {
     display: flex;
@@ -74,7 +76,7 @@
     padding:30px;
     border-radius: 16px;
     margin-top:25px;
-    background-color: #fff;
+    background-color: $paper-color;
     .flex{
       justify-content: flex-start;
       text-align: left;
@@ -88,8 +90,8 @@
     }
     .button{
       color:#fff;
-      background-color: $button-active-color;
-      font-weight: 500;
+      background-color: $prime-color;
+      font-weight: 400;
       font-size: 14px;
       width:65px;
       height:40px;
@@ -101,7 +103,7 @@
     > div.table {
       table-layout: fixed;
       border-radius: 4px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid $border-color;
       overflow: hidden;
       overflow-x: scroll;
       > div.thead,
@@ -110,7 +112,7 @@
         min-width: 1220px;
       }
       > div.tbody .cell {
-        color: $black;
+        color: $font-color-black;
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -125,7 +127,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+          border-bottom: 1px solid $border-color;
           margin: 0 0;
           position: relative;
         }
@@ -136,7 +138,7 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          background: $button-active-bg-color;
+          background: $third-color;
         }
         .remand-icon {
           margin-right: 5px;
@@ -164,7 +166,7 @@
         }
       }
       div.thead div.row div.cell {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        border-bottom: 1px solid $border-color;
         position:relative;
       }
       div.thead div.row div.cell:before {
@@ -189,12 +191,4 @@
       }
     }
   }
-}
-.MuiCheckbox-colorSecondary.Mui-checked {
-  color: #cc0099;
-}
-.MuiOutlinedInput-adornedStart{
-  padding-left:4px;
-}.MuiSvgIcon-root{
-  position:absolute;
 }

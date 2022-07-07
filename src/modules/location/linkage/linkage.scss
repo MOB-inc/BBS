@@ -190,7 +190,10 @@
           color: rgba(0, 0, 255, 0.63);
         }
       }
-      .dialog-row:last-child .dialog{
+      .dialog-row:nth-of-type(4) .dialog .center>div{
+        margin-bottom:8px;
+      }
+      .dialog-row:last-child{
         margin-bottom:0;
       }
     }

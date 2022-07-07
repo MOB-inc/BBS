@@ -272,7 +272,7 @@ function Approval() {
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp;&nbsp;
                 <span
-                  className={`${
+                  className={`filter ${
                     orderField === 'post_datetime' ? 'highlight' : ''
                   }`}
                 >
@@ -289,7 +289,7 @@ function Approval() {
                 {t('recognition:REMAND.APPLICANT')}
                 &nbsp;&nbsp;
                 <span
-                  className={`${orderField === 'user_name' ? 'highlight' : ''}`}
+                  className={`filter ${orderField === 'user_name' ? 'highlight' : ''}`}
                 >
                   {orderType === 'desc' && orderField === 'user_name' ? (
                     <ArrowUp onClick={() => setOrder('user_name', 'asc')} />
@@ -305,7 +305,7 @@ function Approval() {
                 {t('recognition:REMAND.LOCATION')}
                 &nbsp;&nbsp;
                 <span
-                  className={`${
+                  className={`filter ${
                     orderField === 'location_name' ? 'highlight' : ''
                   }`}
                 >

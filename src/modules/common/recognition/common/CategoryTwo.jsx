@@ -260,14 +260,14 @@ function CategoryTwo({
           <CRow>
             <CCol xs="3" />
             <CCol xs="6">
-              <button
+              <Button
                 type="button"
                 color="primary"
                 className="px-4 success-button benefits-margin"
                 onClick={toggleApprovalModal}
               >
                 {t('recognition:APPROVAL.APPROVAL_BUTTON')}
-              </button>
+              </Button>
             </CCol>
             <CCol xs="3" />
           </CRow>
@@ -279,7 +279,7 @@ function CategoryTwo({
           <Button
             type="button"
             color="primary"
-            className={`px-4 success-button ${
+            className={`submit ${
               active ? 'benefits-margin-2' : 'pivot-button-margin'
             }`}
             onClick={active ? toggleEditConfirmModal : () => setActive(true)}
@@ -297,7 +297,7 @@ function CategoryTwo({
           <Button
             type="button"
             color="primary"
-            className="px-4 cancel-button"
+            className="back"
             onClick={active ? reload : toggleRemandModal}
           >
             {active

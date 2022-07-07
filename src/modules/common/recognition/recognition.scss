@@ -1,4 +1,77 @@
 @import 'src/commons/styles/color.scss';
 
 .recognition {
+	.MuiCheckbox-colorSecondary.Mui-checked {
+		color: #cc0099;
+	}
+	.MuiOutlinedInput-adornedStart{
+		padding-left:4px;
+	}.MuiSvgIcon-root{
+		position:absolute;
+	}
+	.over{
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.bulksubmit,
+	.submit{
+		margin:3px 15px 0;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1;
+		padding:11px;
+		width:90px;
+		height:43px;
+		color:#fff;
+		background-color:$button-active-color !important;
+	}
+	.bulksubmit:focus,
+	.submit:focus,
+	.edit:focus,
+	.remand:focus,
+	.back:focus{
+		outline:none;
+	}
+	.modal-body{
+		.flex{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.bulksubmit,
+		.submit,
+		.edit,
+		.remand,
+		.back{
+			margin:13.5px 15px;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 1;
+			padding:11px;
+			width:112px;
+			height:42px;
+		}
+		.submit{
+			background-color:$button-active-color;
+			color:#fff;
+		}
+		.edit,
+		.back{
+			background-color: #d9d9d9;
+			color:$text-color2;
+		}
+		.remand{
+			border-color: $button-active-color;
+			color: $button-active-color;
+		}
+		.edit.a{
+			border-color: $button-active-color;
+			color: $button-active-color;
+			background-color: #fff;
+		}
+	}
+	.MuiButton-contained{
+		box-shadow: none;
+	}
 }
