@@ -3,24 +3,24 @@
 
 
 .location-info {
-  $border: 1px solid rgba(0, 0, 0, 0.22);
+  $border: 1px solid $border-color;
   $block:80px;
   .explanation{
     margin-bottom: 20px;
   }
   .info-content {
-    margin-top: 40px;
-    padding:16px;
+    margin-top: 28px;
+    padding:40px 28px;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: $paper-color;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+    height:690px;
     .tab-container {
       overflow-x: auto;
       .flex{
         justify-content: flex-start;
         text-align: left;
-        margin-top:11px;
-        margin-bottom:31px; 
+        margin-bottom:20px; 
       }
       .search input{
         font-size: 12px;
@@ -32,8 +32,8 @@
         padding-left:4px;
       }
       .button{
-        color:#fff;
-        background-color: $button-active-color;
+        color:$font-color-white;
+        background-color: $prime-color;
         font-weight: 500;
         font-size: 14px;
         width:65px;
@@ -47,13 +47,13 @@
       table {
         display: flex;
         flex-flow: column;
-        height: 544px;
         width: 100%;
-        min-width: 1007px;
+        height: calc(100vh - 386px);
+        min-width: 1100px;
         table-layout: auto;
         color: $black;
         border-radius: 4px;
-        border:1px solid #e0e0e0;
+        border:1px solid $border-color;
       }
       table thead {
         /* head takes the height it requires, 
@@ -72,21 +72,21 @@
           border-bottom:none;
           border-top:none;
           position:relative;
-          height:39px;
+          height:40px;
         }
         tr:nth-child(1){
           th:nth-child(1){
             width: auto;
           }
           th:nth-child(2){
-            background-color: $button-active-bg-color;
+            background-color: $third-color;
             width:$block * 3;
           }
           th:nth-child(3){
             width:$block * 4;
           }
           th:nth-child(4){
-            background-color: $button-active-bg-color;
+            background-color: $third-color;
             width:$block * 3;
           }
         } 
@@ -99,6 +99,7 @@
           th:nth-child(1),
           th:nth-child(2){
             width:auto;
+            min-width: 100px;
           }
           th:nth-child(3),
           th:nth-child(4),
@@ -130,10 +131,6 @@
         /* body takes all the remaining available space */
         flex: 1 1 auto;
         display: block;
-        height: calc(100vh - 378px);
-        @media (min-width: $sm) {
-          height: calc(100vh - 300px);
-        }
         tr {
           width: 100%;
           td{

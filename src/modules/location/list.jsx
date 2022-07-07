@@ -51,8 +51,11 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
       const url2 = window.location.pathname;
       if(url2.match(/linkage/) || url2.match(/phrase/)){
         const elem2 = document.getElementById('locName');
-        console.log(elem2);
-        elem2.textContent = await resp?.result?.data[0].name;
+        const text = resp?.result?.data[0].name;
+        if(elem2 !== null){
+          console.log(elem2,text);
+          elem2.textContent = text;
+        }
       }
     }
   });
@@ -202,11 +205,6 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
       }));
       console.log('locationArrLoop', locationArrLoop);      
       setLocationsArr(locationArrLoop);
-      // const url2 = window.location.pathname;
-      // if(url2.match(/linkage/) || url2.match(/phrase/)){
-      //   const elem2 = document.getElementById('locName');
-      //   elem2.textContent = await locationArrLoop[0].label;
-      // }
     }
   };
   useEffect(() => {

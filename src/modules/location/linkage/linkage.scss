@@ -6,7 +6,7 @@
     margin-top: 28px;
     display: flex;
     flex-direction: column;
-    width:600px;
+    max-width:600px;
     @media (min-width: $sm) {
       flex-direction: row;
     }
@@ -27,10 +27,10 @@
           width:100%;
           border: 1px solid $border-color;
           box-sizing: border-box;
-          border-radius: 8px;
+          border-radius: 4px;
           text-align: left;
           color: $font-color-black;
-          background-color:#fff;
+          background-color:$paper-color;
           margin-bottom:24px;
           .header {
             display: flex;
@@ -228,7 +228,7 @@
           border:1px solid $border-color;
         }
         > div{
-          background: #FFFFFF;
+          background: $paper-color;
           width:100%;
           height:200px;
           textarea{

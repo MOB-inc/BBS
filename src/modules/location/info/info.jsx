@@ -524,7 +524,7 @@ function LocationInfo() {
               })}
             </tbody>
           </table>
-          <div className="pages">
+          <div className="pages" style={{display:"none"}}>
             <Pagination
               current={page}
               last={lastPage}
