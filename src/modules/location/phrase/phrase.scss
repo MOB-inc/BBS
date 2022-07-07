@@ -312,10 +312,16 @@
       .MuiInputBase-root{
         border-color:$border-color;
         height:40px;
+        >div>div>div{
+          height:38px;
+        }
       }
       button:focus{
         outline:none;
       }
     }
+  }
+  .MuiFormControl-root>div>div>div{
+    height:38px;
   }
 }
