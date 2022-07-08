@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import useFetch from 'use-http';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import { useTranslation } from 'react-i18next';
 import Navigation from '../navigation';
 import Switch from '../../../commons/components/Switch';
@@ -86,6 +87,8 @@ function LocationInfo() {
             <MySearch />
             <Button className="button" variant="contained" size="large">{t('location:CONTRACTOR.SEARCH_BTN')}</Button>
           </div>
+          <ScrollContainer hideScrollbars='false'> 
+          {/* ↑ドラッグスクロール機能 */}
           <table className="table">
             <thead>
               <tr>
@@ -524,6 +527,8 @@ function LocationInfo() {
               })}
             </tbody>
           </table>
+          </ScrollContainer>
+
           <div className="pages" style={{display:"none"}}>
             <Pagination
               current={page}

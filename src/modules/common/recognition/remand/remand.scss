@@ -1,21 +1,23 @@
 @import 'src/commons/styles/color.scss';
 
 .remand {
-  padding: 24px 15px 0 25px;
-  .filter{
-    color:#cc0099;
+  padding: 28px;
+  .filters{
+    color:$prime-color;
     text-align:left;
-    padding-top:11px;
-    padding-left:13px;
-    padding-bottom:0;
     font-size: 13px;
-    margin-bottom:14px;
+    font-weight: 500;
+    position: relative;
+    top:-2px;
   }
-  .filter svg{
+  .filters svg{
     margin-right:12px;
     margin-bottom:4px;
+    path{
+      fill-opacity: 1;
+    }
   }
-  > .filter-pages {
+  .filter-pages {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 3px;
@@ -25,23 +27,41 @@
       align-items: center;
       font-size: 12px;
       margin-right: 18px;
+      div.dropdown {
+        .btn:focus,
+        .btn.focus {
+          box-shadow: none;
+        }
+        .dropdown-menu {
+          a {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+      .dropdown-toggle{
+        padding:12px 12px 0;
+      }
+      .dropdown-toggle::after {
+        content: none;
+      }
     }
   }
   > .remand-table {
     overflow-x: auto;
-    padding:30px;
-    border-radius: 16px;
-    margin-top:25px;
-    background-color: #fff;
+    padding:28px;
+    border-radius: 8px;
+    margin-top:28px;
+    background-color: $paper-color;
     .flex{
       justify-content: flex-start;
       text-align: left;
-      margin-bottom:35px; 
+      margin-bottom:28px; 
     }
     > div.table {
       table-layout: fixed;
       border-radius: 4px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid $border-color;
       overflow: hidden;
       overflow-x: scroll;
       > div.thead,
@@ -49,8 +69,66 @@
         display: block;
         min-width: 1220px;
       }
-      > div.tbody .cell {
-        color: $black;
+      $block :60px;
+      > div.thead{
+        .row{
+          flex-wrap: nowrap;
+        }
+        .cell {
+          color: $font-color-black;
+        }
+        .cell.a{
+          min-width:$block * 3;
+        }
+        .cell.b{
+          min-width:$block * 3;
+        }
+        .cell.c{
+          min-width:$block * 3;
+        }
+        .cell.d{
+          min-width:$block * 4;
+        }
+        .cell.e{
+          width:100%;
+          min-width:$block * 3;
+        }
+        .cell.f{
+          min-width:$block * 2;
+        }
+        .cell.g{
+          min-width:$block * 2;
+        }
+      }
+      > div.tbody {
+        .row{
+          flex-wrap: nowrap;
+        }
+        .cell {
+          color: $font-color-black;
+        }
+        .cell.a{
+          min-width:$block * 3;
+        }
+        .cell.b{
+          min-width:$block * 3;
+        }
+        .cell.c{
+          min-width:$block * 3;
+        }
+        .cell.d{
+          min-width:$block * 4;
+        }
+        .cell.e{
+          width:100%;
+          min-width:$block * 3;
+        }
+        .cell.f{
+          min-width:$block * 2;
+        }
+        .cell.g{
+          min-width:$block * 2;
+        }
       }
       > div.thead div.row,
       div.tbody div.row {
@@ -59,7 +137,7 @@
         text-align: center;
         margin: 0;
         > div.cell {
-          font-weight: bold;
+          font-weight: 500;
           font-size: 14px;
           line-height: 21px;
           display: flex;
@@ -74,7 +152,7 @@
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
-          background-color: $button-active-bg-color;
+          background-color: $third-color;
         }
       }
       > div.thead div.row,
@@ -107,21 +185,16 @@
           font-weight: normal;
           cursor: pointer;
         }
-        // div.row:nth-child(odd) {
-        //   div.cell {
-        //     background: $background-color-list-odd;
-        //   }
-        // }
       }
       div.thead div.row div.cell {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        border-bottom: 1px solid $border-color;
         position: relative;
       }
       div.thead div.row div.cell:before {
         content:"";
         width:1px;
         height:12px;
-        background-color:rgba(0, 0, 0, 0.22);
+        background-color: $border-color;
         position:absolute;
         left:0;
       }
@@ -149,12 +222,13 @@
 }
 .remand-table .button{
   color:#fff;
-  background-color: $button-active-color;
+  background-color:$prime-color;
   font-weight: 500;
   font-size: 14px;
   width:65px;
   height:40px;
   margin-left:13px;
+  padding:10px 0;
 }
 .button:focus{
   outline: none;

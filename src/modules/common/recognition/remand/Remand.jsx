@@ -2,6 +2,12 @@ import React, { useContext, useState, useEffect, useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import * as dayjs from 'dayjs';
+import {
+  CDropdown,
+  CDropdownToggle,
+  CDropdownMenu,
+  CDropdownItem,
+} from '@coreui/react';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
@@ -13,7 +19,7 @@ import { REMANDING_REQUEST } from '../../../../commons/constants/url';
 import { ReactComponent as ArrowDown } from '../../../../commons/icons/arrow_d.svg';
 import { ReactComponent as ArrowUp } from '../../../../commons/icons/arrow_u.svg';
 import { ReactComponent as SearchIcon } from '../../../../commons/icons/search-icon.svg';
-import { ReactComponent as AntenaIcon } from '../../../../commons/icons/antena.svg';
+import { ReactComponent as FilterIcon } from '../../../../commons/icons/antena.svg';
 import './remand.scss';
 
 const tz = dayjs.tz.guess();
@@ -39,6 +45,7 @@ function Remand() {
   const [endDate, setEndDate] = useState();
   const [locationId, setLocationId] = useState();
   const { setRecognitionCount } = useContext(AppContext);
+  const [pageItemCount, setPageItemCount] = useState(30);
   const toggleRemandPostModal = () => {
     setRemandPostModal(!remandPostModal);
   };
@@ -48,6 +55,7 @@ function Remand() {
   const pageChangeHandler = (p) => {
     setPage(p);
   };
+  
   const onRowClick = (remandType, id, location) => {
     setCurrentId(id);
     setLocationId(location);
@@ -65,7 +73,7 @@ function Remand() {
   };
   const { get: getRemandList } = useFetch(REMANDING_REQUEST);
   const loadRemandList = async () => {
-    let query = `?page=${page}`;
+    let query = `?page=${page}&pagination_no=${pageItemCount}`;
     if (startDate)
       query += `&start_date=${dayjs(startDate)
         .hour(0)
@@ -144,7 +152,27 @@ function Remand() {
           <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
         <div className="table">
-          <p className="filter" ><AntenaIcon />FILTERS</p>
+          <div className="filter-pages">
+            <div className="sub-header">
+              <CDropdown direction="dropup">
+                <CDropdownToggle href="#">
+                  <p className="filters"><FilterIcon height={12} width={18}/>FILTERS</p>
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
+                    30 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
+                    100 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
+                    200 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            </div>
+          </div>
           <div className="thead">
             <div className="row">
               {/* <div className="cell w10p">
@@ -154,11 +182,11 @@ function Remand() {
                   inputProps={{ 'aria-label': 'primary checkbox' }}
                 />
               </div> */}
-              <div className="cell w15p">
+              <div className="cell a">
                 {t('recognition:REMAND.APPLICATION_DATE_TIME')}
                 &nbsp;&nbsp;
                 <span
-                  className={`${
+                  className={`filter ${
                     orderField === 'post_datetime' ? 'highlight' : ''
                   }`}
                 >
@@ -171,11 +199,11 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w15p">
+              <div className="cell b">
                 {t('recognition:REMAND.REMAND_DATE_TIME')}
                 &nbsp;&nbsp; 
                 <span
-                  className={`${
+                  className={`filter ${
                     orderField === 'remand_datetime' ? 'highlight' : ''
                   }`}
                 >
@@ -190,11 +218,11 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w20p">
+              <div className="cell c">
                 {t('recognition:REMAND.APPLICANT')}
                 &nbsp;&nbsp; 
                 <span
-                  className={`${orderField === 'user_name' ? 'highlight' : ''}`}
+                  className={`filter ${orderField === 'user_name' ? 'highlight' : ''}`}
                 >
                   {orderType === 'desc' && orderField === 'user_name' ? (
                     <ArrowUp onClick={() => setOrder('user_name', 'asc')} />
@@ -206,11 +234,11 @@ function Remand() {
               {/* <div className="cell w7d5p">
                 {t('recognition:REMAND.NO_OF_STORE')}
               </div> */}
-              <div className="cell w15p">
+              <div className="cell d">
                 {t('recognition:REMAND.LOCATION')}
                 &nbsp;&nbsp; 
                 <span
-                  className={`${
+                  className={`filter ${
                     orderField === 'location_name' ? 'highlight' : ''
                   }`}
                 >
@@ -223,11 +251,11 @@ function Remand() {
                   )}
                 </span>
               </div>
-              <div className="cell w20p">
+              <div className="cell e">
                 {t('recognition:REMAND.CONTENTS')}
               </div>
-              {/* <div className="cell w7d5p">{t('recognition:REMAND.TYPE')}</div> */}
-              <div className="cell w15p">{t('recognition:REMAND.NUM')}</div>
+              <div className="cell f">{t('recognition:REMAND.TYPE')}</div>
+              <div className="cell g">{t('recognition:REMAND.NUM')}</div>
             </div>
           </div>
           <div className="tbody">
@@ -241,25 +269,27 @@ function Remand() {
                     }
                     role="presentation"
                   >
-                    <div className="cell w15p">
+                    <div className="cell a">
                       {dayjs
                         .utc(item?.post_datetime)
                         .tz(tz)
                         .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
                     </div>
-                    <div className="cell w15p">
+                    <div className="cell b">
                       {dayjs
                         .utc(item?.remand_datetime)
                         .tz(tz)
                         .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
                     </div>
-                    <div className="cell w20p">{item?.user_name}</div>
+                    <div className="cell c">{item?.user_name}</div>
                     {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
-                    <div className="cell w15p">{item?.location_name}</div>
-                    <div className="cell w20p content">{item?.contents}</div>
-                    <div className="cell w15p">
-                      {item?.type === 1 ? 'GBP投稿' : '口コミ返信'}
-                    </div>
+                    <div className="cell d">{item?.location_name}</div>
+                      <div className="cell e content">{item?.contents}</div>
+                      <div className="cell f">{item.type === 1 ? 'GBP投稿' : '口コミ返信'}</div>
+                      <div className="cell g">
+                        {item?.is_remanded}
+                        {console.log(item)}
+                      </div>
                     {/* <div className="cell w15p">{item?.reason_for_remand}</div> */}
                   </div>
                 );
