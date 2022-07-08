@@ -1,17 +1,28 @@
-/* eslint-disable no-else-return */
 import {
   CDropdown,
   CDropdownToggle,
   CDropdownMenu,
   CDropdownItem,
-  CTooltip,
 } from '@coreui/react';
 import * as dayjs from 'dayjs';
 import { useDebounce } from 'ahooks';
 import useFetch from 'use-http';
 import React, { useState, useEffect, useContext } from 'react';
+
+import Select, { components } from 'react-select';
+import Box from '@material-ui/core/Box'; // eslint-disable-line import/no-extraneous-dependencies
+
+
 import DatePicker from 'react-datepicker';
+import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
+
+import moment from 'moment';
+import DateRangePicker from '../../commons/components/DateRangePicker';
+import config from '../../OEMConfig';
+
+
+
 import { parameterizeArray } from '../../commons/helpers/util';
 import Pagination from '../../commons/components/Pagination';
 import { AppContext } from '../../commons/helpers/appContext';
@@ -24,10 +35,12 @@ import { ReactComponent as CalendarIcon } from '../../commons/icons/calendar.svg
 import { ReactComponent as InstaIcon } from '../../commons/icons/instagram-logo.svg';
 import { ReactComponent as GoogleIcon } from '../../commons/icons/google-logo.svg';
 import { ReactComponent as LINEIcon } from '../../commons/icons/line-logo.svg';
-import { ReactComponent as CMSIcon } from '../../commons/icons/cms-logo.svg';
 import { ReactComponent as LikeIcon } from '../../commons/icons/like.svg';
 import { ReactComponent as CommentIcon } from '../../commons/icons/comment.svg';
 import { ReactComponent as FavoriteIcon } from '../../commons/icons/favorite.svg';
+import { ReactComponent as EngagementIcon } from '../../commons/icons/engagement.svg';
+import { ReactComponent as ImpressionsIcon } from '../../commons/icons/impressions.svg';
+import { ReactComponent as ReachIcon } from '../../commons/icons/reach.svg';
 // import { ReactComponent as CMSIcon } from '../../commons/icons/cms-logo.svg';
 
 // import { ReactComponent as Caution } from '../../commons/icons/caution.svg';
@@ -37,7 +50,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { DASHBOARDS, INSTAGRAM_MEDIA_URL } from '../../commons/constants/url';
 import Explanation from '../../commons/components/Explanation';
 import ReactImageTooltip from '../../commons/components/ReactImageTooltip';
-import config from '../../OEMConfig';
+
 
 const DeleteModal = React.lazy(() => import('./modals/delete'));
 // const RepostModal = React.lazy(() => import('./modals/repostModal'));
@@ -164,6 +177,81 @@ function Dashboard() {
     locations,
   ]);
 
+
+
+
+  const customStylesDateSelect = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: state.isSelected
+        ? config().side_menu_selected_color
+        : 'white',
+      color: '#666666',
+    }),
+  };
+
+  const options = [
+    { value: 6, label: `${t('過去7日')}` },
+    { value: 29, label: `${t('過去30日')}` },
+    { value: 179, label: `${t('過去180日')}` },
+    { value: 364, label: `${t('過去365日')}` },
+    { value: 'custom_range', label: `${t('カスタム日付')}` },
+    { value: 'custom_range', label: `${t('カスタム期間')}` },
+  ];
+
+  const [selectedOptionDate, setSelectedOptionDate] = useState(6);
+  const [isOpenDatePicker, setIsOpenDatePicker] = useState(false);
+  const DropdownIndicator = (props) => {
+    return (
+      <components.DropdownIndicator {...props}>
+        <ArrowDown />
+      </components.DropdownIndicator>
+    );
+  };
+
+  const [setDateRange] = useState([null, null]);
+
+  const [setFilterStartEndDate] = useState({
+    startDate: moment().subtract(6, 'd').format('YYYY-MM-DD'),
+    endDate: moment().format('YYYY-MM-DD'),
+  });
+
+  const handleChangeDate = (event) => {
+    console.log('event', event);
+    if (event.value === 'custom_range') {
+      setIsOpenDatePicker(true);
+      setSelectedOptionDate(event.value);
+      return;
+    }
+    setDateRange([null, null]);
+    setIsOpenDatePicker(false);
+
+    const dateTo = moment().subtract(event.value, 'd').format('YYYY-MM-DD');
+    const dateFrom = moment().format('YYYY-MM-DD');
+    setFilterStartEndDate({
+      startDate: dateTo,
+      endDate: dateFrom,
+    });
+    console.log('date start and end', dateTo, dateFrom);
+    setSelectedOptionDate(event.value);
+  };
+
+  const handleChangeDatepicker = async (update) => {
+    const [localStartDate, localEndDate] = update;
+    setDateRange(update);
+    if (localStartDate && localEndDate) {
+      const dateTo = moment(localStartDate).format('YYYY-MM-DD');
+      const dateFrom = moment(localEndDate).format('YYYY-MM-DD');
+      setFilterStartEndDate({
+        startDate: dateTo,
+        endDate: dateFrom,
+      });
+    }
+  };
+
+  
+
+
   return (
     <div className="dashboard-page">
       {menuMode === 'sidebar' ? (
@@ -171,12 +259,42 @@ function Dashboard() {
       ) : (
         <></>
       )}
-      <div className="filter-pages">
-        <div className="filters">
-          <div>
-            {t('dashboard:LIST')} ({itemCount})
-          </div>
-          <DatePicker
+
+      <div className="selectors-menu">
+      <Button variant="contained">ロケーション選択</Button>
+
+      <Box
+            className="mobile-margin-top-10 desktop-margin-left-20"
+            style={{ position: 'relative' }}
+            flex="1"
+          >
+            <Select
+              components={{
+                DropdownIndicator,
+                IndicatorSeparator: () => null,
+              }}
+              styles={customStylesDateSelect}
+              className="select-width-select-days"
+              closeMenuOnSelect
+              options={options}
+              defaultValue={selectedOptionDate}
+              value={options.filter(
+                (option) => option.value === selectedOptionDate,
+              )}
+              onChange={(event) => handleChangeDate(event, '', '')}
+            />
+            {isOpenDatePicker && (
+              <DateRangePicker
+                selectsRange
+                startDate={startDate}
+                endDate={endDate}
+                handlerOnChange={handleChangeDatepicker}
+                dateFormat="yyyy/MM/dd"
+                placeholderText={t('top:COMMON.DATA_RANGE_PLACEHOLDER')}
+              />
+            )}
+            
+            <DatePicker
             selectsRange
             startDate={startDate}
             endDate={endDate}
@@ -185,17 +303,18 @@ function Dashboard() {
             shouldCloseOnSelect={false}
             popperPlacement={menuMode === 'sidebar' ? 'top-end' : 'top-start'}
           />
-        </div>
-        <div className="pages">
-          <Pagination
-            current={page}
-            last={lastPage}
-            onPageChange={pageChangeHandler}
-          />
-          &nbsp;
-          <CDropdown direction="dropup">
+           
+
+          </Box>
+
+      </div>
+      <div className="container">
+      <div className="filter-pages">
+        <div className="filters">
+        <CDropdown direction="dropup">
             <CDropdownToggle href="#">
               <FilterIcon height={13} width={13} />
+              <div className="filtertitle">FILTERS</div>
             </CDropdownToggle>
             <CDropdownMenu>
               <CDropdownItem href="#">{t('dashboard:WANT')}</CDropdownItem>
@@ -252,17 +371,10 @@ function Dashboard() {
                   )}
                 </span>
               </div>
-              {config().is_show_splan ? (
-                <div className='cell w22d5p'>
-                  <InstaIcon className="icon-svg insta-icon" />
-                  {t('dashboard:COLUMNS.CAPTION')}
+              <div className="cell w25p">
+                <InstaIcon className="icon-svg insta-icon" />
+                {t('dashboard:COLUMNS.CAPTION')}
               </div>
-              ) : (
-                <div className='cell w27d5p'>
-                  <InstaIcon className="icon-svg insta-icon" />
-                  {t('dashboard:COLUMNS.CAPTION')}
-              </div>
-              )}
               <div className="cell w5p">
                 <LikeIcon className="icon-svg" /> &nbsp;
                 <span
@@ -313,8 +425,8 @@ function Dashboard() {
                   )}
                 </span>
               </div>
-              <div className="cell w7d5p">
-                {t('dashboard:COLUMNS.ENGAGEMENT')} &nbsp;
+              <div className="cell w5p">
+              <EngagementIcon className="icon-svg" /> &nbsp;
                 <span
                   className={`${
                     orderField === 'engagement' ? 'highlight' : ''
@@ -328,7 +440,7 @@ function Dashboard() {
                 </span>
               </div>
               <div className="cell w5p">
-                {t('dashboard:COLUMNS.IMPRESSIONS')} &nbsp;
+              <ImpressionsIcon className="icon-svg" /> &nbsp;
                 <span
                   className={`${
                     orderField === 'impressions' ? 'highlight' : ''
@@ -342,7 +454,7 @@ function Dashboard() {
                 </span>
               </div>
               <div className="cell w5p">
-                {t('dashboard:COLUMNS.REACH')} &nbsp;
+              <ReachIcon className="icon-svg" /> &nbsp;
                 <span
                   className={`${orderField === 'reach' ? 'highlight' : ''}`}
                 >
@@ -359,11 +471,7 @@ function Dashboard() {
               <div className="cell w5p">
                 <LINEIcon className="icon-svg" />
               </div>
-              {config().is_show_splan && (
-                <div className="cell w5p">
-                  <CMSIcon className="icon-svg" />
-                </div>
-              )}
+
               {/* 未連携のためコメントアウト(CMS) */}
               {/* <div className="cell w7d5p">
                 <CMSIcon className="icon-svg" />
@@ -377,45 +485,28 @@ function Dashboard() {
           <div className="tbody">
             {items?.map((item) => {
               return (
-                <div className="row" key={item.instagram_media?.id}>
+                <div className="row" key={item.id}>
                   <div className="cell w10p">
                     {dayjs
                       .utc(item?.post_datetime)
                       .tz(tz)
-                      .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
+                      .format('YYYY/MM/DD')}
                   </div>
                   <div className="cell w15p">{item?.location?.name}</div>
-                  {config().is_show_splan ? (
-                    <div className="cell w22d5p content">
-                      <ReactImageTooltip image={imageUrl}>
-                        <a
-                          onMouseEnter={() => onMouseEnter(item)}
-                          onMouseLeave={() => onMouseLeave()}
-                          href={item?.instagram_media?.permalink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="insta-link"
-                        >
-                          {item?.instagram_media?.caption}
-                        </a>
-                      </ReactImageTooltip>
-                    </div>
-                  ) : (
-                    <div className="cell w27d5p content">
-                      <ReactImageTooltip image={imageUrl}>
-                        <a
-                          onMouseEnter={() => onMouseEnter(item)}
-                          onMouseLeave={() => onMouseLeave()}
-                          href={item?.instagram_media?.permalink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="insta-link"
-                        >
-                          {item?.instagram_media?.caption}
-                        </a>
-                      </ReactImageTooltip>
-                    </div>
-                  )}
+                  <div className="cell w25p content">
+                    <ReactImageTooltip image={imageUrl}>
+                      <a
+                        onMouseEnter={() => onMouseEnter(item)}
+                        onMouseLeave={() => onMouseLeave()}
+                        href={item?.instagram_media?.permalink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="insta-link"
+                      >
+                        {item?.instagram_media?.caption}
+                      </a>
+                    </ReactImageTooltip>
+                  </div>
                   <div className="cell w5p">
                     {item?.instagram_media?.like_count}
                   </div>
@@ -425,115 +516,48 @@ function Dashboard() {
                   <div className="cell w5p">
                     {item?.instagram_media?.favorite_count}
                   </div>
-                  <div className="cell w7d5p">
+                  <div className="cell w5p">
                     {item?.instagram_media?.engagement}
                   </div>
                   <div className="cell w5p">
                     {item?.instagram_media?.impressions}
                   </div>
                   <div className="cell w5p">{item?.instagram_media?.reach}</div>
-                  {item?.gmb_post_id ? (
-                    <div className="cell w7d5p column">
-                      {(() => {
-                        if (item?.is_gmb_post_deleted) {
-                          return (
-                            <div className="deleted">
-                              {t('dashboard:DELETED')}
-                            </div>
-                          );
-                        } else if (item?.gmb_error_msg) {
-                          return (
-                            <CTooltip content={item?.gmb_error_msg}>
-                              <div className="deleted">
-                                {t('dashboard:ERROR')}
-                              </div>
-                            </CTooltip>
-                          );
-                        } else {
-                          return (
-                            <>
-                              <a
-                                href={item?.search_url}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="link"
-                              >
-                                <LinkIcon height={20} width={20} />
-                              </a>
-                              <div
-                                className="delete"
-                                role="presentation"
-                                onClick={() =>
-                                  deletePost(
-                                    item?.gmb_post_id,
-                                    item?.location?.id,
-                                  )
-                                }
-                              >
-                                <DeleteIcon height={20} width={20} />
-                              </div>
-                            </>
-                          );
-                        }
-                      })()}
-                    </div>
-                  ) : (
-                    <div className="cell w7d5p column">
-                      {t('dashboard:UNPOSTED')}
-                    </div>
-                  )}
-                  <div className="cell w5p column">
-                    {(() => {
-                      if (item?.line_error_msg) {
-                        return (
-                          <CTooltip content={item?.line_error_msg}>
-                            <div className="deleted">
-                              {t('dashboard:ERROR')}
-                            </div>
-                          </CTooltip>
-                        );
-                      } else if (item?.is_line_official_post) {
-                        return (
-                          <div className="linePosted">
-                            {t('dashboard:POSTED')}
-                          </div>
-                        );
-                      } else {
-                        return (
-                          <div className="lineUnPosted">
-                            {t('dashboard:UNPOSTED')}
-                          </div>
-                        );
-                      }
-                    })()}
+                  <div className="cell w7d5p column">
+                    {!item?.is_gmb_post_deleted ? (
+                      <>
+                        <a
+                          href={item?.search_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="link"
+                        >
+                          <LinkIcon height={20} width={20} />
+                        </a>
+                        <div
+                          className="delete"
+                          role="presentation"
+                          onClick={() =>
+                            deletePost(item?.id, item?.location?.id)
+                          }
+                        >
+                          <DeleteIcon height={20} width={20} />
+                        </div>
+                      </>
+                    ) : (
+                      <div className="deleted">{t('dashboard:DELETED')}</div>
+                    )}
                   </div>
-                  {config().is_show_splan && (
-                    <div className="cell w5p column">
-                      {(() => {
-                        if (item?.splan_error_msg) {
-                          return (
-                            <CTooltip content={item?.splan_error_msg}>
-                              <div className="deleted">
-                                {t('dashboard:ERROR')}
-                              </div>
-                            </CTooltip>
-                          );
-                        } else if (item?.is_splan_post) {
-                          return (
-                            <div className="linePosted">
-                              {t('dashboard:POSTED')}
-                            </div>
-                          );
-                        } else {
-                          return (
-                            <div className="lineUnPosted">
-                              {t('dashboard:UNPOSTED')}
-                            </div>
-                          );
-                        }
-                      })()}
-                    </div>
-                  )}
+                  <div className="cell w5p column">
+                    {item?.is_line_official_post ? (
+                      <div className="linePosted">{t('dashboard:POSTED')}</div>
+                    ) : (
+                      <div className="lineUnPosted">
+                        {t('dashboard:UNPOSTED')}
+                      </div>
+                    )}
+                  </div>
+
                   {/* 未連携のためコメントアウト(CMS) */}
                   {/* <div className="cell w7d5p column">
                     <LinkIcon height={20} width={20} />
@@ -562,6 +586,21 @@ function Dashboard() {
         locationId={deleteLocationId}
         onClose={deleteModalCloseHandler}
       />
+
+      <div className="table-pagination">
+       <div className="itemcount">
+         {t('dashboard:LIST')} ({itemCount})
+       </div>
+        <div className="pages">
+         <Pagination
+            current={page}
+           last={lastPage}
+           onPageChange={pageChangeHandler}
+           />
+        </div>
+      </div>
+
+    </div>
     </div>
   );
 }

@@ -458,7 +458,7 @@ const Google = () => {
       backgroundColor: state.isSelected
         ? config().side_menu_selected_color
         : 'white',
-      color: config().side_menu_color,
+      color: '#666666',
     }),
   };
 
