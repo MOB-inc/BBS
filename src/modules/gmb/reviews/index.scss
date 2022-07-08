@@ -4,38 +4,51 @@
 .reviews-page {
   padding: 12px 9px 9px 12px;
   @media (min-width: $sm) {
-    padding: 32px 29px 29px 53px;
+    // padding: 32px 29px 29px 53px;
+		padding: 40px 26px;
   }
-  > .header {
+  .header {
     display: flex;
     align-items: center;
     flex-direction: column;
     @media (min-width: $sm) {
       flex-direction: row;
-      justify-content: space-between;
+      // justify-content: space-between;
     }
+		button {
+			background-color: $prime-color;
+			color: $font-color-white;
+			margin-left: 20px;
+			padding: 5px 16px;
+		}
   }
-  > .filter-pages {
+	.wrapper {
+		background: $paper-color;
+		padding: 12px 11px;
+		border-radius: 16px;
+		margin-top: 28px;
+	}
+  .filter-pages {
     display: flex;
     justify-content: space-between;
     margin-bottom: 3px;
-    > .filters {
+    .filters {
       display: flex;
       white-space: nowrap;
       overflow-x: auto;
       font-weight: 600;
       justify-content: flex-start;
-      > div {
+      div {
         margin: 10px 25px 0px 25px;
         line-height: 30px;
         cursor: pointer;
       }
-      > div.active {
+      div.active {
         color: $text-color-selected;
         text-decoration: underline;
       }
     }
-    > .pages {
+    .pages {
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -52,12 +65,12 @@
       }
     }
   }
-  > .list {
-    overflow-x: auto;
-    > div.table {
+  .list {
+    // overflow-x: auto;
+    div.table {
       table-layout: fixed;
       margin-bottom: 0;
-      > div.thead .cell {
+      div.thead .cell {
         border-top: 1px solid rgba(0, 0, 0, 0.22);
         .check-comment {
           position: absolute;
@@ -73,23 +86,23 @@
           }
         }
       }
-      > div.thead,
+      div.thead,
       div.tbody {
         display: block;
         min-width: 1220px;
         overflow-y: scroll;
       }
-      > div.tbody .cell {
+      div.tbody .cell {
         color: $black;
       }
-      > div.thead div.row,
+      div.thead div.row,
       div.tbody div.row {
         width: 100%;
         height: 45px;
         text-align: center;
         margin: 0;
         cursor: pointer;
-        > div.cell {
+        div.cell {
           font-weight: bold;
           font-size: 14px;
           line-height: 21px;
@@ -99,7 +112,7 @@
           margin: 0 0;
           position: relative;
         }
-        > div.cell.content {
+        div.cell.content {
           display: block;
           display: -webkit-box;
           -webkit-line-clamp: 2;
@@ -125,31 +138,38 @@
           position: absolute;
           left: 10px;
         }
-        > div.cell:not(:last-child) {
-          border-right: 1px solid rgba(0, 0, 0, 0.22);
-        }
+        // > div.cell:not(:last-child) {
+        //   border-right: 1px solid rgba(0, 0, 0, 0.22);
+        // }
       }
-      > div.thead div.row,
+      div.thead div.row,
       div.tbody div.row {
         table-layout: fixed;
       }
-      > div.tbody {
+			div.tbody div.row div.cell:nth-child(3) {
+				background-color: transparent;
+			}
+			div.tbody div.row div.cell:nth-child(4) {
+				background-color: $third-color;
+			}
+      div.tbody {
         height: calc(100vh - 368px);
         @media (min-width: $sm) {
           height: calc(100vh - 330px);
         }
         overflow-x: hidden;
         div.row div.cell {
-          font-weight: normal;
+          font-weight: 400;
+					border-bottom: 1px solid $border-color;
         }
-        div.row:nth-child(odd) {
-          div.cell {
-            background: $background-color-list-odd;
-          }
-        }
+        // div.row:nth-child(odd) {
+        //   div.cell {
+        //     background: $background-color-list-odd;
+        //   }
+        // }
       }
-      div.thead div.row div.cell {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+			div.thead div.row div.cell {
+        border-bottom: 1px solid $border-color;
       }
     }
   }
