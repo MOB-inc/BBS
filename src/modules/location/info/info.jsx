@@ -92,7 +92,7 @@ function LocationInfo() {
           <table className="table">
             <thead>
               <tr>
-                <th colSpan="2"> </th>
+                <th colSpan="1"> </th>
                 <th colSpan="3" className=""><InstaIcon/> </th>
                 <th colSpan="4" className=""><GoogleIcon/> </th>
                 <th colSpan="3" className=""><LineIcon/> </th>
@@ -104,7 +104,7 @@ function LocationInfo() {
               </tr>
               <tr>
                 <th className="">ロケーション名</th>
-                <th className="">アクセスユーザー</th>
+                {/* <th className="">アクセスユーザー</th> */}
                 <th className="">
                   投稿数{' '}
                   <span className={`${
@@ -363,9 +363,9 @@ function LocationInfo() {
                         {info?.location?.name}
                       </td>
                     </Tooltip>
-                    <Tooltip title={info?.location?.name} arrow interactive style={{cursor:"pointer"}}>
+                    {/* <Tooltip title={info?.location?.name} arrow interactive style={{cursor:"pointer"}}>
                       <td className="over">{info?.location?.name}</td>
-                    </Tooltip>
+                    </Tooltip> */}
                     <td className="">{info.posting_number || 0}</td>
                     <td className="">{info.no_of_followers || 0}</td>
                     <td className="">{info.no_of_followings || 0}</td>
