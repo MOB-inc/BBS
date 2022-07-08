@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useMemo } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import * as dayjs from 'dayjs';
 import {
   CDropdown,
@@ -212,186 +213,188 @@ function Approval() {
           />
           <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
-        <div className="table">
-          {/* <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p> */}
-          <div className="filter-pages">
-            {/* <Navigation
-              summary={summary}
-              dateChangeHandler={dateChangeHandler}
-              startDate={startDate}
-              endDate={endDate}
-            /> */}
-            <div className="sub-header">
-              
-              <Pagination
-                current={page}
-                last={lastPage}
-                onPageChange={pageChangeHandler}
-              />
-              <CDropdown direction="dropup">
-                <CDropdownToggle href="#">
-                  <p className="filters"><FilterIcon height={12} width={18}/>FILTERS</p>
-                </CDropdownToggle>
-                <CDropdownMenu>
-                  <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
-                  <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
-                    30 {t('gmb:REVIEWS.ITEM')}
-                  </CDropdownItem>
-                  <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
-                    100 {t('gmb:REVIEWS.ITEM')}
-                  </CDropdownItem>
-                  <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
-                    200 {t('gmb:REVIEWS.ITEM')}
-                  </CDropdownItem>
-                </CDropdownMenu>
-              </CDropdown>
+        <ScrollContainer hideScrollbars='false'>
+          <div className="table">
+            {/* <p style={{color:"#cc0099",textAlign:"left",paddingLeft:"12px",paddingTop:"12px"}}><AntenaIcon style={{marginRight:"12px",marginBottom:"4px"}}/>FILTERS</p> */}
+            <div className="filter-pages">
+              {/* <Navigation
+                summary={summary}
+                dateChangeHandler={dateChangeHandler}
+                startDate={startDate}
+                endDate={endDate}
+              /> */}
+              <div className="sub-header">
+                
+                <Pagination
+                  current={page}
+                  last={lastPage}
+                  onPageChange={pageChangeHandler}
+                />
+                <CDropdown direction="dropup">
+                  <CDropdownToggle href="#">
+                    <p className="filters"><FilterIcon height={12} width={18}/>FILTERS</p>
+                  </CDropdownToggle>
+                  <CDropdownMenu>
+                    <CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
+                    <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
+                      30 {t('gmb:REVIEWS.ITEM')}
+                    </CDropdownItem>
+                    <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
+                      100 {t('gmb:REVIEWS.ITEM')}
+                    </CDropdownItem>
+                    <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
+                      200 {t('gmb:REVIEWS.ITEM')}
+                    </CDropdownItem>
+                  </CDropdownMenu>
+                </CDropdown>
+              </div>
             </div>
-          </div>
-          <div className="thead">
-            <div className="row">
-              {bulkState && (
-                <div className="cell a" >
-                  <div className="start">
-                    {/* {bulkState && ( */}
-                    <Checkbox
-                      checked={bulkIds.size === approvalList?.length}
-                      onChange={toggleBulkIds}
-                      inputProps={{ 'aria-label': 'primary checkbox' }}
-                    />
-                      {/* <input
-                        type="checkbox"
+            <div className="thead">
+              <div className="row">
+                {bulkState && (
+                  <div className="cell a" >
+                    <div className="start">
+                      {/* {bulkState && ( */}
+                      <Checkbox
                         checked={bulkIds.size === approvalList?.length}
                         onChange={toggleBulkIds}
-                      /> */}
-                    {/* )} */}
+                        inputProps={{ 'aria-label': 'primary checkbox' }}
+                      />
+                        {/* <input
+                          type="checkbox"
+                          checked={bulkIds.size === approvalList?.length}
+                          onChange={toggleBulkIds}
+                        /> */}
+                      {/* )} */}
+                    </div>
                   </div>
-                </div>
 
-              )}
-              <div className="cell b">
-                {t('recognition:REMAND.APPLICATION_DATE_TIME')}
-                &nbsp;&nbsp;
-                <span
-                  className={`filter ${
-                    orderField === 'post_datetime' ? 'highlight' : ''
-                  }`}
-                >
-                  {orderType === 'desc' && orderField === 'post_datetime' ? (
-                    <ArrowUp onClick={() => setOrder('post_datetime', 'asc')} />
-                  ) : (
-                    <ArrowDown
-                      onClick={() => setOrder('post_datetime', 'desc')}
-                    />
-                  )}
-                </span>
+                )}
+                <div className="cell b">
+                  {t('recognition:REMAND.APPLICATION_DATE_TIME')}
+                  &nbsp;&nbsp;
+                  <span
+                    className={`filter ${
+                      orderField === 'post_datetime' ? 'highlight' : ''
+                    }`}
+                  >
+                    {orderType === 'desc' && orderField === 'post_datetime' ? (
+                      <ArrowUp onClick={() => setOrder('post_datetime', 'asc')} />
+                    ) : (
+                      <ArrowDown
+                        onClick={() => setOrder('post_datetime', 'desc')}
+                      />
+                    )}
+                  </span>
+                </div>
+                <div className="cell c">
+                  {t('recognition:REMAND.APPLICANT')}
+                  &nbsp;&nbsp;
+                  <span
+                    className={`filter ${orderField === 'user_name' ? 'highlight' : ''}`}
+                  >
+                    {orderType === 'desc' && orderField === 'user_name' ? (
+                      <ArrowUp onClick={() => setOrder('user_name', 'asc')} />
+                    ) : (
+                      <ArrowDown onClick={() => setOrder('user_name', 'desc')} />
+                    )}
+                  </span>
+                </div>
+                {/* <div className="cell w7p">
+                  {t('recognition:REMAND.NO_OF_STORE')}
+                </div> */}
+                <div className="cell d">
+                  {t('recognition:REMAND.LOCATION')}
+                  &nbsp;&nbsp;
+                  <span
+                    className={`filter ${
+                      orderField === 'location_name' ? 'highlight' : ''
+                    }`}
+                  >
+                    {orderType === 'desc' && orderField === 'location_name' ? (
+                      <ArrowUp onClick={() => setOrder('location_name', 'asc')} />
+                    ) : (
+                      <ArrowDown
+                        onClick={() => setOrder('location_name', 'desc')}
+                      />
+                    )}
+                  </span>
+                </div>
+                <div className="cell e">
+                  {t('recognition:REMAND.CONTENTS')}
+                </div>
+                <div className="cell f">{t('recognition:REMAND.TYPE')}</div>
+                <div className="cell g">{t('recognition:REMAND.NUM')}</div>
               </div>
-              <div className="cell c">
-                {t('recognition:REMAND.APPLICANT')}
-                &nbsp;&nbsp;
-                <span
-                  className={`filter ${orderField === 'user_name' ? 'highlight' : ''}`}
-                >
-                  {orderType === 'desc' && orderField === 'user_name' ? (
-                    <ArrowUp onClick={() => setOrder('user_name', 'asc')} />
-                  ) : (
-                    <ArrowDown onClick={() => setOrder('user_name', 'desc')} />
-                  )}
-                </span>
-              </div>
-              {/* <div className="cell w7p">
-                {t('recognition:REMAND.NO_OF_STORE')}
-              </div> */}
-              <div className="cell d">
-                {t('recognition:REMAND.LOCATION')}
-                &nbsp;&nbsp;
-                <span
-                  className={`filter ${
-                    orderField === 'location_name' ? 'highlight' : ''
-                  }`}
-                >
-                  {orderType === 'desc' && orderField === 'location_name' ? (
-                    <ArrowUp onClick={() => setOrder('location_name', 'asc')} />
-                  ) : (
-                    <ArrowDown
-                      onClick={() => setOrder('location_name', 'desc')}
-                    />
-                  )}
-                </span>
-              </div>
-              <div className="cell e">
-                {t('recognition:REMAND.CONTENTS')}
-              </div>
-              <div className="cell f">{t('recognition:REMAND.TYPE')}</div>
-              <div className="cell g">{t('recognition:REMAND.NUM')}</div>
+            </div>
+            <div className="tbody">
+              {approvalList &&
+                approvalList.map((item) => {
+                  return (
+                    <>
+                      <div
+                        className="row"
+                        onClick={() =>
+                          onRowClick(item?.type, item?.id, item?.location_id)
+                        }
+                        role="presentation"
+                      >
+                        {/* <div className="cell w2d5p border-none">
+                          {item.is_remanded === 1 ? (
+                            <RemandIcon
+                              className="remand-icon"
+                              width={15}
+                              height={15}
+                            />
+                          ) : (
+                            <></>
+                          )}
+                        </div> */}
+                        {bulkState && (
+                          <div className="cell a">
+                            <div className="start">
+                              {/* {bulkState && ( */}
+                                {/* <input
+                                  type="checkbox"
+                                  checked={bulkIds.has(item?.id)}
+                                  onClick={(event) => event.stopPropagation()}
+                                  onChange={() =>
+                                    toggleBulkId(item?.id, item?.type)
+                                  } */}
+
+                                <Checkbox
+                                  checked={bulkIds.has(item?.id)}
+                                  onClick={(event) => event.stopPropagation()}
+                                  onChange={() =>
+                                    toggleBulkId(item?.id, item?.type)
+                                  } 
+                                />
+                              {/* )} */}
+                            </div>
+                          </div>
+                        )}
+                        <div className="cell b">
+                          {dayjs
+                            .utc(item?.post_datetime)
+                            .tz(tz)
+                            .format('YYYY/MM/DD, \xa0 HH:mm')}
+                        </div>
+                        <div className="cell c">{item?.user_name}</div>
+                        {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
+                        <div className="cell d">{item?.location_name}</div>
+                        <div className="cell e content">{item?.contents}</div>
+                        <div className="cell f">{item.type === 1 ? 'GBP投稿' : '口コミ返信'}</div>
+                        <div className="cell g">
+                          {item?.is_remanded}
+                          {console.log(item)}
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
             </div>
           </div>
-          <div className="tbody">
-            {approvalList &&
-              approvalList.map((item) => {
-                return (
-                  <>
-                    <div
-                      className="row"
-                      onClick={() =>
-                        onRowClick(item?.type, item?.id, item?.location_id)
-                      }
-                      role="presentation"
-                    >
-                      {/* <div className="cell w2d5p border-none">
-                        {item.is_remanded === 1 ? (
-                          <RemandIcon
-                            className="remand-icon"
-                            width={15}
-                            height={15}
-                          />
-                        ) : (
-                          <></>
-                        )}
-                      </div> */}
-                      {bulkState && (
-                        <div className="cell a">
-                          <div className="start">
-                            {/* {bulkState && ( */}
-                              {/* <input
-                                type="checkbox"
-                                checked={bulkIds.has(item?.id)}
-                                onClick={(event) => event.stopPropagation()}
-                                onChange={() =>
-                                  toggleBulkId(item?.id, item?.type)
-                                } */}
-
-                              <Checkbox
-                                checked={bulkIds.has(item?.id)}
-                                onClick={(event) => event.stopPropagation()}
-                                onChange={() =>
-                                  toggleBulkId(item?.id, item?.type)
-                                } 
-                              />
-                            {/* )} */}
-                          </div>
-                        </div>
-                      )}
-                      <div className="cell b">
-                        {dayjs
-                          .utc(item?.post_datetime)
-                          .tz(tz)
-                          .format('YYYY/MM/DD, \xa0 HH:mm')}
-                      </div>
-                      <div className="cell c">{item?.user_name}</div>
-                      {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
-                      <div className="cell d">{item?.location_name}</div>
-                      <div className="cell e content">{item?.contents}</div>
-                      <div className="cell f">{item.type === 1 ? 'GBP投稿' : '口コミ返信'}</div>
-                      <div className="cell g">
-                        {item?.is_remanded}
-                        {console.log(item)}
-                      </div>
-                    </div>
-                  </>
-                );
-              })}
-          </div>
-        </div>
+          </ScrollContainer>
       </div>
       <ApprovalReviewModal
         type={type}

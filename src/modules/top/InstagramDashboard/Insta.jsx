@@ -462,7 +462,7 @@ const Insta = () => {
       backgroundColor: state.isSelected
         ? config().side_menu_selected_color
         : 'white',
-      color: config().side_menu_color,
+      color: '#666666',
     }),
   };
 
@@ -593,6 +593,12 @@ const Insta = () => {
             />
             {/* <Select components={{ Option: IconOption }} isMulti name="hvhgvghvghvghvh" options={options} /> */}
           </Box>
+
+
+
+
+
+
           <Box
             className="mobile-margin-top-10 desktop-margn-left-10"
             style={{ position: 'relative' }}
@@ -624,6 +630,10 @@ const Insta = () => {
               />
             )}
           </Box>
+
+
+
+          
         </Box>
       </Box>
       {isDataAvaialble && locationsArr.length > 0 ? (

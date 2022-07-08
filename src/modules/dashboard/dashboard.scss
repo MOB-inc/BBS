@@ -6,24 +6,61 @@
   @media (min-width: $sm) {
     padding: 32px 29px 29px 53px;
   }
+
+  > .explanation {
+    display: inline-flex;
+    flex-direction: column;
+    width: calc(100% - 345px);
+  }
+  > .explanation p {
+    font-weight: 500;
+  }
+  > .explanation a {
+    color: var(--side-menu-color);
+  }
+  
+  > .selectors-menu button {
+    width: 145px;
+		height: 36px;
+		font-size: 14px;
+		color: $paper-color;
+		background-color: $button-active-color;
+		padding: 8px 15px;
+   }
   > .header {
     display: flex;
     justify-content: space-between;
   }
-  > .filter-pages {
+  > .selectors-menu {
+    display: inline-flex;
+    flex-direction: row;
+    width: 345px;
+  } 
+  .container {
+		background-color: $paper-color;
+		// padding: 21px 30px;
+		padding: 28px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+		border-radius: 16px;
+		margin: 20px auto 0 0;
+		height: auto;	
+  }
+   
+  .filter-pages {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3px;
+    /* margin-bottom: 3px; */
+    margin-bottom: 0px;
+    border-radius: 4px 4px 0px 0px;
+    border: 1px solid #bbb;
+    border-bottom: none;
     > .filters {
       display: flex;
       justify-content: flex-start;
       > div {
-        margin: 10px 20px 0px 20px;
+        /* margin: 10px 20px 0px 20px; */
+        margin: 0px;
         line-height: 30px;
-        color: $black;
-      }
-      .react-datepicker-wrapper {
-        width: auto;
       }
       .react-datepicker__tab-loop {
         margin: 0;
@@ -47,13 +84,16 @@
       }
     }
   }
-  > .list {
+  .list {
     overflow-x: auto;
+    border-radius: 0px;
+    border: 1px solid #bbb;
+    border-top: none;
     > div.table {
       table-layout: fixed;
       margin-bottom: 0;
       > div.thead .cell {
-        border-top: 1px solid rgba(0, 0, 0, 0.22);
+        /* border-top: 1px solid rgba(0, 0, 0, 0.22); */
         .icon-svg {
           height: 25px;
           width: 25px;
@@ -79,14 +119,19 @@
         margin: 0;
         cursor: pointer;
         > div.cell {
-          font-weight: bold;
+          /* font-weight: bold; */
+          /* font-weight: 500; */
+          font-weight: 700;
+          color: rgba(0, 0, 0, 0.87);
           font-size: 14px;
           line-height: 21px;
           display: flex;
           align-items: center;
+          /* justify-content: flex-start; */
           justify-content: center;
           margin: 0 0;
           position: relative;
+          padding: 0 10px;
           > div.delete {
             color: #0000ff;
           }
@@ -133,12 +178,18 @@
           }
         }
         > div.cell:not(:last-child) {
-          border-right: 1px solid rgba(0, 0, 0, 0.22);
+          /* border-right: 1px solid rgba(0, 0, 0, 0.22); */
+          position: relative;
+          background-color: transparent;
         }
       }
       > div.thead div.row,
       div.tbody div.row {
+        border-bottom: 1px solid #bbb;
         table-layout: fixed;
+        min-height: 56px;
+        max-height: 56px;
+        line-height: 56px;
         .w200 {
           width: 200px;
         }
@@ -160,13 +211,107 @@
         }
         div.row:nth-child(odd) {
           div.cell {
-            background: $background-color-list-odd;
+            /* background: $background-color-list-odd; */
+            background: none;
           }
         }
       }
       div.thead div.row div.cell {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.22); */
+        border-bottom: none; 
       }
     }
+  }
+}
+
+.select-width-select-days {
+  width: 180px;
+}
+
+.react-datepicker-wrapper {
+  display: none;
+}
+
+.table-pagination{
+  color: #000;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border: 1px solid #bbb;
+  border-radius: 0px 0px 4px 4px;
+  border-top: none;
+}
+
+.itemcount{
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+.pagination {
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0px 10px;
+}
+
+.pagination > div.active {
+  color: var(--side-menu-color);
+}
+
+.filters .dropdown-toggle::after{
+  display: none;
+}
+
+.filter-pages svg g {
+  fill: var(--side-menu-color);
+}
+
+.filters .btn {
+  padding: 0px 12px;
+}
+
+.filters .dropdown a .filtertitle {
+  color: var(--side-menu-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filters .dropdown a {
+  color: #666;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 10px 12px 0px;
+  display: flex;
+}
+
+.filters .dropdown a svg {
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+div.thead div.row div.cell:not(:last-child):after {
+  content: '';
+  height: 1em;
+  width: 2px;
+  position: absolute;
+  right: -1px;
+  top: 20px;
+  background-color: #e0e0e0;
+}     
+
+@media (min-width: 768px) {
+  .desktop-margin-left-20{
+    margin-left: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .desktop-margin-left-20{
+    margin-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .desktop-margin-left-20{
+    margin-left: 20px;
   }
 }

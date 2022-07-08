@@ -89,119 +89,90 @@ function LocationInfo() {
               {t('location:CONTRACTOR.SEARCH_BTN')}
             </Button>
           </div>
-          <ScrollContainer hideScrollbars="false">
-            {/* ↑ドラッグスクロール機能 */}
-            <table className="table">
-              <thead>
-                <tr>
-                  <th colSpan="2"> </th>
-                  <th colSpan="3" className="">
-                    <InstaIcon />{' '}
-                  </th>
-                  <th colSpan="4" className="">
-                    <GoogleIcon />{' '}
-                  </th>
-                  <th colSpan="3" className="">
-                    <LineIcon />{' '}
-                  </th>
-                  {config().is_show_splan === undefined ? (
-                    <th colSpan="1" style={{ width: '100px' }}>
-                      {' '}
-                    </th>
-                  ) : (
-                    <th colSpan="2" style={{ width: '200px' }}>
-                      {' '}
-                    </th>
-                  )}
-                  {console.log(config().is_show_splan === undefined ? 1 : 2)}
-                </tr>
-                <tr>
-                  <th className="">ロケーション名</th>
-                  <th className="">アクセスユーザー</th>
-                  <th className="">
-                    投稿数{' '}
-                    <span
-                      className={`${
-                        sorts?.field === 'posting_number'
-                          ? 'highlight filter'
-                          : 'filter'
-                      }`}
-                    >
-                      {sorts?.field === 'posting_number' &&
-                      sorts?.order === 'asc' ? (
-                        <ArrowUp
-                          onClick={() =>
-                            setSorts({ field: 'posting_number', order: 'desc' })
-                          }
-                        />
-                      ) : (
-                        <ArrowDown
-                          onClick={() =>
-                            setSorts({ field: 'posting_number', order: 'asc' })
-                          }
-                        />
-                      )}
-                    </span>
-                  </th>
-                  <th className="">
-                    フォロワー
-                    <span
-                      className={`${
-                        sorts?.field === 'no_of_followers'
-                          ? 'highlight filter'
-                          : 'filter'
-                      }`}
-                    >
-                      {sorts?.field === 'no_of_followers' &&
-                      sorts?.order === 'asc' ? (
-                        <ArrowUp
-                          onClick={() =>
-                            setSorts({
-                              field: 'no_of_followers',
-                              order: 'desc',
-                            })
-                          }
-                        />
-                      ) : (
-                        <ArrowDown
-                          onClick={() =>
-                            setSorts({ field: 'no_of_followers', order: 'asc' })
-                          }
-                        />
-                      )}
-                    </span>
-                  </th>
-                  <th className="">
-                    フォロー
-                    <span
-                      className={`${
-                        sorts?.field === 'no_of_followings'
-                          ? 'highlight filter'
-                          : 'filter'
-                      }`}
-                    >
-                      {sorts?.field === 'no_of_followings' &&
-                      sorts?.order === 'asc' ? (
-                        <ArrowUp
-                          onClick={() =>
-                            setSorts({
-                              field: 'no_of_followings',
-                              order: 'desc',
-                            })
-                          }
-                        />
-                      ) : (
-                        <ArrowDown
-                          onClick={() =>
-                            setSorts({
-                              field: 'no_of_followings',
-                              order: 'asc',
-                            })
-                          }
-                        />
-                      )}
-                    </span>
-                  </th>
+          <ScrollContainer hideScrollbars='false'>
+          {/* ↑ドラッグスクロール機能 */}
+          <table className="table">
+            <thead>
+              <tr>
+                <th colSpan="1"> </th>
+                <th colSpan="3" className=""><InstaIcon/> </th>
+                <th colSpan="4" className=""><GoogleIcon/> </th>
+                <th colSpan="3" className=""><LineIcon/> </th>
+                {config().is_show_splan === undefined ?
+                  <th colSpan="1" style={{width:'100px'}}> </th>
+                  : <th colSpan="2" style={{width:'200px'}}> </th>
+                }
+                {console.log(config().is_show_splan === undefined ? 1 : 2)}
+              </tr>
+              <tr>
+                <th className="">ロケーション名</th>
+                {/* <th className="">アクセスユーザー</th> */}
+                <th className="">
+                  投稿数{' '}
+                  <span className={`${
+                    sorts?.field === 'posting_number' ? 'highlight filter' : 'filter'
+                  }`}>
+                    {sorts?.field === 'posting_number' &&
+                    sorts?.order === 'asc' ? (
+                      <ArrowUp
+                        onClick={() =>
+                          setSorts({ field: 'posting_number', order: 'desc' })
+                        }
+                      />
+                    ) : (
+                      <ArrowDown
+                        onClick={() =>
+                          setSorts({ field: 'posting_number', order: 'asc' })
+                        }
+                      />
+                    )}
+                  </span>
+                </th>
+                <th className="">
+                  フォロワー
+                  <span className={`${
+                    sorts?.field === 'no_of_followers' ? 'highlight filter' : 'filter'
+                  }`}>
+                    {sorts?.field === 'no_of_followers' &&
+                    sorts?.order === 'asc' ? (
+                      <ArrowUp
+                        onClick={() =>
+                          setSorts({ field: 'no_of_followers', order: 'desc' })
+                        }
+                      />
+                    ) : (
+                      <ArrowDown
+                        onClick={() =>
+                          setSorts({ field: 'no_of_followers', order: 'asc' })
+                        }
+                      />
+                    )}
+                  </span>
+                </th>
+                <th className="">
+                  フォロー
+                  <span className={`${
+                    sorts?.field === 'no_of_followings' ? 'highlight filter' : 'filter'
+                  }`}>
+                    {sorts?.field === 'no_of_followings' &&
+                    sorts?.order === 'asc' ? (
+                      <ArrowUp
+                        onClick={() =>
+                          setSorts({
+                            field: 'no_of_followings',
+                            order: 'desc',
+                          })
+                        }
+                      />
+                    ) : (
+                      <ArrowDown
+                        onClick={() =>
+                          setSorts({ field: 'no_of_followings', order: 'asc' })
+                        }
+                      />
+                    )}
+                  </span>
+                </th>
 
                   {/* フィード連携は常にONのためコメントアウト */}
                   {/* <th className="">
@@ -454,17 +425,12 @@ function LocationInfo() {
                       >
                         <td className="over">{info?.location?.name}</td>
                       </Tooltip>
-                      <Tooltip
-                        title={info?.location?.name}
-                        arrow
-                        interactive
-                        style={{ cursor: 'pointer' }}
-                      >
-                        <td className="over">{info?.location?.name}</td>
-                      </Tooltip>
-                      <td className="">{info.posting_number || 0}</td>
-                      <td className="">{info.no_of_followers || 0}</td>
-                      <td className="">{info.no_of_followings || 0}</td>
+                    {/* <Tooltip title={info?.location?.name} arrow interactive style={{cursor:"pointer"}}>
+                      <td className="over">{info?.location?.name}</td>
+                    </Tooltip> */}
+                    <td className="">{info.posting_number || 0}</td>
+                    <td className="">{info.no_of_followers || 0}</td>
+                    <td className="">{info.no_of_followings || 0}</td>
 
                       {/* 未連携のためコメントアウト */}
                       {/* <td className="">
