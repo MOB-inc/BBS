@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'ahooks';
@@ -11,7 +12,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { LOCATIONS_LIST, USERS } from '../../../commons/constants/url';
 // import Input from '../../../commons/components/Input';
 // import Button from '../../../commons/components/Button';
-import { ReactComponent as DeleteIcon } from '../../../commons/icons/delete.svg';
+// import { ReactComponent as DeleteIcon } from '../../../commons/icons/delete.svg';
 import { ReactComponent as SearchIcon } from '../../../commons/icons/search-icon.svg';
 // import { ReactComponent as SearchIcon } from '../../../commons/icons/search.svg';
 import './index.scss';
@@ -174,7 +175,17 @@ function UserCreatePage() {
                 name="dummy"
               />
               <div className="delete">
-                {userId && <DeleteIcon onClick={() => setDeleteModal(true)} />}
+                {/* {userId && <DeleteIcon onClick={() => setDeleteModal(true)} />} */}
+                {userId && (
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    startIcon={<DeleteOutlinedIcon />}
+                    onClick={() => setDeleteModal(true)}
+                  >
+                    <span>削除</span>
+                  </Button>
+                )}
               </div>
             </div>
           </div>
@@ -189,7 +200,9 @@ function UserCreatePage() {
               </span>
               <span className="select">{t('user:CREATE.LOCATION.SELECT')}</span>
             </div>
-            <div className='location-select'>{t('user:CREATE.LOCATION.DESC')}</div>
+            <div className="location-select">
+              {t('user:CREATE.LOCATION.DESC')}
+            </div>
             <div className="search-box">
               <div className="search-input">
                 <TextField
@@ -244,8 +257,7 @@ function UserCreatePage() {
                     />
                   </div>
                 );
-							})}
-
+              })}
             </div>
           </div>
         </div>
@@ -298,7 +310,9 @@ function UserCreatePage() {
             !(modalData?.name?.length > 0 && modalData?.locations?.size)
           }
         >
-          <span className='button-num'>{t('user:CREATE.PERMISSION.BUTTONNUM')}</span>
+          <span className="button-num">
+            {t('user:CREATE.PERMISSION.BUTTONNUM')}
+          </span>
           <span>{t('user:CREATE.PERMISSION.BUTTON')}</span>
         </Button>
       </div>

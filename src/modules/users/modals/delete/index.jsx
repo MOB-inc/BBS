@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CModal } from '@coreui/react';
+import Button from '@material-ui/core/Button';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { USERS } from '../../../../commons/constants/url';
-import Button from '../../../../commons/components/Button';
+// import Button from '../../../../commons/components/Button';
 import './index.scss';
 
 function UserDeleteConfirmationModal(props) {
@@ -30,16 +31,15 @@ function UserDeleteConfirmationModal(props) {
         <div>{name}</div>
       </div>
       <div className="body">
-        <br />
         <div>{t('user:CREATE:DELETE:MESSAGE')}</div>
-        <br /> <br />
-        <Button onClick={onDeleteConfirmHandler}>
-          {t('user:CREATE:DELETE:CONFIRM')}
-        </Button>
-        <br />
-        <Button type="reset" onClick={toggle}>
-          {t('user:CREATE:DELETE:RETURN')}
-        </Button>
+        <div className="flex-container">
+          <Button type="reset" onClick={toggle} className="return-btn">
+            {t('user:CREATE:DELETE:RETURN')}
+          </Button>
+          <Button onClick={onDeleteConfirmHandler} className="confirm-btn">
+            {t('user:CREATE:DELETE:CONFIRM')}
+          </Button>
+        </div>
       </div>
     </CModal>
   );
