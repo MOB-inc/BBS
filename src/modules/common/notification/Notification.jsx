@@ -4,6 +4,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { CTooltip } from '@coreui/react';
+import Tooltip from '@material-ui/core/Tooltip';
 import Switch from '../../../commons/components/Switch';
 import {
   LINE_SETTINGS,
@@ -12,6 +13,7 @@ import {
 import './notification.scss';
 import { AppContext } from '../../../commons/helpers/appContext';
 import config from '../../../OEMConfig';
+import { ReactComponent as QuestionIcon } from '../../../commons/icons/question.svg';
 
 function Notification() {
   const { t } = useTranslation(['common']);
@@ -53,6 +55,17 @@ function Notification() {
           >
             <span className="login">{t('common:NOTIFICATION.LINE_LOGIN')}</span>
           </button>
+          <div className="question">
+            <Tooltip
+							title={<span style={{ whiteSpace: 'pre-line' }}>{t('common:NOTIFICATION.LINE_LOGIN_DESC')}</span>}
+              placement="right"
+							arrow="true"
+							className='notification-tool
+							tip'
+            >
+              <QuestionIcon className="question" />
+            </Tooltip>
+          </div>
           <div className="status">
             <img
               src="/icons/line.png"

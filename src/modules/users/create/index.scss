@@ -46,11 +46,15 @@
         div.input {
           display: flex;
           flex-direction: row;
+					@media (max-width: $sm) {
+						flex-direction: column;
+					}
           > input {
             padding: 4px 0 4px 13px;
           }
 					.MuiOutlinedInput-multiline {
 						width: 220px;
+						height: 40px;
 						font-size: 14px;
 						padding: 8px 7px 8px 7px;
 						background-color: $paper-color;
@@ -58,6 +62,18 @@
           .delete {
             margin: auto 29px;
             cursor: pointer;
+						@media (max-width: $sm) {
+							margin-left: 0;
+							margin-top: 8px;
+						}
+						> button {
+							color: #d32f2f;
+							border: 1px solid #d32f2f;
+							>span span:last-child {
+								margin-top: 3px;
+								width: 35px;
+							}
+						}
           }
         }
         .dummy {
