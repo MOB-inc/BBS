@@ -9,7 +9,8 @@ import Button from '../Button';
 // import Explanation from '../Explanation';
 import { AppContext } from '../../helpers/appContext';
 import { GROUPS, LOCATIONS_LIST } from '../../constants/url';
-import { ReactComponent as CircleCross } from '../../icons/circle-cross.svg';
+// import { ReactComponent as CircleCross } from '../../icons/circle-cross.svg';
+import { ReactComponent as Cross } from '../../icons/cross.svg';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
@@ -149,11 +150,15 @@ function ShopList({ show, onClose: closeHandler }) {
             </div>
           )}
           <div>
-            <CircleCross onClick={closeHandler} style={{ cursor: 'pointer' }} />
+            <Cross onClick={closeHandler} style={{ cursor: 'pointer' }} />
           </div>
         </div>
         <div className="header">
-          <div />
+          <div className="desc">
+						<span style={{ whiteSpace: 'pre-line' }}>
+							{t('common:SHOP_LIST.DESC.NOTE')}
+						</span>
+          </div>
           <div className="search-box">
             <div className="search-input">
               <Input

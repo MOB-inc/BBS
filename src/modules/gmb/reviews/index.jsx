@@ -25,7 +25,7 @@ import { ReactComponent as CautionIcon } from '../../../commons/icons/caution.sv
 import { ReactComponent as FilterIcon } from '../../../commons/icons/filter.svg';
 import { ReactComponent as ArrowDown } from '../../../commons/icons/arrow-down.svg';
 import { ReactComponent as ArrowUp } from '../../../commons/icons/arrow-up.svg';
-import { ReactComponent as Gear } from '../../../commons/icons/gear.svg';
+import { ReactComponent as Gear } from '../../../commons/icons/gear-icon.svg';
 import { STAR_MAP } from './constant';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -224,268 +224,291 @@ function Reviews() {
           ''
         )} */}
         {/* ↑一時的にスタイルあてるためにコメントアウト20220708aikou */}
-			</div>
-			<ScrollContainer hideScrollbars="false">
-							{/* ↑ドラッグスクロール機能 */}
-			<div className='wrapper'>
-				<div className="filter-pages">
-					<div className="filters">
-						<div
-							role="presentation"
-							className={!filter ? 'active' : ''}
-							onClick={() => setFilter()}
-						>
-							{t('gmb:REVIEWS.LIST')} ({listCount})
-						</div>
-						<div
-							role="presentation"
-							className={filter === 1 ? 'active' : ''}
-							onClick={() => setFilter(1)}
-						>
-							{t('gmb:REVIEWS.NOT_REPLIED')} ({notRepliedCount}) &nbsp;{' '}
-							{notRepliedCount > 0 && <CautionIcon width={24} height={24} />}
-						</div>
-						<div
-							role="presentation"
-							className={filter === 'NO_REPLY_REQUIRED' ? 'active' : ''}
-							onClick={() => setFilter('NO_REPLY_REQUIRED')}
-						>
-							{t('gmb:REVIEWS.NO_REPLY_REQUIRED')} ({noReplyRequiredCount}) &nbsp;{' '}
-						</div>
-						<div
-							role="presentation"
-							className={filter === 3 ? 'active' : ''}
-							onClick={() => setFilter(3)}
-						>
-							{t('gmb:REVIEWS.REMAND')} ({remandCount}) &nbsp;{' '}
-							{remandCount > 0 && <CautionIcon width={24} height={24} />}
-						</div>
-						<div
-							role="presentation"
-							className={filter === 99 ? 'active' : ''}
-							onClick={() => {
-								setFilter(99);
-								history.push('/gmb/reviews/fixed-phrase');
-							}}
-						>
-							<Gear width={22} height={22} />
-							&nbsp; {t('gmb:REVIEWS.SETTING')}
-						</div>
-						{filter !== 99 && (
-							<div>
-								<DatePicker
-									selectsRange
-									startDate={startDate}
-									endDate={endDate}
-									onChange={dateChangeHandler}
-									customInput={<DatePickerIcon />}
-									shouldCloseOnSelect={false}
-								/>
-							</div>
-						)}
-					</div>
-					{filter !== 99 && (
-						<div className="pages">
-							<Pagination
-								current={page}
-								last={lastPage}
-								onPageChange={pageChangeHandler}
-							/>
-							&nbsp;
-							<CDropdown direction="dropup">
-								<CDropdownToggle href="#">
-									<FilterIcon height={13} width={13} />
-								</CDropdownToggle>
-								<CDropdownMenu>
-									<CDropdownItem href="#">{t('gmb:REVIEWS.WANT')}</CDropdownItem>
-									<CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
-										30 {t('gmb:REVIEWS.ITEM')}
-									</CDropdownItem>
-									<CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
-										100 {t('gmb:REVIEWS.ITEM')}
-									</CDropdownItem>
-									<CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
-										200 {t('gmb:REVIEWS.ITEM')}
-									</CDropdownItem>
-								</CDropdownMenu>
-							</CDropdown>
-						</div>
-					)}
-				</div>
-				{filter !== 99 ? (
-					<div className="list">
-						<div className="table">
-							<div className="thead">
-								<div className="row">
-									<div className="cell w15p">
-										<div className="start">
-											{bulkReply && (
-												<input
-													type="checkbox"
-													checked={bulkIds.size === reviews?.length}
-													onChange={toggleBulkIds}
-												/>
-											)}
-										</div>
-										<div className="center">
-											{t('gmb:REVIEWS.DATE_TIME')}
-											&nbsp; &nbsp; &nbsp;
-											<span
-												className={`${
-													orderField === 'post_datetime' ? 'highlight' : ''
-												}`}
-											>
-												{orderType === 'asc' && orderField === 'post_datetime' ? (
-													<ArrowUp
-														onClick={() => setOrder('post_datetime', 'desc')}
-													/>
-												) : (
-													<ArrowDown
-														onClick={() => setOrder('post_datetime', 'asc')}
-													/>
-												)}
-											</span>
-										</div>
-									</div>
-									<div className="cell w15p">
-										{t('gmb:REVIEWS.LOCATION')}
-										&nbsp; &nbsp;
-										<span
-											className={`${
-												orderField === 'location_name' ? 'highlight' : ''
-											}`}
-										>
-											{orderType === 'asc' && orderField === 'location_name' ? (
-												<ArrowUp
-													onClick={() => setOrder('location_name', 'desc')}
-												/>
-											) : (
-												<ArrowDown
-													onClick={() => setOrder('location_name', 'asc')}
-												/>
-											)}
-										</span>
-									</div>
-									<div className="cell w25p">
-										{t('gmb:REVIEWS.REVIEW')}
-										{bulkReply && (
-											<div className="check-comment">
-												<CTooltip
-													content={t('gmb:REVIEWS.REVIEW_COMMENT_TOOLTIP')}
-													placement="top"
-												>
-													<label htmlFor="no-comment">
-														<input
-															type="checkbox"
-															checked={checkedNoComment}
-															onChange={toggleCheckedNoComment}
-															id="no-comment"
-														/>
-														<span className="empty-text">
-															{t('gmb:REVIEWS.EMPTY_SEARCH')}
-														</span>
-													</label>
-												</CTooltip>
-											</div>
-										)}
-									</div>
-									<div className="cell w25p">{t('gmb:REVIEWS.REPLY')}</div>
-									<div className="cell w10p">
-										{t('gmb:REVIEWS.EVALUATION')}
-										&nbsp; &nbsp; &nbsp;
-										<span
-											className={`${orderField === 'rating' ? 'highlight' : ''}`}
-										>
-											{orderType === 'asc' && orderField === 'rating' ? (
-												<ArrowUp onClick={() => setOrder('rating', 'desc')} />
-											) : (
-												<ArrowDown onClick={() => setOrder('rating', 'asc')} />
-											)}
-										</span>
-									</div>
-									<div className="cell w10p">
-										{t('gmb:REVIEWS.STATUS')}&nbsp;
-										<span
-											className={`${orderField === 'status' ? 'highlight' : ''}`}
-										>
-											{orderType === 'asc' && orderField === 'status' ? (
-												<ArrowUp onClick={() => setOrder('status', 'desc')} />
-											) : (
-												<ArrowDown onClick={() => setOrder('status', 'asc')} />
-											)}
-										</span>
-									</div>
-								</div>
-							</div>
-							<div className="tbody">
-								{reviews?.map((review) => {
-									return (
-										<div
-											className="row"
-											role="presentation"
-											key={review?.id}
-											onClick={() => display(review?.id, review?.location?.id)}
-										>
-											<div className="cell w15p">
-												<div className="start">
-													{bulkReply && (
-														<input
-															type="checkbox"
-															checked={bulkIds.has(review?.id)}
-															onClick={(event) => event.stopPropagation()}
-															onChange={() =>
-																toggleBulkId(review?.id, review?.location?.id)
-															}
-														/>
-													)}
-												</div>
-												{review?.post_datetime &&
-													dayjs
-														.utc(review?.post_datetime)
-														.tz(tz)
-														.format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
-											</div>
-											<div className="cell w15p">{review?.location?.name}</div>
-											<div
-												className="cell w25p content"
-												style={{ fontSize: '11px' }}
-												title={review?.review_comment}
-											>
-												{review?.review_comment}
-											</div>
-											<div
-												className="cell w25p content"
-												style={{ fontSize: '11px' }}
-												title={review?.reply}
-											>
-												{review?.reply}
-											</div>
-											<div className="cell w10p">
-												<Rating value={STAR_MAP[review?.gmb_star_rating]} />
-											</div>
-											<div
-												className={`cell w10p ${
-													[1, 3].includes(review?.status) ? 'highlight' : ''
-												} ${review?.status === 6 && 'deleted'}
+      </div>
+
+      <div className="wrapper">
+        <div className="filter-pages">
+          <div className="filters">
+            <div
+              role="presentation"
+              className={!filter ? 'active' : ''}
+              onClick={() => setFilter()}
+            >
+              {t('gmb:REVIEWS.LIST')} ({listCount})
+            </div>
+            <div
+              role="presentation"
+              className={filter === 1 ? 'active' : ''}
+              onClick={() => setFilter(1)}
+            >
+              {t('gmb:REVIEWS.NOT_REPLIED')} ({notRepliedCount}) &nbsp;{' '}
+              {notRepliedCount > 0 && <CautionIcon width={24} height={24} />}
+            </div>
+            <div
+              role="presentation"
+              className={filter === 'NO_REPLY_REQUIRED' ? 'active' : ''}
+              onClick={() => setFilter('NO_REPLY_REQUIRED')}
+            >
+              {t('gmb:REVIEWS.NO_REPLY_REQUIRED')} ({noReplyRequiredCount})
+              &nbsp;{' '}
+            </div>
+            <div
+              role="presentation"
+              className={filter === 3 ? 'active' : ''}
+              onClick={() => setFilter(3)}
+            >
+              {t('gmb:REVIEWS.REMAND')} ({remandCount}) &nbsp;{' '}
+              {remandCount > 0 && <CautionIcon width={24} height={24} />}
+            </div>
+            <div
+              role="presentation"
+              className={filter === 99 ? 'active' : ''}
+              onClick={() => {
+                setFilter(99);
+                history.push('/gmb/reviews/fixed-phrase');
+              }}
+            >
+              <Gear width={22} height={22} />
+              &nbsp; {t('gmb:REVIEWS.SETTING')}
+            </div>
+            {filter !== 99 && (
+              <div>
+                <DatePicker
+                  selectsRange
+                  startDate={startDate}
+                  endDate={endDate}
+                  onChange={dateChangeHandler}
+                  customInput={<DatePickerIcon />}
+                  shouldCloseOnSelect={false}
+                />
+              </div>
+            )}
+          </div>
+          {filter !== 99 && (
+            <div className="pages">
+              <Pagination
+                current={page}
+                last={lastPage}
+                onPageChange={pageChangeHandler}
+              />
+              &nbsp;
+              <CDropdown direction="dropup">
+                <CDropdownToggle href="#">
+                  <FilterIcon height={13} width={13} />
+                </CDropdownToggle>
+                <CDropdownMenu>
+                  <CDropdownItem href="#">
+                    {t('gmb:REVIEWS.WANT')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(30)}>
+                    30 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(100)}>
+                    100 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                  <CDropdownItem href="#" onClick={() => setPageItemCount(200)}>
+                    200 {t('gmb:REVIEWS.ITEM')}
+                  </CDropdownItem>
+                </CDropdownMenu>
+              </CDropdown>
+            </div>
+          )}
+        </div>
+        <ScrollContainer hideScrollbars="false">
+          {/* ↑ドラッグスクロール機能 */}
+          {filter !== 99 ? (
+            <div className="list">
+              <div className="table">
+                <div className="thead">
+                  <div className="row">
+                    <div className="cell w15p">
+                      <div className="start">
+                        {bulkReply && (
+                          <input
+                            type="checkbox"
+                            checked={bulkIds.size === reviews?.length}
+                            onChange={toggleBulkIds}
+                          />
+                        )}
+                      </div>
+                      <div className="center">
+                        {t('gmb:REVIEWS.DATE_TIME')}
+                        &nbsp; &nbsp; &nbsp;
+                        <span
+                          className={`${
+                            orderField === 'post_datetime' ? 'highlight' : ''
+                          }`}
+                        >
+                          {orderType === 'asc' &&
+                          orderField === 'post_datetime' ? (
+                            <ArrowUp
+                              onClick={() => setOrder('post_datetime', 'desc')}
+                            />
+                          ) : (
+                            <ArrowDown
+                              onClick={() => setOrder('post_datetime', 'asc')}
+                            />
+                          )}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="cell w15p">
+                      {t('gmb:REVIEWS.LOCATION')}
+                      &nbsp; &nbsp;
+                      <span
+                        className={`${
+                          orderField === 'location_name' ? 'highlight' : ''
+                        }`}
+                      >
+                        {orderType === 'asc' &&
+                        orderField === 'location_name' ? (
+                          <ArrowUp
+                            onClick={() => setOrder('location_name', 'desc')}
+                          />
+                        ) : (
+                          <ArrowDown
+                            onClick={() => setOrder('location_name', 'asc')}
+                          />
+                        )}
+                      </span>
+                    </div>
+                    <div className="cell w10p">
+                      {t('gmb:REVIEWS.EVALUATION')}
+                      &nbsp; &nbsp; &nbsp;
+                      <span
+                        className={`${
+                          orderField === 'rating' ? 'highlight' : ''
+                        }`}
+                      >
+                        {orderType === 'asc' && orderField === 'rating' ? (
+                          <ArrowUp onClick={() => setOrder('rating', 'desc')} />
+                        ) : (
+                          <ArrowDown
+                            onClick={() => setOrder('rating', 'asc')}
+                          />
+                        )}
+                      </span>
+                    </div>
+                    <div className="cell w25p">
+                      {t('gmb:REVIEWS.REVIEW')}
+                      {bulkReply && (
+                        <div className="check-comment">
+                          <CTooltip
+                            content={t('gmb:REVIEWS.REVIEW_COMMENT_TOOLTIP')}
+                            placement="top"
+                          >
+                            <label htmlFor="no-comment">
+                              <input
+                                type="checkbox"
+                                checked={checkedNoComment}
+                                onChange={toggleCheckedNoComment}
+                                id="no-comment"
+                              />
+                              <span className="empty-text">
+                                {t('gmb:REVIEWS.EMPTY_SEARCH')}
+                              </span>
+                            </label>
+                          </CTooltip>
+                        </div>
+                      )}
+                    </div>
+                    <div className="cell w25p">{t('gmb:REVIEWS.REPLY')}</div>
+                    <div className="cell w10p">
+                      {t('gmb:REVIEWS.STATUS')}&nbsp;
+                      <span
+                        className={`${
+                          orderField === 'status' ? 'highlight' : ''
+                        }`}
+                      >
+                        {orderType === 'asc' && orderField === 'status' ? (
+                          <ArrowUp onClick={() => setOrder('status', 'desc')} />
+                        ) : (
+                          <ArrowDown
+                            onClick={() => setOrder('status', 'asc')}
+                          />
+                        )}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="tbody">
+                  {reviews?.map((review) => {
+                    return (
+                      <div
+                        className="row"
+                        role="presentation"
+                        key={review?.id}
+                        onClick={() =>
+                          display(review?.id, review?.location?.id)
+                        }
+                      >
+                        <div className="cell w15p ellipsis">
+                          <div className="start">
+                            {bulkReply && (
+                              <input
+                                type="checkbox"
+                                checked={bulkIds.has(review?.id)}
+                                onClick={(event) => event.stopPropagation()}
+                                onChange={() =>
+                                  toggleBulkId(review?.id, review?.location?.id)
+                                }
+                              />
+                            )}
+                          </div>
+                          {review?.post_datetime &&
+                            dayjs
+                              .utc(review?.post_datetime)
+                              .tz(tz)
+                              // .format('YYYY/MM/DD \xa0\xa0\xa0 HH:mm')}
+                              .format('YYYY/MM/DD')}
+                        </div>
+                        <div className="cell w15p ellipsis">
+                          {review?.location?.name}
+                        </div>
+                        <div className="cell w10p ellipsis">
+                          <Rating value={STAR_MAP[review?.gmb_star_rating]} />
+                        </div>
+                        <div className="flex-container w25p cell content">
+                          <div
+                            className="ellipsis"
+                            // style={{ fontSize: '11px' }}
+                            title={review?.review_comment}
+                          >
+                            {review?.review_comment}
+                          </div>
+                        </div>
+                        <div className="flex-container w25p cell content">
+                          <div
+                            className="ellipsis"
+                            // style={{ fontSize: '11px' }}
+                            title={review?.reply}
+                          >
+                            {review?.reply}
+                          </div>
+                        </div>
+                        <div
+                          className={`cell w10p ${
+                            [1, 3].includes(review?.status) ? 'highlight' : ''
+                          } ${review?.status === 6 && 'deleted'}
 											`}
-											>
-												{STATUS_MAP[review?.status]}
-											</div>
-										</div>
-									);
-								})}
-							</div>
-						</div>
-					</div>
-				) : (
-					<>
-						<Route path="/gmb/reviews/fixed-phrase/:id?">
-							<FixedPhrase />
-						</Route>
-					</>
-				)}
-			</div>
-			</ ScrollContainer>
+                        >
+                          {STATUS_MAP[review?.status]}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <>
+              <Route path="/gmb/reviews/fixed-phrase/:id?">
+                <FixedPhrase />
+              </Route>
+            </>
+          )}
+        </ScrollContainer>
+      </div>
       <DisplayModal
         id={displayId}
         onClose={displayCloseHandler}

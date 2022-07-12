@@ -57,7 +57,11 @@ function Notification() {
           </button>
           <div className="question">
             <Tooltip
-							title={<span style={{ whiteSpace: 'pre-line' }}>{t('common:NOTIFICATION.LINE_LOGIN_DESC')}</span>}
+							title={
+								<span style={{ whiteSpace: 'pre-line' }}>
+									{t('common:NOTIFICATION.LINE_LOGIN_DESC')}
+								</span>
+							}
               placement="right"
 							arrow="true"
 							className='notification-tool
