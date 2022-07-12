@@ -102,9 +102,6 @@ div.user-page {
 					padding: 0 15px;
 					align-items: flex-start;
 					justify-content: center;
-					div.cell.flex-container.count {
-						align-items: center;
-					}
 					> div.ellipsis {
 						display: -webkit-box;
 						-webkit-line-clamp: 2;
@@ -112,6 +109,9 @@ div.user-page {
 						overflow: hidden;
 						text-overflow: ellipsis;
 					}
+				}
+				> div.cell.flex-container.count {
+					align-items: center;
 				}
 			}
       > div.thead .cell {
@@ -264,7 +264,7 @@ div.user-page {
 				white-space: inherit;
 				text-align: left;
 				display: flex;
-				align-items: center;
+				align-items: flex-start;
 			}
 			div.tbody div.row .cell.approval {
 				width: 14%;
