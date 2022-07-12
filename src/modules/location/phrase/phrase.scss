@@ -50,7 +50,7 @@
     > .service-list {
       width: 100%;
       overflow: hidden;
-      padding:40px 28px 80px;
+      padding:40px 28px 28px;
       text-align: left;
       > #locName{
         text-align: left;
@@ -158,43 +158,10 @@
           }
           > div.counter {
             position: absolute;
-            right: 27px;
+            right: 17px;
             bottom: 11px;
           }
-          > .edit-button {
-            position: absolute;
-            right: 17px;
-            top: 10px;
-            svg{
-              margin-bottom:4px;
-            }
-            button{
-              font-size:14px;
-              color:$prime-color;
-              font-weight: 500;
-            }
-            > .pills {
-              width: 70px;
-              border-radius: 15px;
-              margin: 6px 6px;
-              padding: 3px;
-              color: $paper-color;
-              text-align: center;
-              cursor: pointer;
-              font-size: 10px;
-              font-weight: bold;
-              line-height: 17px;
-            }
-            > .reply-example {
-              background: $blue;
-            }
-            > .register {
-              background: $accent-color;
-            }
-            > .cancel {
-              background: $reset-color;
-            }
-          }
+          
         }
         div.editor-small {
           width: 100%;
@@ -223,34 +190,7 @@
             line-height: 20px;
             background: transparent;
           }
-          > .edit-button {
-            position: absolute;
-            right: 17px;
-            top: 10px;
-            button{
-              font-size:14px;
-              color:$prime-color;
-              font-weight: 500;
-            }
-            > .pills {
-              width: 70px;
-              border-radius: 15px;
-              margin: 6px 6px;
-              padding: 3px;
-              color: $paper-color;
-              cursor: pointer;
-              font-size: 10px;
-              font-weight: bold;
-              line-height: 17px;
-              text-align: center;
-            }
-            > .register {
-              background: $accent-color;
-            }
-            > .cancel {
-              background: $reset-color;
-            }
-          }
+        
         }
       }
       div.url-box {
@@ -297,24 +237,6 @@
       div.editor.active {
         background:#f0f0f0 !important;
       }
-      .cancel2,
-      .preview,
-      .submit{
-				font-weight: 500;
-				font-size: 12px;
-				letter-spacing: 0.17px;
-        line-height: 1;
-				padding:11px;
-				width:90px;
-				height:43px;
-        color:$font-color-white;
-        background-color:$button-active-color;
-			}
-      .cancel2,
-      .preview{
-        background-color: #fff;
-        color:$prime-color;
-      }
       .MuiInputBase-root{
         border-color:$border-color;
         height:40px;
@@ -326,5 +248,46 @@
         outline:none;
       }
     }
+  }
+  .edit-button {
+    position: absolute;
+    right: 17px;
+    top: 10px;
+    padding:0;
+    svg{
+      margin-bottom:4px;
+    }
+    button{
+      font-size:14px;
+      color:$prime-color;
+      font-weight: 500;
+      padding:0;
+    }
+  }
+  .editButtonWrap{
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    margin-top:28px;
+    button{
+      color:$prime-color;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.17px;
+      line-height: 1;
+      padding:11px;
+      width:auto;
+      height:40px;
+      background-color:$paper-color;
+      margin-top:0;
+    }
+    .submit{
+      color:$paper-color;
+      background-color:$prime-color;
+      margin-right:0;
+    }
+  }
+  .btn:focus{
+    box-shadow: none;
   }
 }

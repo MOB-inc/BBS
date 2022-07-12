@@ -49,7 +49,7 @@
         flex-flow: column;
         width: 100%;
         height: calc(100vh - 386px);
-        min-width: 1100px;
+        min-width: 1200px;
         table-layout: auto;
         color: $black;
         border-radius: 4px;
@@ -69,7 +69,7 @@
           }
         }
         th{
-          font-weight: 500;
+          font-weight: 700;
           font-size: 10px;
           white-space: nowrap;
           border-bottom:none;
@@ -82,14 +82,12 @@
             min-width: $block * 2;
           }
           th:nth-child(2){
-            background-color: $third-color;
             width:$block * 3;
           }
           th:nth-child(3){
             width:$block * 4;
           }
           th:nth-child(4){
-            background-color: $third-color;
             width:$block * 3;
           }
         } 
@@ -103,18 +101,9 @@
             width:auto;
             min-width: $block * 2;
           }
-          th:nth-child(2),
-          th:nth-child(3),
-          th:nth-child(4),
-          th:nth-child(9),
-          th:nth-child(10),
-          th:nth-child(11){
-            background-color: $third-color;
-          }
           th:nth-child(2):before,
           th:nth-child(5):before,
           th:nth-child(9):before,
-          th:nth-child(10):before,
           th:nth-child(12):before{
             content:"";
             width:1px;
@@ -153,12 +142,12 @@
           td:nth-child(11){
             background-color: $third-color;
           }
-          td:nth-child(12){
+          td:nth-child(12),
+          td:nth-child(13){
             width:100px;
           }
         }
         tr:last-of-type {
-          width: 100%;
           border-bottom: $border;
         }
       }

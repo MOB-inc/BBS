@@ -1,34 +1,64 @@
 @import 'src/commons/styles/color.scss';
 @import 'src/commons/styles/variables.scss';
 
-.info-navigation {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  max-width: fit-content;
-  border-radius: 30px;
-  border: 1px solid $gray;
-  .tab {
-    min-width: 120.5px;
-    height: 37px;
-    background: $paper-color;
+.info-navigation{
+  text-align: left;
+  display: block;
+  .MuiToggleButton-root.Mui-selected {
+    background-color:transparent;
+  }
+  .MuiButtonBase-root{
+    padding:0 0;
+  }
+  .MuiToggleButtonGroup-groupedHorizontal:not(:first-child) {
+    border-left: 1px solid $border-color;
+  }
+  .head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:12px;
+    div.explanation{
+      margin-bottom:0 !important;
+    }
+  }
+  button{
+    color:$button-active-color;
+    overflow: hidden;
+    border-color: $border-color;
+    a{
+      width:140px;
+      background-color: #fff;
+      line-height: 1;
+      padding:17px 0;
+      font-size:14px;
+      color:$font-color-gray;
+    }
+    a.active{
+      color: $button-active-color;
+      background-color: $button-active-bg-color;
+    }
+    a:hover{
+      color:$font-color-black;
+    }
+  }
+  .MuiSelect-outlined.MuiSelect-outlined{
+    height:40px;
     box-sizing: border-box;
-    vertical-align: middle;
-    box-shadow: 0 0 0 1px $gray;
-    a {
-      display: block;
-      height: 100%;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 23px;
-      padding: 7px 0 7px 0;
-      color: $text-color;
-      text-decoration: none;
-    }
-    .active {
-      color: $paper-color;
-      background: linear-gradient(0deg, $accent-color, $accent-color),
-        linear-gradient(180deg, #dc9090 99.99%, rgba(255, 255, 255, 0) 100%);
-    }
+    padding:4px 32px 4px 12px;
+    font-size: 16px;
+    letter-spacing: 0.15px;
+  }
+  .MuiSelect-select{
+    background-color: $paper-color;
+  }
+  .MuiSelect-select:focus{
+    background-color: $paper-color;
+  }
+  .MuiInputLabel-outlined {
+    transform: translate(14px, 12px) scale(1);
+  }
+  .fade{
+    background-color: $background-color;
   }
 }

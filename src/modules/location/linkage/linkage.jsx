@@ -232,8 +232,7 @@ function Dialogs() {
                       src="/icons/face-insta.svg"
                       alt="FB"
                       height="33px"
-                      width="40px"
-                      style={{ borderRadius: '5px' }}
+                      width="50px"
                     />
                     <span>{t('location:LINKAGE.LOGIN')}</span>
                   </button>
@@ -292,7 +291,6 @@ function Dialogs() {
                   alt="FB"
                   height="33px"
                   width="33px"
-                  style={{ borderRadius: '5px' }}
                 />
                 <span>{t('location:LINKAGE.LOGIN')}</span>
               </button>

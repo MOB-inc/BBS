@@ -2,8 +2,6 @@
 @import 'src/commons/styles/variables.scss';
 
 .info-page {
-  padding: 12px 9px 9px 12px;
-  @media (min-width: $sm) {
-    padding: 32px 29px 29px 53px;
-  }
+  padding: 40px 25px;
 }
+

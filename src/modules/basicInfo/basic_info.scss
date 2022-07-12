@@ -1,8 +1,43 @@
 @import '/src/commons/styles/color.scss';
 @import '/src/commons/styles/variables.scss';
 
+
+.location-wrapper{
+  .MuiOutlinedInput-root{
+    width:220px;
+    height:40px;
+  }
+  .MuiFormControl-root{
+    background-color: $paper-color;
+    input:checked ~ div svg{
+      display: none;
+    }
+  }
+  .MuiSelect-root {
+    .MuiRadio-root{
+      display: none;
+    }
+  }
+  .MuiSelect-root:focus{
+    background-color: transparent;
+  }
+}
+.MuiPaper-root {
+  top:150px !important;
+  right:30px !important;
+  left:auto !important;
+  input:checked ~ div svg path{
+    color:$prime-color;
+  }
+}
+.info-page{
+  .flex{
+    display: flex;
+    justify-content: space-between;
+  }
+}
 .basic-info {
-  margin-top: 21px;
+  padding:40px 25px;
   .row {
     @media (max-width: $sm) {
       margin-left: 0;

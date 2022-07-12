@@ -143,7 +143,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   });
   const { Option } = components;
   const IconOption = (props) => {
-  const { data, value } = props;
+    const { data, value } = props;
   
     console.log('value in select option', value, selectedValue);
     return (

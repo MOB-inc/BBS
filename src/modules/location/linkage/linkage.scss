@@ -64,7 +64,7 @@
               color:$font-color-gray;
               white-space: pre-line;
               @media (min-width: $sm) {
-                width: 75%;
+                width: 80%;
               }
             }
             .right {
@@ -95,11 +95,12 @@
                 margin-top: 10px;
               }
               .fb {
-                background: $button-active-color;
+                background: $paper-color;
                 border-radius: 4px;
-                padding-left:6px;
-                img{
-                  margin-top:3px;
+                padding-left:4px;
+                border: 1px solid $prime-color;
+                span{
+                  color:$prime-color;    
                 }
               }
               .gmb {

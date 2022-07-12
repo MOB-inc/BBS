@@ -13,6 +13,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Checkbox from '@material-ui/core/Checkbox';
+import Tooltip from '@material-ui/core/Tooltip';
 import { ReactComponent as SearchIcon } from '../../../../commons/icons/search-icon.svg';
 import { AppContext } from '../../../../commons/helpers/appContext';
 import Navigation from '../navigation/navigation';
@@ -211,7 +212,6 @@ function Approval() {
             value={searchText}
             placeholder={t('recognition:APPROVAL.SEARCH_BUTTON')}
           />
-          <Button className="button" variant="contained" size="large">{t('recognition:APPROVAL.SEARCH_BUTTON')}</Button>
         </div>
         <ScrollContainer hideScrollbars='false'>
           <div className="table">
@@ -379,10 +379,18 @@ function Approval() {
                             .tz(tz)
                             .format('YYYY/MM/DD, \xa0 HH:mm')}
                         </div>
-                        <div className="cell c">{item?.user_name}</div>
+                        <Tooltip title={item?.user_name} arrow interactive style={{cursor:"pointer"}}>
+                          <div className="cell c">
+                              {item?.user_name}
+                          </div>
+                        </Tooltip>
                         {/* <div className="cell w7d5p">{item?.no_of_store}</div> */}
-                        <div className="cell d">{item?.location_name}</div>
-                        <div className="cell e content">{item?.contents}</div>
+                        <Tooltip title={item?.location_name} arrow interactive style={{cursor:"pointer"}}>
+                          <div className="cell d">{item?.location_name}</div>
+                        </Tooltip>
+                        <Tooltip title={item?.contents} arrow interactive style={{cursor:"pointer"}}>
+                          <div className="cell e content">{item?.contents}</div>
+                        </Tooltip>
                         <div className="cell f">{item.type === 1 ? 'GBP投稿' : '口コミ返信'}</div>
                         <div className="cell g">
                           {item?.is_remanded}

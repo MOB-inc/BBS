@@ -7,7 +7,7 @@ import Select, { components } from 'react-select';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 import { FormControl } from '@material-ui/core';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -289,27 +289,6 @@ GBPへの投稿に以下が含まれると、
                   <div className="edit-button">
                   {editable ? (
                     <>
-                      <div
-                        className="pills reply-example"
-                        role="presentation"
-                        onClick={() => handlerExample(EXAMPLE_TYPE.GBP)}
-                      >
-                        {t('location:PHRASE.PHRASE_EXAMPLE')}
-                      </div>
-                      <div
-                        className="pills register"
-                        role="presentation"
-                        onClick={handleEditOrRegister}
-                      >
-                        {t('location:PHRASE.REGISTER')}
-                      </div>
-                      <div
-                        className="pills cancel"
-                        role="presentation"
-                        onClick={handleCancel}
-                      >
-                        {t('location:PHRASE.CANCEL')}
-                      </div>
                     </>
                   ) : (
                     <CButton
@@ -370,6 +349,34 @@ GBPへの投稿に以下が含まれると、
                   />
                 )}
               </div>
+              <div className="editButtonWrap">
+                { editable ? (
+                <>
+                  <Button
+                    className="pills cancel"
+                    role="presentation"
+                    onClick={handleCancel} 
+                  >
+                    {t('location:PHRASE.CANCEL')}
+                  </Button>
+                  <Button
+                    className="pills reply-example"
+                    role="presentation"
+                    onClick={() => handlerExample(EXAMPLE_TYPE.GBP)}
+                  >
+                    {t('location:PHRASE.PHRASE_EXAMPLE')}
+                  </Button>
+                  <Button
+                    className="pills register submit"
+                    role="presentation"
+                    onClick={handleEditOrRegister}
+                    variable='outlined'
+                  >
+                    {t('location:PHRASE.REGISTER')}
+                  </Button> 
+                </>
+                ):<></> }
+              </div>
             </>
           )}
           {selected === SERVICE_LINE_OFFICIAL && (
@@ -396,27 +403,6 @@ GBPへの投稿に以下が含まれると、
                   <div className="edit-button">
                     {editable ? (
                       <>
-                        <div
-                          className="pills reply-example"
-                          role="presentation"
-                          onClick={() => handlerExample(EXAMPLE_TYPE.LINE)}
-                        >
-                          {t('location:PHRASE.PHRASE_EXAMPLE')}
-                        </div>
-                        <div
-                          className="pills register"
-                          role="presentation"
-                          onClick={handleEditOrRegister}
-                        >
-                          {t('location:PHRASE.REGISTER')}
-                        </div>
-                        <div
-                          className="pills cancel"
-                          role="presentation"
-                          onClick={handleCancel}
-                        >
-                          {t('location:PHRASE.CANCEL')}
-                        </div>
                       </>
                     ) : (
                       <CButton
@@ -476,6 +462,34 @@ GBPへの投稿に以下が含まれると、
                   />
                 )}
               </div>
+              <div className="editButtonWrap">
+                { editable ? (
+                <>
+                  <Button
+                    className="pills cancel"
+                    role="presentation"
+                    onClick={handleCancel} 
+                  >
+                    {t('location:PHRASE.CANCEL')}
+                  </Button>
+                  <Button
+                    className="pills reply-example"
+                    role="presentation"
+                    onClick={() => handlerExample(EXAMPLE_TYPE.GBP)}
+                  >
+                    {t('location:PHRASE.PHRASE_EXAMPLE')}
+                  </Button>
+                  <Button
+                    className="pills register submit"
+                    role="presentation"
+                    onClick={handleEditOrRegister}
+                    variable='outlined'
+                  >
+                    {t('location:PHRASE.REGISTER')}
+                  </Button> 
+                </>
+                ):<></> }
+              </div>
             </>
           )}
           {selected === SERVICE_CMS && (
@@ -502,27 +516,6 @@ GBPへの投稿に以下が含まれると、
                   <div className="edit-button">
                     {editable ? (
                       <>
-                        <div
-                          className="pills reply-example"
-                          role="presentation"
-                          onClick={() => handlerExample(EXAMPLE_TYPE.CMS)}
-                        >
-                          {t('location:PHRASE.PHRASE_EXAMPLE')}
-                        </div>
-                        <div
-                          className="pills register"
-                          role="presentation"
-                          onClick={handleEditOrRegister}
-                        >
-                          {t('location:PHRASE.REGISTER')}
-                        </div>
-                        <div
-                          className="pills cancel"
-                          role="presentation"
-                          onClick={handleCancel}
-                        >
-                          {t('location:PHRASE.CANCEL')}
-                        </div>
                       </>
                     ) : (
                       <CButton
@@ -555,6 +548,7 @@ GBPへの投稿に以下が含まれると、
                       onChange={(select) => {
                         setLinkType(select?.value);
                       }}
+                      defaultValue={value}
                       isDisabled={!editable}
                       styles={{
                         container: (provided) => ({
@@ -581,6 +575,34 @@ GBPへの投稿に以下が含まれると、
                     placeholder="URL"
                   />
                 )}
+              </div>
+              <div className="editButtonWrap">
+                { editable ? (
+                <>
+                  <Button
+                    className="pills cancel"
+                    role="presentation"
+                    onClick={handleCancel} 
+                  >
+                    {t('location:PHRASE.CANCEL')}
+                  </Button>
+                  <Button
+                    className="pills reply-example"
+                    role="presentation"
+                    onClick={() => handlerExample(EXAMPLE_TYPE.GBP)}
+                  >
+                    {t('location:PHRASE.PHRASE_EXAMPLE')}
+                  </Button>
+                  <Button
+                    className="pills register submit"
+                    role="presentation"
+                    onClick={handleEditOrRegister}
+                    variable='outlined'
+                  >
+                    {t('location:PHRASE.REGISTER')}
+                  </Button> 
+                </>
+                ):<></> }
               </div>
             </>
           )}

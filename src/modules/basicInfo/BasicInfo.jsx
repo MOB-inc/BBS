@@ -13,8 +13,8 @@
 import React, { useState, useRef, useEffect, useMemo, useContext } from 'react';
 import useFetch from 'use-http';
 import {
-  CCard,
-  CCardBody,
+  // CCard,
+  // CCardBody,
   CRow,
   CCol,
   CForm,
@@ -27,7 +27,12 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Select, { components } from 'react-select';
+import { components } from 'react-select';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import Radio from '@material-ui/core/Radio';
+import MenuItem from '@material-ui/core/MenuItem';
 import moment from 'moment';
 import { useMount } from 'ahooks';
 import Explanation from '../../commons/components/Explanation';
@@ -108,7 +113,6 @@ const CustomSpecial = React.forwardRef((props, ref) => {
 
 const URLInputComponent = ({ keyId, data, onEdit, bulkUpdate = false }) => {
   const [urls, setUrls] = useState([]);
-
   const handleAddURL = () => {
     setUrls([...urls, {}]);
   };
@@ -351,7 +355,6 @@ export const ValueTypes = {
     />
   ),
 };
-
 function BasicInfo() {
   const [locationList, setlocationList] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState();
@@ -591,9 +594,6 @@ function BasicInfo() {
   const today = moment(new Date()).format('yyyy-MM-DD');
   const { get: getBusinessCategory, response: cateResponse } =
     useFetch(BUSINESS_CATEGORY);
-  const setOnSelectLocation = (key) => {
-    setSelectedLocation(key);
-  };
   const { get: getBasicInfo, response: getResponse } = useFetch(
     `${LOCATIONS}/${selectedLocation}${BASIC_INFO_GET}`,
   );
@@ -1029,7 +1029,6 @@ function BasicInfo() {
       setFormattedPrefecture(formattedPrefectureArray);
     }
   };
-
   const loadLocationList = async () => {
     const resultResponse = await getLocationList();
     const data = resultResponse?.result?.data;
@@ -1998,7 +1997,7 @@ function BasicInfo() {
         width: 80,
       }),
     }),
-    [],
+        [],
   );
 
   const handleEditItemChange = (target, value) => {
@@ -2026,12 +2025,10 @@ function BasicInfo() {
         .filter((fil_item) => fil_item !== undefined);
     return filteredStrings.join(`${t('basic_info:BASIC_INFO.COMMA')} `);
   };
-
   useEffect(() => {
     setNewOptions([]);
     setSelectedLocationID(selectedLocation);
   }, [selectedLocation]);
-
   useEffect(() => {
     if (selectedLanguage === 'ja') {
       setNewOptions(makeGroupedResult(responseJP));
@@ -2056,12 +2053,40 @@ function BasicInfo() {
       setSpecialHourError(errorFlag);
     }
   }, [specialBusinessHour, currentActive]);
+  const setOnSelectLocation = (event) => {
+    setSelectedLocation(event.target.value);
+  };
+  useEffect(() => {
+    if (
+      locationList &&
+      locationList.length > 0 &&
+      locationList[0].id !== undefined
+    ) {
+      setSelectedLocation(locationList[0].id); 
+      console.log("effect",selectedLocation);
+    }
+  }, []);
+  
   return (
     <>
       <Loading loading={loading} />
       {menuMode === 'sidebar' ? (
         <>
-          <Explanation screen="BASIC_INFO" />
+          <div className="flex">
+            <Explanation screen="BASIC_INFO" />
+            <div className="location-wrapper">
+              <FormControl>
+                <TextField select id="loc" defaultValue='725' label={t('basic_info:MENU.LOCATION')} value={selectedLocation} onChange={setOnSelectLocation} variant='outlined' style={{width:'220px',height:'40px'}} InputLabelProps={{shrink: true}}>
+                  {locationList && locationList.map((item) => {
+                    return(
+                      <MenuItem style={{height:'40px'}} value={item.id} key={item.id}><Radio checked={selectedLocation === item.id}/>{item.name}</MenuItem>
+                    )                      
+                    }
+                  )}
+                </TextField>
+              </FormControl>
+            </div>
+          </div>
           <Navigation />
         </>
       ) : (
@@ -2095,7 +2120,7 @@ function BasicInfo() {
           </>
         )}
         <CRow>
-          <div className="basic-location-wrapper">
+          {/* <div className="basic-location-wrapper">
             <CCard className="location-card-body">
               <CCardBody className="location-list-card">
                 <div className="list-location location-title">
@@ -2121,7 +2146,7 @@ function BasicInfo() {
                   })}
               </CCardBody>
             </CCard>
-          </div>
+          </div> */}
           <div className="full-info-card">
             <div className="info-title">
               <p className="info-header-text">

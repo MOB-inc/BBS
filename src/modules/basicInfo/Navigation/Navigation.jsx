@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { AppContext } from '../../../commons/helpers/appContext';
 import './navigation_info.scss';
 
@@ -9,43 +11,53 @@ function BasicInfoNavigation() {
   const { hasFoodMenus } = useContext(AppContext);
   const { hasServiceItems } = useContext(AppContext);
   const url = '/basic-info';
+  const [alignment, setAlignment] = React.useState('first');
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
   return (
-    <div className="info-navigation">
-      <div className="tab">
+    <ToggleButtonGroup
+        className="info-navigation"
+        value={alignment}
+        exclusive
+        onChange={handleAlignment}
+        aria-label="text alignment"
+      >
+      <ToggleButton value="first" aria-label="left aligned" className="tab">
         <NavLink to={`${url}/info`} activeClassName="active">
           {t('basic_info:BASIC_INFO.BASIC_INFO_TAB')}
         </NavLink>
-      </div>
+      </ToggleButton>
       {hasFoodMenus && (
-        <div className="tab">
+        <ToggleButton value="second" aria-label="left aligned" className="tab">
           <NavLink to={`${url}/menu`} activeClassName="active">
             {t('basic_info:BASIC_INFO.MENU_TAB')}
           </NavLink>
-        </div>
+        </ToggleButton>    
       )}
       {hasServiceItems && (
-        <div className="tab">
+        <ToggleButton value="third" aria-label="left aligned" className="tab">
           <NavLink to={`${url}/services`} activeClassName="active">
             {t('basic_info:BASIC_INFO.SERVICES_TAB')}
           </NavLink>
-        </div>
+        </ToggleButton>  
       )}
       {/* <div className="tab">
         <NavLink to={`${url}/products`} activeClassName="active">
           {t('basic_info:BASIC_INFO.PRODUCTS_TAB')}
         </NavLink>
       </div> */}
-      <div className="tab">
+      <ToggleButton value="fourth" aria-label="left aligned" className="tab">
         <NavLink to={`${url}/image`} activeClassName="active">
           {t('basic_info:BASIC_INFO.IMAGE_TAB')}
         </NavLink>
-      </div>
-      <div className="tab">
+      </ToggleButton>
+      <ToggleButton value="fifth" aria-label="left aligned" className="tab">
         <NavLink to={`${url}/bulk`} activeClassName="active">
           {t('basic_info:BASIC_INFO.BULK_UPDATE_TAB')}
         </NavLink>
-      </div>
-    </div>
+      </ToggleButton>  
+    </ToggleButtonGroup>
   );
 }
 
