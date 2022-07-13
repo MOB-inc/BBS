@@ -88,12 +88,16 @@ function App() {
     config().tooltip_color,
   );
   document.documentElement.style.setProperty(
-    '--button-active-back-color',// e580cc
+    '--button-active-back-color',// #e580cc
     config().button_active_back_color,
   );
   document.documentElement.style.setProperty(
     '--border-color',
-    config().border_color, // 
+    config().border_color, // #bbbbbb
+  );
+  document.documentElement.style.setProperty(
+    '--modal-color',
+    config().modal_color, // #000015
   );
   const history = useHistory();
   const [menuMode, setMenuMode] = useLocalStorageState(

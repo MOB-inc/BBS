@@ -6,11 +6,14 @@ div.user-page {
   padding: 12px 9px 9px 12px;
 	text-align: left;
   @media (min-width: $sm) {
-    padding: 26px 39px;
+    padding: 38px 25px;
   }
-	> div.explanation p {
-		font-weight: 400;
-		font-size: 12px;
+	> div.explanation {
+		margin-bottom: 27px;
+		p {
+			font-weight: 400;
+			font-size: 12px;
+		}
 	}
 	> a {
 		&:hover {
@@ -29,7 +32,7 @@ div.user-page {
 		padding: 28px;
 		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
 		border-radius: 16px;
-		margin: 32px auto 0 0;
+		margin: 28px auto 0 0;
 		height: auto;
 	}
 	.search-bar {
@@ -76,11 +79,15 @@ div.user-page {
 	.search-icon {
 		padding: 0 12px;
 	}
+	.indiana-scroll-container {
+		width: 101%;
+	}
   .list {
     // overflow-x: auto;
     > div.table {
       table-layout: fixed;
       margin-bottom: 0;
+			width: 986px;
 			> div.thead .row {
 				margin: 0;
 			}
@@ -174,6 +181,8 @@ div.user-page {
 			> div.thead {
 				border: 1px solid $border-color;
 				border-bottom: 0;
+				border-radius: 4px 4px 0 0;
+				box-sizing: border-box;
 				div.row {
 					height: 54px;
 				}
@@ -224,43 +233,55 @@ div.user-page {
       }
 			div.thead div.row .cell.username {
 				width: 17%;
+				// width: 172px;
 			}
 			div.thead div.row .cell.login-id {
-				width: 21%;
+				width: 20%;
+				// width: 200px;
 			}
 			div.thead div.row .cell.count {
-				width: 7%;
+				width: 6%;
+				// width: 63px;
 			}
 			div.thead div.row .cell.location {
-				width: 14%;
+				width: 17%;
+				// width: 152px;
 			}
 			div.thead div.row .cell.approval {
 				width: 14%;
+				// width: 138px;
 			}
 			div.thead div.row .cell.connect {
-				width: 12%;
+				width: 11%;
+				// width: 113px;
 			}
 			div.thead div.row .cell.fix-p {
-				width: 11%;
+				width: 10%;
+				// width: 101px;
 			}
 			div.thead div.row .cell.edit {
-				width: 4%;
+				width: 5%;
+				// width: 47px;
 			}
 			div.tbody div.row .cell.username {
 				width: 17%;
+				// width: 172px;
 				padding-left: 25px;
 				text-align: left;
 			}
 			div.tbody div.row .cell.login-id {
-				width: 21%;
+				width: 20%;
+				// width: 200px;
 				padding-left: 17px;
 			}
 			div.tbody div.row .cell.count {
-				width: 7%;
+				width: 6%;
+				// width: 63px;
 				justify-content: center;
 			}
 			div.tbody div.row .cell.location {
-				width: 14%;
+				width: 17%;
+				// width: 152px;
 				white-space: inherit;
 				text-align: left;
 				display: flex;
@@ -268,18 +289,22 @@ div.user-page {
 			}
 			div.tbody div.row .cell.approval {
 				width: 14%;
+				// width: 138px;
 				padding: 0 15px;
 			}
 			div.tbody div.row .cell.connect {
-				width: 12%;
+				width: 11%;
+				// width: 113px;
 				justify-content: center;
 			}
 			div.tbody div.row .cell.fix-p {
-				width: 11%;
+				width: 10%;
+				// width: 101px;
 				justify-content: center;
 			}
 			div.tbody div.row .cell.edit {
-				width: 4%;
+				width: 5%;
+				// width: 47px;
 				justify-content: center;
 			}
 			div.thead div.row .cell.login-id,

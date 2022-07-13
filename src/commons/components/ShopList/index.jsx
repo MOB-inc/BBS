@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { CModal, CModalBody } from '@coreui/react';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
 import { useTranslation } from 'react-i18next';
 import useFetch from 'use-http';
 import { useDebounce } from 'ahooks';
-import Input from '../Input';
+// import Input from '../Input';
 import Button from '../Button';
 // import Explanation from '../Explanation';
 import { AppContext } from '../../helpers/appContext';
 import { GROUPS, LOCATIONS_LIST } from '../../constants/url';
 // import { ReactComponent as CircleCross } from '../../icons/circle-cross.svg';
 import Cross from '../ModalCross';
-import { ReactComponent as SearchIcon } from '../../icons/search.svg';
+// import { ReactComponent as SearchIcon } from '../../icons/search.svg';
+// import { ReactComponent as Cross } from '../../icons/cross.svg';
+// import { ReactComponent as SearchIcon } from '../../icons/search.svg';
+import { ReactComponent as SearchIcon } from '../../icons/search-icon.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 import './index.scss';
@@ -154,18 +159,36 @@ function ShopList({ show, onClose: closeHandler }) {
         <div className="header">
           <div className="desc">
 						<span style={{ whiteSpace: 'pre-line' }}>
-							{t('common:SHOP_LIST.DESC.NOTE')}
+							{t('common:SHOP_LIST.HEADER.NOTE')}
 						</span>
           </div>
-          <div className="search-box">
-            <div className="search-input">
+          {/* <div className="search-box"> */}
+            {/* <div className="search-input">
               <Input
                 value={searchText}
                 onChange={(event) => setSearchText(event?.target?.value)}
               />
-            </div>
-            <SearchIcon height={23} width={23} />
-          </div>
+						</div> */}
+					<div className="search-box">
+						<div className="search-input">
+							<TextField
+								value={searchText}
+								// autoComplete="off"
+								onChange={(event) => setSearchText(event?.target?.value)}
+								className="search"
+								InputProps={{
+									startAdornment: (
+										<InputAdornment position="end">
+											<SearchIcon className="searchIcon" />
+										</InputAdornment>
+									),
+								}}
+								variant="outlined"
+								placeholder={t('common:SHOP_LIST.HEADER.PLACEHOLDER')}
+							/>
+						</div>
+					</div>
+          {/* </div> */}
         </div>
         <div className="group">
           <div className="header">{t('common:SHOP_LIST.GROUP.HEADER')}</div>

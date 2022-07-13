@@ -9,6 +9,7 @@ import useFetch from 'use-http';
 import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'ahooks';
 import { useHistory, useParams } from 'react-router-dom';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import { LOCATIONS_LIST, USERS } from '../../../commons/constants/url';
 // import Input from '../../../commons/components/Input';
 // import Button from '../../../commons/components/Button';
@@ -223,44 +224,48 @@ function UserCreatePage() {
                   placeholder={t('user:CREATE.LOCATION.SEARCH')}
                 />
                 {/* <Input
-									value={searchText}
-									onChange={(event) => setSearchText(event?.target?.value)}
-								/> */}
+										value={searchText}
+										onChange={(event) => setSearchText(event?.target?.value)}
+									/> */}
               </div>
               {/* <SearchIcon height={23} width={23} /> */}
             </div>
           </div>
-          <div style={{ overflowX: 'auto' }}>
-            <div className="table-list">
-              {locations.map((item) => {
-                return (
-                  <div key={item.id}>
-                    {/* <span>
-                      <input
-                        type="checkbox"
-                        value={item.id}
-                        checked={isUserLocationSelected(item.id)}
-                        onChange={addUserLocation}
+          <ScrollContainer hideScrollbars="false">
+            {/* ↑ドラッグスクロール機能 */}
+            <div>
+              <div className="table-list">
+                {locations.map((item) => {
+                  return (
+                    <div key={item.id}>
+                      {/* <span>
+												<input
+													type="checkbox"
+													value={item.id}
+													checked={isUserLocationSelected(item.id)}
+													onChange={addUserLocation}
+												/>
+											</span>
+											<span className="ellipsis">{item.name}</span> */}
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            type="checkbox"
+                            value={item.id}
+                            checked={isUserLocationSelected(item.id)}
+                            onChange={addUserLocation}
+                          />
+                        }
+                        label={item.name}
                       />
-                    </span>
-                    <span className="ellipsis">{item.name}</span> */}
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          type="checkbox"
-                          value={item.id}
-                          checked={isUserLocationSelected(item.id)}
-                          onChange={addUserLocation}
-                        />
-                      }
-                      label={item.name}
-                    />
-                  </div>
-                );
-              })}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </ScrollContainer>
         </div>
+
         <PermissionModal
           id={permissionId}
           data={modalData}

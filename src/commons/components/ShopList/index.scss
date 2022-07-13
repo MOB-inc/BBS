@@ -21,15 +21,19 @@
     // }
 		max-width: none;
     > .modal-content {
-      height: 100%;
+      height: auto;
       // width: 95%;
-      width: 100%;
+      width: 77%;
       // @media (min-width: $sm) {
       //   // width: 98%;
       //   width: 100%;
       // }
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
       border: none;
-			background-color: rgba(255,255,255,0.8);
+			background-color: rgba(0,0,0,0.6);
       > .modal-body {
         position: relative;
         height: 70%;
@@ -51,6 +55,7 @@
 						font-size: 14px;
 						font-weight: 400;
 						color: $font-color-white;
+						padding-right: 5%;
 					}
 					
           > .search-box {

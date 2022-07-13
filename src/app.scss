@@ -84,3 +84,8 @@ span.highlight {
 	border: 1px solid $border-color;
 	color: $font-color-gray;
 }
+
+// coreui-css -------------------------------------------------------------------
+.modal-backdrop {
+	background-color: $modal-color;
+}

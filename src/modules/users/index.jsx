@@ -89,9 +89,9 @@ function UsersPage() {
 							// value={searchText2}
 							placeholder={t('user:EDIT.SEARCH')}
 						/>
-						<Button className="button" variant="contained" size="large">
+						{/* <Button className="button" variant="contained" size="large">
 							{t('user:EDIT.SEARCH_BTN')}
-						</Button>
+						</Button> */}
 					</div>
 					{/* <div className="search-icon">
 						<SearchIcon height={23} width={23} />
@@ -129,7 +129,6 @@ function UsersPage() {
 												style={{
 													width: '15px',
 													marginLeft: '4px',
-													paddingBottom: '2px',
 												}}
 											/>
 										</Tooltip>
@@ -146,7 +145,6 @@ function UsersPage() {
 												style={{
 													width: '15px',
 													marginLeft: '4px',
-													paddingBottom: '2px',
 												}}
 											/>
 										</Tooltip>
