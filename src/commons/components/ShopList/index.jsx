@@ -144,7 +144,46 @@ function ShopList({ show, onClose: closeHandler }) {
       <CModalBody>
         <div className="header">
           {/* <Explanation screen="LOCATION_SELECT" /> */}
-          {creatable && (
+          <Cross onClick={closeHandler} />
+        </div>
+        <div className="header">
+          <div className="desc">
+            <span style={{ whiteSpace: 'pre-line' }}>
+              {t('common:SHOP_LIST.HEADER.NOTE')}
+            </span>
+          </div>
+          {/* <div className="search-box"> */}
+          {/* <div className="search-input">
+              <Input
+                value={searchText}
+                onChange={(event) => setSearchText(event?.target?.value)}
+              />
+						</div> */}
+          <div className="search-box">
+            <div className="search-input">
+              <TextField
+                value={searchText}
+                // autoComplete="off"
+                onChange={(event) => setSearchText(event?.target?.value)}
+                className="search"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon className="searchIcon" />
+                    </InputAdornment>
+                  ),
+                }}
+                variant="outlined"
+                placeholder={t('common:SHOP_LIST.HEADER.PLACEHOLDER')}
+              />
+            </div>
+          </div>
+          {/* </div> */}
+        </div>
+        <div className="group">
+          <div className="header">
+            <span>{t('common:SHOP_LIST.GROUP.HEADER')}</span>
+            {/* {creatable && ( */}
             <div className="create">
               <Button
                 disabled={!selectedLocation?.length}
@@ -153,45 +192,8 @@ function ShopList({ show, onClose: closeHandler }) {
                 {t('common:SHOP_LIST.GROUP.CREATION')}
               </Button>
             </div>
-          )}
-          <Cross onClick={closeHandler}/>
-        </div>
-        <div className="header">
-          <div className="desc">
-						<span style={{ whiteSpace: 'pre-line' }}>
-							{t('common:SHOP_LIST.HEADER.NOTE')}
-						</span>
+            {/* )} */}
           </div>
-          {/* <div className="search-box"> */}
-            {/* <div className="search-input">
-              <Input
-                value={searchText}
-                onChange={(event) => setSearchText(event?.target?.value)}
-              />
-						</div> */}
-					<div className="search-box">
-						<div className="search-input">
-							<TextField
-								value={searchText}
-								// autoComplete="off"
-								onChange={(event) => setSearchText(event?.target?.value)}
-								className="search"
-								InputProps={{
-									startAdornment: (
-										<InputAdornment position="end">
-											<SearchIcon className="searchIcon" />
-										</InputAdornment>
-									),
-								}}
-								variant="outlined"
-								placeholder={t('common:SHOP_LIST.HEADER.PLACEHOLDER')}
-							/>
-						</div>
-					</div>
-          {/* </div> */}
-        </div>
-        <div className="group">
-          <div className="header">{t('common:SHOP_LIST.GROUP.HEADER')}</div>
           <div className="body">
             {creatable && (
               <div
@@ -213,7 +215,6 @@ function ShopList({ show, onClose: closeHandler }) {
               {groupList?.map((group) => {
                 return (
                   <div className="item" key={group.id}>
-                    <div className="text">{group.name}</div>{' '}
                     <div className="icon">
                       <DeleteIcon
                         style={{ cursor: 'pointer' }}
@@ -227,6 +228,7 @@ function ShopList({ show, onClose: closeHandler }) {
                         onChange={handleGroupSelection}
                       />
                     </div>
+                    <div className="text">{group.name}</div>{' '}
                   </div>
                 );
               })}
@@ -251,7 +253,6 @@ function ShopList({ show, onClose: closeHandler }) {
             {locationList?.map((loc) => {
               return (
                 <div className="item" key={loc.id}>
-                  <div className="text">{loc.name}</div>{' '}
                   <div className="icon">
                     <input
                       type="checkbox"
@@ -260,6 +261,7 @@ function ShopList({ show, onClose: closeHandler }) {
                       onChange={handleLocationSelection}
                     />
                   </div>
+                  <div className="text">{loc.name}</div>{' '}
                 </div>
               );
             })}

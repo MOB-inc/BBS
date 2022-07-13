@@ -15,6 +15,7 @@
     width: 100%;
     height: 100%;
 		margin: 0;
+		background-color: rgba(0,0,21,0.8);
     // @media (min-width: $sm) {
     //   max-width: 90%;
     //   max-height: 85%;
@@ -33,53 +34,73 @@
 			left: 50%;
 			transform: translate(-50%,-50%);
       border: none;
-			background-color: rgba(0,0,0,0.6);
+			background-color: transparent;
       > .modal-body {
         position: relative;
         height: 70%;
         width: 100%;
         // border-radius: 24px;
-        background: rgba(0,0,0,0.6);
         @media (min-width: $sm) {
           min-height: 100%;
           // padding: 10px 18px 11px 50px;
-					padding: 160px 152px;
+					// padding: 160px 152px;
         }
         > .header {
           display: flex;
           font-size: 14px;
           line-height: 21px;
-          margin-bottom: 5px;
+          margin-bottom: 16px;
           justify-content: space-between;
+					&:first-child {
+						margin-bottom: 20px;
+					}
 					> .desc {
 						font-size: 14px;
 						font-weight: 400;
 						color: $font-color-white;
 						padding-right: 5%;
 					}
-					
           > .search-box {
             display: flex;
             align-items: center;
             margin-bottom: 5px;
+						width: 220px;
             > .search-input {
-              margin-right: 6px;
+              // margin-right: 6px;
               @media (min-width: $sm) {
-                width: 266px;
-                margin-right: 12px;
+                // width: 266px;
+                // margin-right: 12px;
               }
+							.MuiInputBase-root {
+								background-color: $paper-color;
+								padding-left: 12px;
+								.MuiInputAdornment-positionEnd {
+									width: 18px;
+									height: 18px;
+									margin-left: 0;
+								}
+								.MuiOutlinedInput-input {
+									padding: 8px;
+								}
+							}
             }
           }
         }
         > .group {
           overflow-x: auto;
 					background-color: $paper-color;
-					padding: 16px 25px;
+					// padding: 16px 25px;
+					padding: 20px 24px;
 					border-radius: 16px;
           > .header {
-            margin-left: 10px;
-            margin-bottom: 4px;
-            text-decoration: underline;
+						font-size: 18px;
+						font-weight: 700;
+            // margin-left: 10px;
+            // margin-bottom: 4px;
+						margin-bottom: 24px;
+            // text-decoration: underline;
+						display: flex;
+						justify-content: space-between;
           }
           > .body {
             position: relative;
@@ -127,19 +148,20 @@
                 }
               }
             }
-            > .item:nth-child(6n + 1),
-            .item:nth-child(6n + 2),
-            .item:nth-child(6n + 3) {
-              background: $background-color-list-odd;
-            }
-            > .item:nth-child(6n + 4),
-            .item:nth-child(6n + 5),
-            .item:nth-child(6n + 6) {
-              background: $paper-color;
-            }
+            // > .item:nth-child(6n + 1),
+            // .item:nth-child(6n + 2),
+            // .item:nth-child(6n + 3) {
+            //   background: $background-color-list-odd;
+            // }
+            // > .item:nth-child(6n + 4),
+            // .item:nth-child(6n + 5),
+            // .item:nth-child(6n + 6) {
+            //   background: $paper-color;
+            // }
             .item.highlight {
-              color: $text-color-selected;
-              text-decoration: underline;
+              // color: $text-color-selected;
+              color: $prime-color;
+              // text-decoration: underline;
             }
             > .item:nth-child(3n + 1),
             .item:nth-child(3n + 2) {
