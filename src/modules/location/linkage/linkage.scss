@@ -185,6 +185,18 @@
           cursor: pointer;
           color: rgba(0, 0, 255, 0.63);
         }
+        button{
+          margin-top:0;
+          width:100px;
+          height:33px;
+          line-height: 1;
+        }
+        .submit{
+          margin:0;
+        }
+        .MuiInputBase-input.Mui-disabled {
+          opacity: .5;
+        }
       }
       .dialog-row:nth-of-type(4) .dialog .center>div{
         margin-bottom:8px;
@@ -224,6 +236,10 @@
       left: 50%;
       top: 50%;
       transform: translate3d(-50%, -50%, 0);
+      .flex{
+        justify-content: center;
+        margin-top:120px;
+      }
       .textArea{
         margin-bottom:0;
         fieldset{

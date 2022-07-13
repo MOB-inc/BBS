@@ -14,6 +14,7 @@ import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
 import CreateLocationModal from './modals/SelectFacebookPage';
+import Cross from '../../../commons/components/ModalCross';
 import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
 import { ReactComponent as InstaIcon } from '../../../commons/icons/instagram-logo.svg';
 import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-logo.svg';
@@ -58,9 +59,9 @@ function Dialogs() {
   const [splanPassword, setSplanPassword] = useState('');
   const [selectFacebookPage, setSelectFacebookPage] = useState(false);
   const [editEndpoint, setEditEndpoint] = useState(false);
-  // const [editUser, setEditUser] = useState(false);
-  // const [editPassword, setEditPassword] = useState(false);
-
+  const [editUser, setEditUser] = useState(false);
+  const [editPassword, setEditPassword] = useState(false);
+  const [editLine, setEditLine] = useState(false);
   const { get: getLocationData } = useFetch(`${LOCATIONS}/${id}`);
   const { post: linkInstagram, response: igLinkStatus } =
     useFetch(INSTAGRAM_SETTINGS);
@@ -186,6 +187,7 @@ function Dialogs() {
       elemB.style.top = "50%"; 
 		}, 0);
     setTokenTxt(lineOfficialToken);
+    setEditLine(true);
   }
 	const modalClose = () => {
 		const elem = document.getElementById("line");
@@ -195,6 +197,7 @@ function Dialogs() {
 		setTimeout(function(){ 
 			elem.style.display = "none"; 
 		}, 500);
+    setEditLine(false);
 	}
 	const submit = () => {
     setLineOfficialToken(TokenTxt);
@@ -367,15 +370,16 @@ function Dialogs() {
                   value={lineOfficialToken || ''}
                   // onChange={handleTokenUpdate}
                   InputProps={{
-                    readOnly: true,
                     endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
                   }}
+                  disabled={!editLine}
                 />
                 {/* MODAL */}
                 <>
                   <div id="line" className="modal">
                     <input type="button" className="modalBack" onClick={modalClose} />
                     <div id="modalBody" className="modalBody">
+                      <Cross onClick={modalClose} />
                       <TextField
                         id="textArea"
                         className="textArea"
@@ -478,37 +482,60 @@ function Dialogs() {
               <div className="right">
                 
                 <div className="center">
-                  <TextField 
-                    label=""
-                    className="field"
-                    placeholder="APIエンドポイント"
-                    InputProps={ !editEndpoint ? ({endAdornment: <InputAdornment position="end"><PenIcon onClick={() => setEditEndpoint(true)}/></InputAdornment>}):''}
-                    variant="outlined"
-                    value={splanEndpoint || ''}
-                    onChange={handleSplanEndpointUpdate}
-                  />
-                  <TextField 
-                    label=""
-                    className="field"
-                    placeholder="user"
-                    InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
-                    }}
-                    variant="outlined"
-                    value={splanUser || ''}
-                    onChange={handleSplanUserUpdate}
-                  />
-                  <TextField 
-                    label=""
-                    className="field"
-                    placeholder="password"
-                    InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen}/></InputAdornment>,
-                    }}
-                    variant="outlined"
-                    value={splanPassword || ''}
-                    onChange={handleSplanPasswordUpdate}
-                  />
+                  <div className="flex">
+                    <TextField 
+                      label=""
+                      className="field"
+                      placeholder="APIエンドポイント"
+                      InputProps={ !editEndpoint && ({endAdornment: <InputAdornment position="end"><PenIcon style={{cursor:'pointer'}} onClick={() => setEditEndpoint(true)}/></InputAdornment>})}
+                      variant="outlined"
+                      value={splanEndpoint || ''}
+                      onChange={handleSplanEndpointUpdate}
+                      disabled={!editEndpoint}
+                    />
+                    { editEndpoint && (
+                      <>
+                        <Button variant='outlined' className="back" onClick={() => setEditEndpoint(false)}>{t('location:LINKAGE.MODAL.CANCEL')}</Button>
+                        <Button variant='contained' className="submit">{t('location:LINKAGE.MODAL.REGISTER')}</Button>
+                      </>
+                    )}
+                  </div>
+                  <div className="flex">
+                    <TextField 
+                      label=""
+                      className="field"
+                      placeholder="user"
+                      InputProps={ !editUser && ({endAdornment: <InputAdornment position="end"><PenIcon style={{cursor:'pointer'}} onClick={() => setEditUser(true)}/></InputAdornment>})}
+                      variant="outlined"
+                      value={splanUser || ''}
+                      onChange={handleSplanUserUpdate}
+                      disabled={!editUser}
+                    />
+                    { editUser && (
+                      <>
+                        <Button variant='outlined' className="back" onClick={() => setEditUser(false)}>{t('location:LINKAGE.MODAL.CANCEL')}</Button>
+                        <Button variant='contained' className="submit">{t('location:LINKAGE.MODAL.REGISTER')}</Button>
+                      </>
+                    )} 
+                  </div>
+                  <div className="flex">
+                    <TextField 
+                      label=""
+                      className="field"
+                      placeholder="password"
+                      InputProps={ !editPassword && ({endAdornment: <InputAdornment position="end"><PenIcon style={{cursor:'pointer'}} onClick={() => setEditPassword(true)}/></InputAdornment>})}
+                      variant="outlined"
+                      value={splanPassword || ''}
+                      onChange={handleSplanPasswordUpdate}
+                      disabled={!editPassword}
+                    />
+                    { editPassword && (
+                      <>
+                        <Button variant='outlined' className="back" onClick={() => setEditPassword(false)}>{t('location:LINKAGE.MODAL.CANCEL')}</Button>
+                        <Button variant='contained' className="submit">{t('location:LINKAGE.MODAL.REGISTER')}</Button>
+                      </>
+                    )} 
+                  </div>
                 </div>
               </div>
               <div className="dialog-footer line">
