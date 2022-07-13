@@ -1,22 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { CModal, CModalBody } from '@coreui/react';
-import TextField from '@material-ui/core/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import { useTranslation } from 'react-i18next';
 import useFetch from 'use-http';
 import { useDebounce } from 'ahooks';
-// import Input from '../Input';
+import Input from '../Input';
 import Button from '../Button';
 // import Explanation from '../Explanation';
 import { AppContext } from '../../helpers/appContext';
 import { GROUPS, LOCATIONS_LIST } from '../../constants/url';
 // import { ReactComponent as CircleCross } from '../../icons/circle-cross.svg';
 import Cross from '../ModalCross';
-// import { ReactComponent as SearchIcon } from '../../icons/search.svg';
-// import { ReactComponent as Cross } from '../../icons/cross.svg';
-// import { ReactComponent as SearchIcon } from '../../icons/search.svg';
-import { ReactComponent as SearchIcon } from '../../icons/search-icon.svg';
+import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
 import './index.scss';
@@ -141,8 +136,10 @@ function ShopList({ show, onClose: closeHandler }) {
       backdrop={false}
       closeOnBackdrop
     >
+
       <CModalBody>
-        <div className="header">
+        <Cross onClick={closeHandler}/>
+        <div className="header" style={{position:"relative"}}>
           {/* <Explanation screen="LOCATION_SELECT" /> */}
           <Cross onClick={closeHandler} />
         </div>

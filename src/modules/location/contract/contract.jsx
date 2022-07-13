@@ -63,6 +63,7 @@ function CustomerInfo() {
           <Explanation screen="CONTRACT" /><LocationList url="/locations/contract" />
       </div>
       <Navigation />
+      <p id="locName" style={{marginTop:'28px'}}> </p>
       <div className="customer-content">
         <Route path="/locations/contract/:id">
           <Info />

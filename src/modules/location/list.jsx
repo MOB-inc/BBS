@@ -49,7 +49,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
         history.push(`${url}/${resp?.result?.data?.[0].id}`);
       }
       const url2 = window.location.pathname;
-      if(url2.match(/linkage/) || url2.match(/phrase/)){
+      if(url2.match(/linkage/) || url2.match(/phrase/) || url2.match(/contract/)){
         const elem2 = document.getElementById('locName');
         const text = resp?.result?.data[0].name;
         if(elem2 !== null){
@@ -191,7 +191,7 @@ function LocationList({ url, allLocations, allLocationsSelect }) {
   const handleChange = (event) => {
     const url2 = window.location.pathname;
     setSelectedValue(event.value);
-    if(url2.match(/linkage/) || url2.match(/phrase/)){
+    if(url2.match(/linkage/) || url2.match(/phrase/) || url2.match(/contract/)){
       const elem2 = document.getElementById('locName');
       elem2.textContent = event.label;
     }

@@ -1,7 +1,9 @@
 .ModalCross{
 	display: flex;
 	justify-content: flex-end;
-	width:100%;
+	position: absolute;
+	bottom: calc(100% + 20px);
+	right: 0;
 	svg{
 		width:18px;
 		height:18px;
