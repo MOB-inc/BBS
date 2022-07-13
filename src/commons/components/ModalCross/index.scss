@@ -1,0 +1,13 @@
+.ModalCross{
+	display: flex;
+	justify-content: flex-end;
+	width:100%;
+	svg{
+		width:18px;
+		height:18px;
+		cursor: pointer;
+		path{
+			fill:#fff;
+		}
+	}
+}

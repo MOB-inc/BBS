@@ -10,7 +10,7 @@ import Button from '../Button';
 import { AppContext } from '../../helpers/appContext';
 import { GROUPS, LOCATIONS_LIST } from '../../constants/url';
 // import { ReactComponent as CircleCross } from '../../icons/circle-cross.svg';
-import { ReactComponent as Cross } from '../../icons/cross.svg';
+import Cross from '../ModalCross';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 import { ReactComponent as DeleteIcon } from '../../icons/delete.svg';
 import { ReactComponent as AddIcon } from '../../icons/add.svg';
@@ -149,9 +149,7 @@ function ShopList({ show, onClose: closeHandler }) {
               </Button>
             </div>
           )}
-          <div>
-            <Cross onClick={closeHandler} style={{ cursor: 'pointer' }} />
-          </div>
+          <Cross onClick={closeHandler}/>
         </div>
         <div className="header">
           <div className="desc">

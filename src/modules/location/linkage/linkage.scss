@@ -6,7 +6,6 @@
     margin-top: 28px;
     display: flex;
     flex-direction: column;
-    max-width:600px;
     @media (min-width: $sm) {
       flex-direction: row;
     }
@@ -32,25 +31,68 @@
           color: $font-color-black;
           background-color:$paper-color;
           margin-bottom:24px;
+          padding:24px;
           .header {
             display: flex;
-            justify-content: left;
-            align-items: center;
+            justify-content: space-between;
+            align-items: flex-start;
             height: 45px;
             font-weight: 400;
             font-size: 20px;
-            line-height: 24px;
-            padding: 12px 24px 0 24px;
+            line-height: 1;
             letter-spacing: 0.15px;
             color:$font-color-black;
             // .notice {
             //   font-size: 12px;
             //   color: #e60033;
             // }
+            .button {
+              float:right;
+              outline: none;
+              border: none;
+              width: 125px;
+              height: 33px;
+              display: flex;
+              padding: 0;
+              flex-direction: space-between;
+              span {
+                display: block;
+                width: auto;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 33px;
+                color: $paper-color;
+                text-align: center;
+                padding-left:8px;
+              }
+            }
+            .fb {
+              background: $paper-color;
+              border-radius: 4px;
+              padding-left:4px;
+              border: 1px solid $prime-color;
+              span{
+                color:$prime-color;    
+              }
+            }
+            .gmb {
+              background: #4c98dd;
+              border-radius: 4px;
+              padding-left: 4px;
+            }
+            .line {
+              background: #61ff61;
+              border-radius: 4px;
+              padding-left: 4px;
+            }
+            .cms {
+              background: #000000;
+              border-radius: 4px;
+              padding-left: 4px;
+            }
           }
 
           .body {
-            padding: 0 24px 18px 24px;
             .mOpen{
               cursor:pointer;
             }
@@ -71,67 +113,15 @@
               display: inline-block;
               width: 100%;
               margin-top: 20px;
-              .button {
-                float:right;
-                outline: none;
-                border: none;
-                width: 125px;
-                height: 33px;
-                display: flex;
-                padding: 0;
-                flex-direction: space-between;
-                span {
-                  display: block;
-                  width: auto;
-                  font-weight: 600;
-                  font-size: 14px;
-                  line-height: 33px;
-                  color: $paper-color;
-                  text-align: center;
-                  padding-left:8px;
-                }
-              }
               .textbox {
                 margin-top: 10px;
               }
-              .fb {
-                background: $paper-color;
-                border-radius: 4px;
-                padding-left:4px;
-                border: 1px solid $prime-color;
-                span{
-                  color:$prime-color;    
-                }
-              }
-              .gmb {
-                background: #4c98dd;
-                border-radius: 4px;
-                padding-left: 4px;
-              }
-              .line {
-                background: #61ff61;
-                border-radius: 4px;
-                padding-left: 4px;
-              }
-              .cms {
-                background: #000000;
-                border-radius: 4px;
-                padding-left: 4px;
-              }
-              // .linked {
-              //   background: #e3d7a3;
-              //   font-weight: bold;
-              //   border-radius: 4px;
-              //   padding: 2px;
-              //   display: flex;
-              //   .icon {
-              //     margin: auto 3px;
-              //   }
-              // }              
+              
             }
             .dialog-footer{
               display: flex;
-              margin-top: 9px;
+              margin-top: 64px;
+              flex-wrap: wrap;
               p{
                 font-size:16px;
                 line-height:24px;
@@ -152,14 +142,19 @@
               p:nth-child(2),
               p:nth-child(3){
                 color:$font-color-gray;
-                margin-left:27px;
               }
-              svg{
-                margin-bottom:2px;
+              p:nth-child(1),
+              p:nth-child(2){
+                margin-right:27px;
+              }
+              .icon{
+                width:24px;
+                height:24px;
+                margin-bottom:1px;
               }
             }
             .dialog-footer.line{
-              margin-top:50px;
+              margin-top:48px;
             }
           }
         }

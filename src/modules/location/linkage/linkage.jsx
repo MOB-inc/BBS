@@ -13,15 +13,13 @@ import { ReactComponent as PenIcon } from '../../../commons/icons/pen-icon.svg';
 import Navigation from '../navigation';
 import LocationList from '../list';
 import Explanation from '../../../commons/components/Explanation';
-// import Modal from './line_modal';
 import CreateLocationModal from './modals/SelectFacebookPage';
-// import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
-import { ReactComponent as FbIcon } from '../../../commons/icons/facebook-trans.svg';
-import { ReactComponent as InstaIcon } from '../../../commons/icons/insta-trans.svg';
-import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-icon.svg';
-import { ReactComponent as LineIcon } from '../../../commons/icons/line-icon.svg';
+import { ReactComponent as FbIcon } from '../../../commons/icons/fb-logo.svg';
+import { ReactComponent as InstaIcon } from '../../../commons/icons/instagram-logo.svg';
+import { ReactComponent as GoogleIcon } from '../../../commons/icons/google-logo.svg';
+import { ReactComponent as LineIcon } from '../../../commons/icons/line-logo.svg';
+import { ReactComponent as CmsIcon } from '../../../commons/icons/cms-logo.svg';
 
-// import { ReactComponent as CheckIcon } from '../../../commons/icons/check.svg';
 import {
   INSTAGRAM_SETTINGS,
   INSTAGRAM_SETTINGS_BY_LOCATION,
@@ -59,6 +57,10 @@ function Dialogs() {
   const [splanUser, setSplanUser] = useState('');
   const [splanPassword, setSplanPassword] = useState('');
   const [selectFacebookPage, setSelectFacebookPage] = useState(false);
+  const [editEndpoint, setEditEndpoint] = useState(false);
+  // const [editUser, setEditUser] = useState(false);
+  // const [editPassword, setEditPassword] = useState(false);
+
   const { get: getLocationData } = useFetch(`${LOCATIONS}/${id}`);
   const { post: linkInstagram, response: igLinkStatus } =
     useFetch(INSTAGRAM_SETTINGS);
@@ -198,7 +200,6 @@ function Dialogs() {
     setLineOfficialToken(TokenTxt);
 		modalClose();
 	}
-
   // const longText="筑前貴裕 / Optbusiness";
   return (
     <div className="dialog-list">
@@ -206,23 +207,7 @@ function Dialogs() {
       {location?.service?.id !== BOOK_ID && (
         <div className="dialog-row">
           <div className="dialog">
-            <div className="header">{t('location:LINKAGE.FBIG_HEADER')}</div>
-            <div className="body">
-                <div className="left">{t('location:LINKAGE.FBIG_BODY')}
-                </div>
-                <div className="right">
-                  {/* {igStatus ? (
-                    <div className="linked">
-                      <div className="icon">
-                        <CheckIcon width="20px" />
-                      </div>
-                      <div>
-                        {t('location:LINKAGE.IG_AlREADY_LINKED', {
-                          igAccountName,
-                        })}
-                      </div>
-                    </div>
-                      ) : ( */}
+            <div className="header">{t('location:LINKAGE.FBIG_HEADER')}
                   <button
                     type="button"
                     className="button fb"
@@ -235,19 +220,31 @@ function Dialogs() {
                       width="50px"
                     />
                     <span>{t('location:LINKAGE.LOGIN')}</span>
-                  </button>
-                  
+                  </button></div>
+            <div className="body">
+              <div className="left">{t('location:LINKAGE.FBIG_BODY')}</div>
+                  {/* {igStatus ? (
+                    <div className="linked">
+                      <div className="icon">
+                        <CheckIcon width="20px" />
+                      </div>
+                      <div>
+                        {t('location:LINKAGE.IG_AlREADY_LINKED', {
+                          igAccountName,
+                        })}
+                      </div>
+                    </div>
+                      ) : ( */}
                   {/* })} */}
-                </div>
               <div className="dialog-footer">
                 <p className={igStatus ? 'linked' : ''}>Status:<span>{igStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
                 <Tooltip title={`${facebookName} / ${facebookPageName}`} arrow interactive style={{cursor:"pointer"}}>
-                  <p className="over"><FbIcon /><span>{`${facebookName} / ${facebookPageName}`}</span></p>
+                  <p className="over"><FbIcon className="icon" /><span>{`${facebookName} / ${facebookPageName}`}</span></p>
                 </Tooltip>
                 <Tooltip title={`${igAccountName} / ${igDisplayName}`} arrow interactive style={{cursor:"pointer"}}>
-                  <p className="over">/ <InstaIcon /><span>{`${igAccountName} / ${igDisplayName}`}</span></p>
+                  <p className="over">/ <InstaIcon className="icon"/><span>{`${igAccountName} / ${igDisplayName}`}</span></p>
                 </Tooltip>
               </div>
             </div>
@@ -276,32 +273,30 @@ function Dialogs() {
             {!placeID && (
               <p className="notice">{t('location:LINKAGE.GMB_NOTICE')}</p>
             )}
+            <button
+              type="button"
+              disabled={!placeID}
+              className="button gmb"
+              onClick={handleGmbLinkage}
+            >
+              <img
+                src="/icons/gmb.png"
+                alt="FB"
+                height="33px"
+                width="33px"
+              />
+              <span>{t('location:LINKAGE.LOGIN')}</span>
+            </button>
           </div>
           <div className="body">
             <div className="left">{t('location:LINKAGE.GMB_BODY')}</div>
-            <div className="right">
-              <button
-                type="button"
-                disabled={!placeID}
-                className="button gmb"
-                onClick={handleGmbLinkage}
-              >
-                <img
-                  src="/icons/gmb.png"
-                  alt="FB"
-                  height="33px"
-                  width="33px"
-                />
-                <span>{t('location:LINKAGE.LOGIN')}</span>
-              </button>
-            </div>
             <div className="dialog-footer">
                 <p className={gmbStatus ? 'linked' : ''}>Status:<span>
                   {gmbStatus
                 ? t('location:LINKAGE.STATUS_CONNECTED')
                 : t('location:LINKAGE.STATUS_DISCONNECTED')}</span></p>
                 <Tooltip title={location?.gmb_location_name || "株式会社inside"} arrow interactive style={{cursor:"pointer"}}>
-                  <p className="over"><GoogleIcon /><span>{location?.gmb_location_name || "株式会社inside"}</span></p>
+                  <p className="over"><GoogleIcon className="icon"/><span>{location?.gmb_location_name || "株式会社inside"}</span></p>
                 </Tooltip>
             </div>
           </div>
@@ -344,63 +339,63 @@ function Dialogs() {
           <div className="dialog">
             <div className="header">
               {t('location:LINKAGE.LINE_OFFICIAL_HEADER')}
+              <button
+                type="button"
+                className="button line"
+                onClick={handleLineOfficialLinkage}
+              >
+                <img
+                  src="/icons/lineOfficial.png"
+                  alt="LINE"
+                  height="33px"
+                  width="33px"
+                  style={{ borderRadius: '5px' }}
+                />
+                <span>{t('location:LINKAGE.SUBMIT')}</span>
+              </button>
             </div>
             <div className="body">
               <div className="left">
                 {t('location:LINKAGE.LINE_OFFICIAL_BODY')}
               </div>
-              <div className="right">
-                <button
-                  type="button"
-                  className="button line"
-                  onClick={handleLineOfficialLinkage}
-                >
-                  <img
-                    src="/icons/lineOfficial.png"
-                    alt="LINE"
-                    height="33px"
-                    width="33px"
-                    style={{ borderRadius: '5px' }}
-                  />
-                  <span>{t('location:LINKAGE.SUBMIT')}</span>
-                </button>
+              <div className="right">                
                 <TextField 
-                    label=""
-                    id="result"
-                    className="field"
-                    variant="outlined"
-                    value={lineOfficialToken || ''}
-                    // onChange={handleTokenUpdate}
-                    InputProps={{
-                      readOnly: true,
-                      endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
-                    }}
+                  label=""
+                  id="result"
+                  className="field"
+                  variant="outlined"
+                  value={lineOfficialToken || ''}
+                  // onChange={handleTokenUpdate}
+                  InputProps={{
+                    readOnly: true,
+                    endAdornment: <InputAdornment position="end"><PenIcon onClick={modalOpen} className="mOpen"/></InputAdornment>,
+                  }}
                 />
                 {/* MODAL */}
                 <>
                   <div id="line" className="modal">
-                      <input type="button" className="modalBack" onClick={modalClose} />
-                      <div id="modalBody" className="modalBody">
-                        <TextField
-                          id="textArea"
-                          className="textArea"
-                          multiline
-                          rows={4}
-                          // defaultValue={lineOfficialToken || ''}
-                          variant="outlined"
-                          onChange={(event) => setTokenTxt(event.target.value)}
-                          value={TokenTxt}
-                        />
-                        <div className="flex">
-                          <Button className="back" variant="outlined" size="large" onClick={modalClose}>
-                            {t('location:PHRASE.RETURN')}
-                          </Button>
-                          <Button className="submit" variant="contained" size="large" onClick = {submit}>
-                            {t('location:PHRASE.REGISTER')}
-                          </Button>
-                        </div>
+                    <input type="button" className="modalBack" onClick={modalClose} />
+                    <div id="modalBody" className="modalBody">
+                      <TextField
+                        id="textArea"
+                        className="textArea"
+                        multiline
+                        rows={4}
+                        // defaultValue={lineOfficialToken || ''}
+                        variant="outlined"
+                        onChange={(event) => setTokenTxt(event.target.value)}
+                        value={TokenTxt}
+                      />
+                      <div className="flex">
+                        <Button className="back" variant="outlined" size="large" onClick={modalClose}>
+                          {t('location:PHRASE.RETURN')}
+                        </Button>
+                        <Button className="submit" variant="contained" size="large" onClick = {submit}>
+                          {t('location:PHRASE.REGISTER')}
+                        </Button>
                       </div>
                     </div>
+                  </div>
                 </>
               </div>
               <div className="dialog-footer line">
@@ -411,7 +406,7 @@ function Dialogs() {
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
                   </span></p>
                 <Tooltip title={lineOfficialDisplayName || "inside通知アカウント"} arrow interactive style={{cursor:"pointer"}}>
-                  <p className='over'><LineIcon /><span>{lineOfficialStatus && lineOfficialDisplayName && (
+                  <p className='over'><LineIcon className="icon"/><span>{lineOfficialStatus && lineOfficialDisplayName && (
                     <>
                       {lineOfficialDisplayName}
                     </>
@@ -458,6 +453,20 @@ function Dialogs() {
           <div className="dialog">
             <div className="header">
               {t('location:LINKAGE.CMS_HEADER')}
+              <button
+                type="button"
+                className="button cms"
+                onClick={handleSplanLinkage}
+              >
+                <img
+                  src="/icons/cms.svg"
+                  alt="CMS"
+                  height="33px"
+                  width="33px"
+                  style={{ borderRadius: '5px' }}
+                />
+                <span>{t('location:LINKAGE.SUBMIT')}</span>
+              </button>
             </div>
             <div className="body">
               <div className="left">
@@ -467,28 +476,13 @@ function Dialogs() {
               </div>
               
               <div className="right">
-                <button
-                  type="button"
-                  className="button cms"
-                  onClick={handleSplanLinkage}
-                >
-                  <img
-                    src="/icons/cms.svg"
-                    alt="CMS"
-                    height="33px"
-                    width="33px"
-                    style={{ borderRadius: '5px' }}
-                  />
-                  <span>{t('location:LINKAGE.SUBMIT')}</span>
-                </button>
+                
                 <div className="center">
                   <TextField 
                     label=""
                     className="field"
                     placeholder="APIエンドポイント"
-                    InputProps={{
-                      endAdornment: <InputAdornment position="end"><PenIcon/></InputAdornment>,
-                    }}
+                    InputProps={ !editEndpoint ? ({endAdornment: <InputAdornment position="end"><PenIcon onClick={() => setEditEndpoint(true)}/></InputAdornment>}):''}
                     variant="outlined"
                     value={splanEndpoint || ''}
                     onChange={handleSplanEndpointUpdate}
@@ -523,10 +517,9 @@ function Dialogs() {
                   {splanStatus
                   ? t('location:LINKAGE.STATUS_CONNECTED')
                   : t('location:LINKAGE.STATUS_DISCONNECTED')}
-                  </span></p>
-
+                </span></p>
                 <Tooltip title={splanUser || ''} arrow interactive style={{cursor:"pointer"}}>
-                  <p><LineIcon /><span>{splanUser || ''}
+                  <p><CmsIcon className="icon"/><span>{splanUser || ''}
                   </span></p>
                 </Tooltip>  
               </div>
@@ -543,7 +536,6 @@ function Dialogs() {
           </div> */}
         </div>
       )}
-
       <CreateLocationModal
         closeModal={toggleSelectFacebookPage}
         modal={selectFacebookPage}
@@ -555,8 +547,14 @@ function Dialogs() {
 
 function LocationLinkage() {
   // const { menuMode } = useContext(AppContext);
-  return (
+  return ( 
     <div className="location-linkage">
+      {/* {menuMode === 'sidebar' && (
+        <>
+          <Explanation screen="LINKAGE" />
+          <Navigation />
+        </>
+      )} */}
       <div className="head">
           <Explanation screen="LINKAGE" />
           <LocationList url="/locations/linkage" />

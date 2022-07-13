@@ -52,16 +52,7 @@
 						font-weight: 400;
 						color: $font-color-white;
 					}
-					&:first-of-type {
-						flex-direction: row-reverse;
-						> div svg{
-							width: 18px;
-							height: 18px;
-						}
-						> div svg path {
-							fill: #fff;
-						}
-					}
+					
           > .search-box {
             display: flex;
             align-items: center;
